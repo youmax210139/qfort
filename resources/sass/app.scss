@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import 'fonts';
 
 // Variables
 @import 'variables';
@@ -21,33 +21,43 @@ body {
 header {
     font-weight: 700;
     background-color: $white;
+
     .navbar-brand {
         margin-left: 1rem;
+
         img {
             height: 71px;
         }
     }
+
     .nav-item {
         margin: 0 8px;
         align-self: flex-end;
     }
+
     .nav-link {
+        font-family: 'open_sanssemibold';
         color: $black !important;
         font-size: 1.0625em;
         font-weight: 700;
         padding: 5px 10px;
-        &:hover, &.active{
+
+        &:hover,
+        &.active {
             background-color: $black !important;
             color: $white !important;
         }
     }
+
     .has-search {
         margin-left: 12px;
+
         .form-control {
             padding: 0 28px 0 0;
             border: 2px solid $black;
             border-radius: 0px;
         }
+
         .icon-wrapper {
             position: absolute;
             z-index: 4;
@@ -58,30 +68,86 @@ header {
             text-align: center;
             align-items: center;
             pointer-events: none;
+
             img {
                 width: 16px;
                 height: 16px;
             }
         }
     }
-    
-
-    .dropdown-menu {
-        top: auto;
-        left: auto;
-    }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
     header {
         .navbar {
             align-items: flex-end;
         }
+
         .form-inline {
             margin-top: -12px;
         }
-        .locale-wrapper{
+
+        .locale-wrapper {
             margin-bottom: 14px;
+        }
+
+        .dropdown-menu {
+            top: auto;
+            left: auto;
+            margin: 0;
+            border: none;
+            border-radius: 0px;
+            padding-bottom: 0px;
+
+            .dropdown-item {
+                background: $grey;
+                color: $white;
+                text-align: left;
+                font-family: Open Sans;
+                letter-spacing: 0.9px;
+
+                &:first-child {
+                    padding-top: 0.75rem;
+                }
+
+                &:last-child {
+                    padding-bottom: 0.75rem;
+                }
+            }
+        }
+
+        .navbar-nav li:hover>.dropdown-menu {
+            display: block;
+        }
+    }
+}
+
+footer {
+    h3 {
+        font-size: 2em;
+        font-family: open_sansbold_italic;
+    }
+
+    .row.py-4 {
+        border-top: 1px dashed $green;
+        border-bottom: 1px dashed $green;
+    }
+
+    .social-links i {
+        font-size: 20px;
+        margin: 0.5em;
+    }
+
+    .copy-right {
+        background-color: #EBEBEB;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    footer {
+        .container-fluid {
+            width: 90%;
         }
     }
 }

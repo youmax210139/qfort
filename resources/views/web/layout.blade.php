@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>QFORT</title>
+    <!-- Include Web Font -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <!-- Include CSS. -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     @section('css')
@@ -14,7 +16,6 @@
 </head>
 
 <body>
-
     {{ menu('user' , 'web.header') }}
     @yield('content')
     @footer @endfooter

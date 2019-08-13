@@ -12,23 +12,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="navbar-nav">
-                {{-- {{ dd(\Request::url()) }} --}}
                 @foreach($items as $menu_item)
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown-{{ $menu_item->title }}"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        href="#">
+                    @if($menu_item->children->count())
+                    <a class="nav-link" href="#">
                         {{ $menu_item->title }}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $menu_item->title }}">
-                        <a class="dropdown-item" href="#">Action</a>
+                    <div class="dropdown-menu">
+                        @foreach($menu_item->children as $item)
+                        <a class="dropdown-item" href="{{ $item->link() }}">{{ $item->title }}</a>
+                        @endforeach
                     </div>
+                    @else
+                    <a class="nav-link" href="{{ $menu_item->link() }}">
+                        {{ $menu_item->title }}
+                    </a>
+                    @endif
                 </li>
                 @endforeach
                 <form class="form-inline">
                     <div class="input-group has-search">
                         <input type="text" class="form-control" aria-describedby="basic-addon1">
-                        {{-- <span class="fa fa-search "></span> --}}
                         <span class="icon-wrapper">
                             <img src="{{ Voyager::image('icons/search.svg') }}" />
                         </span>
