@@ -1,8 +1,10 @@
 <header class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">
+            <img src="{{ Voyager::image('logos/brand.svg') }}" />
+        </a>
         <div class="collapse navbar-collapse justify-content-center align-items-end flex-column" id="navbarNav">
-            <div class="navbar-nav flex-row">
+            <div class="navbar-nav flex-row locale-wrapper">
                 EN / 中
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -24,14 +26,12 @@
                 </li>
                 @endforeach
                 <form class="form-inline">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <span class="input-group-text amber lighten-3" id="basic-text1">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </div>
+                    <div class="input-group has-search">
+                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                        {{-- <span class="fa fa-search "></span> --}}
+                        <span class="icon-wrapper">
+                            <img src="{{ Voyager::image('icons/search.svg') }}" />
+                        </span>
                     </div>
                 </form>
             </ul>

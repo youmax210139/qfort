@@ -14,10 +14,74 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    background-color: #fff;
+    background-color: $white;
 }
 
 // Header
 header {
-    background-color: inherit;
+    font-weight: 700;
+    background-color: $white;
+    .navbar-brand {
+        margin-left: 1rem;
+        img {
+            height: 71px;
+        }
+    }
+    .nav-item {
+        margin: 0 8px;
+        align-self: flex-end;
+    }
+    .nav-link {
+        color: $black !important;
+        font-size: 1.0625em;
+        font-weight: 700;
+        padding: 5px 10px;
+        &:hover, &.active{
+            background-color: $black !important;
+            color: $white !important;
+        }
+    }
+    .has-search {
+        margin-left: 12px;
+        .form-control {
+            padding: 0 28px 0 0;
+            border: 2px solid $black;
+            border-radius: 0px;
+        }
+        .icon-wrapper {
+            position: absolute;
+            z-index: 4;
+            right: 0;
+            display: flex;
+            width: 28px;
+            height: 100%;
+            text-align: center;
+            align-items: center;
+            pointer-events: none;
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+    
+
+    .dropdown-menu {
+        top: auto;
+        left: auto;
+    }
+}
+
+@media (min-width: 992px){
+    header {
+        .navbar {
+            align-items: flex-end;
+        }
+        .form-inline {
+            margin-top: -12px;
+        }
+        .locale-wrapper{
+            margin-bottom: 14px;
+        }
+    }
 }
