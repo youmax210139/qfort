@@ -19,28 +19,11 @@ body {
 
 // Header
 header {
-    font-weight: 700;
     background-color: $white;
-
-    .navbar-brand {
-        margin-left: 1rem;
-
-        img {
-            height: 71px;
-        }
-    }
-
-    .nav-item {
-        margin: 0 8px;
-        align-self: flex-end;
-    }
 
     .nav-link {
         font-family: 'open_sanssemibold';
         color: $black !important;
-        font-size: 1.0625em;
-        font-weight: 700;
-        padding: 5px 10px;
 
         &:hover,
         &.active {
@@ -50,9 +33,7 @@ header {
     }
 
     .has-search {
-        margin-left: 12px;
-
-        .form-control {
+        input {
             padding: 0 28px 0 0;
             border: 2px solid $black;
             border-radius: 0px;
@@ -65,8 +46,8 @@ header {
             display: flex;
             width: 28px;
             height: 100%;
-            text-align: center;
             align-items: center;
+            justify-content: center;
             pointer-events: none;
 
             img {
@@ -79,22 +60,15 @@ header {
 
 @media (min-width: 992px) {
     header {
-        .navbar {
-            align-items: flex-end;
-        }
-
-        .form-inline {
-            margin-top: -12px;
-        }
-
-        .locale-wrapper {
-            margin-bottom: 14px;
+        .has-search {
+            input {
+                min-width: 240px;
+            }
         }
 
         .dropdown-menu {
             top: auto;
             left: auto;
-            margin: 0;
             border: none;
             border-radius: 0px;
             padding-bottom: 0px;
@@ -124,30 +98,28 @@ header {
 
 footer {
     h3 {
-        font-size: 2em;
-        font-family: open_sansbold_italic;
+        font-family: 'open_sansbold_italic';
     }
 
-    .row.py-4 {
+    label {
+        font-family: 'open_sanssemibold';
+    }
+
+    .fa-map-marker-alt,
+    .fa-phone {
+        color: $green;
+    }
+
+    .container {
         border-top: 1px dashed $green;
         border-bottom: 1px dashed $green;
-    }
-
-    .social-links i {
-        font-size: 20px;
-        margin: 0.5em;
-    }
-
-    .copy-right {
-        background-color: #EBEBEB;
-        padding: 20px;
     }
 }
 
 @media (min-width: 992px) {
     footer {
-        .container-fluid {
-            width: 90%;
+        input {
+            min-width: 200px;
         }
     }
 }
