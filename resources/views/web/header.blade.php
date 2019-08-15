@@ -1,17 +1,31 @@
-<header class="fixed-top font-weight-bold">
-    <nav class="navbar navbar-expand-lg navbar-light align-items-end">
-        <a class="navbar-brand ml-2" href="#">
+<header class="font-weight-bold fixed-top">
+    <nav
+        class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
+        <div class="w-100 d-flex d-lg-none justify-content-end">
+            <span class="icon-wrapper mr-3">
+                <img src="{{ Voyager::image('icons/search.svg') }}" />
+            </span>
+            <a href="">EN / 中</a>
+        </div>
+        <div class="d-lg-none invisible">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <a class="navbar-brand ml-lg-2 mx-0" href="#">
             <img src="{{ Voyager::image('logos/brand.svg') }}" />
         </a>
-        <div class="collapse navbar-collapse justify-content-center align-items-end flex-column" id="navbarNav">
-            <div class="navbar-nav flex-row mb-2">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
+            id="navbarSupportedContent">
+            <div class="navbar-nav flex-row mb-2 d-none d-lg-flex">
                 <a href="">EN / 中</a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ul class="navbar-nav align-items-end">
+            <ul class="navbar-nav align-items-lg-end align-items-center">
                 @foreach($items as $menu_item)
                 <li class="nav-item mx-2 my-0">
                     @if($menu_item->children->count())
@@ -30,7 +44,7 @@
                     @endif
                 </li>
                 @endforeach
-                <form class="form-inline mb-2 ml-4">
+                <form class="form-inline mb-2 ml-4 d-none d-lg-flex">
                     <div class="input-group has-search">
                         <input type="text" class="form-control pl-2" aria-describedby="basic-addon1">
                         <span class="icon-wrapper">
