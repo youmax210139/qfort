@@ -1,3 +1,6 @@
+@push('css')
+
+@endpush
 <header class="font-weight-bold fixed-top">
     <nav
         class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
@@ -5,7 +8,9 @@
             <span class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
             </span>
-            <a href="">EN / 中</a>
+            <a href="">中文</a>
+            /
+            <a href="">EN</a>
         </div>
         <div class="d-lg-none invisible">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -13,7 +18,7 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <a class="navbar-brand ml-lg-2 mx-0" href="#">
+        <a class="navbar-brand ml-lg-2 mx-0" href="/">
             <img src="{{ Voyager::image('logos/brand.svg') }}" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -23,7 +28,9 @@
         <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
             id="navbarSupportedContent">
             <div class="navbar-nav flex-row mb-2 d-none d-lg-flex">
-                <a href="">EN / 中</a>
+                <a href="">中文</a>
+                /
+                <a href="">EN</a>
             </div>
             <ul class="navbar-nav align-items-lg-end align-items-center">
                 @foreach($items as $menu_item)
