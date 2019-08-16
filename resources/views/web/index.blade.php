@@ -87,13 +87,13 @@
 @endpush
 @php
 $items = [
-Voyager::image('carousel/carousel@2x.png'),
+Voyager::image('carousel/carousel1@2x.png'),
+Voyager::image('carousel/carousel2@2x.png'),
 ];
 @endphp
 @section('content')
 @carousel([
-'id' => 'banner',
-'items' => $items
+    'items' => $items
 ])
 @endcarousel
 <section class="text-center my-5 container px-0 news">
@@ -175,7 +175,9 @@ Voyager::image('carousel/carousel@2x.png'),
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5 font-italic">Research</h2>
     <!-- Section description -->
-    <h4 class="text-center font-weight-light mb-5">Fascinating insights into the world of optics</h4>
+    <h4 class="text-center font-weight-light mb-5">Amazing new age technology that has unseen design elements with an
+        incredible use of technological design sense and imagery. Amazing new age technology that has unseen design
+        elements with an incredible use of technological design sense and imagery.</h4>
     <div class="row">
         <div class="col-md-8">
             <div class="row">
@@ -213,7 +215,7 @@ Voyager::image('carousel/carousel@2x.png'),
         </div>
 
     </div>
-    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block">More</a>
+    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-inline-block d-lg-none">More</a>
 </section>
 
 <section class="text-center my-5 container event">
@@ -224,18 +226,15 @@ Voyager::image('carousel/carousel@2x.png'),
     <div class="row">
         <div class="col-md-8">
             <div class="row">
-                <div class="col mb-4 image" style="background-image:url({{ asset('storage/index/event2@2x.png')}})">
-                    <div class></div>
-                    {{-- <img class="img-fluid" src="{{ Voyager::image('index/event2@2x.png')}}"> --}}
+                <div class="col mb-2 p-2 mb-md-0 image"
+                    style="background-image:url({{ asset('storage/index/event2@2x.png')}})">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-4 image"
+                <div class="col-md-6 mb-2 p-2 image"
                     style="background-image:url({{ asset('storage/index/event3@2x.png')}})">
-                    <div class></div>
-                    {{-- <img class="img-fluid" src="{{ Voyager::image('index/event3@2x.png')}}"> --}}
                 </div>
-                <div class="col-md-6 mb-4 image"
+                <div class="col-md-6 mb-2 p-2 image"
                     style="background-image:url({{ asset('storage/index/event4@2x.png')}})">
                     <div class>
                         <!-- Post title -->
@@ -247,7 +246,7 @@ Voyager::image('carousel/carousel@2x.png'),
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4 image" style="background-image:url({{ asset('storage/index/event1@2x.png')}})">
+        <div class="col-md-4 mb-2 p-2 image" style="background-image:url({{ asset('storage/index/event1@2x.png')}})">
             <div class='d-flex align-items-end'>
                 <!-- Post title -->
                 <h4 class="font-weight-bold mb-3"><strong>How will nano technology change modern

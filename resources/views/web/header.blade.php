@@ -36,7 +36,7 @@
                 @foreach($items as $menu_item)
                 <li class="nav-item mx-2 my-0">
                     @if($menu_item->children->count())
-                    <a class="nav-link h4 mb-0" href="#">
+                    <a class="nav-link h4 mb-0 {{ strpos(request()->url(), $menu_item->link())?'active':'' }}" href="#">
                         {{ $menu_item->title }}
                     </a>
                     <div class="dropdown-menu pb-0 m-0">
@@ -45,7 +45,8 @@
                         @endforeach
                     </div>
                     @else
-                    <a class="nav-link h4 mb-0" href="{{ $menu_item->link() }}">
+                    <a class="nav-link h4 mb-0 {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
+                        href="{{ $menu_item->link() }}">
                         {{ $menu_item->title }}
                     </a>
                     @endif

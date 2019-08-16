@@ -16,6 +16,21 @@ class AboutController extends Controller
         return view('web.about');
     }
 
+
+    public function findus()
+    {
+        return view('web.abouts.findus');
+    }
+
+    public function followus()
+    {
+        return view('web.abouts.followus');
+    }
+
+    public function whoweare()
+    {
+        return view('web.abouts.whoweare');
+    }
     /**
      * Show the form for creating a new resource.
      *

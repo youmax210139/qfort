@@ -31,6 +31,9 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
 
     Route::get('/people', 'PeopleController@index')->name('people');
     Route::get('/people/{id}', 'PeopleController@persion')->name('person');
+    Route::get('/abouts/findus', 'AboutController@findus')->name('about.findus');
+    Route::get('/abouts/followus', 'AboutController@followus')->name('about.followus');
+    Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('about.whoweare');
     Route::get('/', 'HomeController@index')->name('home');
     // Route::get('/services', 'IndexController@service')->name('web.services');
     // Route::get('/contact-us', 'IndexController@contactus')->name('web.contact-us');

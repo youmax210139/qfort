@@ -1,18 +1,18 @@
 @push('css')
 <style>
-    #{{$id}} .carousel-caption {
+    #banner .carousel-caption {
         bottom: 0;
         position: static;
         width: 70%;
         padding: 100px 10px;
     }
-    #{{$id}} .carousel-caption .btn{
+    #banner.carousel-caption .btn{
         background: #A6A7A7;
     }      
-    #{{$id}} i {
-        font-size: {{ $arrow_size??'3rem' }};
+    #banner i {
+        font-size: 3rem;
     }
-    #{{$id}} .carousel-item{
+    #banner .carousel-item{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -20,7 +20,7 @@
 </style>
 @endpush
 <!--Carousel Wrapper--  -->
-<div id="{{$id}}" class="carousel slide" data-ride="carousel">
+<div id="banner" class="carousel slide" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         @foreach ($items as $i => $item)
@@ -36,11 +36,11 @@
     </div>
     <!--/.Slides-->
     <!--Controls-->
-    <a class="carousel-control-prev" href="#{{$id}}" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
         <i class="fas fa-chevron-left"></i>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#{{$id}}" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
         <i class="fas fa-chevron-right"></i>
         <span class="sr-only">Next</span>
     </a>
