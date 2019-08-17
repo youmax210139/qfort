@@ -1,23 +1,5 @@
 @push('css')
-<style>
-    #banner .carousel-caption {
-        bottom: 0;
-        position: static;
-        width: 70%;
-        padding: 100px 10px;
-    }
-    #banner.carousel-caption .btn{
-        background: #A6A7A7;
-    }      
-    #banner i {
-        font-size: 3rem;
-    }
-    #banner .carousel-item{
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-</style>
+
 @endpush
 <!--Carousel Wrapper--  -->
 <div id="banner" class="carousel slide" data-ride="carousel">

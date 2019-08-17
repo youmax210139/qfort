@@ -1,4 +1,4 @@
-@extends('web.layout')
+@extends('web.base')
 @push('css')
 <style>
     .rounded-bottom {
@@ -18,36 +18,36 @@ Voyager::image('carousel/carousel2@2x.png'),
 <section class="text-center my-5 container news">
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5">Follow us</h2>
-    <div class="row">
+    <div class="row d-none d-md-flex">
         <!-- Grid column -->
         <div class="col">
-            <i class="fab fa-facebook fa-3x"></i>
-            <h5 class="font-weight-bold my-4">You will find the latest update.</h5>
+            <i class="fab fa-facebook fa-2x"></i>
+            <h5 class="font-weight-light my-4">You will find the latest update.</h5>
             </p>
         </div>
         <!-- Grid column -->
         <!-- Grid column -->
         <div class="col">
-            <i class="fab fa-youtube fa-3x"></i>
-            <h5 class="font-weight-bold my-4">You will find the latest video about our center.</h5>
+            <i class="fab fa-youtube fa-2x"></i>
+            <h5 class="font-weight-light my-4">You will find the latest video about our center.</h5>
         </div>
         <!-- Grid column -->
         <!-- Grid column -->
         <div class="col">
-            <i class="fab fa-linkedin fa-3x"></i>
-            <h5 class="font-weight-bold my-4">You will find professional networking here.</h5>
+            <i class="fab fa-linkedin fa-2x"></i>
+            <h5 class="font-weight-light my-4">You will find professional networking here.</h5>
         </div>
         <!-- Grid column -->
         <!-- Grid column -->
         <div class="col">
-            <i class="fab fa-instagram fa-3x"></i>
-            <h5 class="font-weight-bold my-4">You will find the latest photos we share.</h5>
+            <i class="fab fa-instagram fa-2x"></i>
+            <h5 class="font-weight-light my-4">You will find the latest photos we share.</h5>
         </div>
         <!-- Grid column -->
         <!-- Grid column -->
         <div class="col">
-            <i class="fab fa-twitter fa-3x"></i>
-            <h5 class="font-weight-bold my-4">Here we inform you the coming events.</h5>
+            <i class="fab fa-twitter fa-2x"></i>
+            <h5 class="font-weight-light my-4">Here we inform you the coming events.</h5>
         </div>
         <!-- Grid column -->
     </div>

@@ -1,3 +1,10 @@
+@push('css')
+<style>
+    footer .copyright {
+        background-color: #EBEBEB !important;
+    }
+</style>
+@endpush
 <!-- Footer -->
 <footer class="text-center">
     <!-- Footer Text -->
@@ -28,23 +35,24 @@
     <div class="container pt-4 align-items-center border-0 px-md-0">
         <div class="row">
             <div class="col d-lg-flex justify-content-lg-between justify-content-center">
-            <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/ncku.svg')}}">
-            <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/qfort.svg')}}">
-            <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
-                <li>
-                    <p><i class="fas fa-map-marker-alt pr-2"></i>No.1, University Road, Tainan City 701, Taiwan (R.O.C)</p>
-                </li>
-                <li>
-                    <p><i class="fas fa-phone pr-2"></i>+886-6-2757575</p>
-                </li>
-            </ul>
+                <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/ncku.svg')}}">
+                <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/qfort.svg')}}">
+                <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
+                    <li>
+                        <p><i class="fas fa-map-marker-alt pr-2"></i>No.1, University Road, Tainan City 701, Taiwan
+                            (R.O.C)</p>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-phone pr-2"></i>+886-6-2757575</p>
+                    </li>
+                </ul>
 
-        </div>
+            </div>
         </div>
     </div>
 
     <!-- Copyright -->
-    <div class="bg-secondary text-center py-3 h5 font-weight-light mb-0">
+    <div class="copyright text-center py-3 h5 font-weight-light mb-0">
         Copyright © {{ date("Y") }} Center for Quantum Frontiers of Research & Technology, All Rights Reserved
     </div>
     <!-- Copyright -->

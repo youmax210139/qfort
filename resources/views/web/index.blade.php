@@ -1,90 +1,23 @@
-@extends('web.layout')
+@extends('web.base')
 
 @push('css')
 <style>
-    .event .row .image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-origin: content-box;
-        min-height: 200px;
-        background-clip: content-box;
+    #carousel-news .carousel-item .content {
+        background-color: #F6F6F6 !important;
     }
 
-    #carousel-news .carousel-indicators .active {
-        opacity: 1;
+    .research .row p {
+        border-bottom-left-radius: 1.5em;
+        border-bottom-right-radius: 1.5em;
     }
 
-    #carousel-news .carousel-indicators li {
-        opacity: .5;
-        border-radius: 50%;
-        height: 1rem;
-        width: 1rem;
-        max-width: 1rem;
-        background-color: #217D7B;
-        margin-bottom: -1.88rem;
-    }
-
-    @media (max-width: 991.98px) {
-
-        #carousel-news .carousel-item.active,
-        #carousel-news .carousel-item-next,
-        #carousel-news .carousel-item-prev {
-            display: flex !important;
-        }
-
-        #carousel-news .carousel-inner .carousel-item-next,
-        #carousel-news .carousel-inner .carousel-item-right.active {
-            transform: translateX(50%)
-        }
-
-        #carousel-news .carousel-inner .carousel-item-left.active,
-        #carousel-news .carousel-inner .carousel-item-prev {
-            transform: translateX(-50%)
-        }
-
-        #carousel-news .carousel-inner .carousel-item-left,
-        #carousel-news .carousel-inner .carousel-item-right {
-            transform: translateX(0)
-        }
-
-        #carousel-news .carousel-inner {
-            width: 80%;
-        }
-
-        #carousel-news .carousel-control-prev,
-        #carousel-news .carousel-control-next {
-            width: 10%;
-            font-size: 2rem;
-        }
-    }
-
-    @media (max-width: 767.98px) {
-
-        #carousel-news .carousel-inner .carousel-item-next,
-        #carousel-news .carousel-inner .carousel-item-right.active {
-            transform: translateX(100%)
-        }
-
-        #carousel-news .carousel-inner .carousel-item-left.active,
-        #carousel-news .carousel-inner .carousel-item-prev {
-            transform: translateX(-100%)
-        }
-
-        #carousel-news .carousel-inner .carousel-item-left,
-        #carousel-news .carousel-inner .carousel-item-right {
-            transform: translateX(0)
-        }
-
-    }
-
-    @media (min-width: 992px) {
-        #carousel-news .carousel-item {
-            transition: none;
-        }
+    .research .row h4 {
+        border-top-left-radius: 1.5em;
+        border-top-right-radius: 1.5em;
     }
 </style>
 @endpush
+
 @php
 $items = [
 Voyager::image('carousel/carousel1@2x.png'),
@@ -93,7 +26,7 @@ Voyager::image('carousel/carousel2@2x.png'),
 @endphp
 @section('content')
 @carousel([
-    'items' => $items
+'items' => $items
 ])
 @endcarousel
 <section class="text-center my-5 container px-0 news">
@@ -144,7 +77,7 @@ Voyager::image('carousel/carousel2@2x.png'),
                     <div class="mb-0">
                         <img class="img-fluid" src="{{ $item }}" alt="Sample image">
                     </div>
-                    <div class="bg-secondary p-3">
+                    <div class="p-3 content">
                         <!-- Post title -->
                         <h4 class="font-weight-bold mb-3">
                             <strong>
@@ -179,41 +112,24 @@ Voyager::image('carousel/carousel2@2x.png'),
         incredible use of technological design sense and imagery. Amazing new age technology that has unseen design
         elements with an incredible use of technological design sense and imagery.</h4>
     <div class="row">
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col mb-4 image" style="background-image:url({{ asset('storage/index/event2@2x.png')}})">
-                    <div class></div>
-                    {{-- <img class="img-fluid" src="{{ Voyager::image('index/event2@2x.png')}}"> --}}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4 image"
-                    style="background-image:url({{ asset('storage/index/event3@2x.png')}})">
-                    <div class></div>
-                    {{-- <img class="img-fluid" src="{{ Voyager::image('index/event3@2x.png')}}"> --}}
-                </div>
-                <div class="col-md-6 mb-4 image"
-                    style="background-image:url({{ asset('storage/index/event4@2x.png')}})">
-                    <div class>
-                        <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3"><strong>How will nano technology change modern
-                                medicine?</strong></h4>
-                        <!-- Post data -->
-                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-12 col-md-4 text-white ">
+            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
+            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
+                use of
+                technological design sense and imagery.</p>
         </div>
-        <div class="col-md-4 mb-4 image" style="background-image:url({{ asset('storage/index/event1@2x.png')}})">
-            <div class='d-flex align-items-end'>
-                <!-- Post title -->
-                <h4 class="font-weight-bold mb-3"><strong>How will nano technology change modern
-                        medicine?</strong></h4>
-                <!-- Post data -->
-                <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-            </div>
+        <div class="col-12 col-md-4 text-white ">
+            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
+            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
+                use of
+                technological design sense and imagery.</p>
         </div>
-
+        <div class="col-12 col-md-4 text-white">
+            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
+            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
+                use of
+                technological design sense and imagery.</p>
+        </div>
     </div>
     <a class="btn btn-success btn-lg text-white px-5 mt-4 d-inline-block d-lg-none">More</a>
 </section>
@@ -228,18 +144,29 @@ Voyager::image('carousel/carousel2@2x.png'),
             <div class="row">
                 <div class="col mb-2 p-2 mb-md-0 image"
                     style="background-image:url({{ asset('storage/index/event2@2x.png')}})">
+                    <div class="w-100 content p-2">
+                        <!-- Post title -->
+                        <h4 class="font-weight-bold mb-3">Events 1</h4>
+                        <!-- Post data -->
+                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-2 p-2 image"
                     style="background-image:url({{ asset('storage/index/event3@2x.png')}})">
-                </div>
-                <div class="col-md-6 mb-2 p-2 image"
-                    style="background-image:url({{ asset('storage/index/event4@2x.png')}})">
-                    <div class>
+                    <div class="w-100 content p-2">
                         <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3"><strong>How will nano technology change modern
-                                medicine?</strong></h4>
+                        <h4 class="font-weight-bold mb-3">Events 1</h4>
+                        <!-- Post data -->
+                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2 p-2 image "
+                    style="background-image:url({{ asset('storage/index/event4@2x.png')}})">
+                    <div class="w-100 content p-2">
+                        <!-- Post title -->
+                        <h4 class="font-weight-bold mb-3">Events 1</h4>
                         <!-- Post data -->
                         <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
                     </div>
@@ -247,10 +174,9 @@ Voyager::image('carousel/carousel2@2x.png'),
             </div>
         </div>
         <div class="col-md-4 mb-2 p-2 image" style="background-image:url({{ asset('storage/index/event1@2x.png')}})">
-            <div class='d-flex align-items-end'>
+            <div class="w-100 content p-2">
                 <!-- Post title -->
-                <h4 class="font-weight-bold mb-3"><strong>How will nano technology change modern
-                        medicine?</strong></h4>
+                <h4 class="font-weight-bold mb-3">Events 1</h4>
                 <!-- Post data -->
                 <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
             </div>

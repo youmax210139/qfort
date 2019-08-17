@@ -1,4 +1,4 @@
-@extends('web.layout')
+@extends('web.base')
 
 @push('css')
 <style>

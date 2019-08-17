@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    {{ menu('user' , 'web.header') }}
+    @section('header')@show
     <main>
         @yield('content')
     </main>
-    @footer @endfooter
+    @section('footer')@show
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>

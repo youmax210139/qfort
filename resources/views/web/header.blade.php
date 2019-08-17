@@ -1,5 +1,4 @@
 @push('css')
-
 @endpush
 <header class="font-weight-bold fixed-top">
     <nav
@@ -33,15 +32,20 @@
                 <a href="">EN</a>
             </div>
             <ul class="navbar-nav align-items-lg-end align-items-center">
-                @foreach($items as $menu_item)
-                <li class="nav-item mx-2 my-0">
+                @foreach($items as $i=> $menu_item)
+                <li
+                    class="nav-item mx-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
                     @if($menu_item->children->count())
-                    <a class="nav-link h4 mb-0 {{ strpos(request()->url(), $menu_item->link())?'active':'' }}" href="#">
+                    <a class="nav-link h4 mb-0 dropdown-toggle {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
+                        id="dropdown-{{$i}}" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" href="#">
                         {{ $menu_item->title }}
                     </a>
-                    <div class="dropdown-menu pb-0 m-0">
+                    <div class="dropdown-menu pb-0 m-0 border-0 {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
+                        aria-labelledby="dropdown-{{$i}}">
                         @foreach($menu_item->children as $item)
-                        <a class="dropdown-item" href="{{ $item->link() }}">{{ $item->title }}</a>
+                        <a class="dropdown-item w-100 text-center text-lg-left fa-1x p-2 {{ strpos(request()->url(), $item->link())?'active':'' }}"
+                            href="{{ $item->link() }}">{{ $item->title }}</a>
                         @endforeach
                     </div>
                     @else
