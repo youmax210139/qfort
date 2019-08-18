@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 
-class PeopleController extends Controller
+class NewController extends Controller
 {
 
     public function index()
     {
-        return view('web.peoples.index');
+        return view('web.news.index');
     }
+
 
     public function detail()
     {
-        return view('web.peoples.detail');
+        return view('web.news.detail');
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -1,6 +1,7 @@
 // Variables
 @import 'variables';
-
+// Functions
+@import 'functions';
 // Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
@@ -134,14 +135,6 @@ header {
 }
 
 footer {
-    h3 {
-        font-family: 'open_sansbold_italic';
-    }
-
-    label {
-        font-family: 'open_sanssemibold';
-    }
-
     .fa-map-marker-alt,
     .fa-phone {
         color: $green;
@@ -162,33 +155,6 @@ footer {
     }
 }
 
-#banner {
-    .carousel-caption {
-        bottom: 0;
-        position: static;
-        width: 70%;
-        padding: 100px 10px;
-
-        .btn {
-            background-color: $grey;
-
-            &:hover {
-                background-color: $green;
-            }
-        }
-    }
-
-    i {
-        font-size: 3rem;
-    }
-
-    .carousel-item {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
 // Page Index
 .event .row {
     .image {
@@ -201,7 +167,8 @@ footer {
         display: flex !important;
         align-items: flex-end;
     }
-    .content{
+
+    .content {
         background: #FFFFFF;
         opacity: 0.9;
         text-align: left;
@@ -291,5 +258,27 @@ footer {
 @include media-breakpoint-up(lg) {
     #carousel-news .carousel-item {
         transition: none;
+    }
+}
+
+.event-listing {
+    .card-deck {
+        .card {
+            @include media-breakpoint-up(sm) {
+                @include card-deck-column-count(2);
+            }
+
+            @include media-breakpoint-up(md) {
+                @include card-deck-column-count(3);
+            }
+
+            @include media-breakpoint-up(lg) {
+                @include card-deck-column-count(4);
+            }
+
+            @include media-breakpoint-up(xl) {
+                @include card-deck-column-count(5);
+            }
+        }
     }
 }

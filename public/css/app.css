@@ -16602,14 +16602,6 @@ header .has-search .icon-wrapper img {
   }
 }
 
-footer h3 {
-  font-family: "open_sansbold_italic";
-}
-
-footer label {
-  font-family: "open_sanssemibold";
-}
-
 footer .fa-map-marker-alt,
 footer .fa-phone {
   color: #217D7B;
@@ -16624,31 +16616,6 @@ footer .container {
   footer input {
     min-width: 200px;
   }
-}
-
-#banner .carousel-caption {
-  bottom: 0;
-  position: static;
-  width: 70%;
-  padding: 100px 10px;
-}
-
-#banner .carousel-caption .btn {
-  background-color: #BDBEBF;
-}
-
-#banner .carousel-caption .btn:hover {
-  background-color: #217D7B;
-}
-
-#banner i {
-  font-size: 3rem;
-}
-
-#banner .carousel-item {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .event .row .image {
@@ -16736,6 +16703,30 @@ footer .container {
 @media (min-width: 992px) {
   #carousel-news .carousel-item {
     transition: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .event-listing .card-deck .card {
+    flex: 0 0 calc(100% / 2 - 15px * 2);
+  }
+}
+
+@media (min-width: 768px) {
+  .event-listing .card-deck .card {
+    flex: 0 0 calc(100% / 3 - 15px * 2);
+  }
+}
+
+@media (min-width: 992px) {
+  .event-listing .card-deck .card {
+    flex: 0 0 calc(100% / 4 - 15px * 2);
+  }
+}
+
+@media (min-width: 1200px) {
+  .event-listing .card-deck .card {
+    flex: 0 0 calc(100% / 5 - 15px * 2);
   }
 }
 

@@ -35,8 +35,8 @@
     <div class="container pt-4 align-items-center border-0 px-md-0">
         <div class="row">
             <div class="col d-lg-flex justify-content-lg-between justify-content-center">
-                <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/ncku.svg')}}">
-                <img class="mb-4 mr-md-4" src="{{ Voyager::image('logos/qfort.svg')}}">
+                <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
+                <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/qfort.svg')}}">
                 <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
                     <li>
                         <p><i class="fas fa-map-marker-alt pr-2"></i>No.1, University Road, Tainan City 701, Taiwan

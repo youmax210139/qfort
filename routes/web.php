@@ -20,27 +20,21 @@ Route::get('/abouts', function () {
 });
 
 Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
-    // Route::get('/', 'IndexController@index')->name('web.index');
 
-    // Route::group(['prefix' => 'articles'], function () {
-    //     Route::get('/', 'ArticleController@index')->name('web.articles.index');
-    // });
-    // Route::group(['prefix' => 'article'], function () {
-    //     Route::get('/{slug}', 'ArticleController@details')->name('web.article.details');
-    // });
-
-    Route::get('/people', 'PeopleController@index')->name('people');
-    Route::get('/people/{id}', 'PeopleController@persion')->name('person');
-    Route::get('/abouts/findus', 'AboutController@findus')->name('about.findus');
-    Route::get('/abouts/followus', 'AboutController@followus')->name('about.followus');
-    Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('about.whoweare');
     Route::get('/', 'HomeController@index')->name('home');
-    // Route::get('/services', 'IndexController@service')->name('web.services');
-    // Route::get('/contact-us', 'IndexController@contactus')->name('web.contact-us');
-    // Route::post('/contact-us/submit', 'IndexController@submitContactUsForm')->name('web.contact-us.submit');
 
-    // Route::get('socialite', 'SocialiteController@socialite')->name('web.socialite');
-    // Route::get('socialite/callback/{type}', 'SocialiteController@callback')->name('web.socialite.callback');
+    Route::get('/people', 'PeopleController@index')->name('peoples.index');
+    Route::get('/people/{id}', 'PeopleController@detail')->name('peoples.detail');
+
+    Route::get('/events', 'EventController@index')->name('events.index');
+    Route::get('/events/{id}', 'EventController@detail')->name('events.detail');
+
+    Route::get('/news', 'NewController@index')->name('news.index');
+    Route::get('/news/{id}', 'NewController@detail')->name('news.detail');
+    
+    Route::get('/abouts/findus', 'AboutController@findus')->name('abouts.findus');
+    Route::get('/abouts/followus', 'AboutController@followus')->name('abouts.followus');
+    Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('abouts.whoweare');
 });
 
 Route::group(['prefix' => 'admin'], function () {

@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('web.footer', 'footer');
-        Blade::component('web.element.carousel', 'carousel');
+        Blade::component('web.elements.carousel.default', 'carousel');
     }
 }
