@@ -28,7 +28,7 @@
             <div class="mx-auto">
                 <img src="{{$item}}" class="rounded-circle img-fluid" alt="Sample avatar">
             </div>
-            <a href="/people/michaelJordon">
+            <a href="/peoples/michaelJordon">
                 <h5 class="font-weight-bold mt-4 mb-3">
                     Anna Williams
                 </h5>

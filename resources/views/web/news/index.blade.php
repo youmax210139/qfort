@@ -69,7 +69,7 @@ Voyager::image('carousel/carousel2@2x.png'),
                         <p>{{ $item['text'] }}</p>
                         <!-- Read more button -->
                         <div class="text-right">
-                            <a class="btn text-success font-weight-bold">Read more</a>
+                            <a class="btn text-success font-weight-bold" href="/news/1">Read more</a>
                         </div>
                     </div>
                 </div>

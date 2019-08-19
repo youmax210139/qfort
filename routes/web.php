@@ -23,8 +23,12 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/people', 'PeopleController@index')->name('peoples.index');
-    Route::get('/people/{id}', 'PeopleController@detail')->name('peoples.detail');
+    Route::get('/researchs', 'ResearchController@index')->name('researchs.index');
+    Route::get('/researchs/{id}', 'ResearchController@detail')->name('researchs.detail');
+    Route::get('/researchs/outcomes/{id}', 'ResearchController@outcome')->name('researchs.outcome');
+
+    Route::get('/peoples', 'PeopleController@index')->name('peoples.index');
+    Route::get('/peoples/{id}', 'PeopleController@detail')->name('peoples.detail');
 
     Route::get('/events', 'EventController@index')->name('events.index');
     Route::get('/events/{id}', 'EventController@detail')->name('events.detail');

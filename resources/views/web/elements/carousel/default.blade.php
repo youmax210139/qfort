@@ -9,9 +9,12 @@ $type = $type??'';
 <style>
     #banner .carousel-caption {
         bottom: 0;
-        position: static;
         width: 70%;
-        padding: 100px 10px;
+        padding: 0;
+    }
+
+    #banner .carousel-item{
+        min-height: 400px;
     }
 
     #banner .carousel-caption .btn {
@@ -37,7 +40,7 @@ $type = $type??'';
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         @foreach ($items as $i => $item)
-        <div class="carousel-item {{ $i==0?'active':'' }}" style="background-image:url({{ $item }});">
+        <div class="carousel-item p-0 {{ $i==0?'active':'' }}" style="background-image:url({{ $item }});">
             {{-- <img class="d-block w-100" src="{{ $item }}"> --}}
             <div
                 class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center align-items-lg-start text-lg-left text-center mx-auto">

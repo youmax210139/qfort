@@ -1,7 +1,23 @@
 @push('css')
 <style>
+    footer .fa-map-marker-alt,
+    footer .fa-phone {
+        color: $green;
+    }
+
+    footer .container {
+        border-top: 1px dashed $green;
+        border-bottom: 1px dashed $green;
+    }
+
     footer .copyright {
         background-color: #EBEBEB !important;
+    }
+
+    @media (min-width: 992px) {
+        footer input {
+            min-width: 200px;
+        }
     }
 </style>
 @endpush

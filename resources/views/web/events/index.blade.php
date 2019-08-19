@@ -38,15 +38,15 @@
 </style>
 @endpush
 @section('content')
+<div class="col title-wrapper mb-4" style="background-image:url({{ Voyager::image('news/news8@2x.png') }});">
+    <img class="img-fluid" src="">
+    <div class="mask text-dark">
+        <h2 class="font-weight-bold text-left mb-2"><strong>Events</strong></h2>
+        <h4 class="text-left mb-2">See what’s going on at QFort</h4>
+    </div>
+</div>
 <section class="text-center my-5 container event-listing">
     <!-- Section heading -->
-    <div class="col title-wrapper mb-4" style="background-image:url({{ Voyager::image('news/news8@2x.png') }});">
-        <img class="img-fluid" src="">
-        <div class="mask text-dark">
-            <h2 class="font-weight-bold text-left mb-2"><strong>Events</strong></h2>
-            <h4 class="text-left mb-2">See what’s going on at QFort</h4>
-        </div>
-    </div>
     @php
     $items = [
     ['img'=> Voyager::image('news/news1@2x.png'), 'text'=>str_random(20)],

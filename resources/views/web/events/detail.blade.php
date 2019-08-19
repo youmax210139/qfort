@@ -2,14 +2,6 @@
 
 @push('css')
 <style>
-    .md-v-line {
-        position: absolute;
-        border-left: 1px solid rgba(0, 0, 0, .125);
-        height: 50px;
-        top: 0px;
-        left: 54px;
-    }
-
     .fas {
         font-size: 1.4rem;
     }

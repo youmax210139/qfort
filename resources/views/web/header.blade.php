@@ -1,9 +1,113 @@
 @push('css')
+<style>
+    header {
+        background-color: #fff;
+    }
+
+    header .navbar-brand img {
+        height: 80px;
+    }
+
+    header .nav-link {
+        font-family: 'open_sanssemibold';
+        color: #000 !important;
+    }
+
+    header .nav-link:hover,
+    header .nav-link.active {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    header .dropdown-item:hover,
+    .dropdown-item.active {
+        background-color: $secondary !important;
+        color: #fff;
+    }
+
+    header .has-search input {
+        padding: 0 28px 0 0;
+        border: 2px solid $black;
+        border-radius: 0px;
+    }
+
+    header .has-search .icon-wrapper {
+        position: absolute;
+        z-index: 4;
+        right: 0;
+        display: flex;
+        width: 28px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    header .has-search .icon-wrapper img {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media (min-width: 768px) {
+
+        header {
+            padding: 0 20px;
+        }
+
+        header .has-search input {
+            min-width: 240px;
+        }
+
+        header .dropdown-menu {
+            top: auto;
+            left: auto;
+            border: none;
+            border-radius: 0px;
+            padding-bottom: 0px;
+        }
+
+        header .dropdown-menu.show {
+            display: none;
+        }
+
+        header .dropdown-menu .dropdown-item {
+            background: #BDBEBF;
+            color: #fff;
+            text-align: left;
+            font-family: Open Sans;
+            letter-spacing: 0.9px;
+        }
+
+        header .dropdown-menu .dropdown-item:first-child {
+            padding-top: 0.75rem;
+        }
+
+        header .dropdown-menu .dropdown-item:last-child {
+            padding-bottom: 0.75rem;
+        }
+
+        header .navbar-nav li:hover>.dropdown-menu {
+            display: block;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        header {
+            width: 100%;
+        }
+
+        header .navbar {
+            width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+</style>
 @endpush
 <header class="font-weight-bold fixed-top">
     <nav
-        class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
-        <div class="w-100 d-flex d-lg-none justify-content-end">
+        class="navbar navbar-expand-md align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
+        <div class="w-100 d-flex d-md-none justify-content-end">
             <span class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
             </span>
@@ -26,7 +130,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
             id="navbarSupportedContent">
-            <div class="navbar-nav flex-row mb-2 d-none d-lg-flex">
+            <div class="navbar-nav flex-row mb-2 d-none d-md-flex">
                 <a href="">中文</a>
                 /
                 <a href="">EN</a>
@@ -44,7 +148,7 @@
                     <div class="dropdown-menu pb-0 m-0 border-0 {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
                         aria-labelledby="dropdown-{{$i}}">
                         @foreach($menu_item->children as $item)
-                        <a class="dropdown-item w-100 text-center text-lg-left fa-1x p-2 {{ strpos(request()->url(), $item->link())?'active':'' }}"
+                        <a class="dropdown-item w-100 text-center text-md-left fa-1x p-2 {{ strpos(request()->url(), $item->link())?'active':'' }}"
                             href="{{ $item->link() }}">{{ $item->title }}</a>
                         @endforeach
                     </div>
