@@ -18,15 +18,9 @@
 </style>
 @endpush
 
-@php
-$items = [
-Voyager::image('carousel/carousel1@2x.png'),
-Voyager::image('carousel/carousel2@2x.png'),
-];
-@endphp
 @section('content')
 @carousel([
-'items' => $items
+'items' => $carousels
 ])
 @endcarousel
 <section class="text-center my-5 container px-0 news">

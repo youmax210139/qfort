@@ -22,12 +22,6 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script>
-        $(document).ready(function(){
-            console.log('12345');
-            $("#app-header").sticky();
-        });
-    </script>
     @stack('js')
 </body>
 

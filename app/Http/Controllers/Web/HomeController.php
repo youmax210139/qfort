@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Carousel;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('web.index');
+        $carousels = Carousel::where('status', 'A')->get();
+        return view('web.index', compact('carousels'));
     }
 
     /**
