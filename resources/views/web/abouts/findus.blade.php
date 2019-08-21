@@ -29,7 +29,7 @@
             style="border:0" allowfullscreen></iframe>
     </div>
     <h2 class="font-weight-bold text-center my-5">Transportation</h2>
-    <ul class="text-lg-left list-unstyled ml-4">
+    <ul class="text-lg-left list-unstyled">
         <li>
             <p>
                 <h4 class="text-success">
@@ -63,7 +63,7 @@
         </li>
     </ul>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
-    <ul class="text-lg-left list-unstyled ml-4">
+    <ul class="text-lg-left list-unstyled">
         <li>
             <p>
                 <h4 class="text-success">
