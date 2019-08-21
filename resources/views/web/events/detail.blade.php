@@ -2,13 +2,18 @@
 
 @push('css')
 <style>
+    .content {
+        height: auto;
+        min-height: 60vh;
+    }
+
     .fas {
         font-size: 1.4rem;
     }
 
     .btn-floating {
         vertical-align: middle;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
@@ -49,7 +54,9 @@
                         <h5 class="font-weight-bold mb-2">
                             Coulter Art Gallery
                         </h5>
-                        <a class="text-success">Open in map</a>
+                        <a class="text-success" target="_blank" href="{{ $event->location }}">
+                            Open in map
+                        </a>
                     </div>
                 </div>
                 <div class="row mx-0 mb-4">
@@ -57,9 +64,9 @@
                         <i class="fas fa-envelope fa-1x"></i>
                     </div>
                     <div class="col-8 text-left">
-                        <h4 class="text-success">
+                        <a class="text-success" href="mailto:{{ $event->email}}">
                             Email sponsor
-                        </h4>
+                        </a>
                     </div>
                 </div>
                 <div class="row mx-0 mb-4">
@@ -88,9 +95,9 @@
                         <i class="fas fa-tag fa-1x"></i>
                     </div>
                     <div class="col-8 text-left">
-                        <h5 class="font-weight-bold mb-2">
-                            Free
-                        </h5>
+                        <p class="font-weight-bold mb-2">
+                            {{ $event->price > 0? $event->price : 'Free'}}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -98,46 +105,38 @@
         </div>
         <div class="col-12 col-md-8">
             <!-- Section heading -->
-            <h2 class="font-weight-bold mt-5 text-left mb-3">Conferences</h2>
-            <h4 class="text-left mb-5">How will nano technology change modern medicine?</h4>
-            <img src="{{ Voyager::image('logos/qfort.svg')}}" alt="" width="100%" height="800px">
+            <h2 class="font-weight-bold mt-5 text-left mb-3">{{ $event->title }}</h2>
+            <h4 class="text-left mb-5">{{ $event->abstract }}</h4>
+            <div class="content">
+                {!! $event->content !!}
+            </div>
             <div class="row align-items-center">
-                <div class="col-12 col-md-2 d-flex mb-4 p-md-0 justify-content-center">
-                    Share this post:
+                <div class="col-12 col-md-9 mb-4 text-center text-md-left">
+                    <span class="mr-2 d-block d-sm-inline-block mb-2"> Share this post</span>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-twitter"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-youtube"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fas fa-envelope"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-line"></i></a>
+                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <div class="d-flex col-12 col-md-8 mb-4 justify-content-center  justify-content-md-start">
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-twitter"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-youtube"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fas fa-envelope"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-line"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-facebook-f"></i></a>
-                </div>
-                <div class="col-12 col-md-2 mb-4 p-md-0">
+                <div class="col-12 col-md-3 mb-4">
                     <a href="" class="btn btn-outline-success form-control">Register</a>
                 </div>
-
             </div>
         </div>
-        <div class="col p-5 justify-content-center d-flex">
-            <div class="col-4 d-flex justify-content-end">
-                <a class="btn" href="#" tabindex="-1">
-                    Previous Article
-                </a>
-            </div>
+        <div class="col mt-2 p-2 justify-content-center d-flex">
+            <a class="btn" href="#" tabindex="-1">
+                Previous Article
+            </a>
+            <a class="btn btn-success mx-5" href="#" tabindex="-1">
+                Event Overview
+            </a>
+            <a class="btn" href="#">
+                Next Article
+            </a>
 
-            <div class="col-4 d-flex justify-content-center">
-                <a class="btn btn-success mx-5" href="#" tabindex="-1">
-                    Event Overview
-                </a>
-            </div>
-
-            <div class="col-4 d-flex justify-content-start">
-                <a class="btn" href="#">
-                    Next Article
-                </a>
-            </div>
         </div>
     </div>
 

@@ -3,19 +3,22 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
 
     public function index()
     {
-        return view('web.events.index');
+        $events = Event::all();
+        return view('web.events.index', compact('events'));
     }
 
 
-    public function detail()
+    public function detail($id)
     {
-        return view('web.events.detail');
+        $event = Event::findOrFail($id);
+        return view('web.events.detail', compact('event'));
     }
     /**
      * Show the form for creating a new resource.

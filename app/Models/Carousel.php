@@ -14,6 +14,7 @@ class Carousel extends Model
     protected $appends = [
         'source',
     ];
+    
     public function getSourceAttribute()
     {
         $source = json_decode($this->file);

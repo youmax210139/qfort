@@ -46,39 +46,31 @@
     </div>
 </div>
 <section class="text-center my-5 container event-listing">
-    <!-- Section heading -->
-    @php
-    $items = [
-    ['img'=> Voyager::image('news/news1@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news2@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news3@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news4@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news5@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news6@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news7@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('news/news8@2x.png'), 'text'=>str_random(20)]
-    ]
-    @endphp
     <!-- Card -->
     <div class="card-deck">
-        @foreach($items as $i => $item)
+        @foreach($events as $i => $item)
         <div class="card border-0">
-
-            <img class="card-img-top" src="{{ $item['img'] }}" alt="Sample image">
-            <div class="date">Jul<br>24</div>
+            <img class="card-img-top" src="{{ $item->image }}" alt="Sample image">
+            <div class="date">
+                {{ $item->publish_date['from']->format('M') }}<br>
+                {{ $item->publish_date['from']->format('d') }}
+            </div>
             <div class="card-body pt-0">
                 <div class="text-left px-2">
                     <!-- Featured image -->
                     <div class="p-3 content">
                         <!-- Post title -->
                         <h4 class="font-weight-bold mb-3">
-                            Conferences
+                            {{ $item->title }}
                         </h4>
                         <!-- Excerpt -->
-                        <p>{{ $item['text'] }}</p>
+                        <p>{{ $item->abstract }}</p>
                         <!-- Read more button -->
                         <div class="text-right">
-                            <a class="btn text-success font-weight-bold" href="/events/1">Read more</a>
+                            <a class="btn text-success font-weight-bold"
+                                href="{{ route('web.events.detail', [$item->id])}}">
+                                Read more
+                            </a>
                         </div>
                     </div>
                 </div>
