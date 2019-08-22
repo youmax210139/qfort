@@ -43,7 +43,7 @@ return [
     */
 
     'models' => [
-        //'namespace' => 'App\\',
+        'namespace' => 'App\\Models',
     ],
 
     /*
@@ -205,6 +205,12 @@ return [
          ],
          'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
      ],
+
+     'settings' => [
+        // Enables Laravel cache method for
+        // storing cache values between requests
+        'cache' => false,
+    ],
 
     // Activate compass when environment is NOT local
     'compass_in_production' => false,
