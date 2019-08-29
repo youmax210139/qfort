@@ -114,20 +114,12 @@ body {
 .event-listing {
     .card-deck {
         .card {
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 @include card-deck-column-count(2);
             }
 
-            @include media-breakpoint-up(md) {
-                @include card-deck-column-count(3);
-            }
-
             @include media-breakpoint-up(lg) {
-                @include card-deck-column-count(4);
-            }
-
-            @include media-breakpoint-up(xl) {
-                @include card-deck-column-count(5);
+                @include card-deck-column-count(3);
             }
         }
     }

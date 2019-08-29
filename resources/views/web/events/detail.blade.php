@@ -6,26 +6,6 @@
         height: auto;
         min-height: 60vh;
     }
-
-    .fas {
-        font-size: 1.4rem;
-    }
-
-    .btn-floating {
-        vertical-align: middle;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        transition: all .2s ease-in-out;
-        border-radius: 50%;
-        padding: 0;
-        cursor: pointer;
-        width: 2rem;
-        height: 2rem;
-        border-width: 2px;
-        font-size: 1rem;
-    }
 </style>
 @endpush
 @section('content')
@@ -112,14 +92,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-12 col-md-9 mb-4 text-center text-md-left">
-                    <span class="mr-2 d-block d-sm-inline-block mb-2"> Share this post</span>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-twitter"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-youtube"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fas fa-envelope"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-line"></i></a>
-                    <a href="" class="btn btn-outline-success btn-floating mx-1"><i class="fab fa-facebook-f"></i></a>
+                    @social @endsocial
                 </div>
                 <div class="col-12 col-md-3 mb-4">
                     <a href="" class="btn btn-outline-success form-control">Register</a>

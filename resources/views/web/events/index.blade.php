@@ -6,7 +6,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        min-height: 582px;
+        position: relative;
     }
 
     .mask {
@@ -15,9 +15,9 @@
         text-align: left;
         padding: 1rem;
         position: absolute;
-        bottom: 1rem;
-        width: 80%;
-        left: 10%;
+        bottom: 20px;
+        width: 95%;
+        left: 2.5%;
     }
 
     .card-img-top {
@@ -38,19 +38,20 @@
 </style>
 @endpush
 @section('content')
-<div class="col title-wrapper mb-4" style="background-image:url({{ Voyager::image('news/news8@2x.png') }});">
-    <img class="img-fluid" src="">
-    <div class="mask text-dark">
-        <h2 class="font-weight-bold text-left mb-2"><strong>Events</strong></h2>
-        <h4 class="text-left mb-2">See what’s going on at QFort</h4>
+
+<section class="text-center mb-5 container event-listing">
+    <div class="title-wrapper mb-4">
+        <img class="img-fluid" src="{{ Voyager::image('news/news8@2x.png') }}">
+        <div class="mask text-dark">
+            <h1 class="font-weight-bold text-left mb-2">Events</h1>
+            <h3 class="text-left mb-2">See what’s going on at QFort</h3>
+        </div>
     </div>
-</div>
-<section class="text-center my-5 container event-listing">
     <!-- Card -->
     <div class="card-deck">
         @foreach($events as $i => $item)
         <div class="card border-0">
-            <img class="card-img-top" src="{{ $item->image }}" alt="Sample image">
+            <img class="card-img-top" src="{{ Voyager::image($item->image) }}" alt="Sample image">
             <div class="date">
                 {{ $item->publish_date['from']->format('M') }}<br>
                 {{ $item->publish_date['from']->format('d') }}

@@ -15,6 +15,11 @@
         border-width: 2px;
         font-size: 1rem;
     }
+
+    .btn-floating:hover {
+        background-color: #1A1311;
+        border-color: #1A1311;
+    }
 </style>
 @endpush
 @php
