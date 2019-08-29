@@ -6,8 +6,8 @@
     }
 
     footer .container {
-        border-top: 1px dashed $green;
-        border-bottom: 1px dashed $green;
+        border-top: 1px dashed #217D7B;
+        border-bottom: 1px dashed #217D7B;
     }
 
     footer .copyright {
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col d-lg-flex justify-content-lg-between justify-content-center">
                 <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
-                <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/qfort.svg')}}">
+                <img class="mb-4 mr-md-4 img-fluid" style="width:90%" src="{{ Voyager::image('logos/qfort.svg')}}">
                 <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
                     <li>
                         <p><i class="fas fa-map-marker-alt pr-2"></i>No.1, University Road, Tainan City 701, Taiwan
@@ -68,7 +68,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="copyright text-center py-3 h5 font-weight-light mb-0">
+    <div class="copyright text-center py-3 h6 font-weight-light mb-0">
         Copyright © {{ date("Y") }} Center for Quantum Frontiers of Research & Technology, All Rights Reserved
     </div>
     <!-- Copyright -->
