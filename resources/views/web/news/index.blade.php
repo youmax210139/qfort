@@ -33,43 +33,32 @@ Voyager::image('carousel/carousel2@2x.png'),
     "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
     ];
     @endphp
-    @php
-    $items = [
-    ['img'=> Voyager::image('index/event1@2x.png'), 'text'=>str_random(80)],
-    ['img'=> Voyager::image('index/event2@2x.png'), 'text'=>str_random(160)],
-    ['img'=> Voyager::image('index/event3@2x.png'), 'text'=>str_random(20)],
-    ['img'=> Voyager::image('index/event4@2x.png'), 'text'=>str_random(40)],
-    ['img'=> Voyager::image('index/event1@2x.png'), 'text'=>str_random(200)],
-    ['img'=> Voyager::image('index/event2@2x.png'), 'text'=>str_random(10)],
-    ['img'=> Voyager::image('index/event3@2x.png'), 'text'=>str_random(60)],
-    ['img'=> Voyager::image('index/event4@2x.png'), 'text'=>str_random(220)]
-    ]
-    @endphp
     <!-- Card -->
     <div class="card-columns">
-        @foreach($items as $i => $item)
+        @foreach($articles as $i => $article)
         <div class="card border-0">
             <div class="card-body">
                 <div class="text-left px-2">
                     <!-- Featured image -->
-                    <div class="mb-0">
-                        <img class="img-fluid" src="{{ $item['img'] }}" alt="Sample image">
+                    <div class="mb-0 view overlay zoom">
+                        <a href="{{ route('web.news.detail', $article->id)}}">
+                            <img class="img-fluid" src="{{ Voyager::image($article->image) }}">
+                            <div class="mask"></div>
+                        </a>
                     </div>
                     <div class="p-3 content">
                         <!-- Post title -->
                         <h4 class="font-weight-bold mb-3">
-                            <strong>
-                                How will nano technology change modern
-                                medicine?
-                            </strong>
+                            {{ $article->title }}
                         </h4>
                         <!-- Post data -->
-                        <p>June {{$i}}th, 2019 / <a class="text-success">The Latest News</a></p>
-                        <!-- Excerpt -->
-                        <p>{{ $item['text'] }}</p>
-                        <!-- Read more button -->
+                        <p>{{ $article->created_at }} /
+                            <span class="text-success">The Latest News</span>
+                        </p>
+                        <p>{{ $article->abstract }}</p>
                         <div class="text-right">
-                            <a class="btn text-success font-weight-bold" href="/news/1">Read more</a>
+                            <a class="btn text-success font-weight-bold"
+                                href="{{ route('web.news.detail', $article->id)}}">Read more</a>
                         </div>
                     </div>
                 </div>

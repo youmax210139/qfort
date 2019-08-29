@@ -13,10 +13,6 @@ $type = $type??'';
         padding: 0;
     }
 
-    #banner .carousel-item {
-        min-height: 400px;
-    }
-
     #banner .carousel-caption .btn {
         background-color: #535251;
     }
@@ -33,6 +29,7 @@ $type = $type??'';
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        min-height: 80vh;
     }
 
     #banner video {
@@ -46,6 +43,7 @@ $type = $type??'';
         z-index: 0;
         -ms-transform: translateX(-50%) translateY(-50%);
         -moz-transform: translateX(-50%) translateY(-50%);
+        
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
     }
@@ -62,8 +60,8 @@ $type = $type??'';
             </video>
             <div
                 class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center align-items-lg-start text-lg-left text-center mx-auto">
-                <h2 class="font-weight-bold font-italic mb-4">{{ $item->title }}</h2>
-                <h4 class="mb-4">{{ $item->caption }}</h4>
+                <h1 class="font-weight-bold font-italic mb-4">{{ $item->title }}</h1>
+                <h3 class="mb-4">{{ $item->caption }}</h3>
                 @isset($item->link)
                 <a class="btn btn-lg rounded-0 px-4 py-1 mb-4 text-white" href="{{ $item->link}}">Discover</a>
                 @endisset

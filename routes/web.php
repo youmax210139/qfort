@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::get('/events/{id}', 'EventController@detail')->name('events.detail');
 
     Route::get('/news', 'NewController@index')->name('news.index');
-    Route::get('/news/{id}', 'NewController@detail')->name('news.detail');
+    Route::get('/news/{article}', 'NewController@detail')->name('news.detail');
     
     Route::get('/abouts/findus', 'AboutController@findus')->name('abouts.findus');
     Route::get('/abouts/followus', 'AboutController@followus')->name('abouts.followus');

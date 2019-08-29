@@ -3,19 +3,21 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class NewController extends Controller
 {
 
     public function index()
     {
-        return view('web.news.index');
+        $articles = Article::all();
+        return view('web.news.index', compact('articles'));
     }
 
 
-    public function detail()
+    public function detail(Article $article)
     {
-        return view('web.news.detail');
+        return view('web.news.detail', compact('article'));
     }
     /**
      * Show the form for creating a new resource.
