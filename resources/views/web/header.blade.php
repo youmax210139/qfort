@@ -21,13 +21,13 @@
 
     header .dropdown-item:hover,
     .dropdown-item.active {
-        background-color: $secondary !important;
+        background-color: #000 !important;
         color: #fff;
     }
 
     header .has-search input {
         padding: 0 28px 0 0;
-        border: 2px solid $black;
+        border: 2px solid #000;
         border-radius: 0px;
     }
 
@@ -74,7 +74,6 @@
             background: #BDBEBF;
             color: #fff;
             text-align: left;
-            font-family: Open Sans;
             letter-spacing: 0.9px;
         }
 

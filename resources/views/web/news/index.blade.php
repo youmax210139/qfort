@@ -7,33 +7,18 @@
     }
 </style>
 @endpush
+
 @section('content')
-@php
-$items = [
-Voyager::image('carousel/carousel3@2x.png'),
-Voyager::image('carousel/carousel2@2x.png'),
-// Voyager::image('carousel/carousel2@2x.png'),
-];
-@endphp
 @carousel([
-'items' => $items,
+'items' => $carousels,
 'type' => 'half'
 ])
 @endcarousel
 <section class="text-center my-5 container about">
-
     <!-- Section heading -->
     <h2 class="font-weight-bold my-5 text-left mb-5">New</h2>
     <h4 class="text-left mb-5">We are a diverse group of thinkers and inventors</h4>
-    @php
-    $items = [
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg",
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg",
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" ,
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
-    ];
-    @endphp
-    <!-- Card -->
+
     <div class="card-columns">
         @foreach($articles as $i => $article)
         <div class="card border-0">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Carousel;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -16,7 +17,6 @@ class AboutController extends Controller
         return view('web.about');
     }
 
-
     public function findus()
     {
         return view('web.abouts.findus');
@@ -29,7 +29,8 @@ class AboutController extends Controller
 
     public function whoweare()
     {
-        return view('web.abouts.whoweare');
+        $carousels = Carousel::where('status', 'A')->get();
+        return view('web.abouts.whoweare', compact('carousels'));
     }
     /**
      * Show the form for creating a new resource.

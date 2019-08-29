@@ -29,7 +29,7 @@ $type = $type??'';
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        min-height: 80vh;
+        min-height: 90vh;
     }
 
     #banner video {

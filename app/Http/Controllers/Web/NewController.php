@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Carousel;
 
 class NewController extends Controller
 {
@@ -11,7 +12,8 @@ class NewController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('web.news.index', compact('articles'));
+        $carousels = Carousel::where('status', 'A')->get();
+        return view('web.news.index', compact('articles', 'carousels'));
     }
 
 
