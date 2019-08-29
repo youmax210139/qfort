@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\People;
 use Illuminate\Http\Request;
 
 class PeopleController extends Controller
@@ -9,12 +10,13 @@ class PeopleController extends Controller
 
     public function index()
     {
-        return view('web.peoples.index');
+        $peoples = People::all();
+        return view('web.peoples.index', compact('peoples'));
     }
 
-    public function detail()
+    public function detail(People $people)
     {
-        return view('web.peoples.detail');
+        return view('web.peoples.detail', compact('people'));
     }
 
     /**
