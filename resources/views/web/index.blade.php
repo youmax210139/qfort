@@ -15,6 +15,25 @@
         border-top-left-radius: 1.5em;
         border-top-right-radius: 1.5em;
     }
+
+    .event .row .image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-origin: content-box;
+        min-height: 400px;
+        background-clip: content-box;
+        display: flex !important;
+        align-items: flex-end;
+    }
+
+    .event .row .content {
+        background: #FFFFFF;
+        opacity: 0.9;
+        text-align: left;
+        padding: .5rem;
+    }
+    }
 </style>
 @endpush
 
@@ -98,7 +117,7 @@
     <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block">More</a>
 </section>
 
-<section class="text-center my-5 container research">
+<section class="text-center my-5 py-5 container research">
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5 font-italic">Research</h2>
     <!-- Section description -->
@@ -106,19 +125,19 @@
         incredible use of technological design sense and imagery. Amazing new age technology that has unseen design
         elements with an incredible use of technological design sense and imagery.</h4>
     <div class="row">
-        <div class="col-12 col-md-4 text-white ">
+        <div class="col-12 col-md-4 text-white mb-2">
             <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
             <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
                 use of
                 technological design sense and imagery.</p>
         </div>
-        <div class="col-12 col-md-4 text-white ">
+        <div class="col-12 col-md-4 text-white mb-2">
             <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
             <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
                 use of
                 technological design sense and imagery.</p>
         </div>
-        <div class="col-12 col-md-4 text-white">
+        <div class="col-12 col-md-4 text-white mb-2">
             <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
             <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
                 use of

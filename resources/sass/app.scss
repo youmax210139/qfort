@@ -25,26 +25,6 @@ body {
     padding-top: 100px;
 }
 
-// Page Index
-.event .row {
-    .image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-origin: content-box;
-        min-height: 200px;
-        background-clip: content-box;
-        display: flex !important;
-        align-items: flex-end;
-    }
-
-    .content {
-        background: #FFFFFF;
-        opacity: 0.9;
-        text-align: left;
-        padding: .5rem;
-    }
-}
 
 #carousel-news .carousel-indicators {
     .active {

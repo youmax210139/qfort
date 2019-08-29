@@ -46,7 +46,7 @@
             <h2 class="mt-5 font-weight-bold mb-2"> Overview </h2>
             <div class="text-right"><a href="" class="btn btn-md bg-success text-white"> Download CV</a></div>
             <p class="text-left font-weight-bold">
-                <h3>{{ $people->job }}</h3>
+                <h3 class="font-weight-bold">{{ $people->job }}</h3>
                 {!! $people->content !!}
             </p>
         </div>
