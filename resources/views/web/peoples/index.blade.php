@@ -33,9 +33,6 @@
         justify-content: center;
     }
 
-    .image-content .mask:hover {
-        cursor: pointer;
-    }
     a.text-dark:hover{
         color: #217D7B !important;
         text-decoration: none;

@@ -4,6 +4,13 @@
 <style>
     body {
         letter-spacing: 1px;
+        font-family: "Open Sans", serif;
+        background-color: #fff;
+        padding-top: 100px;
+    }
+
+    a:hover {
+        cursor: pointer;
     }
 
     .h1,
@@ -41,6 +48,7 @@
 
     .overlay .mask:hover {
         opacity: 0.3;
+        cursor: pointer;
     }
 
     .zoom:hover img,

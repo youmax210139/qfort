@@ -15,25 +15,6 @@
         border-top-left-radius: 1.5em;
         border-top-right-radius: 1.5em;
     }
-
-    .event .row .image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-origin: content-box;
-        min-height: 400px;
-        background-clip: content-box;
-        display: flex !important;
-        align-items: flex-end;
-    }
-
-    .event .row .content {
-        background: #FFFFFF;
-        opacity: 0.9;
-        text-align: left;
-        padding: .5rem;
-    }
-    }
 </style>
 @endpush
 
@@ -146,7 +127,6 @@
     </div>
     <a class="btn btn-success btn-lg text-white px-5 mt-4 d-inline-block d-lg-none">More</a>
 </section>
-
 <section class="text-center my-5 container event">
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5 font-italic">Events</h2>
@@ -155,44 +135,21 @@
     <div class="row">
         <div class="col-md-8">
             <div class="row">
-                <div class="col mb-2 p-2 mb-md-0 image"
-                    style="background-image:url({{ asset('storage/index/event2@2x.png')}})">
-                    <div class="w-100 content p-2">
-                        <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3">Events 1</h4>
-                        <!-- Post data -->
-                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-                    </div>
+                <div class="col mb-2 p-2 mb-md-0">
+                    @eventHeader(['item'=>$events[0]]) @endeventHeader
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-2 p-2 image"
-                    style="background-image:url({{ asset('storage/index/event3@2x.png')}})">
-                    <div class="w-100 content p-2">
-                        <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3">Events 1</h4>
-                        <!-- Post data -->
-                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-                    </div>
+                <div class="col-md-6 mb-2 p-2">
+                    @eventHeader(['item'=>$events[2],'push'=>false ]) @endeventHeader
                 </div>
-                <div class="col-md-6 mb-2 p-2 image "
-                    style="background-image:url({{ asset('storage/index/event4@2x.png')}})">
-                    <div class="w-100 content p-2">
-                        <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3">Events 1</h4>
-                        <!-- Post data -->
-                        <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-                    </div>
+                <div class="col-md-6 mb-2 p-2">
+                    @eventHeader(['item'=>$events[3],'push'=>false ]) @endeventHeader
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-2 p-2 image" style="background-image:url({{ asset('storage/index/event1@2x.png')}})">
-            <div class="w-100 content p-2">
-                <!-- Post title -->
-                <h4 class="font-weight-bold mb-3">Events 1</h4>
-                <!-- Post data -->
-                <p>June 10th, 2019 / <a class="text-success">The Latest News</a></p>
-            </div>
+        <div class="col-md-4 mb-2 p-2">
+            @eventHeader(['item'=>$events[1],'push'=>false, 'imgClass'=>'h-md-100' ]) @endeventHeader
         </div>
 
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Models\Carousel;
+use App\Models\Event;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $carousels = Carousel::where('status', 'A')->get();
-        return view('web.index', compact('carousels'));
+        $events = Event::orderBy('published_from', 'desc')->take(4)->get();
+        return view('web.index', compact('carousels', 'events'));
     }
 
     /**

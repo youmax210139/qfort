@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.footer', 'footer');
         Blade::component('web.elements.carousel.default', 'carousel');
         Blade::component('web.elements.social', 'social');
+        Blade::component('web.elements.events.header', 'eventHeader');
     }
 }

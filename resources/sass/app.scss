@@ -1,30 +1,26 @@
 // Variables
-@import 'variables';
+@import "variables";
 // Functions
-@import 'functions';
+@import "functions";
 // Font Awesome
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-a:hover {
-    cursor: pointer;
-}
+@import "~bootstrap/scss/bootstrap";
 
 .bg-grey {
     background-color: $grey !important;
 }
 
-body {
-    font-family: 'Open Sans', serif;
-    background-color: $white;
-    padding-top: 100px;
+@include media-breakpoint-between(md, xl) {
+    .h-md-100,
+    .h-lg-100 {
+        height: 100% !important;
+    }
 }
-
 
 #carousel-news .carousel-indicators {
     .active {
@@ -32,7 +28,7 @@ body {
     }
 
     li {
-        opacity: .5;
+        opacity: 0.5;
         border-radius: 50%;
         height: 1rem;
         width: 1rem;
@@ -43,9 +39,7 @@ body {
 }
 
 @include media-breakpoint-down(md) {
-
     #carousel-news {
-
         .carousel-item.active,
         .carousel-item-next,
         .carousel-item-prev {
@@ -57,17 +51,17 @@ body {
 
             .carousel-item-next,
             .carousel-item-right.active {
-                transform: translateX(50%)
+                transform: translateX(50%);
             }
 
             .carousel-item-left.active,
             .carousel-item-prev {
-                transform: translateX(-50%)
+                transform: translateX(-50%);
             }
 
             .carousel-item-left,
             .carousel-item-right {
-                transform: translateX(0)
+                transform: translateX(0);
             }
 
             .carousel-control-prev,
@@ -80,29 +74,24 @@ body {
 }
 
 @include media-breakpoint-up(sm) {
-
     #carousel-news {
-
         .carousel-inner {
-
             .carousel-item-next,
             .carousel-item-right.active {
-                transform: translateX(100%)
+                transform: translateX(100%);
             }
 
             .carousel-item-left.active,
             .carousel-item-prev {
-                transform: translateX(-100%)
+                transform: translateX(-100%);
             }
 
             .carousel-item-left,
             .carousel-item-right {
-                transform: translateX(0)
+                transform: translateX(0);
             }
-
         }
     }
-
 }
 
 @include media-breakpoint-up(lg) {
@@ -124,8 +113,6 @@ body {
         }
     }
 }
-
-
 
 #outcomes.card-deck {
     .card {
