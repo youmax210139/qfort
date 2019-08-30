@@ -23,9 +23,9 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/researchs', 'ResearchController@index')->name('researchs.index');
-    Route::get('/researchs/{id}', 'ResearchController@detail')->name('researchs.detail');
-    Route::get('/researchs/outcomes/{id}', 'ResearchController@outcome')->name('researchs.outcome');
+    Route::get('/researches', 'ResearchController@index')->name('researches.index');
+    Route::get('/researches/{research}', 'ResearchController@detail')->name('researches.detail');
+    Route::get('/researches/domains/{domain}', 'ResearchController@domain')->name('researches.domains.detail');
 
     Route::get('/peoples', 'PeopleController@index')->name('peoples.index');
     Route::get('/peoples/{people}', 'PeopleController@detail')->name('peoples.detail');

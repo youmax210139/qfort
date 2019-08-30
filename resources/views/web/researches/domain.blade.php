@@ -2,30 +2,43 @@
 
 @push('css')
 <style>
-    .card-img-top {
+    #domain .card-img-top {
         width: 100%;
         height: 15vw;
         object-fit: cover;
     }
 
-    .card-body {
+    #domain .card-body {
         background-color: #F6F6F6;
+    }
+
+    #domain .nav-item:hover .nav-link,
+    #domain .nav-item.active .nav-link {
+        color: #217D7B !important;
     }
 </style>
 @endpush
 @section('content')
-<section class="text-center my-5 container">
+<section class="text-center my-5 container" id="domain">
 
-    <!-- Section heading -->
-    <h2 class="font-weight-bold my-5 text-left mb-5">Quantum Device & Computing</h2>
-    <h4 class="text-left mb-5">Sub-title</h4>
-    <p class="font-weight-bold mb-3">Our goal is to investigate the theory of quantum foundation such that it can be
-        used in our CMOS compatible superconductor/semiconductor quantum devices or IBM-Q in the cloud. We plan not only
-        to develop a better quantum code/algorithm, but also to compare our experimental results with those by IBM-Q. In
-        a long run, we also aim to create an interface between QuTip (an open-source software for simulating the
-        dynamics of open quantum systems) and IBM-Q, such that a quantum calculation can be compared directly with that
-        of a quantum simulation. </p>
-
+    <h1 class="font-weight-bold text-left mb-0">{{ $domain->title }}</h1>
+    <h4 class="text-left mb-4 font-weight-light text-grey">{{ $domain->subTitle}}</h4>
+    <div class="row">
+        <div class="col-9">
+            <p class="mb-3 h5 text-left">{{ $domain->description }}</p>
+        </div>
+        <div class="col-3">
+            <ul class="nav flex-column border-top border-dark justify-content-center h-100 text-left">
+                @foreach($domains as $d)
+                <li class="nav-item {{ $domain->id == $d->id?'active':'' }}">
+                    <a class="nav-link text-dark pl-0" href="{{ route('web.researches.domains.detail', $d->id) }}">
+                        {{ $d->title}}
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
     @php
     $items = [
     Voyager::image('researchs/research1@2x.png'),
@@ -36,7 +49,7 @@
 
     <h2 class="font-weight-bold my-5 text-center mb-5">Outcomes from this area</h2>
     <div class="card-deck" id="outcomes">
-        @foreach($items as $i => $item)
+        @foreach($researchs as $research)
         <div class="card border-0">
             <img class="card-img-top" src="{{ $item }}" alt="Sample image">
             <div class="card-body text-left px-2">
@@ -48,7 +61,8 @@
                     also aim to create an interface between QuTip</p>
                 <!-- Read more button -->
                 <div class="text-center">
-                    <a class="btn btn-success font-weight-bold" href="/researchs/outcomes/1">More</a>
+                    <a class="btn btn-success font-weight-bold"
+                        href="{{ route('web.researches.detail', $research->id)}}">More</a>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Carousel;
 use App\Models\Event;
+use App\Models\Domain;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,8 @@ class HomeController extends Controller
         $carousels = Carousel::where('status', 'A')->get();
         $events = Event::orderBy('published_from', 'desc')->take(4)->get();
         $articles = Article::take(6)->get();
-        return view('web.index', compact('carousels', 'events', 'articles'));
+        $domains = Domain::all();
+        return view('web.index', compact('carousels', 'events', 'articles', 'domains'));
     }
 
     /**

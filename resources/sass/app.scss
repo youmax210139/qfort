@@ -15,6 +15,14 @@
     background-color: $grey !important;
 }
 
+.text-grey{
+    color: $grey !important;
+}
+
+.vw-25 {
+    width: 25vw !important;
+}
+
 @include media-breakpoint-between(md, xl) {
     .h-md-100,
     .h-lg-100 {

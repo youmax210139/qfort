@@ -18,7 +18,7 @@
     <!-- Section heading -->
     <h2 class="font-weight-bold my-5 text-left mb-5">New</h2>
     <h4 class="text-left mb-5">We are a diverse group of thinkers and inventors</h4>
-
+    <div class="text-right mb-3">@sortmenu @endsortmenu</div>
     <div class="card-columns">
         @foreach($articles as $i => $article)
         <div class="card border-0">

@@ -45,10 +45,4 @@ urlencode(request()->url())],
         <i class="{{ $link['class']}}"></i>
     </a>
     @endforeach
-    {{-- <a href="" class=" btn btn-outline-success btn-floating ml-2"><i class="fab fa-facebook-f"></i></a>
-    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-instagram"></i></a>
-    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-twitter"></i></a>
-    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-youtube"></i></a>
-    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-line"></i></a>
-    <a href="" class="btn btn-outline-success btn-floating ml-2"><i class="fab fa-facebook-f"></i></a> --}}
 </div>

@@ -4,12 +4,17 @@
 <style>
     #carousel-news .carousel-item .content {
         background-color: #F6F6F6 !important;
+        min-height: 225px;
     }
 
-    #carousel-news .carousel-inner {
+    #carousel-news .carousel-item .content .position-absolute {
+        left: 0;
+        bottom: 0;
+    }
+
+    #carousel-news .carousel-inner .carousel-item .object {
         opacity: 0;
         animation-duration: 2s;
-        animation-delay: 0s;
     }
 
     #carousel-news .carousel-indicators .active {
@@ -33,6 +38,12 @@
     }
 
     @media(max-width: 991.98px) {
+        #carousel-news .carousel-inner .carousel-item .object.animated.fadeInUp {
+            animation-name: none;
+            animation-duration: 0s;
+            animation-delay: 0s;
+            opacity: 1;
+        }
 
         #carousel-news .carousel-item.active,
         #carousel-news .carousel-item-next,
@@ -84,14 +95,22 @@
         }
     }
 
-    .research .row p {
+    .research .row div.h-100 {
         border-bottom-left-radius: 1.5em;
         border-bottom-right-radius: 1.5em;
+        border-top-left-radius: 3em;
+        border-top-right-radius: 3em;
+        background-color: #BDBEBF
     }
 
-    .research .row h4 {
+    .domain h4 {
+        background-color: #474645;
         border-top-left-radius: 1.5em;
         border-top-right-radius: 1.5em;
+    }
+
+    .domain h4:hover {
+        background-color: #217D7B;
     }
 </style>
 @endpush
@@ -132,22 +151,23 @@
         <!--/.Indicators-->
 
         <!--Slides-->
-        <div class="carousel-inner mx-auto " role="listbox">
+        <div class="carousel-inner mx-auto" role="listbox">
             @foreach( $articles as $i => $article)
-            <div class="carousel-item {{$i==0?'active':''}} {{ $i }}">
-                <div class="text-left col-12 col-md-6 col-lg-4 mb-3 float-left px-2">
+            <div class="carousel-item {{$i==0?'active':''}}">
+                <div class="object text-left col-12 col-md-6 col-lg-4 mb-5 float-left px-2">
                     <div class="zoom view overlay mb-0">
                         <img class="img-fluid" src="{{ Voyager::image($article->image) }}">
                         <div class="mask"></div>
                     </div>
-                    <div class="p-3 content h-100">
+                    <div class="p-3 content position-relative">
                         <h4 class="font-weight-bold mb-3">
                             {{ $article->title }}
                         </h4>
                         <p> {{ $article->created_at }} / <span class="text-success">The Latest News</span></p>
                         <p>{!! $article->abstract !!}</p>
-                        <div class="text-right">
-                            <a class="btn text-success font-weight-bold">Read more</a>
+                        <div class="text-right p-3 w-100 position-absolute">
+                            <a class="btn text-success font-weight-bold"
+                                href="{{ route('web.news.detail', $article->id)}}">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -156,7 +176,8 @@
         </div>
         <!--/.Slides-->
     </div>
-    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block">More</a>
+    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block"
+        href="{{ route('web.news.index')}}">More</a>
 </section>
 
 <section class="text-center my-5 py-5 container research">
@@ -166,27 +187,22 @@
     <h4 class="text-center font-weight-light mb-5">Amazing new age technology that has unseen design elements with an
         incredible use of technological design sense and imagery. Amazing new age technology that has unseen design
         elements with an incredible use of technological design sense and imagery.</h4>
-    <div class="row">
-        <div class="col-12 col-md-4 text-white mb-2">
-            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
-            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
-                use of
-                technological design sense and imagery.</p>
+    <div class="row domain">
+        @foreach ($domains as $domain)
+        <div class="col-12 col-md-4 text-white mb-2 text-white">
+            <div class="h-100">
+                <h4 class="p-4 mb-0">
+                    <a class="text-white"
+                        href="{{ route('web.researches.domains.detail', $domain->id) }}">{{ $domain->title }}
+                    </a>
+                </h4>
+                <p class="h5 p-4 mb-0">{{ $domain->abstract }}</p>
+            </div>
         </div>
-        <div class="col-12 col-md-4 text-white mb-2">
-            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
-            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
-                use of
-                technological design sense and imagery.</p>
-        </div>
-        <div class="col-12 col-md-4 text-white mb-2">
-            <h4 class="mt-2 p-4 bg-secondary mb-0">Quantum Device & Computing</h4>
-            <p class="h5 bg-grey p-4 mb-0">Amazing new age technology that has unseen design elements with an incredible
-                use of
-                technological design sense and imagery.</p>
-        </div>
+        @endforeach
     </div>
-    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-inline-block d-lg-none">More</a>
+    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-inline-block d-lg-none"
+        href="{{ route('web.researches.index')}}">More</a>
 </section>
 <section class="text-center my-5 container event">
     <!-- Section heading -->
@@ -214,7 +230,8 @@
         </div>
 
     </div>
-    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block">More</a>
+    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block"
+        href="{{ route('web.events.index')}}">More</a>
 </section>
 @endsection
 @push('js')
@@ -236,39 +253,25 @@
                 next.children(':first-child').clone().appendTo($(this));
             }
         });
-
         var fadeIn = function(){
-            var $fadeitem = $('#carousel-news .carousel-inner'); 
-            if( $fadeitem.hasClass('animated fadeInUp')){
-                return;
-            }
-            var top_of_object = $fadeitem.position().top + 80;
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            /* If the object is completely visible in the window, fade it it */
-            if( bottom_of_window > top_of_object ){
-                $fadeitem.addClass('animated fadeInUp');
-                setTimeout(function(){checkCarousel();}, 2500);
-            }
+            var bottom_of_window = $(window).scrollTop() + $(window).innerHeight();
+            $('#carousel-news .carousel-inner .carousel-item .object').each(function(){
+                if( $(this).hasClass('animated')){
+                    return;
+                }
+                var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                /* If the object is completely visible in the window, fade it it */
+                if( bottom_of_window > bottom_of_object ){
+                    $(this).addClass('animated fadeInUp');
+                }
+            }); 
         };
-        var checkCarousel = function(){
-            var $carousel = $('#carousel-news');
-            if($(window).width() >= 922){
-                $carousel.carousel('pause');
-                // console.log("pause");
-            }
-            else{
-                $carousel.carousel({
-                    interval: 3000
-                });
-            }
-        };
-        fadeIn();
-        $(window).resize( function(){
-            checkCarousel();
-        });
-        $(window).scroll( function(){
+
+        setInterval(function(){
             fadeIn();
-        });
+            $('#carousel-news').carousel('pause');
+        }, 1000);
+
     });
 </script>
 @endpush

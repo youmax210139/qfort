@@ -3,24 +3,29 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Domain;
+use App\Models\Research;
 
 class ResearchController extends Controller
 {
 
     public function index()
     {
-        return view('web.researchs.index');
+        $domains = Domain::all();
+        return view('web.researches.index', compact('domains'));
     }
 
 
-    public function detail()
+    public function detail(Research $research)
     {
-        return view('web.researchs.detail');
+        return view('web.researches.detail');
     }
 
-    public function outcome()
+    public function domain(Domain $domain)
     {
-        return view('web.researchs.outcome');
+        $domains = Domain::all();
+        $researchs = [];
+        return view('web.researches.domain', compact('domain', 'researchs', 'domains'));
     }
     /**
      * Show the form for creating a new resource.
