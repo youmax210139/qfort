@@ -82,3 +82,7 @@
 @section('footer')
 @footer @endfooter
 @endsection
+
+@push('js')
+
+@endpush

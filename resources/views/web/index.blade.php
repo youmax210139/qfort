@@ -6,6 +6,84 @@
         background-color: #F6F6F6 !important;
     }
 
+    #carousel-news .carousel-inner {
+        opacity: 0;
+        animation-duration: 2s;
+        animation-delay: 0s;
+    }
+
+    #carousel-news .carousel-indicators .active {
+        opacity: 1;
+    }
+
+    #carousel-news .carousel-indicators li {
+        opacity: 0.5;
+        border-radius: 50%;
+        height: 1rem;
+        width: 1rem;
+        max-width: 1rem;
+        background-color: $green;
+        margin-bottom: -1.88rem;
+    }
+
+    @media (min-width: 992px) {
+        #carousel-news .carousel-item {
+            transition: none;
+        }
+    }
+
+    @media(max-width: 991.98px) {
+
+        #carousel-news .carousel-item.active,
+        #carousel-news .carousel-item-next,
+        #carousel-news .carousel-item-prev {
+            display: flex !important;
+        }
+
+        #carousel-news .carousel-inner {
+            width: 80%;
+        }
+
+        #carousel-news .carousel-inner .carousel-item-next,
+        #carousel-news .carousel-inner .carousel-item-right.active {
+            transform: translateX(50%);
+        }
+
+        #carousel-news .carousel-inner .carousel-item-left.active,
+        #carousel-news .carousel-inner .carousel-item-prev {
+            transform: translateX(-50%);
+        }
+
+        #carousel-news .carousel-inner .carousel-item-left,
+        #carousel-news .carousel-inner .carousel-item-right {
+            transform: translateX(0);
+        }
+
+        #carousel-news .carousel-control-prev,
+        #carousel-news .carousel-control-next {
+            width: 10%;
+            font-size: 2rem;
+        }
+    }
+
+    @media(max-width: 767.98px) {
+
+        #carousel-news .carousel-inner .carousel-item-next,
+        #carousel-news .carousel-inner .carousel-item-right.active {
+            transform: translateX(100%);
+        }
+
+        #carousel-news .carousel-inner .carousel-item-left.active,
+        #carousel-news .carousel-inner .carousel-item-prev {
+            transform: translateX(-100%);
+        }
+
+        #carousel-news .carousel-inner .carousel-item-left,
+        #carousel-news .carousel-inner .carousel-item-right {
+            transform: translateX(0);
+        }
+    }
+
     .research .row p {
         border-bottom-left-radius: 1.5em;
         border-bottom-right-radius: 1.5em;
@@ -27,16 +105,7 @@
 
     <!-- Section heading -->
     <h2 class="text-center my-5 font-italic">In the <b>NEWS</b> today</h2>
-    @php
-    $items= [
-    Voyager::image('index/event4@2x.png'),
-    Voyager::image('index/event4@2x.png'),
-    Voyager::image('index/event4@2x.png'),
-    Voyager::image('index/event4@2x.png'),
-    Voyager::image('index/event4@2x.png'),
-    Voyager::image('index/event4@2x.png')
-    ];
-    @endphp
+
     <!-- Grid row -->
     <div id="carousel-news" class="carousel slide mx-sm-n1 mx-lg-0" data-ride="carousel">
 
@@ -63,28 +132,20 @@
         <!--/.Indicators-->
 
         <!--Slides-->
-        <div class="carousel-inner mx-auto" role="listbox">
-            @foreach( $items as $i => $item)
-            <div class="carousel-item {{$i==0?'active':''}}">
+        <div class="carousel-inner mx-auto " role="listbox">
+            @foreach( $articles as $i => $article)
+            <div class="carousel-item {{$i==0?'active':''}} {{ $i }}">
                 <div class="text-left col-12 col-md-6 col-lg-4 mb-3 float-left px-2">
-                    <!-- Featured image -->
-                    <div class="mb-0">
-                        <img class="img-fluid" src="{{ $item }}" alt="Sample image">
+                    <div class="zoom view overlay mb-0">
+                        <img class="img-fluid" src="{{ Voyager::image($article->image) }}">
+                        <div class="mask"></div>
                     </div>
-                    <div class="p-3 content">
-                        <!-- Post title -->
+                    <div class="p-3 content h-100">
                         <h4 class="font-weight-bold mb-3">
-                            <strong>
-                                How will nano technology change modern
-                                medicine?
-                            </strong>
+                            {{ $article->title }}
                         </h4>
-                        <!-- Post data -->
-                        <p>June {{$i}}th, 2019 / <a class="text-success">The Latest News</a></p>
-                        <!-- Excerpt -->
-                        <p>Amazing new age technology that has unseen design elements with an incredible
-                            use of technological design sense and imagery.</p>
-                        <!-- Read more button -->
+                        <p> {{ $article->created_at }} / <span class="text-success">The Latest News</span></p>
+                        <p>{!! $article->abstract !!}</p>
                         <div class="text-right">
                             <a class="btn text-success font-weight-bold">Read more</a>
                         </div>
@@ -158,20 +219,56 @@
 @endsection
 @push('js')
 <script>
-    $('#carousel-news .carousel-item').each(function(){
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-
-        for (var i=0;i<4;i++) {
-            next=next.next();
+    $(document).ready(function() {
+        var $items = $('#carousel-news .carousel-item');
+        $items.each(function(){
+            var next = $(this).next();
             if (!next.length) {
-            next=$(this).siblings(':first');
+                next = $(this).siblings(':first');
             }
             next.children(':first-child').clone().appendTo($(this));
-        }
+
+            for (var i=0;i<4;i++) {
+                next=next.next();
+                if (!next.length) {
+                next=$(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+
+        var fadeIn = function(){
+            var $fadeitem = $('#carousel-news .carousel-inner'); 
+            if( $fadeitem.hasClass('animated fadeInUp')){
+                return;
+            }
+            var top_of_object = $fadeitem.position().top + 80;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > top_of_object ){
+                $fadeitem.addClass('animated fadeInUp');
+                setTimeout(function(){checkCarousel();}, 2500);
+            }
+        };
+        var checkCarousel = function(){
+            var $carousel = $('#carousel-news');
+            if($(window).width() >= 922){
+                $carousel.carousel('pause');
+                // console.log("pause");
+            }
+            else{
+                $carousel.carousel({
+                    interval: 3000
+                });
+            }
+        };
+        fadeIn();
+        $(window).resize( function(){
+            checkCarousel();
+        });
+        $(window).scroll( function(){
+            fadeIn();
+        });
     });
 </script>
 @endpush

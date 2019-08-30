@@ -9,6 +9,7 @@
     <!-- Include Web Font -->
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <!-- Include CSS. -->
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     @stack('css')
 </head>

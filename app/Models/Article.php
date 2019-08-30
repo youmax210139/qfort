@@ -14,4 +14,9 @@ class Article extends Model
         }
         return $query->where('user_id', Auth::user()->id);
     }
+
+    public function getAbstractAttribute()
+    {
+        return str_limit($this->content, 95, '...');
+    }
 }

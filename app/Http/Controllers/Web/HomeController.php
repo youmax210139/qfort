@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 use App\Models\Carousel;
 use App\Models\Event;
 
@@ -17,7 +18,8 @@ class HomeController extends Controller
     {
         $carousels = Carousel::where('status', 'A')->get();
         $events = Event::orderBy('published_from', 'desc')->take(4)->get();
-        return view('web.index', compact('carousels', 'events'));
+        $articles = Article::take(6)->get();
+        return view('web.index', compact('carousels', 'events', 'articles'));
     }
 
     /**
