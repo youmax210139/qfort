@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $carousels = Carousel::where('status', 'A')->get();
-        $events = Event::orderBy('published_from', 'desc')->take(4)->get();
-        $articles = Article::take(6)->get();
+        $events = Event::with('categories')->orderBy('published_from', 'desc')->take(4)->get();
+        $articles = Article::with('categories')->take(6)->get();
         $domains = Domain::all();
         return view('web.index', compact('carousels', 'events', 'articles', 'domains'));
     }

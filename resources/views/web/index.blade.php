@@ -163,7 +163,11 @@
                         <h4 class="font-weight-bold mb-3">
                             {{ $article->title }}
                         </h4>
-                        <p> {{ $article->created_at }} / <span class="text-success">The Latest News</span></p>
+                        <p>
+                            {{ $article->created_at }}
+                            /
+                            <span class="text-success">{{ $article->firstCategory }}</span>
+                        </p>
                         <p>{!! $article->abstract !!}</p>
                         <div class="text-right p-3 w-100 position-absolute">
                             <a class="btn text-success font-weight-bold"

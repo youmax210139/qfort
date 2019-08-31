@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Auth;
+use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use Categorizable;
 
     public function categories()
     {
@@ -21,11 +23,6 @@ class Article extends Model
     public function getUserIdReadAttribute()
     {
         return $this->user->name;
-    }
-
-    public function getCategoriesEditAttribute()
-    {
-        return [];
     }
 
     public function scopeCurrentUser($query)

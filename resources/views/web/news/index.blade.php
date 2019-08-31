@@ -42,7 +42,7 @@
                         <p>
                             {{ $article->created_at }}
                             /
-                            <span class="text-success">{{ $article->categories[0]->name??'-'}}</span>
+                            <span class="text-success">{{ $article->firstCategory }}</span>
                         </p>
                         <p>{!! $article->abstract !!}</p>
                         <div class="text-right">
