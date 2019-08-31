@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Category;
 
 class EventController extends Controller
 {
@@ -11,7 +12,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        return view('web.events.index', compact('events'));
+        $categories = Category::where('type', 'event')->get();
+        return view('web.events.index', compact('events', 'categories'));
     }
 
 

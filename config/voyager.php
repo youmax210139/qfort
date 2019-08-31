@@ -89,7 +89,6 @@ return [
                 'password_resets',
                 'permission_role',
                 'settings',
-                'article_categories',
             ],
         ],
         'autoload_migrations' => true,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Category;
 use App\Models\People;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class PeopleController extends Controller
     public function index()
     {
         $peoples = People::all();
-        return view('web.peoples.index', compact('peoples'));
+        $categories = Category::where('type', 'people')->get();
+        return view('web.peoples.index', compact('peoples', 'categories'));
     }
 
     public function detail(People $people)

@@ -2,13 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
 
 class Category extends Model
 {
     use Translatable;
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->orderBy('order', 'asc');
+        });
+    }
 
     protected $translatable = ['slug', 'name'];
 
@@ -16,8 +29,17 @@ class Category extends Model
 
     protected $fillable = ['slug', 'name'];
 
-    public function parentId()
+    public function getRelationshipFilter($options)
     {
-        return $this->belongsTo(self::class);
+        $type = explode('_', $options->pivot_table ?? '')[0] ?? null;
+        $type = ($type != 'article') ?: 'new';
+        return function ($item) use ($type) {
+            return $item->type == $type;
+        };
+    }
+
+    public function getLinkAttribute()
+    {
+        return request()->fullUrlWithQuery(['c' => $this->name]);
     }
 }

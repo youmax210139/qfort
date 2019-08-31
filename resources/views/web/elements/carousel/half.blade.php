@@ -6,6 +6,10 @@
         padding: 100px 10px;
     }
 
+    #banner .carousel-item .row {
+        min-height: 90vh;
+    }
+
     #banner .image {
         background-repeat: no-repeat;
         background-size: cover;

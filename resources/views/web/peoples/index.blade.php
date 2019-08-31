@@ -48,7 +48,7 @@
     <!-- Section heading -->
     <h2 class="font-weight-bold my-5 text-left mb-5">People</h2>
     <h4 class="text-left mb-5">People We are a diverse group of thinkers and inventors</h4>
-    <div class="text-right mb-3">@sortmenu @endsortmenu</div>
+    <div class="text-right mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     <h4 class="font-weight-bold mb-3"> [All] </h4>
     <!-- Grid row -->
     <div class="row">

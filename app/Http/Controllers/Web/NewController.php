@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Carousel;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class NewController extends Controller
 {
 
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::with('categories')->get();
         $carousels = Carousel::where('status', 'A')->get();
-        return view('web.news.index', compact('articles', 'carousels'));
+        $categories = Category::where('type', 'new')->get();
+        return view('web.news.index', compact('articles', 'carousels', 'categories'));
     }
-
 
     public function detail(Article $article)
     {
-        return view('web.news.detail', compact('article'));
+        $related_articles = Article::where('id', '!=', $article->id)
+            ->orderBy('created_at')->take(4)->get();
+        return view('web.news.detail', compact('article', 'related_articles'));
     }
     /**
      * Show the form for creating a new resource.

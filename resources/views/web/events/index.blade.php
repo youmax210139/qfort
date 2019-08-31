@@ -47,7 +47,7 @@
             <h3 class="text-left mb-2">See what’s going on at QFort</h3>
         </div>
     </div>
-    <div class="text-right pt-5 mb-3">@sortmenu @endsortmenu</div>
+    <div class="text-right pt-5 mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     <!-- Card -->
     <div class="card-deck">
         @foreach($events as $i => $item)

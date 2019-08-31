@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
+use App\Observers\ArticleObserver;
 use Illuminate\Support\Facades\Blade;
-
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +16,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -25,10 +25,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        # blade
         Blade::component('web.footer', 'footer');
         Blade::component('web.elements.carousel.default', 'carousel');
         Blade::component('web.elements.social', 'social');
         Blade::component('web.elements.events.header', 'eventHeader');
         Blade::component('web.elements.menus.sort', 'sortmenu');
+
+        # observer
+        Article::observe(ArticleObserver::class);
     }
 }

@@ -16,9 +16,11 @@
 @endcarousel
 <section class="text-center my-5 container about">
     <!-- Section heading -->
-    <h2 class="font-weight-bold my-5 text-left mb-5">New</h2>
-    <h4 class="text-left mb-5">We are a diverse group of thinkers and inventors</h4>
-    <div class="text-right mb-3">@sortmenu @endsortmenu</div>
+    <div class="px-4">
+        <h1 class="font-weight-bold mt-5 text-left mb-0">New</h1>
+        <h3 class="text-left mb-5">We are a diverse group of thinkers and inventors</h3>
+        <div class="text-right mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
+    </div>
     <div class="card-columns">
         @foreach($articles as $i => $article)
         <div class="card border-0">
@@ -37,10 +39,12 @@
                             {{ $article->title }}
                         </h4>
                         <!-- Post data -->
-                        <p>{{ $article->created_at }} /
-                            <span class="text-success">The Latest News</span>
+                        <p>
+                            {{ $article->created_at }}
+                            /
+                            <span class="text-success">{{ $article->categories[0]->name??'-'}}</span>
                         </p>
-                        <p>{{ $article->abstract }}</p>
+                        <p>{!! $article->abstract !!}</p>
                         <div class="text-right">
                             <a class="btn text-success font-weight-bold"
                                 href="{{ route('web.news.detail', $article->id)}}">Read more</a>
