@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
 use App\Models\Domain;
 use App\Models\Research;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 class ResearchController extends Controller
 {
@@ -15,10 +16,13 @@ class ResearchController extends Controller
         return view('web.researches.index', compact('domains'));
     }
 
-
     public function detail(Research $research)
     {
-        return view('web.researches.detail');
+        $related_researches = Research::whereHas('domains', function (Builder $query) use ($research) {
+            $query->whereIn('domain_id', $research->domains->pluck('id')->toArray());
+        })->where('id', '!=', $research->id)
+            ->orderBy('updated_at', 'asc')->take(4)->get();
+        return view('web.researches.detail', compact('research', 'related_researches'));
     }
 
     public function domain(Domain $domain)

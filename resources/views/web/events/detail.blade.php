@@ -105,16 +105,7 @@
             </div>
         </div>
         <div class="col mt-2 p-2 justify-content-center d-flex">
-            <a class="btn" href="#" tabindex="-1">
-                Previous Article
-            </a>
-            <a class="btn btn-success mx-5" href="#" tabindex="-1">
-                Event Overview
-            </a>
-            <a class="btn" href="#">
-                Next Article
-            </a>
-
+            @paginator(['item'=>$event]) @endpaginator
         </div>
     </div>
 

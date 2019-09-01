@@ -36,7 +36,7 @@ urlencode(request()->url())],
 urlencode(request()->url())],
 ]
 @endphp
-<div class=" d-inline-flex align-items-center justify-content-center">
+<div class="d-inline-flex align-items-center justify-content-center">
     <span>{{ $text?? 'Share this post:' }}</span>
     @foreach($links as $link)
     <a href="{{$link['href']}}" class="btn btn-outline-success btn-floating ml-2" target="_blank">

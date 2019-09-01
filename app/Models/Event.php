@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use App\Traits\Categorizable;
+use App\Traits\Paginatable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
     use Categorizable;
+    use Paginatable;
+
     protected $appends = [
         'publish_date',
     ];

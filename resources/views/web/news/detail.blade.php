@@ -18,41 +18,42 @@
                 &nbsp;|&nbsp;
                 @social(['title'=>'Share this post:']) @endsocial
             </div>
-            <p>
+            <div class=" container-fluid my-5 p-0">
                 {!! $article->content !!}
-            </p>
-    </div>
-    <div class=" col-4">
-        <h2 class="mb-3 font-weight-bold">Related articles</h2>
-        @foreach($related_articles as $i => $related_article)
-        <div class="card border-0">
-            <div class="card-body">
-                <div class="text-left px-2">
-                    <!-- Featured image -->
-                    <div class="mb-0 view overlay zoom">
-                        <img class="img-fluid" src="{{ Voyager::image($related_article->image) }}">
-                        <div class="mask"></div>
-                    </div>
-                    <div class="p-3 content">
-                        <!-- Post title -->
-                        <h4 class="font-weight-bold mb-3">
-                            {{ $related_article->title }}
-                        </h4>
-                        <!-- Post data -->
-                        <p>June {{$i}}th, 2019 /
-                            <span class="text-success">{{ $related_article->firstCategory }}</span>
-                        </p>
-                        <!-- Excerpt -->
-                        <p>{!! $related_article->abstract !!}</p>
-                        <!-- Read more button -->
-                        <div class="text-right">
-                            <a class="btn text-success font-weight-bold" href="/news/1">Read more</a>
+            </div>
+            @paginator(['item'=>$article]) @endpaginator
+        </div>
+        <div class=" col-4">
+            <h2 class="mb-3 font-weight-bold">Related articles</h2>
+            @foreach($related_articles as $i => $related_article)
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="text-left px-2">
+                        <!-- Featured image -->
+                        <div class="mb-0 view overlay zoom">
+                            <img class="img-fluid" src="{{ Voyager::image($related_article->image) }}">
+                            <div class="mask"></div>
+                        </div>
+                        <div class="p-3 content">
+                            <!-- Post title -->
+                            <h4 class="font-weight-bold mb-3">
+                                {{ $related_article->title }}
+                            </h4>
+                            <!-- Post data -->
+                            <p>June {{$i}}th, 2019 /
+                                <span class="text-success">{{ $related_article->firstCategory }}</span>
+                            </p>
+                            <!-- Excerpt -->
+                            <p>{!! $related_article->abstract !!}</p>
+                            <!-- Read more button -->
+                            <div class="text-right">
+                                <a class="btn text-success font-weight-bold" href="/news/1">Read more</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
 </section>
 @endsection
