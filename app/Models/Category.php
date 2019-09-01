@@ -32,7 +32,7 @@ class Category extends Model
     public function getRelationshipFilter($options)
     {
         $type = explode('_', $options->pivot_table ?? '')[0] ?? null;
-        $type = ($type != 'article') ?: 'new';
+        $type = ($type != 'article') ? $type : 'new';
         return function ($item) use ($type) {
             return $item->type == $type;
         };

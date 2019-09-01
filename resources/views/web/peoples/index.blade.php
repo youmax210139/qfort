@@ -2,44 +2,7 @@
 
 @push('css')
 <style>
-    .image-box {
-        position: relative;
-        width: 100%;
-    }
 
-    .image-box:before {
-        content: "";
-        display: block;
-        padding-top: 100%;
-        /* initial ratio of 1:1*/
-    }
-
-    @media (max-width: 575.98px) {
-        .image-box {
-            width: 70%;
-        }
-    }
-
-    .image-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: transparent;
-        color: #fff;
-        line-height: 100%;
-        height: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    a.text-dark:hover {
-        color: #217D7B !important;
-        text-decoration: none;
-    }
 </style>
 @endpush
 @section('content')
@@ -55,20 +18,7 @@
         @foreach ($peoples as $people)
         <!-- Grid column -->
         <div class="col-lg-3 col-md-4 mb-2 mb-5">
-            <div class="image-box mx-auto">
-                <a href="{{ route('web.peoples.detail', $people->id)}}">
-                    <div class="image-content">
-                        <div class="view overlay zoom rounded-circle w-100 h-100">
-                            <img class="w-100 h-100" src="{{ Voyager::image($people->image) }}">
-                            <div class="mask "></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <h5 class="font-weight-bold mt-4 mb-3">
-                <a class="text-dark" href="{{ route('web.peoples.detail', $people->id) }}"> {{ $people->name }}</a>
-            </h5>
-
+            @figure(['item' => $people]) @endfigure
             <p class="text-uppercase blue-text font-weight-bold">
                 {{ $people->job }}
             </p>

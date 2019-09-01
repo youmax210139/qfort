@@ -17,11 +17,11 @@
         </div>
         <div class="col-md-4">
             <h2 class="my-5 font-weight-bold mb-2">{{ $people->name }}</h2>
-            <h5 class="text-danger mb-2">{{ $people->domain }}</h5>
+            <h5 class="text-danger mb-2">{{ $people->fullDomain }}</h5>
             <h5 class="mb-5">{{ $people->department }}</h5>
             <p class="h5">
-                <i class="fas fa-envelope fa-2x pr-2 text-success mb-2"></i>
-                <br>EMail: mj@mail.ncku.edu.tw
+                <i class="fas fa-envelope fa-2x text-success mb-2 d-block text-center"></i>
+                {{ $people->email }}
             </p>
         </div>
     </div>

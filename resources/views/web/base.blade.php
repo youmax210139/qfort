@@ -9,10 +9,6 @@
         padding-top: 100px;
     }
 
-    a:hover {
-        cursor: pointer;
-    }
-
     .h1,
     .h2,
     .h3,
@@ -27,6 +23,15 @@
     h6 {
         line-height: 1.6;
     }
+    a:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    a.text-dark:hover {
+        color: #217D7B !important;
+    }
+
 
     .view .mask {
         position: absolute;

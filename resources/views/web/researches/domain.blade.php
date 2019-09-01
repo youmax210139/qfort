@@ -2,14 +2,9 @@
 
 @push('css')
 <style>
-    #domain .card-img-top {
-        width: 100%;
-        height: 15vw;
+    #domain .w-100.img-fluid {
+        height: 25vh;
         object-fit: cover;
-    }
-
-    #domain .card-body {
-        background-color: #F6F6F6;
     }
 
     #domain .nav-item:hover .nav-link,
@@ -39,30 +34,25 @@
             </ul>
         </div>
     </div>
-    @php
-    $items = [
-    Voyager::image('researchs/research1@2x.png'),
-    Voyager::image('researchs/research2@2x.png'),
-    Voyager::image('researchs/research3@2x.png'),
-    ];
-    @endphp
 
     <h2 class="font-weight-bold my-5 text-center mb-5">Outcomes from this area</h2>
-    <div class="card-deck" id="outcomes">
-        @foreach($researchs as $research)
-        <div class="card border-0">
-            <img class="card-img-top" src="{{ $item }}" alt="Sample image">
-            <div class="card-body text-left px-2">
-                <h4 class="text-center font-weight-bold mb-3">
-                    Item {{ $i}}
-                </h4>
-                <p>Our goal is to investigate the theory of quantum foundation such that it can be used in our
-                    CMOS compatible superconductor/ semiconductor quantum devices or IBM-Q. In a long run, we
-                    also aim to create an interface between QuTip</p>
+    <div class="row">
+        @foreach($domain->researches as $research)
+        <div class="col-md-6 col-12 mb-3">
+            <div class="h-100 bg-sliver position-relative">
+                <img class="w-100 img-fluid" src="{{ Voyager::image($research->image) }}">
+                <div class="text-left px-3 pt-3 pb-5">
+                    <h4 class="text-center font-weight-bold mb-3 ">
+                        {{ $research->title }}
+                    </h4>
+                    <p>{!! $research->abstract !!}</p>
+                </div>
                 <!-- Read more button -->
-                <div class="text-center">
+                <div class="position-absolute w-100 mb-3" style="bottom:0">
                     <a class="btn btn-success font-weight-bold"
-                        href="{{ route('web.researches.detail', $research->id)}}">More</a>
+                        href="{{ route('web.researches.detail', $research->id)}}">
+                        More
+                    </a>
                 </div>
             </div>
         </div>
@@ -70,27 +60,15 @@
     </div>
 
     <h2 class="font-weight-bold my-5 text-center mb-5">People in this area</h2>
-    @php
-    $items = [
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg",
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg",
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" ,
-    "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
-    ];
-    @endphp
     <!-- Grid row -->
     <div class="row">
-        @foreach ($items as $item)
+        @foreach ($domain->peoples as $people)
         <!-- Grid column -->
         <div class="col-lg-3 col-md-4 mb-2 mb-5">
-            <div class="mx-auto">
-                <img src="{{$item}}" class="rounded-circle img-fluid" alt="Sample avatar">
-            </div>
-            <a href="/peoples/michaelJordon">
-                <h5 class="font-weight-bold mt-4 mb-3">
-                    Anna Williams
-                </h5>
-            </a>
+            @figure(['item' => $people]) @endfigure
+            <p class="text-uppercase blue-text font-weight-bold">
+                {{ $people->job }}
+            </p>
         </div>
         <!-- Grid column -->
         @endforeach

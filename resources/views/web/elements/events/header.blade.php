@@ -30,6 +30,9 @@ $push = $push??true;
         <!-- Post title -->
         <h4 class="font-weight-bold mb-3">{{ $item->title }}</h4>
         <!-- Post data -->
-    <p>{{ $item->published_from }} / <a class="text-success">{{ $item->firstCategory }}</a></p>
+        <p>{{ $item->published_from }}
+            /
+            <span class="text-success">{{ $item->firstCategory }}</span>
+        </p>
     </div>
 </div>

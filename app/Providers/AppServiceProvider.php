@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.social', 'social');
         Blade::component('web.elements.events.header', 'eventHeader');
         Blade::component('web.elements.menus.sort', 'sortmenu');
+        Blade::component('web.elements.figure', 'figure');
 
         # observer
         Article::observe(ArticleObserver::class);

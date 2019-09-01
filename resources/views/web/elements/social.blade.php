@@ -34,8 +34,6 @@ urlencode(request()->url())],
 urlencode(request()->url())],
 'line' => ['class'=> 'fab fa-line', 'href'=>'https://social-plugins.line.me/lineit/share?url='.
 urlencode(request()->url())],
-'facebook' => ['class'=> 'fab fa-facebook-f', 'href'=>'https://social-plugins.line.me/lineit/share?url='.
-urlencode(request()->url())],
 ]
 @endphp
 <div class=" d-inline-flex align-items-center justify-content-center">

@@ -174,7 +174,9 @@
                         @endif
                         
                         @php
-                            $relationshipOptions = $relationshipOptions->filter(app($options->model)->getRelationshipFilter($options));
+                            if(method_exists(app($options->model), 'getRelationshipFilter')){
+                                $relationshipOptions = $relationshipOptions->filter(app($options->model)->getRelationshipFilter($options));
+                            }
                         @endphp
                         
                         @foreach($relationshipOptions as $relationshipOption)

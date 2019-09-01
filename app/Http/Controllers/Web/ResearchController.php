@@ -24,8 +24,7 @@ class ResearchController extends Controller
     public function domain(Domain $domain)
     {
         $domains = Domain::all();
-        $researchs = [];
-        return view('web.researches.domain', compact('domain', 'researchs', 'domains'));
+        return view('web.researches.domain', compact('domain', 'domains'));
     }
     /**
      * Show the form for creating a new resource.
