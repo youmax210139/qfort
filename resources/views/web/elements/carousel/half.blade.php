@@ -6,10 +6,6 @@
         padding: 100px 10px;
     }
 
-    #banner .carousel-item .row {
-        min-height: 90vh;
-    }
-
     #banner .image {
         background-repeat: no-repeat;
         background-size: cover;
@@ -37,12 +33,14 @@
     }
 
     #banner video {
+        object-fit: cover;
         position: absolute;
         top: 50%;
         left: 50%;
         min-width: 100%;
         min-height: 100%;
-        width: auto;
+        /* width: auto; */
+        width: 100%;
         height: auto;
         z-index: 0;
         -ms-transform: translateX(-50%) translateY(-50%);
@@ -59,7 +57,7 @@
     <div class="carousel-inner" role="listbox">
         @foreach ($items as $i => $item)
         <div class="carousel-item {{ $i==0?'active':'' }}">
-            <div class="row mx-0">
+            <div class="row mx-0 vh-100">
                 <div class="col-6 text">
                     <div class=" carousel-caption d-flex flex-column h-100 
                 align-items-center justify-content-center align-items-lg-start text-lg-left text-center mx-auto">

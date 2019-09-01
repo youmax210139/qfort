@@ -29,7 +29,6 @@ $type = $type??'';
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        min-height: 90vh;
     }
 
     #banner video {
@@ -53,7 +52,7 @@ $type = $type??'';
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         @foreach ($items as $i => $item)
-        <div class="carousel-item p-0 {{ $i==0?'active':'' }}""
+        <div class="carousel-item vh-100 p-0 {{ $i==0?'active':'' }}"
             style=" background:url({{ Voyager::image($item->source) }}) black no-repeat center center scroll;">
             <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
                 <source src="{{ Voyager::image($item->source) }}" type="video/mp4">
