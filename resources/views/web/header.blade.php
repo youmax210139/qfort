@@ -110,9 +110,9 @@
             <span class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
             </span>
-            <a href="">中文</a>
+            <a class="text-dark" href="">中文</a>
             /
-            <a href="">EN</a>
+            <a class="text-dark" href="">EN</a>
         </div>
         <div class="d-lg-none invisible">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -130,9 +130,9 @@
         <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
             id="navbarSupportedContent">
             <div class="navbar-nav flex-row mb-2 d-none d-md-flex">
-                <a href="">中文</a>
+                <a class="text-dark" href="">中文</a>
                 /
-                <a href="">EN</a>
+                <a class="text-dark" href="">EN</a>
             </div>
             <ul class="navbar-nav align-items-lg-end align-items-center">
                 @foreach($items as $i=> $menu_item)
