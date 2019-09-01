@@ -16,83 +16,69 @@
 @section('content')
 <section class="text-center my-5 container about">
     <div class="row">
-        <div class="col-12 col-md-4 ">
-            <div class="border mt-5 border-dark">
-                <img src="{{Voyager::image('news/news7@2x.png')}}" alt="" class="img-fluid mb-4">
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-calendar-alt fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <h5 class="font-weight-bold mb-2">
-                            August 1 – 30, 2019
-                        </h5>
-                        <p class="mb-2">See event details for additional info.</p>
-                        <a class="text-success">Add to my calendar</a>
-                    </div>
-                </div>
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-map-marker-alt fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <h5 class="font-weight-bold mb-2">
-                            Coulter Art Gallery
-                        </h5>
-                        <a class="text-success" target="_blank" href="{{ $event->location }}">
-                            Open in map
-                        </a>
-                    </div>
-                </div>
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-envelope fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <a class="text-success" href="mailto:{{ $event->email}}">
-                            Email sponsor
-                        </a>
-                    </div>
-                </div>
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-phone fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <h5 class="font-weight-bold mb-2">
-                            650-725-3107
-                        </h5>
-                    </div>
-                </div>
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-users fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <h5 class="font-weight-bold mb-2">
-                            This Event is open to:
-                        </h5>
-                        Everyone
-                    </div>
-                </div>
-                <div class="row mx-0 mb-4">
-                    <div class="col-2 text-right pr-0">
-                        <i class="fas fa-tag fa-1x"></i>
-                    </div>
-                    <div class="col-8 text-left">
-                        <p class="font-weight-bold mb-2">
-                            {{ $event->price > 0? $event->price : 'Free'}}
-                        </p>
-                    </div>
-                </div>
+        <div class="col-12 col-md-5 col-lg-4">
+            <img src="{{Voyager::image($event->image)}}" class="img-fluid">
+            <div class="border border-sliver border-top-0 text-left px-3">
+                <ul class="list-group py-5">
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-calendar-alt fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <h5 class="font-weight-bold">{{ $event->published_from . ' - '. $event->published_to }}</h5>
+                            <p class="mb-2">See event details for additional info.</p>
+                            <a class="text-success font-italic">Add to my calendar</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-map-marker-alt fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <h5 class="font-weight-bold">Coulter Art Gallery</h5>
+                            <a class="text-success font-italic" target="_blank" href="{{ $event->location }}">
+                                Open in map
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-envelope fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <a class="text-success h5 font-weight-bold font-italic" target="_blank"
+                                href="{{ $event->location }}">
+                                Email sponsor
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-phone fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <h5 class="font-weight-normal">
+                                650-725-3107
+                            </h5>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-users fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <h5 class="font-weight-normal">
+                                This Event is open to:
+                            </h5>
+                            Everyone
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex border-0">
+                        <i class="fas fa-tag fa-2x mr-3"></i>
+                        <div class="flex-column">
+                            <h5 class="font-weight-normal">
+                                {{ $event->price > 0? $event->price : 'Free'}}
+                            </h5>
+                        </div>
+                    </li>
+                </ul>
             </div>
-
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-7 col-lg-8">
             <!-- Section heading -->
-            <h2 class="font-weight-bold mt-5 text-left mb-3">{{ $event->title }}</h2>
-            <h4 class="text-left mb-5">{{ $event->abstract }}</h4>
-            <div class="content">
+            <h1 class="font-weight-bold text-left mb-3">{{ $event->title }}</h1>
+            <h3 class="text-left mb-5">{{ $event->abstract }}</h3>
+            <div class="content my-5">
                 {!! $event->content !!}
             </div>
             <div class="row align-items-center">
