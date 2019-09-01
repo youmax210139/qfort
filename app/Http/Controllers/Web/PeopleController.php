@@ -21,6 +21,10 @@ class PeopleController extends Controller
         return view('web.peoples.detail', compact('people'));
     }
 
+    public function video(People $people)
+    {
+        return view('web.peoples.video', compact('people'));
+    }
     /**
      * Show the form for creating a new resource.
      *

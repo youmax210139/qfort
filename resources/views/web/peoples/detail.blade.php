@@ -38,7 +38,7 @@
                     <a class="nav-link pl-0 text-dark" href="{{ $people->publication }}">Publication</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link pl-0 text-dark" href="{{ $people->video }}">Video</a>
+                    <a class="nav-link pl-0 text-dark" href="{{ route('web.peoples.video', $people->id) }}">Video</a>
                 </li>
             </ul>
         </div>
