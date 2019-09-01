@@ -25,8 +25,9 @@
     <h2 class="font-weight-bold text-center my-5">Find us</h2>
     <!--Google map-->
     <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
-        <iframe src="https://maps.google.com/maps?q=Manhatan&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
-            style="border:0" allowfullscreen></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7345.43456786696!2d120.21516142669144!3d22.99742143986322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76ed290820d3%3A0xe0ee028be207a19e!2z5ZyL56uL5oiQ5Yqf5aSn5a24!5e0!3m2!1szh-TW!2sph!4v1567357472643!5m2!1szh-TW!2sph"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </div>
     <h2 class="font-weight-bold text-center my-5">Transportation</h2>
     <ul class="text-lg-left list-unstyled">
@@ -129,7 +130,8 @@
                 </div>
             </div>
             <div class="col-12 mb-4">
-                <textarea id="form-contact-message" class="form-control md-textarea" rows="6" placeholder="Message"></textarea>
+                <textarea id="form-contact-message" class="form-control md-textarea" rows="6"
+                    placeholder="Message"></textarea>
             </div>
         </div>
         <button class="btn btn-success btn-lg w-100 py-2" type="submit">Submit form</button>

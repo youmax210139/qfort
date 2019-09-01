@@ -62,7 +62,7 @@
 
 @include media-breakpoint-between(md, xl) {
 
-    .h-md-100{
+    .h-md-100 {
         height: 100% !important;
     }
 }
@@ -76,6 +76,19 @@
                 @include media-breakpoint-up($size) {
                     @include card-deck-column-count($i);
                 }
+            }
+        }
+    }
+}
+
+@for $i from 1 through 10 {
+    @each $breakpoint in $grid-breakpoints {
+        $size: nth($breakpoint, 1);
+
+        .card-columns.card-col-#{$size}-#{$i} {
+
+            @include media-breakpoint-up($size) {
+                column-count: $i;
             }
         }
     }

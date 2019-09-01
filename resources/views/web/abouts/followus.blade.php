@@ -65,7 +65,7 @@ Voyager::image('carousel/carousel2@2x.png'),
     ]
     @endphp
     <!-- Card -->
-    <div class="card-columns">
+    <div class="card-columns card-col-lg-4 card-col-md-3 card-col-sm-1">
         @foreach($items as $item)
         <div class="card border-0">
             <div class="card-body p-3 border border-success">

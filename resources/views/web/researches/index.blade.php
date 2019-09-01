@@ -37,7 +37,7 @@
         <!-- Section heading -->
         <div class="row py-5">
             <div class="col-6 pr-5">
-                <img src="{{ Voyager::image('researchs/research1@2x.png') }}" alt="" class="img-fluid">
+                <img src="{{ Voyager::image('roadmap.jpg') }}" alt="" class="img-fluid">
             </div>
             <div class="col-6 p-5 px-0">
                 <div class="d-flex flex-column h-100 justify-content-center text-left">

@@ -35,6 +35,7 @@
         hub for IoT in Asia that not only serves the region’s needs but also growing Global Demands in realizing new
         business value from IoT implementation.
     </p>
+    <img class="img-fluid" src="{{ Voyager::image('taioan.jpg')}} ">
 
     <h2 class="font-weight-bold text-center my-5">Our Team</h2>
     <p class="my-5 text-left h5 ">
