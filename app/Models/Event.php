@@ -6,11 +6,15 @@ use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Spatial;
 
 class Event extends Model
 {
     use Categorizable;
     use Paginatable;
+    use Spatial;
+
+    protected $spatial = ['location'];
 
     protected $appends = [
         'publish_date',
@@ -19,6 +23,11 @@ class Event extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'event_categories', 'event_id', 'category_id');
+    }
+
+    public function getAbstractAttribute($value)
+    {
+        return str_limit($value, 95, '...');
     }
 
     public function getPublishDateAttribute()

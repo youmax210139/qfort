@@ -15,55 +15,68 @@
     background-color: $grey !important;
 }
 
-.bg-sliver {
-    background-color: #F6F6F6 !important;
+.border-grey {
+    border-color: $grey !important;
 }
 
-.text-grey{
+.text-grey {
     color: $grey !important;
 }
 
-.vw-25 {
-    width: 25vw !important;
+.bg-sliver {
+    background-color: $sliver !important;
 }
 
+.border-sliver {
+    border-color: $sliver !important;
+}
+
+.text-sliver {
+    color: $sliver !important;
+}
+
+@for $i from 1 through 100 {
+    .vw-#{$i} {
+        width: #{$i}vw !important;
+    }
+
+    .vh-#{$i} {
+        height: #{$i}vh !important;
+    }
+
+    @each $breakpoint in $grid-breakpoints {
+        $size: nth($breakpoint, 1);
+
+        @include media-breakpoint-up($size) {
+            .h-#{$size}-#{$i} {
+                height: $i !important;
+            }
+
+            .w-#{$size}-#{$i} {
+                height: $i !important;
+            }
+        }
+    }
+}
+
+
 @include media-breakpoint-between(md, xl) {
-    .h-md-100,
-    .h-lg-100 {
+
+    .h-md-100{
         height: 100% !important;
     }
 }
 
-.event-listing {
-    .card-deck {
-        .card {
-            @include media-breakpoint-up(md) {
-                @include card-deck-column-count(2);
+.card-deck {
+    @each $breakpoint in $grid-breakpoints {
+        $size: nth($breakpoint, 1);
+
+        @for $i from 1 through 5 {
+            .card.card-col-#{$size}-#{$i} {
+                @include media-breakpoint-up($size) {
+                    @include card-deck-column-count($i);
+                }
             }
-
-            @include media-breakpoint-up(lg) {
-                @include card-deck-column-count(3);
-            }
-        }
-    }
-}
-
-#outcomes.card-deck {
-    .card {
-        @include media-breakpoint-up(sm) {
-            @include card-deck-column-count(2);
-        }
-
-        @include media-breakpoint-up(md) {
-            @include card-deck-column-count(2);
-        }
-
-        @include media-breakpoint-up(lg) {
-            @include card-deck-column-count(2);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include card-deck-column-count(3);
         }
     }
 }
