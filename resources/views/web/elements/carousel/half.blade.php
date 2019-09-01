@@ -63,7 +63,7 @@
                 align-items-center justify-content-center align-items-lg-start text-lg-left text-center mx-auto">
                         <h1 class="font-weight-bold font-italic mb-4">{{ $item->title }}</h1>
                         <h3 class="mb-4">{{ $item->caption }}</h3>
-                        <a class="btn btn-lg rounded-0 px-4 py-1 mb-4" {{ $item->link}}>Discover</a>
+                        <a class="btn btn-lg rounded-0 px-4 py-1 mb-4" {{ $item->link}} target="_blank">Discover</a>
                     </div>
                 </div>
                 <div class="col-6 image" style="background-image:url({{ Voyager::image($item->source) }});">
