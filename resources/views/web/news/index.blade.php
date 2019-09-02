@@ -21,7 +21,7 @@
         <h3 class="text-left mb-5">We are a diverse group of thinkers and inventors</h3>
         <div class="text-right mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     </div>
-    <div class="card-columns">
+    <div class="card-columns card-col-xs-1 card-col-md-2 card-col-lg-3">
         @foreach($articles as $i => $article)
         <div class="card border-0">
             <div class="card-body">

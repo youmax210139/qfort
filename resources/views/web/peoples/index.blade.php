@@ -17,7 +17,7 @@
     <div class="row">
         @foreach ($peoples as $people)
         <!-- Grid column -->
-        <div class="col-lg-3 col-md-4 mb-2 mb-5">
+        <div class="col-6 col-lg-3 col-md-4 mb-2 mb-5">
             @figure(['item' => $people]) @endfigure
             <p class="text-uppercase blue-text font-weight-bold">
                 {{ $people->job }}

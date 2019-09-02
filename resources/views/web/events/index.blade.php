@@ -51,9 +51,9 @@
     </div>
     <div class="text-right pt-5 mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     <!-- Card -->
-    <div class="card-deck">
+    <div class="card-deck card-col-xs-1 card-col-md-2 card-col-lg-3">
         @foreach($events as $event)
-        <div class="card border-0 card-col-md-3 card-col-xs-1 card-col-sm-2 mb-5">
+        <div class="card border-0 mb-5">
             <img class="card-img-top vh-20 w-100" src="{{ Voyager::image($event->image) }}">
             <div class="card-body pt-0 border-sliver border">
                 <div class="date mb-2">

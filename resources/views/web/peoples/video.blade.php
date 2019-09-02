@@ -29,7 +29,7 @@
         <div class="col-md-2 mt-5">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 <li class="nav-item">
-                    <a class="nav-link pl-0 text-dark" href="{{ request()->fullUrl() }}">Overview</a>
+                    <a class="nav-link pl-0 text-dark" href="{{ route('web.peoples.detail', $people->id) }}">Overview</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link pl-0 text-dark" href="{{ $people->lab }}">Lab</a>
