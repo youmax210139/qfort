@@ -17,4 +17,9 @@ class Research extends Model
     {
         return str_limit($this->content, 95, '...');
     }
+
+    public function getLinkAttribute()
+    {
+        return route('web.researches.detail', $this->id);
+    }
 }

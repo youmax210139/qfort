@@ -1,3 +1,4 @@
+@if($push)
 @push('css')
 <style>
     .image-box {
@@ -35,6 +36,7 @@
     }
 </style>
 @endpush
+@endif
 <div>
     <div class="image-box mx-auto">
         <a href="{{ route('web.peoples.detail', $item->id)}}">

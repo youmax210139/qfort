@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12 col-md-5 col-lg-4">
             <img src="{{Voyager::image($event->image)}}" class="img-fluid">
-            <div class="border border-sliver border-top-0 text-left px-3">
+            <div class="border border-silver border-top-0 text-left px-3">
                 <ul class="list-group py-5">
                     <li class="list-group-item d-flex border-0">
                         <i class="fas fa-calendar-alt fa-2x mr-3"></i>

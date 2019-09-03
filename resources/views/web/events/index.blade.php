@@ -55,7 +55,7 @@
         @foreach($events as $event)
         <div class="card border-0 mb-5">
             <img class="card-img-top vh-20 w-100" src="{{ Voyager::image($event->image) }}">
-            <div class="card-body pt-0 border-sliver border">
+            <div class="card-body pt-0 border-silver border">
                 <div class="date mb-2">
                     {{ $event->publish_date['from']->format('M') }}<br>
                     {{ $event->publish_date['from']->format('d') }}

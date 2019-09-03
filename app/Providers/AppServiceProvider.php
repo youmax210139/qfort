@@ -32,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.events.header', 'eventHeader');
         Blade::component('web.elements.menus.sort', 'sortmenu');
         Blade::component('web.elements.figure', 'figure');
-        Blade::component('web.elements.post', 'post');
+        Blade::component('web.elements.carousel.post', 'carouselpost');
+        Blade::component('web.elements.carousel.figure', 'carouselfigure');
         Blade::component('web.elements.paginator', 'paginator');
 
         # observer

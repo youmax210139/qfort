@@ -52,9 +52,13 @@
     }
 }
 
-@include responsive-color('grey', $grey);
-@include responsive-color('sliver', $sliver);
+@include responsive-color('gray', $gray);
+@include responsive-color('silver', $silver);
+@include responsive-color('light-silver', $light-silver);
+@include responsive-color('dark-silver', $dark-silver);
 @include responsive-color('white', $white);
+@include responsive-color('green', $green);
+
 
 @for $i from 1 through 100 {
     .vw-#{$i} {
@@ -69,8 +73,16 @@
         width: $i !important;
     }
 
+    .w-#{$i}-vh{
+        width: #{$i}vh !important;
+    }
+
     .h-#{$i} {
         height: $i !important;
+    }
+
+    .h-#{$i}-vw{
+        height: #{$i}vw !important;
     }
 
     @each $breakpoint in $grid-breakpoints {
@@ -146,5 +158,15 @@
                 column-count: $i;
             }
         }
+    }
+}
+
+.obj-fit-cover{
+    object-fit: cover !important;
+}
+
+@for $i from 2 through 4{
+    .border-radius-#{$i}x{
+        border-radius: $i * 0.25rem;
     }
 }
