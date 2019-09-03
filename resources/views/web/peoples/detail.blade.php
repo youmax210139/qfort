@@ -39,7 +39,7 @@ $menus = json_decode(json_encode($menus));
             </div>
         </div>
         <div class="col-md-4">
-            <div class="bg-md-white bg-xs-sliver p-3">
+            <div class="bg-md-white bg-xs-silver p-3">
                 <h2 class="mb-5 font-weight-bold mb-2">{{ $people->name }}</h2>
                 <h5 class="text-danger mb-2">{{ $people->fullDomain }}</h5>
                 <h5 class="mb-5">{{ $people->department }}</h5>

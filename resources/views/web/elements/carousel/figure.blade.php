@@ -88,21 +88,14 @@
 
     <!--Slides-->
     <div class="carousel-inner mx-auto" role="listbox">
-        @for($i=0;$i<count($items);$i+=4) <div class="carousel-item {{$i==0?'active':''}}">
+        @for($i=0;$i<count($items);$i+=4) 
+        <div class="carousel-item {{$i==0?'active':''}}">
             <div class="row">
+                @for($j=$i;$j<count($items);$j++) 
                 <div class="col-6 mb-5">
-                    @figure(['item'=>$items[$i], 'push'=>$i==0])@endfigure
+                    @figure(['item'=>$items[$j], 'push'=>$i==0])@endfigure
                 </div>
-                <div class="col-6 mb-5">
-                    @figure(['item'=>$items[$i+1], 'push'=>$i==0])@endfigure
-                </div>
-
-                <div class="col-6 mb-5">
-                    @figure(['item'=>$items[$i+2], 'push'=>$i==0])@endfigure
-                </div>
-                <div class="col-6 mb-5">
-                    @figure(['item'=>$items[$i+3], 'push'=>$i==0])@endfigure
-                </div>
+                @endfor
             </div>
     </div>
     @endfor

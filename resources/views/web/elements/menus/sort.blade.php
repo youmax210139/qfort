@@ -10,7 +10,7 @@
     }
 </style>
 @endpush
-<div class="bg-xs-sliver bg-md-white btn-group sortmenu w-100 w-md-auto">
+<div class="bg-xs-silver bg-md-white btn-group sortmenu w-100 w-md-auto">
     <button type="button" class="text-right text-md-center btn btn-md text-success dropdown-toggle" 
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ $text?? 'Sort'}}
