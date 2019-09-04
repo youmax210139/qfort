@@ -37,7 +37,7 @@
 </style>
 @endpush
 @endif
-<div>
+<div class="col-lg-3 col-6 mb-5">
     <div class="image-box mx-auto">
         <a href="{{ route('web.peoples.detail', $item->id)}}">
             <div class="image-content">
@@ -53,4 +53,5 @@
             {{ $item->name }}
         </a>
     </h5>
+    {{ $slot }}
 </div>

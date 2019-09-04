@@ -15,12 +15,12 @@
 
         #carousel-figure .carousel-item-next,
         #carousel-figure .carousel-item-right.active {
-            transform: translateX(50%);
+            transform: translateX(100%);
         }
 
         #carousel-figure .carousel-item-left.active,
         #carousel-figure .carousel-item-prev {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
         }
 
         #carousel-figure .carousel-item-left,
@@ -34,32 +34,12 @@
             font-size: 2rem;
         }
     }
-
-    @media(max-width: 767.98px) {
-
-        #carousel-figure .carousel-item-next,
-        #carousel-figure .carousel-item-right.active {
-            transform: translateX(100%);
-        }
-
-        #carousel-figure .carousel-item-left.active,
-        #carousel-figure .carousel-item-prev {
-            transform: translateX(-100%);
-        }
-
-        #carousel-figure .carousel-item-left,
-        #carousel-figure .carousel-item-right {
-            transform: translateX(0);
-        }
-    }
 </style>
 @endpush
 
 <div class="row d-lg-flex d-none">
     @foreach($items as $i=>$item)
-    <div class="col-lg-3 mb-5">
-        @figure(['item'=>$item, 'push'=>$i==0])@endfigure
-    </div>
+    @figure(['item'=>$item, 'push'=>$i==0])@endfigure
     @endforeach
 </div>
 
@@ -79,50 +59,42 @@
 
     <!-- Indicators -->
     <ol class="carousel-indicators mb-n2">
-        @for($i=0; $i<count($items); $i+=4)
-        <li data-target="#carousel-figure" data-slide-to="{{$i}}" class="{{ $i==0?'active':''}} bg-green 
-            rounded-circle w-2-vh vh-2"></li>
-        @endfor
+        @for($i=0; $i<count($items); $i+=4) <li data-target="#carousel-figure" data-slide-to="{{$i/4}}" class="{{ $i==0?'active':''}} bg-green 
+            rounded-circle w-2-vh vh-2">
+            </li>
+            @endfor
     </ol>
     <!--/.Indicators-->
-
     <!--Slides-->
     <div class="carousel-inner mx-auto" role="listbox">
         @for($i=0;$i<count($items);$i+=4) 
         <div class="carousel-item {{$i==0?'active':''}}">
-            <div class="row">
-                @for($j=$i;$j<count($items);$j++) 
-                <div class="col-6 mb-5">
-                    @figure(['item'=>$items[$j], 'push'=>$i==0])@endfigure
+            <div class="col-12">
+                <div class="row">
+                    @if(count($items)> $i)
+                    @figure(['item'=>$items[$i], 'push'=>$i==0])@endfigure
+                    @endif
+                    @if(count($items)> $i+1)
+                    @figure(['item'=>$items[$i+1], 'push'=>$i+1==0])@endfigure
+                    @endif
                 </div>
-                @endfor
+                <div class="row">
+                    @if(count($items)> $i+2)
+                    @figure(['item'=>$items[$i+2], 'push'=>$i+2==0])@endfigure
+                    @endif
+                    @if(count($items)> $i+3)
+                    @figure(['item'=>$items[$i+3], 'push'=>$i+3==0])@endfigure
+                    @endif
+                </div>
             </div>
+        </div>
+        @endfor
     </div>
-    @endfor
+
 </div>
-</div>
+
 @if(count($items)/4 > 1)
 @push('js')
-<script>
-    $(document).ready(function() {
-        var $items = $('#carousel-figure .carousel-item');
-        $items.each(function(){
-            var next = $(this).next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-
-            for (var i=0;i<$items.length-2;i++) {
-                next=next.next();
-                if (!next.length) {
-                next=$(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
-            }
-        });
-    });
-</script>
 @endpush
 @endif
 @endif

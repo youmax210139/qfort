@@ -17,12 +17,11 @@
     <div class="row">
         @foreach ($peoples as $i=>$people)
         <!-- Grid column -->
-        <div class="col-6 col-lg-3 col-md-4 mb-2 mb-5">
-            @figure(['item' => $people, 'push'=>$i==0]) @endfigure
-            <p class="text-uppercase blue-text font-weight-bold">
-                {{ $people->job }}
-            </p>
-        </div>
+        @figure(['item' => $people, 'push'=>$i==0])
+        <p class="text-uppercase blue-text font-weight-bold">
+            {{ $people->job }}
+        </p>
+        @endfigure
         <!-- Grid column -->
         @endforeach
     </div>

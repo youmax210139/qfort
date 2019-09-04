@@ -38,4 +38,9 @@ class Article extends Model
     {
         return str_limit($this->content, 95, '...');
     }
+
+    public function getLinkAttribute()
+    {
+        return route('web.news.detail', $this->id);
+    }
 }
