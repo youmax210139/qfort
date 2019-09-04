@@ -125,63 +125,7 @@
     <!-- Section heading -->
     <h2 class="text-center my-5 font-italic">In the <b>NEWS</b> today</h2>
 
-    <!-- Grid row -->
-    <div id="carousel-news" class="carousel slide mx-sm-n1 mx-lg-0" data-ride="carousel">
-
-        <!--Controls-->
-        <a class="carousel-control-prev d-lg-none" href="#carousel-news" role="button" data-slide="prev">
-            <i class="fas fa-chevron-left text-dark font-weight-bold"></i>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next d-lg-none" href="#carousel-news" role="button" data-slide="next">
-            <i class="fas fa-chevron-right text-dark font-weight-bold"></i>
-            <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
-
-        <!-- Indicators -->
-        <ol class="carousel-indicators d-lg-none mb-n2">
-            <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-news" data-slide-to="1"></li>
-            <li data-target="#carousel-news" data-slide-to="2"></li>
-            <li data-target="#carousel-news" data-slide-to="3"></li>
-            <li data-target="#carousel-news" data-slide-to="4"></li>
-            <li data-target="#carousel-news" data-slide-to="5"></li>
-        </ol>
-        <!--/.Indicators-->
-
-        <!--Slides-->
-        <div class="carousel-inner mx-auto" role="listbox">
-            @foreach( $articles as $i => $article)
-            <div class="carousel-item {{$i==0?'active':''}}">
-                <div class="object text-left col-12 col-md-6 col-lg-4 mb-5 float-left px-2">
-                    <div class="zoom view overlay mb-0">
-                        <img class="img-fluid" src="{{ Voyager::image($article->image) }}">
-                        <div class="mask"></div>
-                    </div>
-                    <div class="p-3 content position-relative">
-                        <h4 class="font-weight-bold mb-3">
-                            {{ $article->title }}
-                        </h4>
-                        <p>
-                            {{ $article->created_at }}
-                            /
-                            <span class="text-success">{{ $article->firstCategory }}</span>
-                        </p>
-                        <p>{!! $article->abstract !!}</p>
-                        <div class="text-right p-3 w-100 position-absolute">
-                            <a class="btn text-success font-weight-bold"
-                                href="{{ route('web.news.detail', $article->id)}}">Read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-        <!--/.Slides-->
-    </div>
-    <a class="btn btn-success btn-lg text-white px-5 mt-4 d-none d-lg-inline-block"
-        href="{{ route('web.news.index')}}">More</a>
+    @carouselnew(['items'=>$articles])@endcarouselnew
 </section>
 
 <section class="text-center my-5 py-5 container research">
@@ -193,7 +137,7 @@
         elements with an incredible use of technological design sense and imagery.</h4>
     <div class="row domain">
         @foreach ($domains as $domain)
-        <div class="col-12 col-md-4 text-white mb-2 text-white">
+        <div class="col-12 col-lg-4 text-white mb-5 text-white">
             <div class="h-100">
                 <h4 class="p-4 mb-0">
                     <a class="text-white"
@@ -214,23 +158,27 @@
     <!-- Section description -->
     <h4 class="text-center mb-5 font-weight-light">Fascinating insights into the world of optics</h4>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-12 col-lg-8">
             <div class="row">
-                <div class="col mb-2 p-2 mb-md-0">
+                <div class="col-12 mb-2 p-2 mb-md-0">
                     @eventHeader(['item'=>$events[0]]) @endeventHeader
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-2 p-2">
+                <div class="col-12 col-lg-6 mb-2 p-2">
                     @eventHeader(['item'=>$events[2],'push'=>false ]) @endeventHeader
                 </div>
-                <div class="col-md-6 mb-2 p-2">
+                <div class="col-12 col-lg-6 mb-2 p-2">
                     @eventHeader(['item'=>$events[3],'push'=>false ]) @endeventHeader
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-2 p-2">
-            @eventHeader(['item'=>$events[1],'push'=>false, 'imgClass'=>'h-md-100' ]) @endeventHeader
+        <div class="col-12 col-lg-4 mb-2 p-2">
+            @eventHeader(['item'=>$events[1],'push'=>false, 'imgClass'=>'h-lg-100' ]) 
+            @slot('style')
+            height: 100% !important;
+            @endslot
+            @endeventHeader
         </div>
 
     </div>
@@ -241,22 +189,7 @@
 @push('js')
 <script>
     $(document).ready(function() {
-        var $items = $('#carousel-news .carousel-item');
-        $items.each(function(){
-            var next = $(this).next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
 
-            for (var i=0;i<4;i++) {
-                next=next.next();
-                if (!next.length) {
-                next=$(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
-            }
-        });
         var fadeIn = function(){
             var bottom_of_window = $(window).scrollTop() + $(window).innerHeight();
             $('#carousel-news .carousel-inner .carousel-item .object').each(function(){

@@ -20,11 +20,6 @@ class Event extends Model
         'publish_date',
     ];
 
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'event_categories', 'event_id', 'category_id');
-    }
-
     public function getAbstractAttribute($value)
     {
         return str_limit($value, 95, '...');

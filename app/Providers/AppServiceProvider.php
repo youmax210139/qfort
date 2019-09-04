@@ -27,13 +27,20 @@ class AppServiceProvider extends ServiceProvider
     {
         # blade
         Blade::component('web.footer', 'footer');
-        Blade::component('web.elements.carousel.default', 'carousel');
+        
         Blade::component('web.elements.social', 'social');
         Blade::component('web.elements.events.header', 'eventHeader');
         Blade::component('web.elements.menus.sort', 'sortmenu');
         Blade::component('web.elements.figure', 'figure');
-        Blade::component('web.elements.carousel.post', 'carouselpost');
+
+        Blade::component('web.elements.cards.research', 'research');
+        Blade::component('web.elements.cards.new', 'new');
+
+        Blade::component('web.elements.carousel.default', 'carousel');
         Blade::component('web.elements.carousel.figure', 'carouselfigure');
+        Blade::component('web.elements.carousel.research', 'carouselresearch');
+        Blade::component('web.elements.carousel.new', 'carouselnew');
+        
         Blade::component('web.elements.paginator', 'paginator');
 
         # observer

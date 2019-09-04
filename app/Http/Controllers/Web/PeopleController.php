@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class PeopleController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $peoples = People::all();
+        $peoples = People::ofCategory($request->c)->get();
         $categories = Category::where('type', 'people')->get();
         return view('web.peoples.index', compact('peoples', 'categories'));
     }

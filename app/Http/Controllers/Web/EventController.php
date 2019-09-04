@@ -9,9 +9,9 @@ use App\Models\Category;
 class EventController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::all();
+        $events = Event::ofCategory($request->c)->get();
         $categories = Category::where('type', 'event')->get();
         return view('web.events.index', compact('events', 'categories'));
     }

@@ -20,17 +20,8 @@
         left: 2.5%;
     }
 
-    .card .card-img-top{
-        object-fit: cover;
-    }
-    .card .date {
-        background-color: #302D2C;
-        padding: .75rem;
-        color: white;
-        width: 3.75rem;
-        height: 3.75rem;
-        text-align: center;
-        margin-top: -1.875rem;
+    .card .bg-gray {
+        margin-top: -3vh;
     }
 
     .card .position-absolute {
@@ -54,27 +45,30 @@
     <div class="card-deck card-col-xs-1 card-col-md-2 card-col-lg-3">
         @foreach($events as $event)
         <div class="card border-0 mb-5">
-            <img class="card-img-top vh-20 w-100" src="{{ Voyager::image($event->image) }}">
-            <div class="card-body pt-0 border-silver border">
-                <div class="date mb-2">
+            <img class="card-img-top object-fit-cover" src="{{ Voyager::image($event->image) }}">
+            <div class="card-body pt-0 border-silver border flex-column text-left border-bottom-0 pb-0">
+                <div class="bg-gray mb-2 text-white date text-center w-6-vh vh-6
+                d-flex align-items-center justify-content-center">
                     {{ $event->publish_date['from']->format('M') }}<br>
                     {{ $event->publish_date['from']->format('d') }}
                 </div>
-                <div class="text-left">
-                    <!-- Post title -->
-                    <h4 class="font-weight-bold mb-3">
-                        {{ $event->title }}
-                    </h4>
-                    <!-- Excerpt -->
-                    <div class="mb-3">{!! $event->abstract !!}</div>
-                    <!-- Read more button -->
-                    <div class="text-right position-absolute mb-2 w-100">
-                        <a class="btn text-success font-weight-bold"
-                            href="{{ route('web.events.detail', [$event->id])}}">
-                            Read more
-                        </a>
-                    </div>
-                </div>
+
+                <!-- Post title -->
+                <h4 class="font-weight-bold mb-3">
+                    {{ $event->title }}
+                </h4>
+                <!-- Excerpt -->
+                <div class="mb-3">{!! $event->abstract !!}</div>
+                <!-- Read more button -->
+                {{-- <div class="text-right mt-auto mb-2 w-100">
+
+                </div> --}}
+            </div>
+            <div class="card-footer text-right bg-white border border-silver border-top-0 pt-0">
+                <a class="btn text-success font-weight-bold"
+                    href="{{ route('web.events.detail', [$event->id])}}">
+                    Read more
+                </a>
             </div>
         </div>
         @endforeach

@@ -16,9 +16,13 @@
 @section('content')
 <section class="text-center my-5 container about">
     <div class="row">
-        <div class="col-12 col-md-5 col-lg-4">
+        <div class="col-12 d-lg-none">
+            <h1 class="font-weight-bold text-left mb-3">{{ $event->title }}</h1>
+            <h3 class="text-left mb-5">{{ $event->abstract }}</h3>
+        </div>
+        <div class="col-12 col-lg-4">
             <img src="{{Voyager::image($event->image)}}" class="img-fluid">
-            <div class="border border-silver border-top-0 text-left px-3">
+            <div class="border border-dark-silver border-top-0 text-left px-3">
                 <ul class="list-group py-5">
                     <li class="list-group-item d-flex border-0">
                         <i class="fas fa-calendar-alt fa-2x mr-3"></i>
@@ -74,19 +78,22 @@
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-md-7 col-lg-8">
+        <div class="col-12 col-lg-8">
             <!-- Section heading -->
-            <h1 class="font-weight-bold text-left mb-3">{{ $event->title }}</h1>
-            <h3 class="text-left mb-5">{{ $event->abstract }}</h3>
+            <h1 class="d-none d-lg-block font-weight-bold text-left mb-3">{{ $event->title }}</h1>
+            <h3 class="d-none d-lg-block text-left mb-5">{{ $event->abstract }}</h3>
             <div class="content my-5">
                 {!! $event->content !!}
             </div>
             <div class="row align-items-center">
-                <div class="col-12 col-md-9 mb-4 text-center text-md-left">
+                <div class="col-12 d-lg-none mb-4">
+                    <a href="" class="btn btn-outline-success ">Register</a>
+                </div>
+                <div class="col-12 col-lg-10 mb-4 text-center text-lg-left">
                     @social @endsocial
                 </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <a href="" class="btn btn-outline-success form-control">Register</a>
+                <div class="d-none d-lg-flex col-lg-2 mb-4 text-right">
+                    <a href="" class="btn btn-outline-success">Register</a>
                 </div>
             </div>
         </div>

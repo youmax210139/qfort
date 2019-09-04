@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 class NewController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::with('categories')->get();
+        $articles = Article::with('categories')->ofCategory($request->c)->get();
         $carousels = Carousel::where('status', 'A')->get();
         $categories = Category::where('type', 'new')->get();
         return view('web.news.index', compact('articles', 'carousels', 'categories'));

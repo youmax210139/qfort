@@ -4,29 +4,31 @@ $push = $push??true;
 @push('css')
 @if($push)
 <style>
-    .event-header-content {
-        position: absolute;
+    .event-title {
         bottom: 0;
-        background: #FFFFFF;
         opacity: 0.9;
-        text-align: left;
         padding: .5rem;
     }
 
-    .event-header .img-fluid {
-        min-height: 400px;
-        object-fit: cover;
+    .zoom:hover .event {
+        transform: scale(1.1);
+    }
+
+    .zoom .event {
+        transition: all 4s ease;
     }
 </style>
 @endif
 @endpush
 
-<div class="zoom view overlay h-100 event-header">
-    <a href="{{ route('web.events.detail', $item->id)}}">
-        <img src="{{ Voyager::image($item->image)}}" alt="" class="img-fluid {{ $imgClass??''}}">
-        <div class="mask"></div>
-    </a>
-    <div class="w-100 event-header-content p-2">
+<div class="zoom view overlay h-100">
+    <div class="object-fit-cover background-position-center background-size-cover min-vh-42 h-100 event"
+        style="background-image:url({{ Voyager::image($item->image)}})">
+        <a href="{{ route('web.events.detail', $item->id)}}">
+            <div class="mask"></div>
+        </a>
+    </div>
+    <div class="w-100 event-title p-2 position-absolute bg-white text-left p-2">
         <!-- Post title -->
         <h4 class="font-weight-bold mb-3">{{ $item->title }}</h4>
         <!-- Post data -->

@@ -12,11 +12,6 @@ class Article extends Model
     use Categorizable;
     use Paginatable;
 
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'article_categories', 'article_id', 'category_id');
-    }
-
     public function getUserIdBrowseAttribute()
     {
         return $this->user->name;
