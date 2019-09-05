@@ -32,15 +32,22 @@
 @endpush
 @section('content')
 
-<section class="text-center mb-5 container event-listing">
-    <div class="title-wrapper mb-4">
+<div class="title-wrapper mb-3 d-lg-none">
+    <img class="img-fluid" src="{{ Voyager::image('news/news8@2x.png') }}">
+    <div class="mask text-dark">
+        <h1 class="font-weight-bold text-left mb-2">Events</h1>
+        <h3 class="text-left mb-2">See what’s going on at QFort</h3>
+    </div>
+</div>
+<section class="text-center mb-5 container">
+    <div class="title-wrapper mb-4 d-none d-lg-block">
         <img class="img-fluid" src="{{ Voyager::image('news/news8@2x.png') }}">
         <div class="mask text-dark">
             <h1 class="font-weight-bold text-left mb-2">Events</h1>
             <h3 class="text-left mb-2">See what’s going on at QFort</h3>
         </div>
     </div>
-    <div class="text-right pt-5 mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
+    <div class="text-right mt-5 mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     <!-- Card -->
     <div class="card-deck card-col-xs-1 card-col-md-2 card-col-lg-3">
         @foreach($events as $event)
@@ -65,8 +72,7 @@
                 </div> --}}
             </div>
             <div class="card-footer text-right bg-white border border-silver border-top-0 pt-0">
-                <a class="btn text-success font-weight-bold"
-                    href="{{ route('web.events.detail', [$event->id])}}">
+                <a class="btn text-success font-weight-bold" href="{{ route('web.events.detail', [$event->id])}}">
                     Read more
                 </a>
             </div>
