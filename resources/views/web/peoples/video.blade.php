@@ -44,19 +44,19 @@
             <iframe class="w-100 vh-50 my-5" src="{{ $link }}" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen></iframe>
             <ul class="list-group py-5">
-                <li class="list-group-item d-flex border-0 align-items-center">
+                <li class="list-group-item d-flex border-0 align-items-start ">
                     <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0" target="_blank" href="{{ $link }}">AlterEgo: Interfacing with devices
+                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">AlterEgo: Interfacing with devices
                         through silent speech Mar 13, 2018 · in Biomechatronics</a>
                 </li>
-                <li class="list-group-item d-flex border-0 align-items-center">
+                <li class="list-group-item d-flex border-0 align-items-start ">
                     <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0" target="_blank" href="{{ $link }}">Walking upstairs after the AMI
+                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">Walking upstairs after the AMI
                         procedure May 29, 2018 · in Biomechatronics</a>
                 </li>
-                <li class="list-group-item d-flex border-0 align-items-center">
+                <li class="list-group-item d-flex border-0 align-items-start ">
                     <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0" target="_blank" href="{{ $link }}">Interfacing with devices through
+                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">Interfacing with devices through
                         silent speech Jan 02, 2018 · in Biomechatronics</a>
                 </li>
             </ul>

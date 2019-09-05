@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="d-none d-lg-flex mt-5">
+        <div class="d-none col-lg-2 d-lg-flex mt-5">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
                 <li class="nav-item {{ $i==0?'active':''}}">
