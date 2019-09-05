@@ -16,7 +16,7 @@
         </p>
         <div class="text-left mb-3">{!! $item->abstract !!}</div>
         <div class=" mb-4 mt-auto text-right">
-            <a class="btn btn-success font-weight-bold border-radius-3x px-4" href="{{ $item->link }}">
+            <a class="btn text-success font-weight-bold border-radius-3x px-4" href="{{ $item->link }}">
                 Read more
             </a>
         </div>
