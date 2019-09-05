@@ -58,6 +58,7 @@
 @include responsive-color('dark-silver', $dark-silver);
 @include responsive-color('white', $white);
 @include responsive-color('green', $green);
+@include responsive-color('dark', $dark);
 
 
 @for $i from 1 through 100 {

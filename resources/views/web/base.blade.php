@@ -6,8 +6,14 @@
         letter-spacing: 1px;
         font-family: "Open Sans", serif;
         background-color: #fff;
-        padding-top: 100px;
+        padding-top: 132px;
     }
+
+    @media (min-width: 992px) { 
+        body{
+            padding-top: 107px;
+        }
+     }
 
     .h1,
     .h2,

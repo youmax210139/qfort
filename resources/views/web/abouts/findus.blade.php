@@ -16,6 +16,22 @@
         width: 100%;
         position: absolute;
     }
+
+    #contactus {
+        display: block;
+        position: relative;
+        top: -132px;
+        visibility: hidden;
+    }
+
+    @media (min-width: 992px) {
+        #contactus {
+            display: block;
+            position: relative;
+            top: -107px;
+            visibility: hidden;
+        }
+    }
 </style>
 @endpush
 @section('content')
@@ -63,6 +79,7 @@
             </p>
         </li>
     </ul>
+    <a id="contactus"></a>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
     <ul class="text-lg-left list-unstyled">
         <li>

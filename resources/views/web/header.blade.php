@@ -105,8 +105,8 @@
 @endpush
 <header class="font-weight-bold fixed-top">
     <nav
-        class="navbar navbar-expand-md align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
-        <div class="w-100 d-flex d-md-none justify-content-end">
+        class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
+        <div class="w-100 d-flex d-lg-none justify-content-end">
             <span class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
             </span>
@@ -129,7 +129,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
             id="navbarSupportedContent">
-            <div class="navbar-nav flex-row mb-2 d-none d-md-flex">
+            <div class="navbar-nav flex-row mb-2 d-none d-lg-flex">
                 <a class="text-dark" href="">中文</a>
                 /
                 <a class="text-dark" href="">EN</a>
