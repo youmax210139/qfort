@@ -2,20 +2,20 @@
 
 @push('css')
 <style>
-    .nav-item.active a,
-    .nav-item:hover a {
-        color: #217D7B !important;
-    }
+
 </style>
 @endpush
 @section('content')
 <section class="text-center my-5 container persion">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-6">
+        <div class="d-lg-none w-100 mb-3 px-2">
+            @sortmenu(['menus'=>$menus, 'text'=> 'Overview'])@endsortmenu
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6">
             <img src="{{Voyager::image($people->image)}}" class="img-fluid">
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <h2 class="my-5 font-weight-bold mb-2">{{ $people->name }}</h2>
             <h5 class="text-danger mb-2">{{ $people->fullDomain }}</h5>
             <h5 class="mb-5">{{ $people->department }}</h5>
@@ -26,26 +26,20 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-2 mt-5">
+        <div class="d-none d-lg-flex col-lg-2 mt-5">
             <ul class="nav flex-column text-left pt-3 border-top ">
-                <li class="nav-item">
-                    <a class="nav-link pl-0 text-dark" href="{{ route('web.peoples.detail', $people->id) }}">Overview</a>
+                @foreach($menus as $i=>$menu)
+                <li class="nav-item {{ $i==0?'active':''}}">
+                    <a class="nav-link pl-0 text-dark " href="{{ $menu->link }}">
+                        {{ $menu->name }}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link pl-0 text-dark" href="{{ $people->lab }}">Lab</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link pl-0 text-dark" href="{{ $people->publication }}">Publication</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link pl-0 text-dark " href="{{ route('web.peoples.video', $people->id) }}">Video</a>
-                </li>
+                @endforeach
             </ul>
         </div>
         @php
         $link = 'https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG';
         @endphp
-        <div class="col-md-10">
+        <div class="col-lg-10">
             <h2 class="mt-5 font-weight-bold mb-2"> Video </h2>
             <iframe class="w-100 vh-50 my-5" src="{{ $link }}" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen></iframe>

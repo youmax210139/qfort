@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class PeopleController extends Controller
 {
 
+    protected function getMenu(People $people)
+    {
+        return json_decode(json_encode([
+            ['name' => 'Overview', 'link' => request()->fullUrl()],
+            ['name' => 'Lab', 'link' => $people->lab],
+            ['name' => 'Publication', 'link' => $people->publication],
+            ['name' => 'Video', 'link' => route('web.peoples.video', $people->id)],
+        ]));
+    }
+
     public function index(Request $request)
     {
         $peoples = People::ofCategory($request->c)->get();
@@ -18,12 +28,14 @@ class PeopleController extends Controller
 
     public function detail(People $people)
     {
-        return view('web.peoples.detail', compact('people'));
+        $menus = $this->getMenu($people);
+        return view('web.peoples.detail', compact('people', 'menus'));
     }
 
     public function video(People $people)
     {
-        return view('web.peoples.video', compact('people'));
+        $menus = $this->getMenu($people);
+        return view('web.peoples.video', compact('people', 'menus'));
     }
     /**
      * Show the form for creating a new resource.

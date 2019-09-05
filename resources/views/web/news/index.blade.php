@@ -7,11 +7,7 @@
 @endpush
 
 @section('content')
-{{-- @carousel([
-'items' => $carousels,
-'type' => 'half'
-])
-@endcarousel --}}
+@carouselvertical(['items' => $carousels])@endcarouselvertical
 <section class="text-center my-5 container">
     <!-- Section heading -->
     <div class="row">

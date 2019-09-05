@@ -1,28 +1,8 @@
 @push('css')
 <style>
-    header {
-        background-color: #fff;
-    }
 
     header .navbar-brand img {
         height: 80px;
-    }
-
-    header .nav-link {
-        font-family: 'open_sanssemibold';
-        color: #000 !important;
-    }
-
-    header .nav-link:hover,
-    header .nav-link.active {
-        background-color: #000 !important;
-        color: #fff !important;
-    }
-
-    header .dropdown-item:hover,
-    .dropdown-item.active {
-        background-color: #000 !important;
-        color: #fff;
     }
 
     header .has-search input {
@@ -48,41 +28,15 @@
         height: 16px;
     }
 
-    @media (min-width: 768px) {
-
-        header {
-            padding: 0 20px;
-        }
-
-        header .has-search input {
-            min-width: 240px;
-        }
+    @media (min-width: 992px) {
 
         header .dropdown-menu {
             top: auto;
             left: auto;
-            border: none;
-            border-radius: 0px;
-            padding-bottom: 0px;
         }
 
         header .dropdown-menu.show {
             display: none;
-        }
-
-        header .dropdown-menu .dropdown-item {
-            background: #BDBEBF;
-            color: #fff;
-            text-align: left;
-            letter-spacing: 0.9px;
-        }
-
-        header .dropdown-menu .dropdown-item:first-child {
-            padding-top: 0.75rem;
-        }
-
-        header .dropdown-menu .dropdown-item:last-child {
-            padding-bottom: 0.75rem;
         }
 
         header .navbar-nav li:hover>.dropdown-menu {
@@ -90,20 +44,9 @@
         }
     }
 
-    @media (min-width: 1200px) {
-        header {
-            width: 100%;
-        }
-
-        header .navbar {
-            width: 1160px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
 </style>
 @endpush
-<header class="font-weight-bold fixed-top">
+<header class="font-weight-bold fixed-top bg-white py-2">
     <nav
         class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
         <div class="w-100 d-flex d-lg-none justify-content-end">
@@ -139,29 +82,35 @@
                 <li
                     class="nav-item mx-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
                     @if($menu_item->children->count())
-                    <a class="nav-link h4 mb-0 dropdown-toggle {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
+                    <a class="nav-link h4 mb-0 dropdown-toggle text-dark font-weight-bold
+                        {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
                         id="dropdown-{{$i}}" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" href="#">
                         {{ $menu_item->title }}
                     </a>
-                    <div class="dropdown-menu pb-0 m-0 border-0 {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
+                    <div class="dropdown-menu vw-lg-15 pb-0 m-0 border-0 bg-xs-dark-silver bg-lg-white 
+                        pt-lg-3 pt-0
+                        {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
                         aria-labelledby="dropdown-{{$i}}">
-                        @foreach($menu_item->children as $item)
-                        <a class="dropdown-item w-100 text-center text-md-left fa-1x p-2 {{ strpos(request()->url(), $item->link())?'active':'' }}"
+                        @foreach($menu_item->children as $j => $item)
+                        <a class="dropdown-item w-100 text-center text-lg-left 
+                            text-white bg-dark-silver fa-1x px-3 py-2 
+                            border-0 pb-0 
+                            {{ strpos(request()->url(), $item->link())?'active':'' }}"
                             href="{{ $item->link() }}">{{ $item->title }}</a>
                         @endforeach
                     </div>
                     @else
-                    <a class="nav-link h4 mb-0 {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
+                    <a class="nav-link h4 mb-0 text-dark font-weight-bold {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
                         href="{{ $menu_item->link() }}">
                         {{ $menu_item->title }}
                     </a>
                     @endif
                 </li>
                 @endforeach
-                <form class="form-inline mb-2 ml-4 d-none d-lg-flex">
+                <form class="form-inline mb-2 ml-3 d-none d-lg-flex">
                     <div class="input-group has-search">
-                        <input type="text" class="form-control pl-2" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control pl-2 vw-15" aria-describedby="basic-addon1">
                         <span class="icon-wrapper">
                             <img src="{{ Voyager::image('icons/search.svg') }}" />
                         </span>

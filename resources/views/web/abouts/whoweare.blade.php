@@ -7,10 +7,7 @@
 @endpush
 
 @section('content')
-@carousel([
-'items' => $carousels
-])
-@endcarousel
+
 <section class="text-center my-5 container news">
 
     <!-- Section heading -->

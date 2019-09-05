@@ -6,14 +6,14 @@
         letter-spacing: 1px;
         font-family: "Open Sans", serif;
         background-color: #fff;
-        padding-top: 132px;
+        padding-top: 148px;
     }
 
-    @media (min-width: 992px) { 
-        body{
-            padding-top: 107px;
+    @media (min-width: 992px) {
+        body {
+            padding-top: 123px;
         }
-     }
+    }
 
     .h1,
     .h2,
@@ -29,6 +29,7 @@
     h6 {
         line-height: 1.6;
     }
+
     a:hover {
         cursor: pointer;
         text-decoration: none;
@@ -36,6 +37,18 @@
 
     a.text-dark:hover {
         color: #217D7B !important;
+    }
+
+    a.text-dark.active,
+    a.text-dark.active:hover {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    a.text-white:hover,
+    a.text-white.active,
+    a.text-white.active:hover {
+        background-color: rgb(62, 58, 57) !important;
     }
 
 

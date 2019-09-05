@@ -16,30 +16,21 @@
     }
 </style>
 @endpush
-@php
-$menus = [
-['name'=>'Overview', 'link'=> request()->fullUrl()],
-['name'=>'Lab' ,'link'=> $people->lab,],
-['name'=>'Publication','link' => $people->publication],
-['name'=>'Video','link' => route('web.peoples.video', $people->id)],
-];
-$menus = json_decode(json_encode($menus));
-// dd($menus);
-@endphp
+
 @section('content')
 <section class="text-center my-5 container persion">
     <div class="row">
-        <div class="d-md-none w-100 mb-3 px-2">
+        <div class="d-lg-none w-100 mb-3 px-2">
             @sortmenu(['menus'=>$menus, 'text'=> 'Overview'])@endsortmenu
         </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-6">
-            <div class="vh-xs-50 h-md-100 background-position-center background-size-cover"
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6">
+            <div class="vh-xs-50 h-lg-100 background-position-center background-size-cover"
                 style="background-image: url({{Voyager::image($people->image)}})">
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="bg-md-white bg-xs-silver p-3">
+        <div class="col-lg-4">
+            <div class="bg-lg-white bg-xs-silver p-3">
                 <h2 class="mb-5 font-weight-bold mb-2">{{ $people->name }}</h2>
                 <h5 class="text-danger mb-2">{{ $people->fullDomain }}</h5>
                 <h5 class="mb-5">{{ $people->department }}</h5>
@@ -51,7 +42,7 @@ $menus = json_decode(json_encode($menus));
         </div>
     </div>
     <div class="row mt-3">
-        <div class="d-none d-md-flex col-md-2 mt-5">
+        <div class="d-none d-lg-flex mt-5">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
                 <li class="nav-item {{ $i==0?'active':''}}">
@@ -61,10 +52,11 @@ $menus = json_decode(json_encode($menus));
                 @endforeach
             </ul>
         </div>
-        <div class="col-12 col-md-10">
-            <h1 class="my-3 my-md-5 font-weight-bold"> Overview </h1>
-            <div class="d-none d-md-block text-right">
-                <a href="{{ $people->resumeLink }}" class="d-none d-md-inline-block btn btn-md bg-success text-white"
+        <div class="col-12 col-lg-10">
+            <h1 class="my-3 my-lg-5 font-weight-bold"> Overview </h1>
+            <div class="d-none d-lg-block text-right">
+                <a href="{{ $people->resumeLink }}" 
+                    class="d-none d-lg-inline-block btn btn-md bg-success text-white"
                     target="_blank">
                     <i class="fas fa-download"></i>
                     Download CV
@@ -74,7 +66,7 @@ $menus = json_decode(json_encode($menus));
                 <h3 class="font-weight-bold">{{ $people->job }}</h3>
                 {!! $people->content !!}
             </div>
-            <a href="{{ $people->resumeLink }}" class="d-md-none btn btn-md bg-success text-white my-5" target="_blank">
+            <a href="{{ $people->resumeLink }}" class="d-lg-none btn btn-md bg-success text-white my-5" target="_blank">
                 <i class="fas fa-download"></i>
                 Download CV
             </a>

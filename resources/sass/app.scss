@@ -58,8 +58,8 @@
 @include responsive-color('dark-silver', $dark-silver);
 @include responsive-color('white', $white);
 @include responsive-color('green', $green);
+@include responsive-color('light-green', $light-green);
 @include responsive-color('dark', $dark);
-
 
 @for $i from 1 through 100 {
     .vw-#{$i} {
@@ -71,7 +71,7 @@
     }
 
     .w-#{$i} {
-        width: $i !important;
+        width: percentage($i/100) !important;
     }
 
     .w-#{$i}-vh {
@@ -79,7 +79,7 @@
     }
 
     .h-#{$i} {
-        height: $i !important;
+        height: percentage($i/100) !important;
     }
 
     .h-#{$i}-vw {
@@ -96,11 +96,11 @@
         @include media-breakpoint-up($size) {
 
             .w-#{$size}-#{$i} {
-                width: $i !important;
+                width: percentage($i/100) !important;
             }
 
             .h-#{$size}-#{$i} {
-                height: $i !important;
+                height: percentage($i/100) !important;
             }
 
             .vw-#{$size}-#{$i} {
@@ -173,9 +173,10 @@
     }
 }
 
-.flex-grow{
+.flex-grow {
     flex-grow: 1 !important;
 }
+
 @each $breakpoint in $grid-breakpoints {
     $size: nth($breakpoint, 1);
 
@@ -183,5 +184,27 @@
         .flex-#{$size}-grow {
             flex-grow: 1 !important;
         }
+    }
+}
+
+button.btn-dark-silver,
+a.btn-dark-silver {
+    color: $white !important;;
+    background-color: $dark-silver !important;
+    &.active,
+    &:hover {
+        color: $white !important;
+        background-color: $green !important;
+    }
+}
+
+button.btn-gray,
+a.btn-gray {
+    color: $white !important;;
+    background-color: $gray !important;
+    &.active,
+    &:hover {
+        color: $white !important;
+        background-color: $green !important;
     }
 }
