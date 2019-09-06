@@ -43,7 +43,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.carousel.new', 'carouselnew');
         
         Blade::component('web.elements.paginator', 'paginator');
-
+        Blade::component('web.elements.alert', 'alert');
+        Blade::component('web.elements.toast', 'toast');
         # observer
         Article::observe(ArticleObserver::class);
     }

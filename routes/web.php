@@ -40,6 +40,8 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::get('/abouts/findus', 'AboutController@findus')->name('abouts.findus');
     Route::get('/abouts/followus', 'AboutController@followus')->name('abouts.followus');
     Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('abouts.whoweare');
+
+    Route::post('subscriptions', 'SubscriptionController@store')->name('subscriptions.store');
 });
 
 Route::group(['prefix' => 'admin'], function () {
