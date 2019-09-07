@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Models\Subscription;
+use App\Models\Enquiry;
 use Illuminate\Http\Request;
 
-class SubscriptionController extends Controller
+class EnquiryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,12 +36,20 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'email' => 'required|email',
+            'subject' => 'required',
+            'teiephone' => 'required',
+            'message' => 'required',
         ]);
-        Subscription::create([
+        Enquiry::create([
+            'name' => $request->name,
             'email' => $request->email,
+            'subject' => $request->subject,
+            'telephone' => $request->telephone,
+            'message' => $request->message,
         ]);
-        return redirect()->to(url()->previous() . '#email')->with('success', 'subscribtion success!');
+        return redirect()->to(url()->previous() . '#email')->with('success', 'we got your message!');
     }
 
     /**

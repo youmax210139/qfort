@@ -35,12 +35,14 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::component('web.elements.cards.research', 'research');
         Blade::component('web.elements.cards.new', 'new');
+        Blade::component('web.elements.cards.domain', 'domain');
 
         Blade::component('web.elements.carousel.horizontal', 'carouselhorizontal');
         Blade::component('web.elements.carousel.vertical', 'carouselvertical');
         Blade::component('web.elements.carousel.figure', 'carouselfigure');
         Blade::component('web.elements.carousel.research', 'carouselresearch');
         Blade::component('web.elements.carousel.new', 'carouselnew');
+        Blade::component('web.elements.carousel.domain', 'carouseldomain');
         
         Blade::component('web.elements.paginator', 'paginator');
         Blade::component('web.elements.alert', 'alert');

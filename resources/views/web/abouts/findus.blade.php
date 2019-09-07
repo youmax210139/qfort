@@ -81,7 +81,7 @@
     </ul>
     <a id="contactus"></a>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
-    <ul class="text-lg-left list-unstyled">
+    <ul class="text-left list-unstyled">
         <li>
             <p>
                 <h4 class="text-success">
@@ -120,35 +120,34 @@
             </p>
         </li>
     </ul>
-    <form class="form">
+    <form class="form" method="post" action="{{ route('web.enquiries.store') }}">
+        @csrf
         <div class="form-row">
             <div class="col-12 col-md-6 mb-4">
-                <input type="text" class="form-control" id="validationTooltip01" placeholder="Name" required>
-                <div class="valid-tooltip">
-                    Looks good!
-                </div>
+                <input type="text" class="form-control" placeholder="Name" name="name" 
+                value="{{ old('name') }}" required>
+                @alert(['type'=>'name']) @endalert
             </div>
             <div class="col-12 col-md-6 mb-4">
-                <input type="text" class="form-control" id="validationTooltip02" placeholder="Email" required>
-                <div class="valid-tooltip">
-                    Looks good!
-                </div>
+                <input type="email" class="form-control" placeholder="Email" name="email" 
+                value="{{ old('email') }}" required>
+                @alert(['type'=>'email']) @endalert
             </div>
             <div class="col-12 mb-4">
-                <input type="text" class="form-control" id="validationTooltip02" placeholder="Subject" required>
-                <div class="valid-tooltip">
-                    Looks
-                </div>
+                <input type="text" class="form-control" name="subject" placeholder="Subject"
+                    value="{{ old('subject') }}" required>
+                @alert(['type'=>'subject']) @endalert
             </div>
             <div class="col-12 mb-4">
-                <input type="text" class="form-control" id="validationTooltip02" placeholder="Tel Number" required>
-                <div class="valid-tooltip">
-                    Looks
-                </div>
+                <input type="text" class="form-control"  name="telephone"　placeholder="Tel Number" 
+                value="{{ old('telephone') }}" required>
+                @alert(['type'=>'telephone']) @endalert
             </div>
             <div class="col-12 mb-4">
-                <textarea id="form-contact-message" class="form-control md-textarea" rows="6"
-                    placeholder="Message"></textarea>
+                <textarea class="form-control md-textarea" rows="6"
+                value="{{ old('message') }}" placeholder="Message" name="message">
+                </textarea>
+                @alert(['type'=>'message']) @endalert
             </div>
         </div>
         <button class="btn btn-success btn-lg w-100 py-2" type="submit">Submit form</button>

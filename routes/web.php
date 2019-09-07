@@ -42,6 +42,8 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('abouts.whoweare');
 
     Route::post('subscriptions', 'SubscriptionController@store')->name('subscriptions.store');
+
+    Route::post('enquiries', 'enquiryController@store')->name('enquiries.store');
 });
 
 Route::group(['prefix' => 'admin'], function () {

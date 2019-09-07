@@ -65,15 +65,15 @@ Voyager::image('carousel/carousel2@2x.png'),
     ]
     @endphp
     <!-- Card -->
-    <div class="card-columns card-col-lg-4 card-col-md-3 card-col-sm-1">
+    <div class="card-columns card-col-lg-4 card-col-xs-1">
         @foreach($items as $item)
         <div class="card border-0">
-            <div class="card-body p-3 border border-success">
+            <div class="card-body p-3 border border-light-green">
                 <img class="card-img-top" src="{{ $item['img'] }}">
                 <p class="card-text py-2">{{ $item['text'] }}</p>
             </div>
             <div
-                class="card-footer bg-success rounded-bottom text-white d-flex justify-content-start align-items-center p-3">
+                class="card-footer bg-light-green rounded-bottom text-white d-flex justify-content-start align-items-center p-3">
                 <i class="fas fa-thumbs-up mx-2"></i>
                 <span>16</span>
                 <i class="fas fa-comment-alt mx-2"></i>

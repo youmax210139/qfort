@@ -59,10 +59,11 @@
 
     <!-- Indicators -->
     <ol class="carousel-indicators mb-n2">
-        @for($i=0; $i<count($items); $i+=4) <li data-target="#carousel-figure" data-slide-to="{{$i/4}}" class="{{ $i==0?'active':''}} bg-green 
+        @for($i=0; $i<count($items); $i+=4) 
+        <li data-target="#carousel-figure" data-slide-to="{{$i/4}}" class="{{ $i==0?'active':''}} bg-green 
             rounded-circle w-2-vh vh-2">
-            </li>
-            @endfor
+        </li>
+        @endfor
     </ol>
     <!--/.Indicators-->
     <!--Slides-->

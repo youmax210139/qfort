@@ -53,9 +53,10 @@
                     <li class="list-group-item d-flex border-0">
                         <i class="fas fa-phone fa-2x mr-3"></i>
                         <div class="flex-column">
-                            <h5 class="font-weight-normal">
-                                650-725-3107
-                            </h5>
+                            <a class="text-success h5 font-weight-normal"
+                                href="tel:{{ $event->telephone }}">
+                                {{ $event->telephone }}
+                            </a>
                         </div>
                     </li>
                     <li class="list-group-item d-flex border-0">

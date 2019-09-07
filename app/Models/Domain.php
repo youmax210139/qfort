@@ -20,4 +20,9 @@ class Domain extends Model
     {
         return str_limit($this->description, 220, '...');
     }
+
+    public function getLinkAttribute()
+    {
+        return route('web.researches.domains.detail', $this->id);
+    }
 }
