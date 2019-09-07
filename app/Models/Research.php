@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Paginatable;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Research extends Model
 {
+    use Searchable;
     use Paginatable;
     public function domains()
     {

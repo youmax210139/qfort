@@ -36,12 +36,12 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'subscription_email' => 'required|email',
         ]);
         Subscription::create([
-            'email' => $request->email,
+            'email' => $request->subscription_email,
         ]);
-        return redirect()->to(url()->previous() . '#email')->with('success', 'subscribtion success!');
+        return redirect()->to(url()->previous() . '#email')->with('subscription-success', 'subscribtion success!');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Auth;
+use Laravel\Scout\Searchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ class Article extends Model
 {
     use Categorizable;
     use Paginatable;
+    use Searchable;
 
     public function getUserIdBrowseAttribute()
     {

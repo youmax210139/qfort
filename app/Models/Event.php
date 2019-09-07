@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use Carbon\Carbon;
@@ -13,12 +14,9 @@ class Event extends Model
     use Categorizable;
     use Paginatable;
     use Spatial;
-
+    use Searchable;
+    
     protected $spatial = ['location'];
-
-    protected $appends = [
-        'publish_date',
-    ];
 
     public function getAbstractAttribute($value)
     {
@@ -31,5 +29,10 @@ class Event extends Model
             'from' => Carbon::parse($this->published_from),
             'to ' => Carbon::parse($this->published_to),
         ];
+    }
+
+    public function getLinkAttribute()
+    {
+        return route('web.events.detail', $this->id);
     }
 }

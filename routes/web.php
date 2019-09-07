@@ -41,6 +41,8 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::get('/abouts/followus', 'AboutController@followus')->name('abouts.followus');
     Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('abouts.whoweare');
 
+    Route::get('/searchs', 'SearchController@index')->name('searchs.index');
+
     Route::post('subscriptions', 'SubscriptionController@store')->name('subscriptions.store');
 
     Route::post('enquiries', 'enquiryController@store')->name('enquiries.store');

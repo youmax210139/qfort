@@ -102,15 +102,15 @@
                     </div>
                     @else
                     <a class="nav-link h4 mb-0 text-dark font-weight-bold {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
-                        href="{{ $menu_item->link() }}">
+                        href="{{ $menu_item->link()??'' }}">
                         {{ $menu_item->title }}
                     </a>
                     @endif
                 </li>
                 @endforeach
-                <form class="form-inline mb-2 ml-3 d-none d-lg-flex">
+                <form class="form-inline mb-2 ml-3 d-none d-lg-flex" action="{{ route('web.searchs.index')}}" method="get">
                     <div class="input-group has-search">
-                        <input type="text" class="form-control pl-2 vw-15" aria-describedby="basic-addon1">
+                        <input name="search" type="text" class="form-control pl-2 vw-15" value="{{ request()->search }}" aria-describedby="basic-addon1">
                         <span class="icon-wrapper">
                             <img src="{{ Voyager::image('icons/search.svg') }}" />
                         </span>

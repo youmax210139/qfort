@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Domain extends Model
 {
+    use Searchable;
+    
     public function peoples()
     {
         return $this->belongsToMany(People::class, 'people_domains', 'domain_id', 'people_id');

@@ -13,7 +13,8 @@
     <div class="container">
         <div class="row py-4 align-items-center">
             <div id="email" class="col-12">
-                @alert @endalert
+                @alerterror(['name'=>'subscription_email']) @endalerterror
+                @alertsuccess(['name'=>'subscription-success']) @endalertsuccess
             </div>
             <div class="col-lg-5 my-2 text-lg-right text-center">
                 <i class="fab fa-facebook-f fa-lg  mr-4 fa-2x"></i>
@@ -28,7 +29,7 @@
                     @csrf
                     <div class="input-group has-search justify-content-center">
                         <label for="email" class="h5 mr-4 mb-2">Subscribe to our newsletter</label>
-                        <input name="email" type="email" class="form-control-md mr-2 px-2 mb-2" placeholder="Enter email address"
+                        <input name="subscription_email" type="email" class="form-control-md mr-2 px-2 mb-2" placeholder="Enter email address"
                             aria-describedby="basic-addon1">
                         <div class="input-group-append mb-2">
                             <button class="btn btn-sm btn-success my-0 px-4" type="submit">Send</button>
@@ -67,8 +68,3 @@
 
 </footer>
 <!-- Footer -->
-@push('js')
-<script>
-    $('#toast-subscribe').toast('show')
-</script>
-@endpush

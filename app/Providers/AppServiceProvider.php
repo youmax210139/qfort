@@ -45,7 +45,12 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.carousel.domain', 'carouseldomain');
         
         Blade::component('web.elements.paginator', 'paginator');
-        Blade::component('web.elements.alert', 'alert');
+
+        Blade::component('web.elements.alert.info', 'alertinfo');
+        Blade::component('web.elements.alert.success', 'alertsuccess');
+        Blade::component('web.elements.alert.error', 'alerterror');
+        Blade::component('web.elements.alertwarning', 'alertwarning');
+        
         Blade::component('web.elements.toast', 'toast');
         # observer
         Article::observe(ArticleObserver::class);

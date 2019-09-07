@@ -120,34 +120,33 @@
             </p>
         </li>
     </ul>
+    @alertsuccess(['name'=>'enquiry-success']) @endalertsuccess
     <form class="form" method="post" action="{{ route('web.enquiries.store') }}">
         @csrf
         <div class="form-row">
             <div class="col-12 col-md-6 mb-4">
                 <input type="text" class="form-control" placeholder="Name" name="name" 
                 value="{{ old('name') }}" required>
-                @alert(['type'=>'name']) @endalert
+                @alerterror(['name'=>'name']) @endalerterror
             </div>
             <div class="col-12 col-md-6 mb-4">
                 <input type="email" class="form-control" placeholder="Email" name="email" 
                 value="{{ old('email') }}" required>
-                @alert(['type'=>'email']) @endalert
+                @alerterror(['name'=>'email']) @endalerterror
             </div>
             <div class="col-12 mb-4">
                 <input type="text" class="form-control" name="subject" placeholder="Subject"
                     value="{{ old('subject') }}" required>
-                @alert(['type'=>'subject']) @endalert
+                @alerterror(['name'=>'subject']) @endalerterror
             </div>
             <div class="col-12 mb-4">
-                <input type="text" class="form-control"  name="telephone"　placeholder="Tel Number" 
+                <input type="text" class="form-control" name="telephone" placeholder="Tel Number" 
                 value="{{ old('telephone') }}" required>
-                @alert(['type'=>'telephone']) @endalert
+                @alerterror(['name'=>'telephone']) @endalerterror
             </div>
             <div class="col-12 mb-4">
-                <textarea class="form-control md-textarea" rows="6"
-                value="{{ old('message') }}" placeholder="Message" name="message">
-                </textarea>
-                @alert(['type'=>'message']) @endalert
+                <textarea placeholder="Message" type="text" class="form-control" name="message" rows="6" required>{{ old('message') }}</textarea>
+                @alerterror(['name'=>'message']) @endalerterror
             </div>
         </div>
         <button class="btn btn-success btn-lg w-100 py-2" type="submit">Submit form</button>
