@@ -93,8 +93,28 @@
     </div>
 </div>
 
+@if(count($items) > 1)
 @push('js')
+<script>
+    $(document).ready(function() {
+        var $items = $('#carousel-research .carousel-item');
+        $items.each(function(){
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
 
+            for (var i=0;i<$items.length-2;i++) {
+                next=next.next();
+                if (!next.length) {
+                next=$(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+    });
+</script>
 @endpush
-
+@endif
 @endif
