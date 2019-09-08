@@ -29,9 +29,9 @@
                         <div class="flex-column">
                             <h5 class="font-weight-bold">{{ $event->published_from . ' - '. $event->published_to }}</h5>
                             <p class="mb-2">See event details for additional info.</p>
-                            <a class="text-success font-italic" href="{{ $event->icallink->google() }}">Add to my Google calendar</a><br>
-                            <a class="text-success font-italic" href="{{ $event->icallink->webOutlook() }}">Add to my Outlook calendar</a><br>
-                            <a class="text-success font-italic" href="{{ $event->icallink->ics() }}">Add to calendar</a>
+                            <a class="text-success font-italic" href="{{ $event->icallink->google() }}" target="_blank" >Add to my Google calendar</a><br>
+                            <a class="text-success font-italic" href="{{ $event->icallink->webOutlook() }}" target="_blank" >Add to my Outlook calendar</a><br>
+                            <a class="text-success font-italic" href="{{ $event->icallink->ics() }}" target="_blank" >Add to calendar</a>
                         </div>
                     </li>
                     <li class="list-group-item d-flex border-0">
