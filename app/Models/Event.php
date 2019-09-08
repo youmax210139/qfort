@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Laravel\Scout\Searchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use Carbon\Carbon;
+use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use TCG\Voyager\Traits\Spatial;
 
 class Event extends Model
@@ -15,8 +16,11 @@ class Event extends Model
     use Paginatable;
     use Spatial;
     use Searchable;
-    
-    protected $spatial = ['location'];
+    use SpatialTrait;
+
+    protected $spatialFields = [
+        'location',
+    ];
 
     public function getAbstractAttribute($value)
     {
@@ -34,5 +38,15 @@ class Event extends Model
     public function getLinkAttribute()
     {
         return route('web.events.detail', $this->id);
+    }
+
+    public function getGoogleMapAttribute()
+    {
+        if ($this->location) {
+            return 'https://www.google.com/maps/search/?api=1&query=' .
+            $this->location->getLat() . ',' . $this->location->getLng();
+        } else {
+            return '';
+        }
     }
 }

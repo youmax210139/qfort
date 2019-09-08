@@ -36,7 +36,8 @@
                         <i class="fas fa-map-marker-alt fa-2x mr-3"></i>
                         <div class="flex-column">
                             <h5 class="font-weight-bold">Coulter Art Gallery</h5>
-                            <a class="text-success font-italic" target="_blank" href="{{ $event->location }}">
+                            <a class="text-success font-italic" target="_blank" 
+                                href="{{ $event->googleMap }}">
                                 Open in map
                             </a>
                         </div>
