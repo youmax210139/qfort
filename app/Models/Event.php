@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\CalendarLinks\Link;
 use TCG\Voyager\Traits\Spatial;
 
 class Event extends Model
@@ -20,6 +21,11 @@ class Event extends Model
 
     protected $spatialFields = [
         'location',
+    ];
+
+    protected $dates = [
+        'published_from',
+        'published_to',
     ];
 
     public function getAbstractAttribute($value)
@@ -48,5 +54,15 @@ class Event extends Model
         } else {
             return '';
         }
+    }
+
+    public function getICalAttribute()
+    {
+        $link = Link::create($this->title,
+            $this->published_from,
+            $this->published_to)
+            ->description($this->abstract);
+        // ->address('Samberstraat 69D, 2060 Antwerpen');
+        return $link->ics();
     }
 }
