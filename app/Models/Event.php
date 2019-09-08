@@ -56,13 +56,14 @@ class Event extends Model
         }
     }
 
-    public function getICalAttribute()
+    public function getICalLinkAttribute()
     {
         $link = Link::create($this->title,
             $this->published_from,
             $this->published_to)
+            ->address($this->googleMap)
             ->description($this->abstract);
         // ->address('Samberstraat 69D, 2060 Antwerpen');
-        return $link->ics();
+        return $link;
     }
 }
