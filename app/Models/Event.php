@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
+use App\Traits\TNTSearchable;
 use Carbon\Carbon;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Spatie\CalendarLinks\Link;
 use TCG\Voyager\Traits\Spatial;
 
@@ -16,8 +16,8 @@ class Event extends Model
     use Categorizable;
     use Paginatable;
     use Spatial;
-    use Searchable;
     use SpatialTrait;
+    use TNTSearchable;
 
     protected $spatialFields = [
         'location',

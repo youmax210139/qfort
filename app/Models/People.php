@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Storage;
+use App\Traits\TNTSearchable;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class People extends Model
 {
-    use Searchable;
     use Categorizable;
+    use TNTSearchable;
     
     protected $table = 'peoples';
 

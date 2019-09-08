@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Laravel\Scout\Searchable;
+use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Domain extends Model
 {
-    use Searchable;
+    use TNTSearchable;
     
     public function peoples()
     {

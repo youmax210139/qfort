@@ -9,36 +9,23 @@
 .page-item.disabled .page-link{
     color: #474645 !important;
 }
+em{
+    color: red !important;
+}
 </style>
 @endpush
 @section('content')
 
 <section class="text-left my-5 container">
-    <h3 class="my-3">People</h3>
-    @foreach ($peoples->getCollection() as $item)
-    <a href="{{$item->link}}" class="text-dark h5"> {{ $item->title}}</a>
-    <div class="h6 font-italic">{!! $item->abstract !!}</div>
+
+    @foreach(compact('peoples', 'domains', 'events', 'researches', 'news') as $title => $data)
+        <h3 class="my-3">{{ $title }}</h3>
+        @foreach ($data->getCollection() as $item)
+        <a href="{{$item->link}}" class="text-dark h5"> {!! $item->highlightTitle !!}</a>
+        <div class="h6 font-italic">{!! $item->highlight !!}</div>
+        @endforeach
     @endforeach
-    <h3 class="my-3">Domain</h3>
-    @foreach ($domains->getCollection() as $item)
-    <a href="{{$item->link}}" class="text-dark h5"> {{ $item->title}}</a>
-    <div class="h6 font-italic">{!! $item->abstract !!}</div>
-    @endforeach
-    <h3 class="my-3">New</h3>
-    @foreach ($articles->getCollection() as $item)
-    <a href="{{$item->link}}" class="text-dark h5"> {{ $item->title}}</a>
-    <div class="h6 font-italic">{!! $item->abstract !!}</div>
-    @endforeach
-    <h3 class="my-3">Research</h3>
-    @foreach ($researches->getCollection() as $item)
-    <a href="{{$item->link}}" class="text-dark h5"> {{ $item->title}}</a>
-    <div class="h6 font-italic">{!! $item->abstract !!}</div>
-    @endforeach
-    <h3 class="my-3">Event</h3>
-    @foreach ($events->getCollection() as $item)
-    <a href="{{$item->link}}" class="text-dark h5"> {{ $item->title}}</a>
-    <div class="h6 font-italic">{!! $item->abstract !!}</div>
-    @endforeach
+
     <nav class="my-5 ">
         <ul class="pagination border-0">
             <li class="page-item  {{ $current_page==1?'disabled':'' }}">

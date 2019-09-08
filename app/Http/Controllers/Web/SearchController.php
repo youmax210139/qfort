@@ -21,19 +21,20 @@ class SearchController extends Controller
         $pagination = 1;
         $current_page = $request->page ?? 1;
         $peoples = People::search($request->search)->paginate($pagination);
-        $articles = Article::search($request->search)->paginate($pagination);
         $researches = Research::search($request->search)->paginate($pagination);
         $events = Event::search($request->search)->paginate($pagination);
+        $news = Article::search($request->search)->paginate($pagination);
+        // dd($events);
         $domains = Domain::search($request->search)->paginate($pagination);
         $total_page = max(1,
-            ceil($articles->total() / $pagination),
             ceil($peoples->total() / $pagination),
             ceil($researches->total() / $pagination),
             ceil($events->total() / $pagination),
-            ceil($domains->total() / $pagination)
+            ceil($domains->total() / $pagination),
+            ceil($news->total() / $pagination)
         );
-        return view('web.searchs.index', compact('peoples', 'articles', 'domains', 'researches',
-            'events', 'current_page', 'total_page'));
+        return view('web.searchs.index', compact('peoples', 'domains', 'researches',
+            'events', 'news', 'current_page', 'total_page'));
     }
     /**
      * Show the form for creating a new resource.

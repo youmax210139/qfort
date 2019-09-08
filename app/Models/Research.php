@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\TNTSearchable;
 use App\Traits\Paginatable;
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Research extends Model
 {
-    use Searchable;
     use Paginatable;
+    use TNTSearchable;
+
     public function domains()
     {
         return $this->belongsToMany(Domain::class, 'research_domains', 'research_id', 'domain_id');

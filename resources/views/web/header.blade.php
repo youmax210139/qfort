@@ -1,5 +1,9 @@
 @push('css')
 <style>
+    header .nav-link.text-dark:hover {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
     header .navbar-brand img {
         height: 80px;
@@ -43,22 +47,21 @@
             display: block;
         }
     }
-
 </style>
 @endpush
 <header class="font-weight-bold fixed-top bg-white py-2">
     <nav
         class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
         <div class="w-100 d-flex d-lg-none justify-content-end">
-            <span class="icon-wrapper mr-3">
+            <button type="submit" class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
-            </span>
+            </button>
             <a class="text-dark" href="">中文</a>
             /
             <a class="text-dark" href="">EN</a>
         </div>
         <div class="d-lg-none invisible">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent$"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -83,9 +86,8 @@
                     class="nav-item mx-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
                     @if($menu_item->children->count())
                     <a class="nav-link h4 mb-0 dropdown-toggle text-dark font-weight-bold
-                        {{ strpos(request()->url(), $menu_item->link())?'active':'' }}"
-                        id="dropdown-{{$i}}" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" href="#">
+                        {{ strpos(request()->url(), $menu_item->link())?'active':'' }}" id="dropdown-{{$i}}"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                         {{ $menu_item->title }}
                     </a>
                     <div class="dropdown-menu vw-lg-15 pb-0 m-0 border-0 bg-xs-dark-silver bg-lg-white 
@@ -108,9 +110,11 @@
                     @endif
                 </li>
                 @endforeach
-                <form class="form-inline mb-2 ml-3 d-none d-lg-flex" action="{{ route('web.searchs.index')}}" method="get">
+                <form class="form-inline mb-2 ml-3 d-none d-lg-flex" action="{{ route('web.searchs.index')}}"
+                    method="get">
                     <div class="input-group has-search">
-                        <input name="search" type="text" class="form-control pl-2 vw-15" value="{{ request()->search }}" aria-describedby="basic-addon1">
+                        <input name="search" type="text" class="form-control pl-2 vw-15" value="{{ request()->search }}"
+                            aria-describedby="basic-addon1">
                         <span class="icon-wrapper">
                             <img src="{{ Voyager::image('icons/search.svg') }}" />
                         </span>

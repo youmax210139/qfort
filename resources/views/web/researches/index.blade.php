@@ -2,11 +2,25 @@
 
 @push('css')
 <style>
+    #overview, #focus {
+        display: block;
+        position: relative;
+        top: -148px;
+        visibility: hidden;
+    }
 
+    @media (min-width: 992px) {
+        #overview, #focus {
+            display: block;
+            position: relative;
+            top: -123px;
+            visibility: hidden;
+        }
+    }
 </style>
 @endpush
 @section('content')
-
+<a id="overview"></a>
 <section class="text-center my-5 container">
     <h1 class="font-weight-bold text-left mb-2">Our Focus</h1>
     <h3 class="text-left mb-2">Sub-title</h3>
@@ -53,6 +67,7 @@
         to continuous effort to deal with the most challenging scientific issues.
     </p>
 </div>
+<a id="focus"></a>
 <div class="bg-xs-light-silver bg-lg-white">
     <section class="text-center my-5 py-5 container">
         <!-- Section heading -->
