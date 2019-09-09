@@ -2,13 +2,45 @@
 
 @push('css')
 <style>
+    section.container {
+        margin-top: 100vh !important;
+    }
 
+    body,
+    main,
+    footer,
+    body {
+        background-color: #fff !important;
+    }
+
+    header.fixed-top.bg-white.transparent,
+    header.fixed-top.bg-white.transparent .dropdown-menu {
+        background-color: rgba(255, 255, 255, 0) !important;
+        color: white !important;
+    }
+
+    header.fixed-top.bg-white.transparent a.text-dark,
+    header.fixed-top.bg-white.transparent i.fas.fa-bars {
+        color: white !important;
+    }
+    header.fixed-top.bg-white.transparent .navbar-brand img
+    {
+        filter: invert(100%) sepia(4%) saturate(1101%) hue-rotate(182deg) brightness(116%) contrast(100%);
+    }
+
+    div.vh-100.fixed-top {
+        background-size: cover !important;
+    }
 </style>
 @endpush
 
+{{-- @section('header')
+@endsection --}}
 @section('content')
-
-<section class="text-center my-5 container news">
+<div class="w-100 vh-100 background-size-cover background-position-center fixed-top"
+    style="background:url({{ Voyager::image(setting('whoweare.image'))}}); z-index:-1;background-repeat:no-repeat">
+</div>
+<section class="text-center py-5 container">
 
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5">Who we are</h2>
@@ -54,3 +86,21 @@
     </div>
 </section>
 @endsection
+@push('js')
+<script>
+    function headerTransition(){
+        if($(window).scrollTop()>=$(window).height()){
+            $('header.fixed-top').removeClass('transparent');
+        } 
+        else{
+            $('header.fixed-top').addClass('transparent');
+        }
+    }
+    $(function(){
+        headerTransition();
+        $(window).scroll(function(){
+            headerTransition();
+        });
+});
+</script>
+@endpush
