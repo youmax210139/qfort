@@ -51,7 +51,7 @@
 @endpush
 <header class="font-weight-bold fixed-top bg-white py-2">
     <nav
-        class="navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
+        class="container navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
         <div class="w-100 d-flex d-lg-none justify-content-end">
             <button type="submit" class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
