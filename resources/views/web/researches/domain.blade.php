@@ -15,9 +15,9 @@
     <div class="row">
         <div class="col-12 col-lg-9">
             <p class="mb-3 h5 text-left">{{ $domain->description }}</p>
-            <h2 class="font-weight-bold my-5 text-center mb-5">Outcomes from this area</h2>
+            <h2 class="font-weight-bold my-5 text-center mb-5">{{setting('domain.outcome_title')}}</h2>
             @carouselresearch(['items'=>$domain->researches, 'column_count'=>'2']) @endcarouselresearch
-            <h2 class="font-weight-bold my-5 text-center mb-5">People in this area</h2>
+            <h2 class="font-weight-bold my-5 text-center mb-5">{{setting('domain.area_title')}}</h2>
             @carouselfigure(['items'=>$domain->peoples]) @endcarouselfigure
         </div>
         <div class="col-lg-3 d-none d-lg-flex">
