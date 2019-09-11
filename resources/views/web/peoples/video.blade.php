@@ -41,24 +41,26 @@
         @endphp
         <div class="col-lg-10">
             <h2 class="mt-5 font-weight-bold mb-2"> Video </h2>
-            <iframe class="w-100 vh-50 my-5" src="{{ $link }}" frameborder="0" allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
+            @php
+                $video = $people->videos[0]??null;
+                $videos = $people->videos->splice(1);
+            @endphp
+            
+            @if($video)
+                <iframe class="w-100 vh-50 my-5" src="{{ str_replace('watch?v=', 'embed/', $video->link) }}" 
+                    frameborder="0" allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>            
+            @endif
             <ul class="list-group py-5">
+                @foreach($videos as $video)
                 <li class="list-group-item d-flex border-0 align-items-start ">
                     <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">AlterEgo: Interfacing with devices
-                        through silent speech Mar 13, 2018 · in Biomechatronics</a>
+                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $video->link }}">
+                        {{ $video->title }}
+                    </a>
                 </li>
-                <li class="list-group-item d-flex border-0 align-items-start ">
-                    <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">Walking upstairs after the AMI
-                        procedure May 29, 2018 · in Biomechatronics</a>
-                </li>
-                <li class="list-group-item d-flex border-0 align-items-start ">
-                    <i class="text-danger fab fa-youtube  fa-2x mr-3"></i>
-                    <a class="text-dark h5 mb-0 text-left" target="_blank" href="{{ $link }}">Interfacing with devices through
-                        silent speech Jan 02, 2018 · in Biomechatronics</a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>
