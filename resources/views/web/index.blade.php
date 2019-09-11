@@ -34,24 +34,32 @@
         <div class="col-12 col-lg-8">
             <div class="row">
                 <div class="col-12 mb-2 p-2 mb-md-0">
+                    @isset($events[0])
                     @eventHeader(['item'=>$events[0]]) @endeventHeader
+                    @endisset
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 mb-2 p-2">
+                    @isset($events[2])
                     @eventHeader(['item'=>$events[2],'push'=>false ]) @endeventHeader
+                    @endisset
                 </div>
                 <div class="col-12 col-lg-6 mb-2 p-2">
+                    @isset($events[3])
                     @eventHeader(['item'=>$events[3],'push'=>false ]) @endeventHeader
+                    @endisset
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-2 p-2">
+            @isset($events[1])
             @eventHeader(['item'=>$events[1],'push'=>false, 'imgClass'=>'h-lg-100' ]) 
             @slot('style')
             height: 100% !important;
             @endslot
             @endeventHeader
+            @endisset
         </div>
 
     </div>

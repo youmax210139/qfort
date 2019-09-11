@@ -42,7 +42,7 @@
     <div class="container pt-4 align-items-center border-0 px-md-0">
         <div class="row">
             <div class="col d-lg-flex justify-content-lg-between justify-content-center">
-                <a href="https://web.ncku.edu.tw/">
+                <a href="https://web.ncku.edu.tw/" target="_blank">
                     <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
                 </a>
                 <img class="mb-4 mr-md-4 img-fluid" style="transform: scale(0.9);"
