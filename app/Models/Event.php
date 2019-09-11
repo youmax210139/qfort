@@ -26,7 +26,19 @@ class Event extends Model
     protected $dates = [
         'published_from',
         'published_to',
+        'pintop_from',
+        'pintop_to',
     ];
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::addGlobalScope(function (Builder $builder) {
+    //         $builder->orderBy('order', 'asc');
+    //         if(now()->between())
+    //     });
+    // }
 
     public function getAbstractAttribute($value)
     {
@@ -61,7 +73,6 @@ class Event extends Model
         $link = Link::create($this->title,
             $this->published_from,
             $this->published_to)
-            ->address($this->googleMap)
             ->description($this->abstract);
         // ->address('Samberstraat 69D, 2060 Antwerpen');
         return $link;
