@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Auth;
+use App\Traits\BreadScope;
 use App\Traits\TNTSearchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use BreadScope;
     use Categorizable;
     use Paginatable;
     use TNTSearchable;
@@ -22,13 +24,6 @@ class Article extends Model
     public function getUserIdReadAttribute()
     {
         return $this->user->name;
-    }
-
-    public function scopeCurrentUser($query)
-    {
-        if (!Auth::user()->isAdmin) {
-            return $query->where('user_id', Auth::user()->id);
-        }
     }
 
     public function user()

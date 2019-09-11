@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
@@ -9,10 +10,16 @@ use Storage;
 
 class People extends Model
 {
+    use BreadScope;
     use Categorizable;
     use TNTSearchable;
 
     protected $table = 'peoples';
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 
     public function domains()
     {

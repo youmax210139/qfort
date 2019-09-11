@@ -25,7 +25,7 @@
 <div class="col-12 col-lg-4 text-white mb-5 text-white domain">
     <div class="bg-secondary h-30 p-4 d-flex align-items-center justify-content-center">
         <a class="text-white h4" href="{{ $item->link }}">
-            {{ $item->title }}
+            {!! $item->title !!}
         </a>
     </div>
     <div class="bg-dark-silver d-flex flex-column h-70">

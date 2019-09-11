@@ -54,6 +54,10 @@
         .remember-me-text {
             padding: 0 5px;
         }
+        .logo-title img.img-responsive
+        {
+            filter: invert(100%) sepia(4%) saturate(1101%) hue-rotate(182deg) brightness(116%) contrast(100%);
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -65,7 +69,7 @@
         <div class="container-fluid">
             <div class="login-container">
                 <div class="logo-title">
-                    <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
+                    <?php $admin_logo_img = 'logos/brand.svg'; ?>
                     @if($admin_logo_img == '')
                     <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
                         src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
