@@ -32,7 +32,9 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::get('/peoples/{people}/video', 'PeopleController@video')->name('peoples.video');
 
     Route::get('/events', 'EventController@index')->name('events.index');
-    Route::get('/events/{id}', 'EventController@detail')->name('events.detail');
+    Route::get('/events/{event}', 'EventController@detail')->name('events.detail');
+    Route::post('events/{event}/register', 'EventController@storeRegistration')->name('events.registration.store');
+    Route::get('/events/{event}/register', 'EventController@createRegistration')->name('events.registration.create');
 
     Route::get('/news', 'NewController@index')->name('news.index');
     Route::get('/news/{article}', 'NewController@detail')->name('news.detail');

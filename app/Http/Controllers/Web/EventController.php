@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
-use App\Models\Event;
+use App\Mail\RegisterEvent;
 use App\Models\Category;
+use App\Models\Event;
+use App\Models\Guest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -16,20 +19,19 @@ class EventController extends Controller
         return view('web.events.index', compact('events', 'categories'));
     }
 
-
-    public function detail($id)
+    public function detail(Event $event)
     {
-        $event = Event::findOrFail($id);
         return view('web.events.detail', compact('event'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createRegistration(Event $event)
     {
-        //
+        return view('web.events.register', compact('event'));
     }
 
     /**
@@ -38,9 +40,37 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeRegistration(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'telephone' => 'required',
+        ]);
+
+        $password = str_random(12);
+        $guest = Guest::firstOrCreate([
+            'email' => $request->email,
+        ], [
+            'email' => $request->email,
+            'name' => $request->name,
+            'telephone' => $request->telephone,
+            'password' => $password,
+        ]);
+        if ($guest->wasRecentlyCreated) {
+            $guest->events()->attach($event);
+            $to = [
+                [
+                    'email' => $request->email, 
+                    'name' => $request->name,
+                ]
+            ];
+            Mail::to($to)->send(new RegisterEvent($guest, $password));
+            return back()->withInput()
+            ->with('event-registration-success', 'Your guest has been created, please check your email for detail.');
+        }
+        return back()->withInput()
+            ->with('event-registration-success', 'You have enrolled alreay.');
     }
 
     /**

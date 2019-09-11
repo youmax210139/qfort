@@ -29,17 +29,19 @@
                         <div class="flex-column">
                             <h5 class="font-weight-bold">{{ $event->published_from . ' - '. $event->published_to }}</h5>
                             <p class="mb-2">See event details for additional info.</p>
-                            <a class="text-success font-italic" href="{{ $event->icallink->google() }}" target="_blank" >Add to my Google calendar</a><br>
-                            <a class="text-success font-italic" href="{{ $event->icallink->webOutlook() }}" target="_blank" >Add to my Outlook calendar</a><br>
-                            <a class="text-success font-italic" href="{{ $event->icallink->ics() }}" target="_blank" >Add to calendar</a>
+                            <a class="text-success font-italic" href="{{ $event->icallink->google() }}"
+                                target="_blank">Add to my Google calendar</a><br>
+                            <a class="text-success font-italic" href="{{ $event->icallink->webOutlook() }}"
+                                target="_blank">Add to my Outlook calendar</a><br>
+                            <a class="text-success font-italic" href="{{ $event->icallink->ics() }}" target="_blank">Add
+                                to calendar</a>
                         </div>
                     </li>
                     <li class="list-group-item d-flex border-0">
                         <i class="fas fa-map-marker-alt fa-2x mr-3"></i>
                         <div class="flex-column">
                             <h5 class="font-weight-bold">Coulter Art Gallery</h5>
-                            <a class="text-success font-italic" target="_blank" 
-                                href="{{ $event->googleMap }}">
+                            <a class="text-success font-italic" target="_blank" href="{{ $event->googleMap }}">
                                 Open in map
                             </a>
                         </div>
@@ -56,8 +58,7 @@
                     <li class="list-group-item d-flex border-0">
                         <i class="fas fa-phone fa-2x mr-3"></i>
                         <div class="flex-column">
-                            <a class="text-success h5 font-weight-normal"
-                                href="tel:{{ $event->telephone }}">
+                            <a class="text-success h5 font-weight-normal" href="tel:{{ $event->telephone }}">
                                 {{ $event->telephone }}
                             </a>
                         </div>
@@ -86,20 +87,30 @@
             <!-- Section heading -->
             <h1 class="d-none d-lg-block font-weight-bold text-left mb-3">{{ $event->title }}</h1>
             <h3 class="d-none d-lg-block text-left mb-5">{{ $event->abstract }}</h3>
-            <div class="content my-5">
-                {!! $event->content !!}
-            </div>
-            <div class="row align-items-center">
-                <div class="col-12 d-lg-none mb-4">
-                    <a href="{{ route('web.events.registration.create', $event->id) }}" class="btn btn-outline-success ">Register</a>
+            <h3 class="d-none d-lg-block text-left mb-5 text-success">Event Registration</h3>
+            @alertsuccess(['name'=>'event-registration-success']) @endalertsuccess
+            <form class="form" method="post" action="{{ route('web.events.registration.store', $event->id) }}"
+                id="form-enquiry">
+                @csrf
+                <div class="form-row">
+                    <div class="col-12 mb-4">
+                        <input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}"
+                            required>
+                        @alerterror(['name'=>'name']) @endalerterror
+                    </div>
+                    <div class="col-12 mb-4">
+                        <input type="email" class="form-control" placeholder="Email" name="email"
+                            value="{{ old('email') }}" required>
+                        @alerterror(['name'=>'email']) @endalerterror
+                    </div>
+                    <div class="col-12 mb-4">
+                        <input type="text" class="form-control" name="telephone" placeholder="Tel Number"
+                            value="{{ old('telephone') }}" required>
+                        @alerterror(['name'=>'telephone']) @endalerterror
+                    </div>
                 </div>
-                <div class="col-12 col-lg-10 mb-4 text-center text-lg-left">
-                    @social @endsocial
-                </div>
-                <div class="d-none d-lg-flex col-lg-2 mb-4 text-right">
-                    <a href="{{ route('web.events.registration.create', $event->id) }}" class="btn btn-outline-success">Register</a>
-                </div>
-            </div>
+                <button class="btn btn-success btn-lg w-100 py-2" type="submit">Register</button>
+            </form>
         </div>
         <div class="col mt-2 p-2 justify-content-center d-flex">
             @paginator(['item'=>$event]) @endpaginator
