@@ -47,12 +47,16 @@
                     src="{{ Voyager::image('logos/qfort.svg')}}">
                 <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
                     <li>
-                        <p><i class="text-success fas fa-map-marker-alt pr-2"></i>No.1, University Road, Tainan City
-                            701, Taiwan
-                            (R.O.C)</p>
+                        <p>
+                            <i class="text-success fas fa-map-marker-alt pr-2"></i>
+                            {{ setting('findus.address') }}
+                        </p>
                     </li>
                     <li>
-                        <p><i class="text-success fas fa-phone pr-2"></i>+886-6-2757575</p>
+                        <p>
+                            <i class="text-success fas fa-phone pr-2"></i>
+                            {{ setting('findus.telephone') }}
+                        </p>
                     </li>
                 </ul>
 

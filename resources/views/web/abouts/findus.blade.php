@@ -16,6 +16,13 @@
         width: 100%;
         position: absolute;
     }
+    #transportation i,
+    #transportation img,
+    #form-enquiry i,
+    #form-enquiry img{
+        width: 24px;
+        height: 24px;
+    }
 
     #contactus {
         display: block;
@@ -35,7 +42,7 @@
 </style>
 @endpush
 @section('content')
-<section class="text-center my-5 container news">
+<section class="text-center my-5 container">
 
     <!-- Section heading -->
     <h2 class="font-weight-bold text-center my-5">Find us</h2>
@@ -46,39 +53,7 @@
             width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </div>
     <h2 class="font-weight-bold text-center my-5">Transportation</h2>
-    <ul class="text-lg-left list-unstyled">
-        <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-car pr-2"></i>
-                    Driving Directions
-                </h4>
-                (National Freeway No.1) From the North-Take
-                National Freeway No.1 (Sun Yat-Sen Freeway) southbound - Get off at Exit 319 (Yongkang Interchange) and
-                turn right to southbound...
-            </p>
-        </li>
-        <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-train pr-2"></i>
-                    By Train
-                </h4>
-                Take TRA Train to Tainan Station. NCKU is located on Ta-Shueh
-                (University) Road about 100m from the rear entrance of Tainan Station.
-            </p>
-        </li>
-        <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-subway pr-2"></i>
-                    By THSR(Taiwan High Speed Rail)
-                </h4>
-                Those who arrived at Tainan Station by Taiwan High Speed Rail can proceed to the interchange corridor on
-                the 2nd floor of High Speed Rail Tainan Station or the No.1...
-            </p>
-        </li>
-    </ul>
+    <div class="text-left" id="transportation">{!! setting('findus.transportation')!!}</div>
     <a id="contactus"></a>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
     <ul class="text-left list-unstyled">
@@ -88,7 +63,7 @@
                     <i class="fas fa-map-marker-alt pr-2"></i>
                     Address:
                 </h4>
-                National Cheng Kung University No.1, University Road, Tainan City 701, Taiwan (R.O.C)
+                {{ setting('findus.address') }}
             </p>
         </li>
         <li>
@@ -97,7 +72,7 @@
                     <i class="fas fa-phone pr-2"></i>
                     Phone:
                 </h4>
-                +886-6-2757575
+                {{ setting('findus.telephone') }}
             </p>
         </li>
         <li>
@@ -106,7 +81,7 @@
                     <i class="fas fa-envelope pr-2"></i>
                     Email:
                 </h4>
-                info@qfort.ncku.edu.tw
+                {{ setting('findus.email') }}
             </p>
         </li>
         <li>
@@ -121,7 +96,7 @@
         </li>
     </ul>
     @alertsuccess(['name'=>'enquiry-success']) @endalertsuccess
-    <form class="form" method="post" action="{{ route('web.enquiries.store') }}">
+    <form class="form" method="post" action="{{ route('web.enquiries.store') }}" id="form-enquiry">
         @csrf
         <div class="form-row">
             <div class="col-12 col-md-6 mb-4">
