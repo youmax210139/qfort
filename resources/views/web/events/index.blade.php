@@ -41,7 +41,7 @@
 </div>
 <section class="text-center mb-5 container">
     <div class="title-wrapper mb-4 d-none d-lg-block">
-        <img class="img-fluid" src="{{ Voyager::image('news/news8@2x.png') }}">
+        <img class="img-fluid" src="{{ Voyager::image(setting('event.image')) }}">
         <div class="mask text-dark">
             <h1 class="font-weight-bold text-left mb-2">Events</h1>
             <h3 class="text-left mb-2">See what’s going on at QFort</h3>
