@@ -7,7 +7,7 @@
 </style>
 @endpush
 <!-- Footer -->
-<footer class="text-center pt-5">
+<footer class="text-center mt-5">
     <!-- Footer Text -->
     <h3 class="mt-3 mb-3 font-italic font-weight-bold">Stay in touch with us</h3>
     <div class="container">

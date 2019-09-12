@@ -10,20 +10,27 @@
 @section('content')
 <section class="text-center my-5 container news-detail">
     <div class="row">
-        <div class="col-8 text-left">
+        <div class="col-12 col-lg-8 text-left">
             <img src="{{ Voyager::image($article->image) }}" alt="" class="img-fluid pb-3">
-            <h2 class="mb-2">{{ $article->title }}</h2>
-            <div class="d-flex mx-0 justify-content-end align-items-center mb-2 border-bottom py-2 flex-wrap"">
-                {{ $article->created_at }}
-                &nbsp;|&nbsp;
-                @social(['title'=>'Share this post:']) @endsocial
+            <h3 class="mb-2 ">{{ $article->title }}
+                <span class="float-right h6 mb-0 d-lg-none" style="line-height: 4vh;">{{ $article->created_at }}</span>
+            </h3>
+            <div class="d-lg-flex mx-0 justify-content-end align-items-center mb-3 border-bottom d-none py-3">
+                @social(['title'=>$article->title, 'email'=> setting('findus.email')])
+                @slot('prepend')
+                <div>{{ $article->created_at }}&nbsp;&nbsp;|&nbsp;&nbsp; </div>
+                @endslot
+                @endsocial
             </div>
             <div class=" container-fluid my-5 p-0">
                 {!! $article->content !!}
             </div>
+            <div class="d-lg-none mx-0 mb-3 text-center py-3 mb-5">
+                @social(['title'=>$article->title, 'email'=> setting('findus.email')]) @endsocial
+            </div>
             @paginator(['item'=>$article]) @endpaginator
         </div>
-        <div class=" col-4">
+        <div class="col-12 col-lg-4 d-none d-lg-block">
             <h2 class="mb-3 font-weight-bold">Related articles</h2>
             @foreach($related_articles as $i => $related_article)
             <div class="card border-0">
@@ -54,6 +61,9 @@
                 </div>
             </div>
             @endforeach
+        </div>
+        <div class="col-12 col-lg-none">
+            @carouselnew(['items'=>$related_articles])@endcarouselnew
         </div>
 </section>
 @endsection

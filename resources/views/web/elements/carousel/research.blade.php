@@ -71,12 +71,14 @@
     <!--/.Controls-->
 
     <!-- Indicators -->
+    @if(count($items) > 1)
     <ol class="carousel-indicators mb-n2">
         @foreach($items as $i => $item)
         <li data-target="#carousel-research" data-slide-to="{{$i}}" class="{{ $i==0?'active':''}} bg-green 
             rounded-circle w-2-vh vh-2"></li>
         @endforeach
     </ol>
+    @endif
     <!--/.Indicators-->
 
     <!--Slides-->

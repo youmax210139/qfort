@@ -94,7 +94,7 @@
                     <a href="{{ route('web.events.registration.create', $event->id) }}" class="btn btn-outline-success ">Register</a>
                 </div>
                 <div class="col-12 col-lg-10 mb-4 text-center text-lg-left">
-                    @social @endsocial
+                    @social(['title'=>$event->title, 'email'=>$event->email]) @endsocial
                 </div>
                 <div class="d-none d-lg-flex col-lg-2 mb-4 text-right">
                     <a href="{{ route('web.events.registration.create', $event->id) }}" class="btn btn-outline-success">Register</a>

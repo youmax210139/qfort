@@ -53,7 +53,7 @@
 </div>
 <a id="focus"></a>
 <div class="bg-xs-light-silver bg-lg-white">
-    <section class="text-center my-5 py-5 container">
+    <section class="text-center my-5 pt-5 container">
         <!-- Section heading -->
         @foreach($domains as $domain)
         <div class="row">

@@ -49,7 +49,7 @@
     </div>
     <div class="text-right mt-5 mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
     <!-- Card -->
-    <div class="card-deck card-col-xs-1 card-col-md-2 card-col-lg-3">
+    <div class="card-deck card-col-xs-1 card-col-lg-3">
         @foreach($events as $event)
         <div class="card border-0 mb-5">
             <img class="card-img-top object-fit-cover" src="{{ Voyager::image($event->image) }}">
@@ -66,10 +66,6 @@
                 </h4>
                 <!-- Excerpt -->
                 <div class="mb-3">{!! $event->abstract !!}</div>
-                <!-- Read more button -->
-                {{-- <div class="text-right mt-auto mb-2 w-100">
-
-                </div> --}}
             </div>
             <div class="card-footer text-right bg-white border border-silver border-top-0 pt-0">
                 <a class="btn text-success font-weight-bold" href="{{ route('web.events.detail', [$event->id])}}">

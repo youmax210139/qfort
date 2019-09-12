@@ -25,25 +25,37 @@
 @php
 $links = [
 ['class'=> 'fab fa-facebook-f', 'href'=>'https://www.facebook.com/sharer/sharer.php?u='
-.urlencode(request()->url()),'name'=>'facebook'],
-['class'=> 'fab fa-instagram',
-'href'=>'https://social-plugins.line.me/lineit/share?url='
-.urlencode(request()->url()),'name' => 'instagram'],
-['class'=> 'fab fa-twitter', 'href'=>'https://social-plugins.line.me/lineit/share?url='.
-urlencode(request()->url()), 'name'=>'twitter'],
-['class'=> 'fab fa-youtube', 'href'=>'https://social-plugins.line.me/lineit/share?url='.
-urlencode(request()->url()), 'name'=>'youtube'],
+.urlencode(request()->url())],
+['class'=> 'fab fa-twitter', 'href'=>'https://twitter.com/intent/tweet?url='.
+urlencode(request()->url()) ],
 ['class'=> 'fab fa-line', 'href'=>'https://social-plugins.line.me/lineit/share?url='.
-urlencode(request()->url()), 'name'=>'line'],
-]
+urlencode(request()->url()) ],
+['class'=> 'fab fa-linkedin-in', 'href'=>'https://www.linkedin.com/shareArticle?mini=true&url='.
+urlencode(request()->url()) ],
+['class'=> 'fab fa-pinterest', 'href'=>'http://pinterest.com/pin/create/button/?url='.
+urlencode(request()->url()) ],
+['class'=> 'fas fa-copy', 'href'=>urlencode(request()->url()) ],
+['class'=> 'fas fa-envelope', 'href'=>'mailto:' . $email . '&subject='. $title ]
+];
 @endphp
 <div class="d-inline-flex align-items-center justify-content-center flex-wrap">
     {{ $prepend??'' }}
     <div class="w-100 w-lg-auto text-center mb-3 mb-lg-0 mr-lg-2">{{ $text?? 'Share this post:' }}</div>
+    <input type="hidden" value="" id="clipboard">
     @foreach($links as $i=>$link)
-    <a href="{{$link['href']}}" class="btn btn-outline-success btn-floating {{ $i>0?'ml-2':'' }}" target="_blank">
-        <i class="{{ $link['class']}}"></i>
+    <a href="{{$link['href']}}" class="btn btn-outline-success btn-floating {{ $i>0?'ml-2':'' }}" 
+        target="_blank" 
+        name="{{ str_replace(' ', '_', $link['class']) }}">
+        <i class="{{ $link['class'] }}"></i>
     </a>
     @endforeach
     {{ $append??'' }}
 </div>
+@push('js')
+    <script>
+        $('a[name="fas_fa-copy"]').click(function(e){
+            e.preventDefault();
+            console.log($(this).attr('href'));
+        })
+    </script>
+@endpush

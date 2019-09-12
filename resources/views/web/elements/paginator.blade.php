@@ -2,19 +2,20 @@
 <style>
 </style>
 @endpush
-<div class="row w-100 py-5 m-0 text-center">
-    <div class="col-4">
-        <a class="btn text-dark {{ $item->previous?'':'disabled' }}" href="{{ $item->previousLink }}">
+<div class="row w-100 my-5 m-0 text-center">
+    <div class="col p-0">
+        <a class="btn btn-sm text-dark {{ $item->previous?'':'disabled' }} px-lg-3 py-lg-2"
+            href="{{ $item->previousLink }}">
             &lt; Previous {{ $item->classBaseName }}
         </a>
     </div>
-    <div class="col-4">
-    <a class="btn btn-success" href="{{ $item->indexLink }}">
+    <div class="col p-0">
+        <a class="btn btn-sm btn-success px-lg-3 py-lg-2" href="{{ $item->indexLink }}">
             {{ $item->classBaseName }} Overview
         </a>
     </div>
-    <div class="col-4">
-        <a class="btn text-dark {{ $item->next?'':'disabled' }}" href="{{ $item->nextLink }}">
+    <div class="col p-0">
+        <a class="btn btn-sm text-dark {{ $item->next?'':'disabled' }} px-lg-3 py-lg-2" href="{{ $item->nextLink }}">
             Next {{ $item->classBaseName }} &gt;
         </a>
     </div>
