@@ -62,7 +62,7 @@
             </div>
             @endforeach
         </div>
-        <div class="col-12 col-lg-none">
+        <div class="col-12 d-lg-none">
             @carouselnew(['items'=>$related_articles])@endcarouselnew
         </div>
 </section>

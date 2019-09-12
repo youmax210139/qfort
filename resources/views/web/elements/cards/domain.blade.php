@@ -1,5 +1,4 @@
-@if(isset($push)&& $push)
-@push('css')
+@pushonce('css:domain')
 <style>
     .domain .bg-dark-silver {
         border-bottom-left-radius: 1.5em;
@@ -19,8 +18,7 @@
         background-color: inherit !important;
     }
 </style>
-@endpush
-@endif
+@endpushonce
 
 <div class="col-12 col-lg-4 text-white mb-5 text-white domain">
     <div class="bg-secondary h-30 p-4 d-flex align-items-center justify-content-center">

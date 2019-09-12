@@ -1,4 +1,4 @@
-@push('css')
+@pushonce('css:horizontal')
 <style>
     #banner-horizontal .carousel-caption {
         bottom: 0;
@@ -42,7 +42,7 @@
         }
     }
 </style>
-@endpush
+@endpushonce
 <div id="banner-horizontal" class="carousel slide" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
@@ -79,3 +79,4 @@
         </a>
         @endif
     </div>
+</div>

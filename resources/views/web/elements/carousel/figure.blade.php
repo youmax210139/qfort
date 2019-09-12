@@ -1,5 +1,5 @@
 @if(!empty($items))
-@push('css')
+@pushonce('css:figure')
 <style>
     @media(max-width: 991.98px) {
 
@@ -35,7 +35,7 @@
         }
     }
 </style>
-@endpush
+@endpushonce
 
 <div class="row d-lg-flex d-none">
     @foreach($items as $i=>$item)
@@ -94,8 +94,4 @@
 
 </div>
 
-@if(count($items)/4 > 1)
-@push('js')
-@endpush
-@endif
 @endif

@@ -1,8 +1,4 @@
-@php
-$push = $push??true;
-@endphp
-@push('css')
-@if($push)
+@pushonce('css:event')
 <style>
     .event-title {
         bottom: 0;
@@ -18,8 +14,7 @@ $push = $push??true;
         transition: all 4s ease;
     }
 </style>
-@endif
-@endpush
+@endpushonce
 
 <div class="zoom view overlay h-100">
     <div class="object-fit-cover background-position-center background-size-cover min-vh-42 h-100 event"

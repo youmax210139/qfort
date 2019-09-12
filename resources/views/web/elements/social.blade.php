@@ -1,4 +1,4 @@
-@push('css')
+@pushonce('css:social')
 <style>
     .btn-floating {
         vertical-align: middle;
@@ -21,7 +21,7 @@
         border-color: #1A1311;
     }
 </style>
-@endpush
+@endpushonce
 @php
 $links = [
 ['class'=> 'fab fa-facebook-f', 'href'=>'https://www.facebook.com/sharer/sharer.php?u='
@@ -51,11 +51,11 @@ urlencode(request()->url()) ],
     @endforeach
     {{ $append??'' }}
 </div>
-@push('js')
+@pushonce('js:social')
     <script>
         $('a[name="fas_fa-copy"]').click(function(e){
             e.preventDefault();
             console.log($(this).attr('href'));
         })
     </script>
-@endpush
+@endpushonce

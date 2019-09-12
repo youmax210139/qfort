@@ -1,5 +1,5 @@
 @if(!empty($items))
-@push('css')
+@pushonce('css:carouseldomain')
 <style>
     #carousel-domain .carousel-item.active{
         display: flex !important;
@@ -24,7 +24,7 @@
 
     }
 </style>
-@endpush
+@endpushonce
 
 <div class="row d-lg-none">
     @foreach($items as $item)
@@ -54,7 +54,7 @@
         @for($i=0; $i<count($items); $i+=3)
         <div class="carousel-item {{$i==0?'active':''}}">
             @for($j=$i; $j<count($items)&&$j<$i+3; $j++)
-            @domain(['item'=>$items[$j], 'push'=>$i==0])
+            @domain(['item'=>$items[$j]])
             @slot('className')
 
             @endslot
@@ -64,8 +64,5 @@
         @endfor
     </div>
 </div>
-
-@push('js')
-@endpush
 
 @endif
