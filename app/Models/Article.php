@@ -7,6 +7,7 @@ use App\Traits\BreadScope;
 use App\Traits\TNTSearchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
+use App\Traits\PinTop;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -15,6 +16,7 @@ class Article extends Model
     use Categorizable;
     use Paginatable;
     use TNTSearchable;
+    use PinTop;
 
     public function getUserIdBrowseAttribute()
     {

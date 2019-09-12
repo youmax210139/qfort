@@ -14,7 +14,7 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        $events = Event::ofCategory($request->c)->get();
+        $events = Event::getPinTop(Event::ofCategory($request->c), 6);
         $categories = Category::where('type', 'event')->get();
         return view('web.events.index', compact('events', 'categories'));
     }

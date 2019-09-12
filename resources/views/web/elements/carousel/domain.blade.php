@@ -39,12 +39,14 @@
 <div id="carousel-domain" class="carousel slide d-none d-lg-block" data-ride="carousel">
 
     <!-- Indicators -->
+    @if(count($items)>3)
     <ol class="carousel-indicators mb-n2">
         @for($i=0; $i<count($items); $i+=3)
         <li data-target="#carousel-domain" data-slide-to="{{$i/3}}" class="{{ $i==0?'active':''}} bg-green
             rounded-circle w-2-vh vh-2"></li>
         @endfor
     </ol>
+    @endif
     <!--/.Indicators-->
 
     <!--Slides-->

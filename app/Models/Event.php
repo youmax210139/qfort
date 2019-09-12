@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use App\Traits\TNTSearchable;
+use App\Traits\PinTop;
 use Carbon\Carbon;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ class Event extends Model
     use Spatial;
     use SpatialTrait;
     use TNTSearchable;
+    use PinTop;
 
     protected $spatialFields = [
         'location',
@@ -29,16 +31,6 @@ class Event extends Model
         'pintop_from',
         'pintop_to',
     ];
-
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::addGlobalScope(function (Builder $builder) {
-    //         $builder->orderBy('order', 'asc');
-    //         if(now()->between())
-    //     });
-    // }
 
     public function getAbstractAttribute($value)
     {

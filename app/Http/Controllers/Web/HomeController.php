@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Carousel;
-use App\Models\Event;
 use App\Models\Domain;
+use App\Models\Event;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $carousels = Carousel::where('status', 'A')->get();
-        $events = Event::with('categories')->orderBy('published_from', 'desc')->limit(4)->get();
-        $articles = Article::with('categories')->take(6)->get();
+        $events = Event::getPinTop(Event::with('categories'), 4);
+        $articles = Article::getPinTop(Article::with('categories'), 6);
         $domains = Domain::all();
         return view('web.index', compact('carousels', 'events', 'articles', 'domains'));
     }
