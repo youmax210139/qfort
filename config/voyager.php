@@ -217,7 +217,7 @@ return [
             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '22.9988465'),
             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '120.2173261'),
         ],
-        'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
+        'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 15),
     ],
 
     'settings' => [
