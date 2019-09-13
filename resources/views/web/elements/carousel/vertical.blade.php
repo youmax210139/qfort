@@ -1,4 +1,4 @@
-@push('css')
+@pushonce('css:carousel_vertical')
 <style>
     #banner-vertical .carousel-caption {
         bottom: 0;
@@ -59,20 +59,28 @@
         #banner-vertical .carousel-item {
             height: calc(100vh - 123px);
         }
-        @if(count($items) > 1)
+    }
+</style>
+@if(count($items) > 1)
+<style>
+    @media (min-width: 992px) {
         #banner-vertical .carousel-item .d-lg-flex {
             padding-left: 14% !important;
             padding-right: 4% !important;
         }
-        @else
+    }
+</style>
+@else
+<style>
+    @media (min-width: 992px) {
         #banner-vertical .carousel-item .d-lg-flex {
             padding-left: 10% !important;
             padding-right: 10% !important;
         }
-        @endif
     }
 </style>
-@endpush
+@endif
+@endpushonce
 <!--Carousel Wrapper--  -->
 <div id="banner-vertical" class="carousel slide" data-ride="carousel">
     <!--Slides-->

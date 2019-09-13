@@ -35,30 +35,30 @@
             <div class="row">
                 <div class="col-12 mb-2 p-2 mb-md-0">
                     @isset($events[0])
-                    @eventHeader(['item'=>$events[0]]) @endeventHeader
+                    @event(['item'=>$events[0]]) @endevent
                     @endisset
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 mb-2 p-2">
                     @isset($events[2])
-                    @eventHeader(['item'=>$events[2]]) @endeventHeader
+                    @event(['item'=>$events[2]]) @endevent
                     @endisset
                 </div>
                 <div class="col-12 col-lg-6 mb-2 p-2">
                     @isset($events[3])
-                    @eventHeader(['item'=>$events[3] ]) @endeventHeader
+                    @event(['item'=>$events[3] ]) @endevent
                     @endisset
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-2 p-2">
             @isset($events[1])
-            @eventHeader(['item'=>$events[1],'imgClass'=>'h-lg-100' ]) 
+            @event(['item'=>$events[1],'imgClass'=>'h-lg-100' ]) 
             @slot('style')
             height: 100% !important;
             @endslot
-            @endeventHeader
+            @endevent
             @endisset
         </div>
 

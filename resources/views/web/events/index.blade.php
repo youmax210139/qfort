@@ -51,7 +51,7 @@
     <!-- Card -->
     <div class="card-deck card-col-xs-1 card-col-lg-3">
         @foreach($events as $event)
-        <div class="card border-0 mb-5">
+        <div class="card border-0 mb-5" data-aos="fade-in">
             <img class="card-img-top object-fit-cover" src="{{ Voyager::image($event->image) }}">
             <div class="card-body pt-0 border-silver border flex-column text-left border-bottom-0 pb-0">
                 <div class="bg-gray mb-2 text-white date text-center w-6-vh vh-6

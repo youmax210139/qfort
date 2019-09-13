@@ -1,4 +1,4 @@
-@pushonce('css:horizontal')
+@pushonce('css:carousel_horizontal')
 <style>
     #banner-horizontal .carousel-caption {
         bottom: 0;

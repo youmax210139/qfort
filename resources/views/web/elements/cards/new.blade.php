@@ -1,4 +1,4 @@
-<div class="col-12 {{ $className }} mb-5 d-flex flex-column">
+<div class="col-12 {{ $className }} mb-5 d-flex flex-column"  data-aos="fade-up">
     <div class="mb-0 view overlay zoom">
         <a href="{{ $item->link }}">
             <img class="img-fluid object-fit-cover" src="{{ Voyager::image($item->image) }}">

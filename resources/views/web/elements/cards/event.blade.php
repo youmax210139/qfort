@@ -1,4 +1,4 @@
-@pushonce('css:event')
+@pushonce('css:card_event')
 <style>
     .event-title {
         bottom: 0;

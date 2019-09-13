@@ -17,7 +17,7 @@
     <div class="row">
         @foreach ($peoples as $i=>$people)
         <!-- Grid column -->
-        @figure(['item' => $people, 'push'=>$i==0])
+        @figure(['item' => $people])
         <p class="text-uppercase blue-text font-weight-bold">
             {{ $people->job }}
         </p>

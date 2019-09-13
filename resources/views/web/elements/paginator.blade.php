@@ -1,7 +1,7 @@
-@push('css')
+@pushonce('css:paginator')
 <style>
 </style>
-@endpush
+@endpushonce
 <div class="row w-100 my-5 m-0 text-center">
     <div class="col p-0">
         <a class="btn btn-sm text-dark {{ $item->previous?'':'disabled' }} px-lg-3 py-lg-2"

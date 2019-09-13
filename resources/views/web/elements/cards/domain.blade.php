@@ -1,4 +1,4 @@
-@pushonce('css:domain')
+@pushonce('css:card_domain')
 <style>
     .domain .bg-dark-silver {
         border-bottom-left-radius: 1.5em;

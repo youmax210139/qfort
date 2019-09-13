@@ -19,7 +19,7 @@
     <!-- Include Web Font -->
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <!-- Include CSS. -->
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     @stack('css')
 </head>
@@ -32,6 +32,10 @@
     </main>
     @section('footer')@show
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('js')

@@ -1,5 +1,5 @@
 @if(!empty($items))
-@pushonce('css:carouselnew')
+@pushonce('css:carousel_new')
 <style>
     #carousel-new .carousel-control-prev,
     #carousel-new .carousel-control-next {
@@ -43,7 +43,7 @@
     @foreach($items as $item)
     @new(['item'=>$item])
     @slot('className')
-    col-lg-4
+    col-lg-4 
     @endslot
     @endnew
     @endforeach
@@ -87,7 +87,7 @@
 </div>
 
 @if(count($items) > 1)
-@pushonce('js:carouselnew')
+@pushonce('js:carousel_new')
 <script>
     $(document).ready(function() {
         var $items = $('#carousel-new .carousel-item');

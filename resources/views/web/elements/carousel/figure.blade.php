@@ -1,5 +1,5 @@
 @if(!empty($items))
-@pushonce('css:figure')
+@pushonce('css:carousel_figure')
 <style>
     @media(max-width: 991.98px) {
 
@@ -39,7 +39,7 @@
 
 <div class="row d-lg-flex d-none">
     @foreach($items as $i=>$item)
-    @figure(['item'=>$item, 'push'=>$i==0])@endfigure
+    @figure(['item'=>$item])@endfigure
     @endforeach
 </div>
 

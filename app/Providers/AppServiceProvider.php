@@ -39,13 +39,14 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.footer', 'footer');
         
         Blade::component('web.elements.social', 'social');
-        Blade::component('web.elements.events.header', 'eventHeader');
         Blade::component('web.elements.menus.sort', 'sortmenu');
-        Blade::component('web.elements.figure', 'figure');
+
 
         Blade::component('web.elements.cards.research', 'research');
         Blade::component('web.elements.cards.new', 'new');
         Blade::component('web.elements.cards.domain', 'domain');
+        Blade::component('web.elements.cards.figure', 'figure');
+        Blade::component('web.elements.cards.event', 'event');
 
         Blade::component('web.elements.carousel.horizontal', 'carouselhorizontal');
         Blade::component('web.elements.carousel.vertical', 'carouselvertical');
@@ -59,9 +60,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.alert.info', 'alertinfo');
         Blade::component('web.elements.alert.success', 'alertsuccess');
         Blade::component('web.elements.alert.error', 'alerterror');
-        Blade::component('web.elements.alertwarning', 'alertwarning');
+        Blade::component('web.elements.alert.warning', 'alertwarning');
         
-        Blade::component('web.elements.toast', 'toast');
         # observer
         Article::observe(ArticleObserver::class);
     }

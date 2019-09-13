@@ -1,5 +1,5 @@
 @if(!empty($items))
-@push('css')
+@pushonce('css:carousel_research')
 <style>
     #carousel-research .carousel-control-prev,
     #carousel-research .carousel-control-next {
@@ -36,7 +36,7 @@
         }
     }
 </style>
-@endpush
+@endpushonce
 
 <div class="row d-lg-flex d-none">
     @foreach($items as $item)
@@ -95,8 +95,8 @@
     </div>
 </div>
 
-@if(count($items) > 1)
-@push('js')
+
+@pushonce('js:carousel_research')
 <script>
     $(document).ready(function() {
         var $items = $('#carousel-research .carousel-item');
@@ -117,6 +117,6 @@
         });
     });
 </script>
-@endpush
-@endif
+@endpushonce
+
 @endif

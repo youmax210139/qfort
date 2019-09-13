@@ -1,5 +1,5 @@
 @if(!empty($items))
-@pushonce('css:carouseldomain')
+@pushonce('css:carousel_domain')
 <style>
     #carousel-domain .carousel-item.active{
         display: flex !important;
