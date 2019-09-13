@@ -39,8 +39,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.footer', 'footer');
         
         Blade::component('web.elements.social', 'social');
-        Blade::component('web.elements.menus.sort', 'sortmenu');
 
+        Blade::component('web.elements.menus.sort', 'sortmenu');
 
         Blade::component('web.elements.cards.research', 'research');
         Blade::component('web.elements.cards.new', 'new');
@@ -48,19 +48,19 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.cards.figure', 'figure');
         Blade::component('web.elements.cards.event', 'event');
 
-        Blade::component('web.elements.carousel.horizontal', 'carouselhorizontal');
-        Blade::component('web.elements.carousel.vertical', 'carouselvertical');
-        Blade::component('web.elements.carousel.figure', 'carouselfigure');
-        Blade::component('web.elements.carousel.research', 'carouselresearch');
-        Blade::component('web.elements.carousel.new', 'carouselnew');
-        Blade::component('web.elements.carousel.domain', 'carouseldomain');
+        Blade::component('web.elements.carousels.horizontal', 'carouselhorizontal');
+        Blade::component('web.elements.carousels.vertical', 'carouselvertical');
+        Blade::component('web.elements.carousels.figure', 'carouselfigure');
+        Blade::component('web.elements.carousels.research', 'carouselresearch');
+        Blade::component('web.elements.carousels.new', 'carouselnew');
+        Blade::component('web.elements.carousels.domain', 'carouseldomain');
         
         Blade::component('web.elements.paginator', 'paginator');
 
-        Blade::component('web.elements.alert.info', 'alertinfo');
-        Blade::component('web.elements.alert.success', 'alertsuccess');
-        Blade::component('web.elements.alert.error', 'alerterror');
-        Blade::component('web.elements.alert.warning', 'alertwarning');
+        Blade::component('web.elements.alerts.info', 'alertinfo');
+        Blade::component('web.elements.alerts.success', 'alertsuccess');
+        Blade::component('web.elements.alerts.error', 'alerterror');
+        Blade::component('web.elements.alerts.warning', 'alertwarning');
         
         # observer
         Article::observe(ArticleObserver::class);
