@@ -96,6 +96,9 @@
         overflow: hidden;
         cursor: default;
     }
+    .content img{
+        max-width: 100% !important;
+    }
 </style>
 @endpush
 

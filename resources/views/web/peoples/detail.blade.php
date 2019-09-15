@@ -11,6 +11,7 @@
     .sortmenu .dropdown-menu a {
         text-align: center !important;
     }
+
     .sortmenu .dropdown-menu a {
         padding: .5rem .5rem !important;
     }
@@ -46,8 +47,13 @@
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
                 <li class="nav-item {{ $i==0?'active':''}}">
+                    @if($i==0 || $i==3)
                     <a class="nav-link pl-0 text-dark " href="{{ $menu->link }}">
                         {{ $menu->name }}</a>
+                    @else
+                    <a class="nav-link pl-0 text-dark " target="_blank" href="{{ $menu->link }}">
+                        {{ $menu->name }}</a>
+                    @endif
                 </li>
                 @endforeach
             </ul>
@@ -55,8 +61,7 @@
         <div class="col-12 col-lg-10">
             <h1 class="my-3 my-lg-5 font-weight-bold"> Overview </h1>
             <div class="d-none d-lg-block text-right">
-                <a href="{{ $people->resumeLink }}" 
-                    class="d-none d-lg-inline-block btn btn-md bg-success text-white"
+                <a href="{{ $people->resumeLink }}" class="d-none d-lg-inline-block btn btn-md bg-success text-white"
                     target="_blank">
                     <i class="fas fa-download"></i>
                     Download CV

@@ -23,8 +23,8 @@
     header.fixed-top.bg-white.transparent i.fas.fa-bars {
         color: white !important;
     }
-    header.fixed-top.bg-white.transparent .navbar-brand img
-    {
+
+    header.fixed-top.bg-white.transparent .navbar-brand img {
         filter: invert(100%) sepia(4%) saturate(1101%) hue-rotate(182deg) brightness(116%) contrast(100%);
     }
 
@@ -34,8 +34,6 @@
 </style>
 @endpush
 
-{{-- @section('header')
-@endsection --}}
 @section('content')
 @if(setting('whoweare.image'))
 <div class="w-100 vh-100 background-size-cover background-position-center fixed-top"
@@ -43,7 +41,7 @@
 </div>
 @endif
 <section class="py-5 container">
-    <div>
+    <div class="content">
         {!! setting('whoweare.content') !!}
     </div>
 </section>

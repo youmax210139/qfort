@@ -12,12 +12,6 @@
         /* initial ratio of 1:1*/
     }
 
-    @media (max-width: 575.98px) {
-        .image-box {
-            width: 70%;
-        }
-    }
-
     .image-content {
         position: absolute;
         top: 0;

@@ -53,7 +53,7 @@
             width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </div>
     <h2 class="font-weight-bold text-center my-5">Transportation</h2>
-    <div class="text-left" id="transportation">{!! setting('findus.transportation')!!}</div>
+    <div class="text-left content" id="transportation">{!! setting('findus.transportation')!!}</div>
     <a id="contactus"></a>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
     <ul class="text-left list-unstyled">
