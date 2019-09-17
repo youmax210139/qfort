@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SubscriptionController extends Controller
 {
@@ -35,13 +36,28 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'subscription_email' => 'required|email',
+        $validator = Validator::make($request->all(), [
+            'subscription_email' => 'required|email|unique:subscriptions,email',
+            'subscription_name' => 'required',
+            'subscription_job' => 'required',
+            'subscription_area' => 'required',
+            'other_area' => 'required_if:subscription_area,other',
+            'subscription_country' => 'required',
         ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 403);
+        }
         Subscription::create([
             'email' => $request->subscription_email,
+            'jobTitle' => $request->subscription_job,
+            'area' => $request->subscription_area == 'other' ?
+            $request->other_area : $request->subscription_area,
+            'name' => $request->subscription_name,
+            'country' => $request->subscription_country,
         ]);
-        return redirect()->to(url()->previous() . '#email')->with('subscription-success', 'subscribtion success!');
+        return response()->json(
+            ['responseText' => ['message' => 'subscribtion success!']]
+        );
     }
 
     /**

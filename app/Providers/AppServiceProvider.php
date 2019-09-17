@@ -56,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.carousels.domain', 'carouseldomain');
         
         Blade::component('web.elements.paginator', 'paginator');
+        Blade::component('web.elements.modals.default', 'modalDefault');
 
         Blade::component('web.elements.alerts.info', 'alertinfo');
         Blade::component('web.elements.alerts.success', 'alertsuccess');

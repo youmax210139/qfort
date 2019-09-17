@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    @stack('modal')
     @section('header')@show
     <main>
         <input type="text" value="" id="clipboard" style="position:absolute;z-index:-100;opacity:0">
