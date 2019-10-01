@@ -16,6 +16,7 @@
         "laravel/scout": "^7.1",
         "laravel/tinker": "^1.0",
         "spatie/calendar-links": "^1.2",
+        "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-analytics": "^3.6",
         "tcg/voyager": "^1.2",
         "teamtnt/laravel-scout-tntsearch-driver": "^7.2"

@@ -20,7 +20,7 @@ class HomeController extends Controller
         $carousels = Carousel::where('status', 'A')->get();
         $events = Event::getPinTop(Event::with('categories'), 4);
         $articles = Article::getPinTop(Article::with('categories'), 6);
-        $domains = Domain::all();
+        $domains = Domain::ordered()->get();
         return view('web.index', compact('carousels', 'events', 'articles', 'domains'));
     }
 

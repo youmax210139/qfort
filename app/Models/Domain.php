@@ -4,11 +4,19 @@ namespace App\Models;
 
 use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
-class Domain extends Model
+class Domain extends Model implements Sortable
 {
     use TNTSearchable;
-    
+    use SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
+
     public function peoples()
     {
         return $this->belongsToMany(People::class, 'people_domains', 'domain_id', 'people_id');

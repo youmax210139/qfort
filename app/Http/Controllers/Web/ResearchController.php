@@ -12,7 +12,7 @@ class ResearchController extends Controller
 
     public function index()
     {
-        $domains = Domain::all();
+        $domains = Domain::ordered()->get();
         return view('web.researches.index', compact('domains'));
     }
 
