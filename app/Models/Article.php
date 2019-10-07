@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Auth;
 use App\Traits\BreadScope;
-use App\Traits\TNTSearchable;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use App\Traits\PinTop;
+use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -35,7 +34,7 @@ class Article extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit($this->content, 95, '...');
+        return str_limit(substr($this->content, 3, -4), 200, '...');
     }
 
     public function getLinkAttribute()
