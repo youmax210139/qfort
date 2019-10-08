@@ -44,8 +44,8 @@ modalSubscription
     </div>
     <div class="form-group">
         <label for="subscription_organization" class="col-form-label">Organization Name:</label>
-        <input name="subscription_organization" type="text" class="form-control mb-2" placeholder="Enter your organization name"
-            aria-describedby="basic-addon1">
+        <input name="subscription_organization" type="text" class="form-control mb-2"
+            placeholder="Enter your organization name" aria-describedby="basic-addon1">
     </div>
     <div class="form-group">
         <label for="subscription_area" class="col-form-label">Areas:</label>
@@ -127,17 +127,17 @@ modalSubscription
 <!-- Footer -->
 <footer class="text-center pt-5">
     <!-- Footer Text -->
-    <h3 class="mb-3 font-italic font-weight-bold">Stay in touch with us</h3>
+    <h3 class="mb-5 font-italic font-weight-bold">Stay in touch with us</h3>
     <div class="container">
         <div class="row py-4 align-items-center">
-            <div class="col-lg-5 my-2 text-lg-right text-center">
+            <div class="col-lg-5 my-3 text-lg-right text-center">
                 <i class="fab fa-facebook-f fa-lg  mr-4 fa-2x"></i>
                 <i class="fab fa-instagram fa-lg  mr-4 fa-2x"></i>
                 <i class="fab fa-youtube fa-lg mr-4 fa-2x"></i>
                 <i class="fab fa-twitter fa-lg mr-4 fa-2x"></i>
                 <i class="fab fa-linkedin-in fa-lg mr-2 fa-2x"></i>
             </div>
-            <div class="col-lg-7 my-2 p-lg-0">
+            <div class="col-lg-7 my-3 p-lg-0">
                 <label for="email" class="h5 mr-4 mb-2">Subscribe to our newsletter</label>
                 <button class="btn btn-sm btn-success my-0 px-4" type="button" data-toggle="modal"
                     data-target="#modalSubscription">Subscribe</button>
@@ -147,11 +147,13 @@ modalSubscription
     <div class="container pt-4 align-items-center border-0 px-md-0">
         <div class="row">
             <div class="col d-lg-flex justify-content-lg-between justify-content-center">
-                <a href="https://web.ncku.edu.tw/" target="_blank">
-                    <img class="mb-4 mr-md-4 img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
+                <a class="d-flex justify-content-center mb-4 mr-md-4 " href="https://web.ncku.edu.tw/" target="_blank">
+                    <img class="img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
                 </a>
-                <img class="mb-4 mr-md-4 img-fluid" style="transform: scale(0.9);"
-                    src="{{ Voyager::image('logos/qfort.svg')}}">
+                <a class="d-flex justify-content-center mb-4 mr-md-4 " href="/" target="_blank">
+                    <img class="img-fluid" style="transform: scale(0.9);"
+                        src="{{ Voyager::image('logos/qfort.svg')}}">
+                </a>
                 <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
                     <li>
                         <p>

@@ -26,6 +26,9 @@ trait Categorizable
 
     public function getFirstCategoryAttribute()
     {
+        if (request()->c && $c = $this->categories()->where('name', urldecode(request()->c))->first()) {
+            return $c->name;
+        }
         return $this->categories()->first()->name ?? '-';
     }
 }

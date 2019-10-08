@@ -43,7 +43,7 @@ trait Paginatable
     {
         $reflection = new ReflectionClass(self::class);
         if (strtolower($reflection->getShortName()) == 'article') {
-            return 'New';
+            return 'News';
         } else {
             return $reflection->getShortName();
         }
