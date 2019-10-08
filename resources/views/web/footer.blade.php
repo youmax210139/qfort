@@ -43,6 +43,11 @@ modalSubscription
             aria-describedby="basic-addon1">
     </div>
     <div class="form-group">
+        <label for="subscription_organization" class="col-form-label">Organization Name:</label>
+        <input name="subscription_organization" type="text" class="form-control mb-2" placeholder="Enter your organization name"
+            aria-describedby="basic-addon1">
+    </div>
+    <div class="form-group">
         <label for="subscription_area" class="col-form-label">Areas:</label>
         <div>
             <div class="custom-control custom-radio custom-control-inline mb-2">
@@ -135,7 +140,7 @@ modalSubscription
             <div class="col-lg-7 my-2 p-lg-0">
                 <label for="email" class="h5 mr-4 mb-2">Subscribe to our newsletter</label>
                 <button class="btn btn-sm btn-success my-0 px-4" type="button" data-toggle="modal"
-                    data-target="#modalSubscription">Send</button>
+                    data-target="#modalSubscription">Subscribe</button>
             </div>
         </div>
     </div>

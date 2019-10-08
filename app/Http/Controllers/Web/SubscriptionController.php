@@ -40,6 +40,7 @@ class SubscriptionController extends Controller
             'subscription_email' => 'required|email|unique:subscriptions,email',
             'subscription_name' => 'required',
             'subscription_job' => 'required',
+            'subscription_organization' => 'required',
             'subscription_area' => 'required',
             'other_area' => 'required_if:subscription_area,other',
             'subscription_country' => 'required',
@@ -50,6 +51,7 @@ class SubscriptionController extends Controller
         Subscription::create([
             'email' => $request->subscription_email,
             'jobTitle' => $request->subscription_job,
+            'organizationName' => $request->subscription_organization,
             'area' => $request->subscription_area == 'other' ?
             $request->other_area : $request->subscription_area,
             'name' => $request->subscription_name,
