@@ -92,21 +92,72 @@
             <form class="form" method="post" action="{{ route('web.events.registration.store', $event->id) }}"
                 id="form-enquiry">
                 @csrf
-                <div class="form-row">
-                    <div class="col-12 mb-4">
+                <div class="form-row text-left">
+                    <div class="form-group col-12 mb-4">
+                        <label for="name" class="col-form-label">Name:</label>
                         <input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}"
                             required>
                         @alerterror(['name'=>'name']) @endalerterror
                     </div>
-                    <div class="col-12 mb-4">
+                    <div class="form-group col-12 mb-4">
+                        <label for="email" class="col-form-label">Email:</label>
                         <input type="email" class="form-control" placeholder="Email" name="email"
                             value="{{ old('email') }}" required>
                         @alerterror(['name'=>'email']) @endalerterror
                     </div>
-                    <div class="col-12 mb-4">
+                    <div class="form-group col-12 mb-4">
+                        <label for="telephone" class="col-form-label">Telephone:</label>
                         <input type="text" class="form-control" name="telephone" placeholder="Tel Number"
                             value="{{ old('telephone') }}" required>
                         @alerterror(['name'=>'telephone']) @endalerterror
+                    </div>
+                    <div class="form-group col-12 mb-4">
+                        <label for="job" class="col-form-label">Job Title:</label>
+                        <input name="job" type="text" class="form-control mb-2"
+                            placeholder="Enter your job title" aria-describedby="basic-addon1" value="{{ old('job') }}" required>
+                        @alerterror(['name'=>'job']) @endalerterror
+                    </div>
+                    <div class="form-group col-12 mb-4">
+                        <label for="organization" class="col-form-label">Organization Name:</label>
+                        <input name="organization" type="text" class="form-control mb-2"
+                            placeholder="Enter your organization name" aria-describedby="basic-addon1"
+                            value="{{ old('organization') }}">
+                        @alerterror(['name'=>'organization']) @endalerterror
+                    </div>
+                    <div class="form-group col-12 mb-4">
+                        <label for="area" class="col-form-label">Areas:</label>
+                        @alerterror(['name'=>'area']) @endalerterror
+                        <div>
+                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                <input type="radio" id="AreaAcademic" name="area"
+                                    class="custom-control-input" value="academic">
+                                <label class="custom-control-label" for="AreaAcademic">Academic &
+                                    Research</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                <input type="radio" id="AreaIndustry" name="area"
+                                    class="custom-control-input" value="industry">
+                                <label class="custom-control-label" for="AreaIndustry">Industry</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                <input type="radio" id="AreaEducation" name="area"
+                                    class="custom-control-input" value="education">
+                                <label class="custom-control-label" for="AreaEducation">Education</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                <input type="radio" id="AreaOther" name="area"
+                                    class="custom-control-input" value="other">
+                                <label class="custom-control-label" for="AreaOther">Other
+                                    <input class="border-bottom px-2" type="text" name="other_area">​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 mb-4">
+                        <label for="subscription_country" class="col-form-label">Country</label>
+                        <input name="country" type="text" class="form-control mb-2"
+                            placeholder="Enter your country" aria-describedby="basic-addon1">
+                        @alerterror(['name'=>'country']) @endalerterror
                     </div>
                 </div>
                 <button class="btn btn-success btn-lg w-100 py-2" type="submit">Register</button>
