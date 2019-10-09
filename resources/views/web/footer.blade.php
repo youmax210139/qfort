@@ -29,7 +29,6 @@ modalSubscription
         <label for="subscription_email" class="col-form-label">Email:</label>
         <input name="subscription_email" type="email" class="form-control mb-2" placeholder="Enter email address"
             aria-describedby="basic-addon1">
-        @alerterror(['name'=>'subscription_email']) @endalerterror
     </div>
     {{-- @alertsuccess(['name'=>'subscription-success']) @endalertsuccess --}}
     <div class="form-group">

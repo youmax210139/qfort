@@ -51,7 +51,7 @@
 @endpush
 <header class="font-weight-bold fixed-top bg-white py-2">
     <nav
-        class="container navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start justify-content-space">
+        class="container navbar navbar-expand-lg align-items-center align-items-lg-center justify-content-lg-start justify-content-space">
         <div class="w-100 d-flex d-lg-none justify-content-end">
             <a class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
@@ -66,21 +66,16 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <a class="navbar-brand ml-lg-2 mx-0" href="/">
+        <a class="navbar-brand mx-0" href="/">
             <img src="{{ Voyager::image('logos/brand.svg') }}" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse justify-content-center align-items-end flex-column"
+        <div class="collapse navbar-collapse justify-content-center align-items-center"
             id="navbarSupportedContent">
-            <div class="navbar-nav flex-row mb-2 d-none d-lg-flex">
-                <a class="text-dark" href="">中文</a>
-                /
-                <a class="text-dark" href="">EN</a>
-            </div>
-            <ul class="navbar-nav align-items-lg-end align-items-center">
+            <ul class="navbar-nav mx-auto">
                 @foreach($items as $i=> $menu_item)
                 <li
                     class="nav-item mx-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
@@ -110,17 +105,20 @@
                     @endif
                 </li>
                 @endforeach
-                <form class="form-inline mb-2 ml-3 d-none d-lg-flex" action="{{ route('web.searchs.index')}}"
-                    method="get">
-                    <div class="input-group has-search">
-                        <input name="search" type="text" class="form-control pl-2 vw-15" value="{{ request()->search }}"
-                            aria-describedby="basic-addon1">
-                        <span class="icon-wrapper">
-                            <img src="{{ Voyager::image('icons/search.svg') }}" />
-                        </span>
-                    </div>
-                </form>
             </ul>
+
+            <form class="form-inline d-none d-lg-flex" action="{{ route('web.searchs.index')}}" method="get">
+                <div class="input-group has-search mr-3">
+                    <input name="search" type="text" class="form-control pl-2 vw-8" value="{{ request()->search }}"
+                        aria-describedby="basic-addon1">
+                    <span class="icon-wrapper">
+                        <img src="{{ Voyager::image('icons/search.svg') }}" />
+                    </span>
+                </div>
+                <a class="text-dark" href="">中文</a>
+                /
+                <a class="text-dark" href="">EN</a>
+            </form>
         </div>
 
     </nav>

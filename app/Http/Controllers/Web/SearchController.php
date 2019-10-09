@@ -24,16 +24,15 @@ class SearchController extends Controller
         $researches = Research::search($request->search)->paginate($pagination);
         $events = Event::search($request->search)->paginate($pagination);
         $news = Article::search($request->search)->paginate($pagination);
-        // dd($events);
-        $domains = Domain::search($request->search)->paginate($pagination);
+        $abouts = $news;
         $total_page = max(1,
             ceil($peoples->total() / $pagination),
             ceil($researches->total() / $pagination),
             ceil($events->total() / $pagination),
-            ceil($domains->total() / $pagination),
-            ceil($news->total() / $pagination)
+            ceil($news->total() / $pagination),
+            ceil($abouts->total() / $pagination)
         );
-        return view('web.searchs.index', compact('peoples', 'domains', 'researches',
+        return view('web.searchs.index', compact('peoples', 'abouts', 'researches',
             'events', 'news', 'current_page', 'total_page'));
     }
     /**

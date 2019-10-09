@@ -18,7 +18,7 @@ em{
 
 <section class="text-left my-5 container">
 
-    @foreach(compact('peoples', 'domains', 'events', 'researches', 'news') as $title => $data)
+    @foreach(compact('researches', 'peoples', 'news', 'events', 'abouts') as $title => $data)
         <h3 class="my-3">{{ $title }}</h3>
         @foreach ($data->getCollection() as $item)
         <a href="{{$item->link}}" class="text-dark h5"> {!! $item->highlightTitle !!}</a>
