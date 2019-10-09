@@ -18,7 +18,7 @@ class Research extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit(substr($this->content, 3, -4), 300, '...');
+        return str_limit(strip_tags($this->content), 300, '...');
     }
 
     public function getLinkAttribute()

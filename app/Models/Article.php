@@ -34,7 +34,7 @@ class Article extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit(substr($this->content, 3, -4), 200, '...');
+        return str_limit(strip_tags($this->content), 200, '...');
     }
 
     public function getLinkAttribute()
