@@ -156,7 +156,7 @@
                     <div class="form-group col-12 mb-4">
                         <label for="subscription_country" class="col-form-label">Country</label>
                         <input name="country" type="text" class="form-control mb-2"
-                            placeholder="Enter your country" aria-describedby="basic-addon1">
+                            placeholder="Enter your country" aria-describedby="basic-addon1" value="{{ old('country') }}" required>
                         @alerterror(['name'=>'country']) @endalerterror
                     </div>
                 </div>

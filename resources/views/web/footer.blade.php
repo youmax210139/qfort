@@ -30,7 +30,6 @@ modalSubscription
         <input name="subscription_email" type="email" class="form-control mb-2" placeholder="Enter email address"
             aria-describedby="basic-addon1">
     </div>
-    {{-- @alertsuccess(['name'=>'subscription-success']) @endalertsuccess --}}
     <div class="form-group">
         <label for="subscription_name" class="col-form-label">Name:</label>
         <input name="subscription_name" type="text" class="form-control mb-2" placeholder="Enter your name"

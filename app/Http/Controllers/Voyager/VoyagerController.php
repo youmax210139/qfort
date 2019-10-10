@@ -39,7 +39,11 @@ class VoyagerController extends BaseVoyagerController
 
     public function index()
     {
-        $analyticsData_one = Analytics::fetchTotalVisitorsAndPageViews(Period::days(14));
+        try {
+            $analyticsData_one = Analytics::fetchTotalVisitorsAndPageViews(Period::days(14));
+        } catch (\Exception $e) {
+            return view('voyager::index-error');
+        }
         $this->data['dates'] = $analyticsData_one->pluck('date');
         $this->data['visitors'] = $analyticsData_one->pluck('visitors');
         $this->data['pageViews'] = $analyticsData_one->pluck('pageViews');

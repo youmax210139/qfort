@@ -12,6 +12,6 @@ class Subscription extends Model
         'area',
         'country',
         'jobTitle',
-        'organizationName',
+        'organization',
     ];
 }

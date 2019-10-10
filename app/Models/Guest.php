@@ -10,7 +10,11 @@ class Guest extends Model
         'name',
         'email',
         'telephone',
-        'password'
+        'password',
+        'jobTitle',
+        'organization',
+        'area',
+        'country'
     ];
 
     protected $hidden = [

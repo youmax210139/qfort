@@ -44,8 +44,13 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:guests,email',
             'telephone' => 'required',
+            'job' => 'required',
+            'organization' => 'required',
+            'area' => 'required',
+            'other_area' => 'required_if:area,other',
+            'country' => 'required',
         ]);
 
         $password = str_random(12);
@@ -56,6 +61,10 @@ class EventController extends Controller
             'name' => $request->name,
             'telephone' => $request->telephone,
             'password' => $password,
+            'jobTitle' => $request->job,
+            'organization' => $request->organization,
+            'area' => $request->area == 'other' ?$request->other_area : $request->area,
+            'country' => $request->subscription_country,
         ]);
         if ($guest->wasRecentlyCreated) {
             $guest->events()->attach($event);

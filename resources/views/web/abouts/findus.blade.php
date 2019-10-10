@@ -56,7 +56,7 @@
     <div class="text-left content" id="transportation">{!! setting('findus.transportation')!!}</div>
     <a id="contactus"></a>
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
-    <ul class="text-left list-unstyled">
+    <ul class="text-left list-unstyled" style="line-height: 2rem;">
         <li>
             <p>
                 <h4 class="text-success">
@@ -124,7 +124,7 @@
                 @alerterror(['name'=>'message']) @endalerterror
             </div>
         </div>
-        <button class="btn btn-success btn-lg w-100 py-2" type="submit">Submit form</button>
+        <button class="btn btn-success btn-lg w-100 py-2 my-3" type="submit">Submit form</button>
     </form>
 </section>
 @endsection
