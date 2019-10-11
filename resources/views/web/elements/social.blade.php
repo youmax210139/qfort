@@ -35,7 +35,7 @@ urlencode(request()->url()) ],
 ['class'=> 'fab fa-pinterest', 'href'=>'http://pinterest.com/pin/create/button/?url='.
 urlencode(request()->url()) ],
 ['class'=> 'fas fa-copy', 'href'=>request()->url() ],
-['class'=> 'fas fa-envelope', 'href'=>'mailto:' . $email . '&subject='. $title ]
+['class'=> 'fas fa-envelope', 'href'=>'mailto:&subject=[Qfort]'. $title.'&body='.request()->url().'<br>'.$body ]
 ];
 @endphp
 <div class="d-inline-flex align-items-center justify-content-center flex-wrap">
