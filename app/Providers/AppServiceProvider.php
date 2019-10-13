@@ -46,7 +46,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.cards.new', 'new');
         Blade::component('web.elements.cards.domain', 'domain');
         Blade::component('web.elements.cards.figure', 'figure');
-        Blade::component('web.elements.cards.event', 'event');
+        Blade::component('web.elements.cards.events.event1', 'event1');
+        Blade::component('web.elements.cards.events.event2', 'event2');
 
         Blade::component('web.elements.carousels.horizontal', 'carouselhorizontal');
         Blade::component('web.elements.carousels.vertical', 'carouselvertical');

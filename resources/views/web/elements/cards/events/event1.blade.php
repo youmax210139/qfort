@@ -1,17 +1,9 @@
-@pushonce('css:card_event')
+@pushonce('css:card_events_event1')
 <style>
     .event-title {
         bottom: 0;
         opacity: 0.9;
         padding: .5rem;
-    }
-
-    .zoom:hover .event {
-        transform: scale(1.1);
-    }
-
-    .zoom .event {
-        transition: all 4s ease;
     }
 </style>
 @endpushonce
