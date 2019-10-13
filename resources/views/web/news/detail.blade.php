@@ -2,9 +2,7 @@
 
 @push('css')
 <style>
-    .card .content {
-        background-color: #F6F6F6 !important;
-    }
+
 </style>
 @endpush
 @section('content')
@@ -22,7 +20,7 @@
                 @endslot
                 @endsocial
             </div>
-            <div class=" container-fluid my-5 p-0">
+            <div class="container-fluid my-5 p-0 content">
                 {!! $article->content !!}
             </div>
             <div class="d-lg-none mx-0 mb-3 text-center py-3 mb-5">

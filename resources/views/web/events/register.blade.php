@@ -6,11 +6,6 @@
         height: auto;
         min-height: 60vh;
     }
-
-    .content img {
-        max-width: 100%;
-        height: auto;
-    }
 </style>
 @endpush
 @section('content')

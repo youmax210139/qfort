@@ -6,11 +6,6 @@
         height: auto;
         min-height: 60vh;
     }
-
-    .content img {
-        max-width: 100%;
-        height: auto;
-    }
 </style>
 @endpush
 @section('content')
@@ -86,7 +81,7 @@
             <!-- Section heading -->
             <h1 class="d-none d-lg-block font-weight-bold text-left mb-3">{{ $event->title }}</h1>
             <h3 class="d-none d-lg-block text-left mb-5">{{ $event->abstract }}</h3>
-            <div class="content my-5">
+            <div class="container-fluid content my-5 p-0">
                 {!! $event->content !!}
             </div>
             <div class="row align-items-center">

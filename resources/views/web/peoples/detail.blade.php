@@ -67,7 +67,7 @@
                     Download CV
                 </a>
             </div>
-            <div class="text-left">
+            <div class="container-fluid my-5 p-0 text-left content">
                 <h3 class="font-weight-bold">{{ $people->job }}</h3>
                 {!! $people->content !!}
             </div>

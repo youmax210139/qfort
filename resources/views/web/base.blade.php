@@ -103,6 +103,10 @@
         cursor: default;
     }
 
+    .content {
+        line-height: 2.5 !important;
+        font-size: 1rem !important;
+    }
     .content img {
         max-width: 100% !important;
     }

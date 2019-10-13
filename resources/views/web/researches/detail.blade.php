@@ -21,7 +21,7 @@
         @endslot
         @endsocial
     </div>
-    <div class="container-fluid my-5 p-0">
+    <div class="container-fluid my-5 p-0 content">
         {!! $research->content !!}
     </div>
     <div class="d-lg-none mx-0 mb-3 border-bottom text-center py-3 mb-5">
