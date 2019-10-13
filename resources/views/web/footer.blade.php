@@ -67,7 +67,7 @@ modalSubscription
                 <input type="radio" id="subscriptionAreaOther" name="subscription_area" class="custom-control-input"
                     value="other">
                 <label class="custom-control-label" for="subscriptionAreaOther">Other
-                    <input class="border-bottom px-2" type="text" name="other_area">​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                    <input class="border-bottom px-2" type="text" name="subscription_other_area">​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
                 </label>
             </div>
         </div>

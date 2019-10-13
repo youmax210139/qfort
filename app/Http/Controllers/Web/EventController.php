@@ -6,6 +6,7 @@ use App\Mail\RegisterEvent;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Guest;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -44,13 +45,14 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:guests,email',
+            'email' => 'required|email',
             'telephone' => 'required',
             'job' => 'required',
             'organization' => 'required',
             'area' => 'required',
             'other_area' => 'required_if:area,other',
             'country' => 'required',
+            'subscription' => 'required',
         ]);
 
         $password = str_random(12);
@@ -63,23 +65,40 @@ class EventController extends Controller
             'password' => $password,
             'jobTitle' => $request->job,
             'organization' => $request->organization,
-            'area' => $request->area == 'other' ?$request->other_area : $request->area,
-            'country' => $request->subscription_country,
+            'area' => $request->area == 'other' ? $request->other_area : $request->area,
+            'country' => $request->country,
         ]);
-        if ($guest->wasRecentlyCreated) {
-            $guest->events()->attach($event);
-            $to = [
-                [
-                    'email' => $request->email, 
-                    'name' => $request->name,
-                ]
-            ];
-            Mail::to($to)->send(new RegisterEvent($guest, $password));
-            return back()->withInput()
-            ->with('event-registration-success', 'Your guest has been created, please check your email for detail.');
+        // if ($guest->wasRecentlyCreated) {
+
+        // }
+        if ($request->subscription == true) {
+            Subscription::firstOrCreate([
+                'email' => $request->email,
+            ], [
+                'email' => $request->email,
+                'jobTitle' => $request->job,
+                'organization' => $request->organization,
+                'area' => $request->area == 'other' ?
+                $request->other_area : $request->area,
+                'name' => $request->name,
+                'country' => $request->country,
+            ]);
         }
+
+        $hasEvent = $guest->events()->find($event->id);
+        if ($hasEvent) {
+            return back()->withInput()->with('event-registration-success', 'You have enrolled alreay.');
+        }
+        $guest->events()->attach($event);
+        $to = [
+            [
+                'email' => $request->email,
+                'name' => $request->name,
+            ],
+        ];
+        Mail::to($to)->send(new RegisterEvent($guest, $password));
         return back()->withInput()
-            ->with('event-registration-success', 'You have enrolled alreay.');
+            ->with('event-registration-success', 'Your guest has been created, please check your email for detail.');
     }
 
     /**

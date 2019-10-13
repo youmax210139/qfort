@@ -113,8 +113,8 @@
                     </div>
                     <div class="form-group col-12 mb-4">
                         <label for="job" class="col-form-label">Job Title:</label>
-                        <input name="job" type="text" class="form-control mb-2"
-                            placeholder="Enter your job title" aria-describedby="basic-addon1" value="{{ old('job') }}" required>
+                        <input name="job" type="text" class="form-control mb-2" placeholder="Enter your job title"
+                            aria-describedby="basic-addon1" value="{{ old('job') }}" required>
                         @alerterror(['name'=>'job']) @endalerterror
                     </div>
                     <div class="form-group col-12 mb-4">
@@ -127,37 +127,48 @@
                     <div class="form-group col-12 mb-4">
                         <label for="area" class="col-form-label">Areas:</label>
                         @alerterror(['name'=>'area']) @endalerterror
+                        @alerterror(['name'=>'other_area']) @endalerterror
                         <div>
                             <div class="custom-control custom-radio custom-control-inline mb-2">
-                                <input type="radio" id="AreaAcademic" name="area"
-                                    class="custom-control-input" value="academic">
+                                <input type="radio" id="AreaAcademic" name="area" class="custom-control-input"
+                                    value="academic" {{ old('area')=='academic' ? ' checked' : '' }}>
                                 <label class="custom-control-label" for="AreaAcademic">Academic &
                                     Research</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline mb-2">
-                                <input type="radio" id="AreaIndustry" name="area"
-                                    class="custom-control-input" value="industry">
+                                <input type="radio" id="AreaIndustry" name="area" class="custom-control-input"
+                                    value="industry" {{ old('area')=='industry' ? ' checked' : '' }}>
                                 <label class="custom-control-label" for="AreaIndustry">Industry</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline mb-2">
-                                <input type="radio" id="AreaEducation" name="area"
-                                    class="custom-control-input" value="education">
+                                <input type="radio" id="AreaEducation" name="area" class="custom-control-input"
+                                    value="education" {{ old('area')=='education' ? ' checked' : '' }}>
                                 <label class="custom-control-label" for="AreaEducation">Education</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline mb-2">
-                                <input type="radio" id="AreaOther" name="area"
-                                    class="custom-control-input" value="other">
+                                <input type="radio" id="AreaOther" name="area" class="custom-control-input"
+                                    value="other" {{ old('area')=='other' ? ' checked' : '' }}>
                                 <label class="custom-control-label" for="AreaOther">Other
-                                    <input class="border-bottom px-2" type="text" name="other_area">​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                                    <input class="border-bottom px-2" type="text" name="other_area"
+                                        value="{{ old('other_area') }}">​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group col-12 mb-4">
                         <label for="subscription_country" class="col-form-label">Country</label>
-                        <input name="country" type="text" class="form-control mb-2"
-                            placeholder="Enter your country" aria-describedby="basic-addon1" value="{{ old('country') }}" required>
+                        <input name="country" type="text" class="form-control mb-2" placeholder="Enter your country"
+                            aria-describedby="basic-addon1" value="{{ old('country') }}" required>
                         @alerterror(['name'=>'country']) @endalerterror
+                    </div>
+                    <div class="form-group col-12 mb-4">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="subscription" value="true"
+                                {{ old('subscription')==true ? ' checked' : '' }} id="subscriptionCheck">
+                            <label class="custom-control-label" for="subscriptionCheck">Do you want to subscribe our
+                                newsletters?</label>
+                            @alerterror(['name'=>'subscription']) @endalerterror
+                        </div>
                     </div>
                 </div>
                 <button class="btn btn-success btn-lg w-100 py-2" type="submit">Register</button>

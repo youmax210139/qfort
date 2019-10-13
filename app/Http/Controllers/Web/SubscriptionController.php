@@ -42,7 +42,7 @@ class SubscriptionController extends Controller
             'subscription_job' => 'required',
             'subscription_organization' => 'required',
             'subscription_area' => 'required',
-            'other_area' => 'required_if:subscription_area,other',
+            'subscription_other_area' => 'required_if:subscription_area,other',
             'subscription_country' => 'required',
         ]);
         if ($validator->fails()) {
@@ -53,7 +53,7 @@ class SubscriptionController extends Controller
             'jobTitle' => $request->subscription_job,
             'organization' => $request->subscription_organization,
             'area' => $request->subscription_area == 'other' ?
-            $request->other_area : $request->subscription_area,
+            $request->subscription_other_area : $request->subscription_area,
             'name' => $request->subscription_name,
             'country' => $request->subscription_country,
         ]);
