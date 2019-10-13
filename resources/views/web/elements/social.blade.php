@@ -35,14 +35,18 @@ urlencode(request()->url()) ],
 ['class'=> 'fab fa-pinterest', 'href'=>'http://pinterest.com/pin/create/button/?url='.
 urlencode(request()->url()) ],
 ['class'=> 'fas fa-copy', 'href'=>request()->url() ],
-['class'=> 'fas fa-envelope', 'href'=>'mailto:&subject=[Qfort]'. $title.'&body='.request()->url().'<br>'.$body ]
+['class'=> 'fas fa-envelope', 'href'=>
+'mailto:?subject=[Qfort]'. $title.
+'&body='.request()->url(). '%0D%0A'. 
+str_replace('&nbsp;', '%0D%0A', strip_tags($body)) ]
 ];
+// dd($links[6]['href']);
 @endphp
 <div class="d-inline-flex align-items-center justify-content-center flex-wrap">
     {{ $prepend??'' }}
     <div class="w-100 w-lg-auto text-center mb-3 mb-lg-0 mr-lg-2">{{ $text?? 'Share this post:' }}</div>
     @foreach($links as $i=>$link)
-    <a href="{{$link['href']}}" class="btn btn-outline-success btn-floating {{ $i>0?'ml-2':'' }}" target="_blank"
+    <a href="{!! $link['href'] !!}" class="btn btn-outline-success btn-floating {{ $i>0?'ml-2':'' }}" target="_blank"
         name="{{ str_replace(' ', '_', $link['class']) }}">
         <i class="{{ $link['class'] }}"></i>
     </a>
