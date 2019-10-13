@@ -12,7 +12,7 @@ class PeopleController extends Controller
     protected function getMenu(People $people)
     {
         return json_decode(json_encode([
-            ['name' => 'Overview', 'link' => request()->fullUrl()],
+            ['name' => 'Overview', 'link' => route('web.peoples.detail', $people->id)],
             ['name' => 'Lab', 'link' => $people->lab],
             ['name' => 'Publication', 'link' => $people->publication],
             ['name' => 'Video', 'link' => route('web.peoples.video', $people->id)],

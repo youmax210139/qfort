@@ -2,8 +2,8 @@
 
 @push('css')
 <style>
-    .nav-item.active a,
-    .nav-item:hover a {
+    .aside .nav-item.active a,
+    .aside .nav-item:hover a {
         color: #217D7B !important;
     }
 
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="d-none col-lg-2 d-lg-flex mt-5">
+        <div class="d-none col-lg-2 d-lg-flex mt-5 aside">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
                 <li class="nav-item {{ $i==0?'active':''}}">
