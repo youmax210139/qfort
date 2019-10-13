@@ -21,7 +21,7 @@ class PeopleController extends Controller
 
     public function index(Request $request)
     {
-        $peoples = People::ofCategory($request->c)->get();
+        $peoples = People::ofCategory($request->c)->ordered()->get();
         $categories = Category::where('type', 'people')->get();
         return view('web.peoples.index', compact('peoples', 'categories'));
     }

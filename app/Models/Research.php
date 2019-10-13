@@ -5,11 +5,18 @@ namespace App\Models;
 use App\Traits\TNTSearchable;
 use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\SortableTrait;
 
 class Research extends Model
 {
     use Paginatable;
     use TNTSearchable;
+    use SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
 
     public function domains()
     {

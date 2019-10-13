@@ -21,7 +21,7 @@ class ResearchController extends Controller
         $related_researches = Research::whereHas('domains', function (Builder $query) use ($research) {
             $query->whereIn('domain_id', $research->domains->pluck('id')->toArray());
         })->where('id', '!=', $research->id)
-            ->orderBy('updated_at', 'asc')->take(4)->get();
+            ->ordered()->take(4)->get();
         return view('web.researches.detail', compact('research', 'related_researches'));
     }
 

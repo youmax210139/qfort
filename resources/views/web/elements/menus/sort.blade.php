@@ -5,7 +5,8 @@
         color: #217D7B;
     }
 
-    .sortmenu .dropdown-item:active {
+    .sortmenu .dropdown-item:active,
+    .sortmenu .dropdown-item.active {
         color: #217D7B;
         background-color: #fff;
     }
@@ -24,7 +25,7 @@
     </button>
     <div class="dropdown-menu dropdown-menu-right border-0 text-right w-xs-100 w-lg-auto">
         @foreach($menus as $menu)
-        <a class="dropdown-item pr-1 py-2 {{ $menu->name == ($text??null)? 'active': ''}}" 
+        <a class="dropdown-item pr-1 py-2 {{ $menu->name == ($text??null) || $menu->name == request()->c? 'active': ''}}" 
             href="{{ $menu->link }}">
             {{ $menu->name }}
         </a>

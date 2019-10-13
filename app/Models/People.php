@@ -6,6 +6,7 @@ use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\SortableTrait;
 use Storage;
 
 class People extends Model
@@ -13,6 +14,12 @@ class People extends Model
     use BreadScope;
     use Categorizable;
     use TNTSearchable;
+    use SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
 
     protected $table = 'peoples';
 
