@@ -24,7 +24,7 @@
     </button>
     <div class="dropdown-menu dropdown-menu-right border-0 text-right w-xs-100 w-lg-auto">
         @foreach($menus as $menu)
-        <a class="dropdown-item pr-1 py-2 {{ $menu->name == $text? 'active': ''}}" 
+        <a class="dropdown-item pr-1 py-2 {{ $menu->name == ($text??null)? 'active': ''}}" 
             href="{{ $menu->link }}">
             {{ $menu->name }}
         </a>
