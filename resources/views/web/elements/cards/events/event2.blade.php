@@ -10,7 +10,7 @@
 <div class="card border-0 mb-5" data-aos="fade-in">
     <div class="mb-0 view overlay zoom">
         <a href="{{ $item->link }}">
-            <img class="card-img-top object-fit-cover" src="{{ Voyager::image($item->image) }}">
+            <img class="w-100 card-img-top object-fit-cover" src="{{ Voyager::image($item->image) }}">
             <div class="mask"></div>
         </a>
     </div>

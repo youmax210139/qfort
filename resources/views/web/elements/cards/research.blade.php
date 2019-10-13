@@ -1,7 +1,7 @@
 <div class="col-12 {{ $className }} mb-5 d-flex flex-column">
-    <div class="mb-0 view overlay zoom embed-responsive embed-responsive-16by9">
+    <div class="mb-0 view overlay zoom">
         <a href="{{ $item->link }}">
-            <img class="embed-responsive-item object-fit-cover" src="{{ Voyager::image($item->image) }}">
+            <img class="w-100 img-fluid object-fit-cover" src="{{ Voyager::image($item->image) }}">
             <div class="mask"></div>
         </a>
     </div>
