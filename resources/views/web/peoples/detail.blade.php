@@ -26,15 +26,13 @@
         </div>
         <div class="col-lg-2"></div>
         <div class="col-lg-6">
-            <div class="vh-xs-50 h-lg-100 background-position-center background-size-cover"
-                style="background-image: url({{Voyager::image($people->image)}})">
-            </div>
+            <img class="img-fluid w-100" src="{{Voyager::image($people->image)}}">
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 d-lg-flex justify-content-center align-items-center">
             <div class="bg-lg-white bg-xs-silver p-3">
                 <h2 class="mb-5 font-weight-bold mb-2">{{ $people->name }}</h2>
-                <h5 class="text-danger mb-2">{{ $people->fullDomain }}</h5>
-                <h5 class="mb-5">{{ $people->department }}</h5>
+                <h5 class="text-danger mb-2">{{ $people->researchArea }}</h5>
+                <h5 class="mb-5">{{ $people->organization }}</h5>
                 <a class="h5 text-dark" href="mailto:{{ $people->email }}">
                     <i class="fas fa-envelope fa-2x text-success mb-2 d-block text-center"></i>
                     {{ $people->email }}

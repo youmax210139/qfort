@@ -38,19 +38,14 @@ class People extends Model
         return $this->hasMany(Video::class, 'people_id', 'id');
     }
 
-    public function getTitleAttribute()
-    {
-        return $this->name . ' ' . $this->fullDomain;
-    }
-
     public function getAbstractAttribute()
     {
         return str_limit($this->content, 95, '...');
     }
 
-    public function getFullDomainAttribute()
+    public function getResearchAreaAttribute()
     {
-        return implode(',', $this->domains()->pluck('title')->toArray());
+        return str_replace(',', ' & ', $this->area);
     }
 
     public function getResumeLinkAttribute()
