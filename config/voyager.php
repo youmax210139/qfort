@@ -94,7 +94,7 @@ return [
                 'people_categories',
                 'event_guests',
                 'people_domains',
-                'research_domains'
+                'research_domains',
             ],
         ],
         'autoload_migrations' => true,
@@ -208,7 +208,7 @@ return [
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'js/tinymce.js',
     ],
 
     'googlemaps' => [
