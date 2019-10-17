@@ -32,6 +32,11 @@ class Event extends Model
         'pintop_to',
     ];
 
+    public function guests()
+    {
+        return $this->belongsToMany(Guest::class, 'event_guests', 'event_id', 'guest_id');
+    }
+
     public function getAbstractAttribute($value)
     {
         return str_limit($value, 95, '...');
@@ -54,7 +59,7 @@ class Event extends Model
     {
         if ($this->location) {
             return 'https://www.google.com/maps/search/?api=1&query=' .
-            $this->location->getLat() . ',' . $this->location->getLng();
+                $this->location->getLat() . ',' . $this->location->getLng();
         } else {
             return '';
         }
@@ -62,11 +67,19 @@ class Event extends Model
 
     public function getICalLinkAttribute()
     {
-        $link = Link::create($this->title,
+        $link = Link::create(
+            $this->title,
             $this->published_from,
-            $this->published_to)
+            $this->published_to
+        )
             ->description($this->abstract);
         // ->address('Samberstraat 69D, 2060 Antwerpen');
         return $link;
     }
+
+    public function getGuestCountAttribute()
+    {
+        return $this->guests()->count() ?? 0;
+    }
+
 }
