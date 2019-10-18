@@ -11,9 +11,7 @@
 |
  */
 
-Route::get('/', function () {
-    
-});
+Route::get('/', function () { });
 
 Route::get('/abouts', function () {
     return view('web.index');
@@ -38,7 +36,7 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
 
     Route::get('/news', 'NewController@index')->name('news.index');
     Route::get('/news/{article}', 'NewController@detail')->name('news.detail');
-    
+
     Route::get('/abouts/findus', 'AboutController@findus')->name('abouts.findus');
     Route::get('/abouts/followus', 'AboutController@followus')->name('abouts.followus');
     Route::get('/abouts/whoweare', 'AboutController@whoweare')->name('abouts.whoweare');
@@ -50,6 +48,47 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::post('enquiries', 'enquiryController@store')->name('enquiries.store');
 });
 
+function VoyagerPageSetting($route)
+{
+    return  Route::group(
+        [
+            'as'     => "$route.",
+            'prefix' => str_replace('.', '/', $route),
+        ],
+        function () {
+            Route::get('/', ['uses' => 'VoyagerPageController@index',        'as' => 'index']);
+            Route::post('/', ['uses' => 'VoyagerPageController@store',        'as' => 'store']);
+            Route::put('/', ['uses' => 'VoyagerPageController@update',       'as' => 'update']);
+            Route::delete('{id}', ['uses' => 'VoyagerPageController@delete',       'as' => 'delete']);
+            Route::get('{id}/move_up', ['uses' => 'VoyagerPageController@move_up',      'as' => 'move_up']);
+            Route::get('{id}/move_down', ['uses' => 'VoyagerPageController@move_down',    'as' => 'move_down']);
+            Route::put('{id}/delete_value', ['uses' => 'VoyagerPageController@delete_value', 'as' => 'delete_value']);
+        }
+    );
+}
+
+function VoyagerPromotion($route)
+{
+    return  Route::group(
+        [
+            'as'     => "$route.",
+            'prefix' => str_replace('.', '/', $route),
+        ],
+        function () {
+            Route::get('/order', 'VoyagerPromotionController@order')->name('order');
+            Route::post('/action', 'VoyagerPromotionController@action')->name('action');
+            Route::post('/order', 'VoyagerPromotionController@update_order')->name('order');
+            Route::get('/{id}/restore', 'VoyagerPromotionController@restore')->name('restore');
+            Route::get('/relation', 'VoyagerPromotionController@relation')->name('relation');
+            Route::resource('','VoyagerPromotionController');
+        }
+    );
+}
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
+        VoyagerPageSetting('research.overview');
+        VoyagerPromotion('promotion.event');
+    });
 });

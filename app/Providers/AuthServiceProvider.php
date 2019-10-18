@@ -16,6 +16,10 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
+    protected $gates = [
+        'browse_research_overview',
+        'edit_research_overview',
+    ];
     /**
      * Register any authentication / authorization services.
      *
@@ -25,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        foreach ($this->gates as $gate) {
+            Gate::define($gate, function ($user) use ($gate) {
+                return $user->hasPermission($gate);
+            });
+        }
     }
 }
