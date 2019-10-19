@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use TCG\Voyager\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,9 +17,13 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
-    protected $gates = [
-        'browse_research_overview',
-        'edit_research_overview',
+    protected $excludeKeys = [
+        'browse_compass',
+        'browse_bread',
+        'browse_database',
+        'browse_media',
+        'browse_admin',
+        'browse_hooks',
     ];
     /**
      * Register any authentication / authorization services.
@@ -28,8 +33,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        foreach ($this->gates as $gate) {
+        $permissions = Permission::where('table_name', null)
+            ->whereNotIn('key', $this->excludeKeys)
+            ->get();
+        foreach ($permissions as $p) {
+            $gate = $p->key;
             Gate::define($gate, function ($user) use ($gate) {
                 return $user->hasPermission($gate);
             });
