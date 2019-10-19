@@ -10,38 +10,38 @@ use TCG\Voyager\Http\Controllers\VoyagerSettingsController as BaseVoyagerControl
 class VoyagerPageController extends BaseVoyagerController
 {
 
+    protected function get_current_route()
+    {
+        return explode('/', request()->path());
+    }
+
     protected function get_permission_name($prefix)
     {
-        $route = explode('.', request()->route()->getName());
-        return $prefix . '_' . implode('_', array_splice($route, 1, -1));
+        $route =  $this->get_current_route();
+        return $prefix . '_' . implode('_', array_splice($route, 1));
     }
 
     protected function get_group()
     {
-        $route = explode('.', request()->route()->getName());
-        return implode('_', array_splice($route, 1, -1));
-    }
-
-    protected function get_update_route()
-    {
-        $route = explode('.', request()->route()->getName());
-        array_splice($route, -1);
-        return implode('.', $route).'.update';
+        $route = $this->get_current_route();
+        return implode('_', array_splice($route, 1));
     }
 
     protected function get_title()
     {
-        $route = explode('.', request()->route()->getName());
-        return implode(' ', array_splice($route, 1, -1));
+        $route = $this->get_current_route();
+        return implode(' ', array_splice($route, 1));
     }
 
     public function index()
     {
+        // dd($this->get_permission_name('browse'));
         // Check permission
         $this->authorize($this->get_permission_name('browse'));
-        $route = $this->get_update_route();
+        $route = 'voyager.page_setting.update';
         $group = $this->get_group();
         $title = $this->get_title();
+        // dd($title);
         $data = Voyager::model('Setting')->where('group', $group)->orderBy('order', 'ASC')->get();
 
         $settings = [];
@@ -63,8 +63,9 @@ class VoyagerPageController extends BaseVoyagerController
     public function update(Request $request)
     {
         // Check permission
-        $this->authorize($this->get_permission_name('edit'));
-        $group = $this->get_group();
+        $group = $request->group;
+        $this->authorize('edit_'.$group);
+
         $settings = Voyager::model('Setting')->where('group', $group)->get();
         foreach ($settings as $setting) {
             $content = $this->getContentBasedOnType($request, 'settings', (object) [

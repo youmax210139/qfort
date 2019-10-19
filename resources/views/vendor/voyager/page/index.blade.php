@@ -232,6 +232,7 @@
         <form action="{{ route($route) }}" method="POST" enctype="multipart/form-data">
             {{ method_field("PUT") }}
             {{ csrf_field() }}
+            <input type="hidden" class="form-control" name="group" value="{{ $group }}">
             <div class="panel">
 
                 <div class="page-content settings container-fluid">

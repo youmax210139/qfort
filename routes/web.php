@@ -88,7 +88,8 @@ function VoyagerPromotion($route)
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
-        VoyagerPageSetting('research.overview');
+        VoyagerPageSetting('page_setting');
         VoyagerPromotion('promotion.event');
+        Route::fallback('VoyagerPageController@index');
     });
 });
