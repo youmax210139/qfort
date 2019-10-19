@@ -67,29 +67,26 @@ function VoyagerPageSetting($route)
     );
 }
 
-function VoyagerPromotion($route)
-{
-    return  Route::group(
-        [
-            'as'     => "$route.",
-            'prefix' => str_replace('.', '/', $route),
-        ],
-        function () {
-            Route::get('/order', 'VoyagerPromotionController@order')->name('order');
-            Route::post('/action', 'VoyagerPromotionController@action')->name('action');
-            Route::post('/order', 'VoyagerPromotionController@update_order')->name('order');
-            Route::get('/{id}/restore', 'VoyagerPromotionController@restore')->name('restore');
-            Route::get('/relation', 'VoyagerPromotionController@relation')->name('relation');
-            Route::resource('','VoyagerPromotionController');
-        }
-    );
-}
+// function VoyagerCarousel(array $types)
+// {
+//     return  Route::group(
+//         [
+//             'as'     => "carousels.",
+//             'prefix' => str_replace('.', '/', $route),
+//         ],
+//         function () use ($types){
+//             foreach($types as $type){
+
+//             }
+//         }
+//     );
+// }
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
+        Route::get("/carousels/{type}/view",'VoyagerCarouselController@index')->name('carousels.view');
         VoyagerPageSetting('page_setting');
-        VoyagerPromotion('promotion.event');
-        Route::fallback('VoyagerPageController@index');
+        Route::fallback('VoyagerPageController@index')->name('fallback');
     });
 });

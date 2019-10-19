@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use TCG\Voyager\Events\MenuDisplay;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Permission;
-
+use TCG\Voyager\Models\Menu as Model;
 /**
  * @todo: Refactor this class by using something like MenuBuilder Helper.
  */
@@ -65,7 +64,7 @@ class Menu extends Model
         if (!isset($menu)) {
             return false;
         }
-
+        // die($menu);
         event(new MenuDisplay($menu));
 
         // Convert options array into object
