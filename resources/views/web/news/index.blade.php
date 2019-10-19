@@ -12,8 +12,8 @@
     <!-- Section heading -->
     <div class="row">
         <div class="col-12">
-            <h1 class="font-weight-bold mt-5 text-left mb-0">{{ setting('new.title') }}</h1>
-            <h3 class="text-left mb-5">{{setting('new.subtitle')}}</h3>
+            <h1 class="font-weight-bold mt-5 text-left mb-0">{{ setting('new-introduction.title') }}</h1>
+            <h3 class="text-left mb-5">{{setting('new-introduction.subtitle')}}</h3>
             <div class="text-right mb-3">@sortmenu(['menus'=>$categories]) @endsortmenu</div>
         </div>
         @foreach($articles as $article)

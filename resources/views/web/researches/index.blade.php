@@ -28,11 +28,11 @@
 <a id="overview"></a>
 <div class="container bg-dark-silver my-5">
         <div class="row px-3">
-            <div class="col-12 col-lg-12 p-5">
-                <h1 class="font-weight-bold text-left mb-2">{{ setting('research.overview_title') }}</h1>
-                <h3 class="text-left mb-2">{{ setting('research.overview_subtitle') }}</h3>
+            <div class="col-12 col-lg-12 p-lg-5 py-5">
+                <h1 class="font-weight-bold text-left mb-2">{{ setting('research-overview.overview_title') }}</h1>
+                <h3 class="text-left mb-2">{{ setting('research-overview.overview_subtitle') }}</h3>
                 <p class="mb-5 h5 text-left">
-                    {{ setting('research.overview_description') }}
+                    {{ setting('research-overview.overview_description') }}
                 </p>
             </div>
         </div>
@@ -42,13 +42,13 @@
         <!-- Section heading -->
         <div class="row">
             <div class="col-12 col-lg-6 pr-lg-5 mb-3 mb-lg-0">
-                <img src="{{ Voyager::image(setting('research.roadmap_image')) }}" alt="" class="img-fluid">
+                <img src="{{ Voyager::image(setting('research-overview.roadmap_image')) }}" alt="" class="img-fluid">
             </div>
-            <div class="col-12 col-lg-6 p-lg-5">
+            <div class="col-12 col-lg-6 p-lg-5 py-5">
                 <div class="d-flex flex-column h-100 justify-content-center text-left">
-                    <h1 class="mb-3">{{ setting('research.roadmap_title') }}</h1>
+                    <h1 class="mb-3">{{ setting('research-overview.roadmap_title') }}</h1>
                     <p class="mb-3 h5 text-left">
-                        {{ setting('research.roadmap_description') }}
+                        {{ setting('research-overview.roadmap_description') }}
                     </p>
                 </div>
             </div>
@@ -58,11 +58,11 @@
 <a id="focus"></a>
 <div class="container bg-dark-silver my-5">
     <div class="row px-3">
-        <div class="col-12 col-lg-12 p-5">
-            <h1 class="font-weight-bold text-left mb-2">{{ setting('research.focus_title') }}</h1>
-            <h3 class="text-left mb-2">{{ setting('research.focus_subtitle') }}</h3>
+        <div class="col-12 col-lg-12 p-lg-5 py-5">
+            <h1 class="font-weight-bold text-left mb-2">{{ setting('research-overview.focus_title') }}</h1>
+            <h3 class="text-left mb-2">{{ setting('research-overview.focus_subtitle') }}</h3>
             <p class="mb-5 h5 text-left">
-                {{ setting('research.focus_description') }}
+                {{ setting('research-overview.focus_description') }}
             </p>
         </div>
     </div>
@@ -72,18 +72,18 @@
         <!-- Section heading -->
         @foreach($domains as $domain)
         <div class="row">
-            <div class="col-12 d-lg-none bg-light-silver">
-                <img src="{{ Voyager::image($domain->image) }}" alt="" class="img-fluid">
+            <div class="col-12 d-lg-none bg-light-silver mt-5">
+                <img src="{{ Voyager::image($domain->image) }}" alt="" class="img-fluid my-3">
             </div>
             <div class="col-12 col-lg-7 mb-5 text bg-light-silver">
-                <div class="d-flex flex-column h-100 justify-content-center text-left p-5">
+                <div class="d-flex flex-column h-100 justify-content-center text-left p-lg-5">
                     <h1 class="py-2 mb-3 font-weight-bold border-bottom border-dark mt-auto">{{ $domain->title }}</h1>
                     <p class="mb-3 h5 text-left">{{ $domain->abstract }}</p>
                     <a href="{{route('web.researches.domains.detail', $domain->id)}}"
                         class="btn text-success ml-auto text-uppercase font-weight-bolder mt-auto"> Read More</a>
                 </div>
             </div>
-            <div class="d-none d-lg-flex col-lg-5 mb-5 background-size-cover background-position-center"
+            <div class="d-none d-lg-flex col-lg-5 mb-5 background-size-cover background-position-center min-vh-lg-40"
                 style="background-image:url({{ Voyager::image($domain->image) }});">
             </div>
         </div>
@@ -93,11 +93,11 @@
 <a id="public_database"></a>
 <div class="container bg-dark-silver my-5">
     <div class="row px-3">
-        <div class="col-12 col-lg-12 p-5">
-            <h1 class="font-weight-bold text-left mb-2">{{ setting('research.public_database_title') }}</h1>
-            <h3 class="text-left mb-2">{{ setting('research.public_database_subtitle') }}</h3>
+        <div class="col-12 col-lg-12 p-lg-5 py-5">
+            <h1 class="font-weight-bold text-left mb-2">{{ setting('research-overview.public_database_title') }}</h1>
+            <h3 class="text-left mb-2">{{ setting('research-overview.public_database_subtitle') }}</h3>
             <p class="mb-5 h5 text-left">
-                {{ setting('research.public_database_description') }}
+                {{ setting('research-overview.public_database_description') }}
             </p>
         </div>
     </div>

@@ -14,7 +14,7 @@
                 <span class="float-right h6 mb-0 d-lg-none" style="line-height: 4vh;">{{ $article->created_at }}</span>
             </h3>
             <div class="d-lg-flex mx-0 justify-content-end align-items-center mb-3 border-bottom d-none py-3">
-                @social(['title'=>$article->title, 'email'=> setting('findus.email'), 'body'=> $article->content])
+                @social(['title'=>$article->title, 'body'=> $article->content])
                 @slot('prepend')
                 <div>{{ $article->created_at }}&nbsp;&nbsp;|&nbsp;&nbsp; </div>
                 @endslot
@@ -24,7 +24,7 @@
                 {!! $article->content !!}
             </div>
             <div class="d-lg-none mx-0 mb-3 text-center py-3 mb-5">
-                @social(['title'=>$article->title, 'email'=> setting('findus.email'), 'body'=> $article->content]) @endsocial
+                @social(['title'=>$article->title, 'body'=> $article->content]) @endsocial
             </div>
             @paginator(['item'=>$article]) @endpaginator
         </div>
