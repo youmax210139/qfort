@@ -146,11 +146,14 @@ class Menu extends Model
             $route = explode('/',$item->url);
             $route = array_splice($route, 2);
             $permission = implode('_', $route);
-            info('browse_'.$permission);
+            if(str_contains($permission, 'carousels')){
+                $permission = 'carousels';
+            }
+            // info('browse_'.$permission);
             $permission = Permission::where('key','browse_'.$permission)->first();
             if($permission == null) return true;
             // info(empty($item->url)?$item->route:$item->url, $permission->key);
-            return app('VoyagerAuth')->user()->can($permission->key);
+            return app('VoyagerAuth')->user()->hasPermission($permission->key);
         })->filter(function ($item) {
 
             if ($item->url == '' && $item->route == '' && $item->children->count() == 0) {
