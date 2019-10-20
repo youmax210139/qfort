@@ -13,7 +13,10 @@ class NewController extends Controller
     public function index(Request $request)
     {
         $articles = Article::getPinTop(Article::with('categories')->ofCategory($request->c), 6);
-        $carousels = Carousel::where('status', 'A')->get();
+        $carousels = Carousel::where([
+            ['type', '=', 'new'],
+            ['status', '=', 'A']
+        ])->ordered()->get();
         $categories = Category::where('type', 'new')->get();
         return view('web.news.index', compact('articles', 'carousels', 'categories'));
     }

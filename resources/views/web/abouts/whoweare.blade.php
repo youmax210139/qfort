@@ -35,9 +35,9 @@
 @endpush
 
 @section('content')
-@if(setting('whoweare.image'))
+@if($carousel->source)
 <div class="w-100 vh-100 background-size-cover background-position-center fixed-top"
-    style="background:url({{ Voyager::image(setting('whoweare.image'))}}); z-index:-1;background-repeat:no-repeat">
+    style="background:url({{ Voyager::image($carousel->source) }}); z-index:-1;background-repeat:no-repeat">
 </div>
 @endif
 <section class="py-5 container">
@@ -51,7 +51,7 @@
     function headerTransition(){
         if($(window).scrollTop()>=$(window).height()){
             $('header.fixed-top').removeClass('transparent');
-        } 
+        }
         else{
             $('header.fixed-top').addClass('transparent');
         }

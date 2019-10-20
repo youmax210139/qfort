@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\SortableTrait;
 
 class Carousel extends Model
 {
@@ -11,10 +12,18 @@ class Carousel extends Model
      *
      * @var array
      */
+
+    use SortableTrait;
+
     protected $appends = [
         'source',
     ];
-    
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
+
     public function getSourceAttribute()
     {
         $source = json_decode($this->file);

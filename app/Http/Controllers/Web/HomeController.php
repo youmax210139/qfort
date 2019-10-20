@@ -17,7 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $carousels = Carousel::where('status', 'A')->get();
+        $carousels = Carousel::where([
+            ['type', '=', 'homepage'],
+            ['status', '=', 'A']
+        ])->ordered()->get();
         $events = Event::getPinTop(Event::with('categories'), 4);
         $articles = Article::getPinTop(Article::with('categories'), 6);
         $domains = Domain::ordered()->get();

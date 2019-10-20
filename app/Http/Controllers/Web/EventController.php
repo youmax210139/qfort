@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Carousel;
 use App\Mail\RegisterEvent;
 use App\Models\Category;
 use App\Models\Event;
@@ -17,7 +18,11 @@ class EventController extends Controller
     {
         $events = Event::getPinTop(Event::ofCategory($request->c), 6);
         $categories = Category::where('type', 'event')->get();
-        return view('web.events.index', compact('events', 'categories'));
+        $carousel = Carousel::where([
+            ['type', '=', 'event'],
+            ['status', '=', 'A']
+        ])->ordered()->first();
+        return view('web.events.index', compact('events', 'categories', 'carousel'));
     }
 
     public function detail(Event $event)

@@ -83,7 +83,7 @@
                         class="btn text-success ml-auto text-uppercase font-weight-bolder mt-auto"> Read More</a>
                 </div>
             </div>
-            <div class="d-none d-lg-flex col-lg-5 mb-5 background-size-cover background-position-center min-vh-lg-40"
+            <div class="d-none d-lg-flex col-lg-5 mb-5 background-size-cover background-position-center min-vh-lg-50"
                 style="background-image:url({{ Voyager::image($domain->image) }});">
             </div>
         </div>

@@ -29,8 +29,11 @@ class AboutController extends Controller
 
     public function whoweare()
     {
-        $carousels = Carousel::where('status', 'A')->get();
-        return view('web.abouts.whoweare', compact('carousels'));
+        $carousel = Carousel::where([
+            ['type', '=', 'about'],
+            ['status', '=', 'A']
+        ])->ordered()->first();
+        return view('web.abouts.whoweare', compact('carousel'));
     }
     /**
      * Show the form for creating a new resource.
