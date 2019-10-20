@@ -11,7 +11,7 @@ class VoyagerController extends BaseVoyagerController
 {
     public function country()
     {
-        $country = Analytics::performQuery(Period::days(14), 'ga:sessions', ['dimensions' => 'ga:country', 'sort' => '-ga:sessions']);
+        $country = Analytics::performQuery(Period::days(7), 'ga:sessions', ['dimensions' => 'ga:country', 'sort' => '-ga:sessions']);
         $result = collect($country['rows'] ?? [])->map(function (array $dateRow) {
             return [
                 'country' => $dateRow[0],
@@ -25,22 +25,30 @@ class VoyagerController extends BaseVoyagerController
 
     public function topbrowsers()
     {
-        $analyticsData = Analytics::fetchTopBrowsers(Period::days(14));
+        $analyticsData = Analytics::fetchTopBrowsers(Period::days(7));
         $array = $analyticsData->toArray();
+        $data = [];
+        $labels = [];
         foreach ($array as $k => $v) {
-            $array[$k]['label'] = $array[$k]['browser'];
-            unset($array[$k]['browser']);
-            $array[$k]['value'] = $array[$k]['sessions'];
-            unset($array[$k]['sessions']);
-            $array[$k]['color'] = $array[$k]['highlight'] = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+            $data[] = $v['sessions'];
+            $labels[] = $v['browser'];
+            // $array[$k]['color'] = $array[$k]['highlight'] = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
         }
-        return json_encode($array);
+        return json_encode([
+            'datasets' => [
+                [
+                    'data' => $data,
+                    'backgroundColor'=> ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                ]
+            ],
+            'labels' => $labels,
+        ]);
     }
 
     public function index()
     {
         try {
-            $analyticsData_one = Analytics::fetchTotalVisitorsAndPageViews(Period::days(14));
+            $analyticsData_one = Analytics::fetchTotalVisitorsAndPageViews(Period::days(7));
         } catch (\Exception $e) {
             return view('voyager::index-error');
         }
