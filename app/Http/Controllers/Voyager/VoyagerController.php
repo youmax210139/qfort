@@ -18,8 +18,6 @@ class VoyagerController extends BaseVoyagerController
                 'sessions' => (int) $dateRow[1],
             ];
         });
-        /* $data['country'] = $result->pluck('country'); */
-        /* $data['country_sessions'] = $result->pluck('sessions'); */
         return $result;
     }
 
@@ -61,11 +59,14 @@ class VoyagerController extends BaseVoyagerController
         /* $this->data['two_visitors'] = $analyticsData_two->pluck('visitors')->count(); */
         /* $this->data['two_pageTitle'] = $analyticsData_two->pluck('pageTitle')->count(); */
 
-        /* $analyticsData_three = Analytics::fetchMostVisitedPages(Period::days(14)); */
-        /* $this->data['three_url'] = $analyticsData_three->pluck('url'); */
-        /* $this->data['three_pageTitle'] = $analyticsData_three->pluck('pageTitle'); */
-        /* $this->data['three_pageViews'] = $analyticsData_three->pluck('pageViews'); */
+        $analyticsData_three = Analytics::fetchMostVisitedPages(Period::days(14))->take(5);
+        // $mostview['datasource'] ;
+        $mostview = [];
+        $mostview['pageTitle'] = $analyticsData_three->pluck('url');
+        $mostview['pageViews'] = $analyticsData_three->pluck('pageViews');
+        // dd($mostview);
 
+        $this->data['mostview'] = $mostview;
         $this->data['browserjson'] = $this->topbrowsers();
 
         $result = $this->country();
@@ -74,6 +75,8 @@ class VoyagerController extends BaseVoyagerController
 
         $this->data['ceci_ver'] = config('mycms.ceci_ver');
         $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+
+        $this->data['backgroundColor'] = ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"];
         return view('voyager::index', $this->data);
     }
 }
