@@ -94,4 +94,16 @@ class VoyagerPageController extends BaseVoyagerController
             'alert-type' => 'success',
         ]);
     }
+
+
+    public function export(Request $request, $slug)
+    {
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        $ids = explode(',', $request->ids);
+
+        $model = app(str_replace('Models', 'Exports', $dataType->model_name));
+
+        return $model->forIds($ids)->download('test.xlsx');
+    }
 }

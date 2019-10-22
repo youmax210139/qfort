@@ -85,6 +85,7 @@ function VoyagerPageSetting($route)
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
+        Route::get("/export/{model}",'VoyagerPageController@export')->name('export');
         Route::get("/carousels/{type}/view",'VoyagerCarouselController@index')->name('carousels.view');
         VoyagerPageSetting('page_setting');
         Route::fallback('VoyagerPageController@index')->name('fallback');

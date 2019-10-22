@@ -32,7 +32,7 @@
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
-        <a class="btn btn-primary" id="bulk_export_btn"><i class="voyager-forward"></i> <span>Export</span></a>
+        @include('voyager::partials.bulk-export')
         @include('voyager::multilingual.language-selector')
     </div>
 @stop
