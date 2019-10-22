@@ -1,6 +1,17 @@
 @extends('voyager::master')
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 200px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
 @show
 @section('content')
 <div class="page-content">
@@ -96,6 +107,34 @@
 
             </div>
             <!-- /.col (RIGHT) -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">All Page Views</h3>
+                    </div>
+                    <div class="box-body table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Url</th>
+                                    <th scope="col">Views</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($totalViews as $row)
+                                <tr>
+                                    <td>{{$row['url']}}</td>
+                                    <td>{{$row['pageViews'] }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.row -->
     </div>

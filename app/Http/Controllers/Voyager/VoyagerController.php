@@ -55,7 +55,7 @@ class VoyagerController extends BaseVoyagerController
         $this->data['pageViews'] = $analyticsData_one->pluck('pageViews');
 
         $startDate = Carbon::parse('2019-10-18');
-        $this->data['totalViews'] = Analytics::fetchMostVisitedPages(Period::create($startDate, now()), PHP_INT_MAX);
+        $this->data['totalViews'] = Analytics::fetchMostVisitedPages(Period::create($startDate, now()), 10000);
 
         $analyticsData_three = Analytics::fetchMostVisitedPages(Period::days(14))->take(5);
         // $mostview['datasource'] ;
