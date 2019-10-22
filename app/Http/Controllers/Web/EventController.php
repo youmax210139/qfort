@@ -57,7 +57,7 @@ class EventController extends Controller
             'area' => 'required',
             'other_area' => 'required_if:area,other',
             'country' => 'required',
-            'subscription' => 'required',
+            'subscription' => 'nullable',
         ]);
 
         $password = str_random(12);
