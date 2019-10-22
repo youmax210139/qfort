@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Voyager;
 
 use Analytics;
-use Config;
+use Carbon\Carbon;
 use Spatie\Analytics\Period;
 use TCG\Voyager\Http\Controllers\VoyagerController as BaseVoyagerController;
 
@@ -54,10 +54,8 @@ class VoyagerController extends BaseVoyagerController
         $this->data['visitors'] = $analyticsData_one->pluck('visitors');
         $this->data['pageViews'] = $analyticsData_one->pluck('pageViews');
 
-        /* $analyticsData_two = Analytics::fetchVisitorsAndPageViews(Period::days(14)); */
-        /* $this->data['two_dates'] = $analyticsData_two->pluck('date'); */
-        /* $this->data['two_visitors'] = $analyticsData_two->pluck('visitors')->count(); */
-        /* $this->data['two_pageTitle'] = $analyticsData_two->pluck('pageTitle')->count(); */
+        $startDate = Carbon::parse('2019-10-18');
+        $this->data['totalViews'] = Analytics::fetchMostVisitedPages(Period::create($startDate, now()), PHP_INT_MAX);
 
         $analyticsData_three = Analytics::fetchMostVisitedPages(Period::days(14))->take(5);
         // $mostview['datasource'] ;
