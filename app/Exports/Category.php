@@ -2,27 +2,20 @@
 
 namespace App\Exports;
 
-use App\Models\Category as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class Category implements FromQuery
+class Category extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model='App\Models\Category';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
-    }
-
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
+        return [
+            "id",
+            "name",
+            "type",
+            "order",
+            "created_at",
+            "updated_at",
+        ];
     }
 
 }

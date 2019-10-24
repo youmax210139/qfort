@@ -32,7 +32,9 @@
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
         @endforeach
-        @include('voyager::partials.bulk-export')
+        @if(!request()->is('admin/roles') && !request()->is('admin/permissions') && !request()->is('admin/users'))
+            @include('voyager::partials.bulk-export')
+        @endif
         @include('voyager::multilingual.language-selector')
     </div>
 @stop

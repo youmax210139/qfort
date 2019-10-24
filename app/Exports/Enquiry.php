@@ -2,27 +2,22 @@
 
 namespace App\Exports;
 
-use App\Models\Enquiry as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class Enquiry implements FromQuery
+class Enquiry extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model='App\Models\Enquiry';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
-    }
-
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
+        return [
+            "id",
+            "email",
+            "name",
+            "subject",
+            "telephone",
+            "message",
+            "created_at",
+            "updated_at",
+        ];
     }
 
 }

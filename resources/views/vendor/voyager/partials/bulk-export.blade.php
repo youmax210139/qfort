@@ -50,27 +50,23 @@ else if (window.attachEvent) // Microsoft
         var ids = [];
         var $checkedBoxes = $('#dataTable input[type=checkbox]:checked').not('.select_all');
         var count = $checkedBoxes.length;
-        if (count) {
-            // Reset input value
-            $bulkExportInput.val('');
-            // Deletion info
-            var displayName = count > 1 ? '{{ $dataType->display_name_plural }}' : '{{ $dataType->display_name_singular }}';
-            displayName = displayName.toLowerCase();
-            $bulkExportCount.html(count);
-            $bulkExportDisplayName.html(displayName);
-            // Gather IDs
-            $.each($checkedBoxes, function () {
-                var value = $(this).val();
-                ids.push(value);
-            })
-            // Set input value
-            $bulkExportInput.val(ids);
-            // Show modal
-            $bulkExportModal.modal('show');
-        } else {
-            // No row selected
-            toastr.warning('{{ __('generic.bulk_export_nothing') }}');
-        }
+        // Reset input value
+        $bulkExportInput.val('');
+        // Deletion info
+        var displayName = count > 1 ? '{{ $dataType->display_name_plural }}' : '{{ $dataType->display_name_singular }}';
+        displayName = displayName.toLowerCase();
+        $bulkExportCount.html(count);
+        $bulkExportDisplayName.html(displayName);
+        // Gather IDs
+        $.each($checkedBoxes, function () {
+            var value = $(this).val();
+            ids.push(value);
+        })
+        // Set input value
+        $bulkExportInput.val(ids);
+        // Show modal
+        $bulkExportModal.modal('show');
+
     });
 
     $('#bulk_export_form').submit(function(e){

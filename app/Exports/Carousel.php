@@ -2,27 +2,24 @@
 
 namespace App\Exports;
 
-use App\Models\Carousel as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class Carousel implements FromQuery
+class Carousel extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model='App\Models\Carousel';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
-    }
-
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
+        return [
+            "file",
+            "id",
+            "title",
+            "caption",
+            "link",
+            "type",
+            "status",
+            "order",
+            "created_at",
+            "updated_at",
+        ];
     }
 
 }

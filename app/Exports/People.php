@@ -2,27 +2,28 @@
 
 namespace App\Exports;
 
-use App\Models\People as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class People implements FromQuery
+class People extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model = 'App\Models\People';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
+        return [
+            "id",
+            "name",
+            "email",
+            "job",
+            "area",
+            "organization",
+            "image",
+            "content",
+            "lab",
+            "resume",
+            "publication",
+            "user_id",
+            "order",
+            "created_at",
+            "updated_at",
+        ];
     }
-
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
-    }
-
 }

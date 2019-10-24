@@ -2,27 +2,31 @@
 
 namespace App\Exports;
 
-use App\Models\Event as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class Event implements FromQuery
+class Event extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model = 'App\Models\Event';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
-    }
-
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
+        return [
+            "id",
+            "title",
+            "abstract",
+            "email",
+            "image",
+            "telephone",
+            "location",
+            "opento",
+            "content",
+            "price",
+            "alwaysTop",
+            "pintop_from",
+            "pintop_to",
+            "published_from",
+            "published_to",
+            "created_at",
+            "updated_at",
+        ];
     }
 
 }

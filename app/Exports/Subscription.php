@@ -2,27 +2,24 @@
 
 namespace App\Exports;
 
-use App\Models\Subscription as Model;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-
-class Subscription implements FromQuery
+class Subscription extends BaseExport
 {
-    use Exportable;
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    protected $model = 'App\Models\Subscription';
 
-    public function forIds(array $ids)
+    public function headings(): array
     {
-        $this->ids = $ids;
-
-        return $this;
+        return [
+            "id",
+            "name",
+            "email",
+            "jobTitle",
+            "organization",
+            "area",
+            "country",
+            "created_at",
+            "updated_at",
+        ];
     }
 
-    public function query()
-    {
-        return Model::query()->whereIn('id', $this->ids);
-    }
 
 }

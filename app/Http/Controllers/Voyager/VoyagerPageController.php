@@ -100,10 +100,11 @@ class VoyagerPageController extends BaseVoyagerController
     {
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        $ids = explode(',', $request->ids);
+
+        $ids = $request->ids?explode(',', $request->ids): null;
 
         $model = app(str_replace('Models', 'Exports', $dataType->model_name));
 
-        return $model->forIds($ids)->download('test.xlsx');
+        return $model->forIds($ids)->download('detail.xlsx');
     }
 }
