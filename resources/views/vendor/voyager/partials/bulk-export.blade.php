@@ -28,7 +28,15 @@
 </div><!-- /.modal -->
 
 <script>
-window.onload = function () {
+if (window.addEventListener) // W3C standard
+{
+  window.addEventListener('load', exportExcel, false); // NB **not** 'onload'
+}
+else if (window.attachEvent) // Microsoft
+{
+  window.attachEvent('onload', exportExcel);
+}
+ function exportExcel() {
     // Bulk delete selectors
     var $bulkExportBtn = $('#bulk_export_btn');
     var $bulkExportModal = $('#bulk_export_modal');
