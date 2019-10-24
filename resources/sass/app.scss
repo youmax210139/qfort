@@ -7,10 +7,8 @@
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
-
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-
 .background-position-center {
     background-position: center !important;
 }
@@ -23,31 +21,24 @@
     .bg-#{$name} {
         background-color: $color !important;
     }
-
     .border-#{$name} {
         border-color: $color !important;
     }
-
     .text-#{$name} {
         color: $color !important;
     }
-
     @each $breakpoint in $grid-breakpoints {
         $size: nth($breakpoint, 1);
-
         @include media-breakpoint-up($size) {
             .bg-#{$size}-#{$name} {
                 background-color: $color !important;
             }
-
             .border-#{$size}-#{$name} {
                 border-color: $color !important;
             }
-
             .text-#{$size}-#{$name} {
                 color: $color !important;
             }
-
         }
     }
 }
@@ -60,57 +51,43 @@
 @include responsive-color('green', $green);
 @include responsive-color('light-green', $light-green);
 @include responsive-color('dark', $dark);
-
 @for $i from 1 through 100 {
     .vw-#{$i} {
         width: #{$i}vw !important;
     }
-
     .vh-#{$i} {
         height: #{$i}vh !important;
     }
-
     .w-#{$i} {
         width: percentage($i/100) !important;
     }
-
     .w-#{$i}-vh {
         width: #{$i}vh !important;
     }
-
     .h-#{$i} {
         height: percentage($i/100) !important;
     }
-
     .h-#{$i}-vw {
         height: #{$i}vw !important;
     }
-
     .min-vh-#{$i} {
         min-height: #{$i}vh !important;
     }
-
     @each $breakpoint in $grid-breakpoints {
         $size: nth($breakpoint, 1);
-
         @include media-breakpoint-up($size) {
-
             .w-#{$size}-#{$i} {
                 width: percentage($i/100) !important;
             }
-
             .h-#{$size}-#{$i} {
                 height: percentage($i/100) !important;
             }
-
             .vw-#{$size}-#{$i} {
                 width: #{$i}vw !important;
             }
-
             .vh-#{$size}-#{$i} {
                 height: #{$i}vh !important;
             }
-
             .min-vh-#{$size}-#{$i} {
                 min-height: #{$i}vh !important;
             }
@@ -128,22 +105,18 @@
 
 @each $breakpoint in $grid-breakpoints {
     $size: nth($breakpoint, 1);
-
     @include media-breakpoint-up($size) {
         .h-#{$size}-auto {
             height: auto !important;
         }
-
         .w-#{$size}-auto {
             width: auto !important;
         }
-
     }
 }
 
 @each $breakpoint in $grid-breakpoints {
     $size: nth($breakpoint, 1);
-
     @for $i from 1 through 5 {
         .card-deck.card-col-#{$size}-#{$i} {
             .card {
@@ -152,14 +125,11 @@
                 }
             }
         }
-
         .card-columns.card-col-#{$size}-#{$i} {
-
             @include media-breakpoint-up($size) {
                 column-count: $i;
             }
         }
-
     }
 }
 
@@ -179,7 +149,6 @@
 
 @each $breakpoint in $grid-breakpoints {
     $size: nth($breakpoint, 1);
-
     @include media-breakpoint-down($size) {
         .flex-#{$size}-grow {
             flex-grow: 1 !important;
@@ -189,7 +158,8 @@
 
 button.btn-dark-silver,
 a.btn-dark-silver {
-    color: $white !important;;
+    color: $white !important;
+    ;
     background-color: $dark-silver !important;
     &.active,
     &:hover {
@@ -200,11 +170,24 @@ a.btn-dark-silver {
 
 button.btn-gray,
 a.btn-gray {
-    color: $white !important;;
+    color: $white !important;
+    ;
     background-color: $gray !important;
     &.active,
     &:hover {
         color: $white !important;
         background-color: $green !important;
+    }
+}
+
+.container-lg {
+    @include media-breakpoint-up(lg) {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        max-width: 960px;
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: 80%;
     }
 }

@@ -51,7 +51,7 @@
 @endpush
 <header class="font-weight-bold fixed-top bg-white py-2">
     <nav
-        class="container navbar navbar-expand-lg align-items-center align-items-lg-center justify-content-lg-start justify-content-space">
+        class="container-lg navbar navbar-expand-lg align-items-center align-items-lg-center justify-content-lg-start justify-content-space">
         <div class="w-100 d-flex d-lg-none justify-content-end">
             <a class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
@@ -78,21 +78,21 @@
             <ul class="navbar-nav mx-auto">
                 @foreach($items as $i=> $menu_item)
                 <li
-                    class="nav-item mx-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
+                    class="nav-item mx-lg-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
                     @if($menu_item->children->count())
                     <a class="nav-link h4 mb-0 dropdown-toggle text-dark font-weight-bold
                         {{ strpos(request()->url(), $menu_item->link())?'active':'' }}" id="dropdown-{{$i}}"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                         {{ $menu_item->title }}
                     </a>
-                    <div class="dropdown-menu vw-lg-15 pb-0 m-0 border-0 bg-xs-dark-silver bg-lg-white 
+                    <div class="dropdown-menu vw-lg-15 pb-0 m-0 border-0 bg-xs-dark-silver bg-lg-white
                         pt-lg-3 pt-0
                         {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
                         aria-labelledby="dropdown-{{$i}}">
                         @foreach($menu_item->children as $j => $item)
-                        <a class="dropdown-item w-100 text-center text-lg-left 
-                            text-white bg-dark-silver fa-1x px-3 py-2 
-                            border-0 pb-0 
+                        <a class="dropdown-item w-100 text-center text-lg-left
+                            text-white bg-dark-silver fa-1x px-3 py-2
+                            border-0 pb-0
                             {{ strpos(request()->url(), $item->link())?'active':'' }}"
                             href="{{ $item->link() }}">{{ $item->title }}</a>
                         @endforeach
