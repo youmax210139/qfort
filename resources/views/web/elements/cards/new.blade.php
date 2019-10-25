@@ -1,7 +1,7 @@
 <div class="col-12 {{ $className }} mb-5 d-flex flex-column"  data-aos="fade-up">
-    <div class="mb-0 view overlay zoom vh-lg-20">
+    <div class="mb-0 view overlay zoom h-lg-18-vw">
         <a href="{{ $item->link }}">
-            <img class="w-100 img-fluid object-fit-cover" src="{{ Voyager::image($item->image) }}">
+            <img class="w-100 h-100 img-fluid object-fit-cover" src="{{ Voyager::image($item->image) }}">
             <div class="mask"></div>
         </a>
     </div>

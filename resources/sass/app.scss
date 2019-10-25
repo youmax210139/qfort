@@ -82,6 +82,9 @@
             .h-#{$size}-#{$i} {
                 height: percentage($i/100) !important;
             }
+            .h-#{$size}-#{$i}-vw {
+                height: #{$i}vw !important;
+            }
             .vw-#{$size}-#{$i} {
                 width: #{$i}vw !important;
             }
