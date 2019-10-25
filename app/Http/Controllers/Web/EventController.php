@@ -16,7 +16,7 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        $events = Event::getPinTop(Event::ofCategory($request->c), 6);
+        $events = Event::getPinTop(Event::ofCategory($request->c), null);
         $categories = Category::where('type', 'event')->get();
         $carousel = Carousel::where([
             ['type', '=', 'event'],

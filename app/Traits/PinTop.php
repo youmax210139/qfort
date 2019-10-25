@@ -9,27 +9,34 @@ trait PinTop
     public static function getPinTop(Builder $base, $count = 6)
     {
         $query_base  = clone $base;
-        $collection = $query_base->where('alwaysTop', 1)
-        ->orderBy('updated_at', 'desc')
-        ->limit($count)->get();
-        if ($collection->count() < $count) {
-            $query_base  = clone $base;
-            $collection = $query_base->where([
-                ['pintop_from', '<=', now()],
-                ['pintop_to', '>=', now()],
-            ])
-            ->orderBy('updated_at', 'desc')
-            ->limit($count- $collection->count())->get();
+        $collection_always = $query_base->where('alwaysTop', 1)
+            ->orderBy('updated_at', 'desc');
+        if ($count != null) {
+            $collection_always = $collection_always->limit($count);
         }
-        if ($collection->count() < $count) {
-            $query_base  = clone $base;
-            $collection = $collection->concat(
-                $query_base->whereNotIn('id', $collection->pluck('id')->toArray())
-                    ->orderBy('updated_at', 'desc')
-                    ->limit($count - $collection->count())
-                    ->get()
-            );
+        $collection_always = $collection_always->get();
+
+        $query_base  = clone $base;
+        $collection_pintop = $query_base->where([
+            ['pintop_from', '<=', now()],
+            ['pintop_to', '>=', now()],
+        ])->orderBy('updated_at', 'desc');
+
+        if ($count != null && $collection_always->count() < $count) {
+            $collection_pintop = $collection_pintop->limit($count - $collection_always->count());
         }
-        return $collection;
+        $collection_pintop = $collection_pintop->get();
+
+        $collection_always = $collection_always->concat($collection_pintop);
+
+        $query_base  = clone $base;
+        $collection = $query_base->whereNotIn('id', $collection_always->pluck('id')->toArray())
+            ->orderBy('updated_at', 'desc');
+        if ($count != null && $collection_always->count() < $count) {
+            $collection =  $collection->limit($count - $collection_always->count());
+        }
+        $collection = $collection->get();
+        $collection_always = $collection_always->concat($collection);
+        return $collection_always;
     }
 }

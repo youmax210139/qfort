@@ -12,7 +12,7 @@ class NewController extends Controller
 
     public function index(Request $request)
     {
-        $articles = Article::getPinTop(Article::with('categories')->ofCategory($request->c), 6);
+        $articles = Article::getPinTop(Article::with('categories')->ofCategory($request->c), null);
         $carousels = Carousel::where([
             ['type', '=', 'new'],
             ['status', '=', 'A']

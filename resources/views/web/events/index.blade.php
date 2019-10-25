@@ -33,7 +33,7 @@
 @section('content')
 
 <div class="title-wrapper mb-3 d-lg-none">
-    <img class="img-fluid" src="{{ Voyager::image($carousel->source) }}">
+    <img class="img-fluid w-100" src="{{ Voyager::image($carousel->source) }}">
     <div class="mask text-dark">
         <h1 class="font-weight-bold text-left mb-2">{{setting('event-introduction.title')}}</h1>
         <h3 class="text-left mb-2">{{setting('event-introduction.subtitle')}}</h3>
