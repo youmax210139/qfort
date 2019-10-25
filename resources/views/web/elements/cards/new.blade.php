@@ -1,14 +1,15 @@
 <div class="col-12 {{ $className }} mb-5 d-flex flex-column"  data-aos="fade-up">
-    <div class="mb-0 view overlay zoom">
+    <div class="mb-0 view overlay zoom vh-lg-20">
         <a href="{{ $item->link }}">
             <img class="w-100 img-fluid object-fit-cover" src="{{ Voyager::image($item->image) }}">
             <div class="mask"></div>
         </a>
     </div>
     <!-- Post title -->
-    <div class="px-3 pt-3 d-flex flex-column bg-silver flex-md-grow">
-        <h4 class="text-center font-weight-bold mb-3 ">
-            {{ $item->title }}
+    <div class="px-3 pt-3 d-flex flex-column bg-silver flex-grow-1">
+        <h4 class="text-center font-weight-bold mb-3
+            min-vh-6 word-wrap-break">
+            {{ $item->shortenTitle }}
         </h4>
         <p>
             {{ $item->created_at }} /

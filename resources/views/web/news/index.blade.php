@@ -22,7 +22,7 @@
             col-lg-4
         @endslot
         @endnew
-    @endforeach
+        @endforeach
     </div>
 
 </section>

@@ -43,7 +43,7 @@
     @foreach($items as $item)
     @new(['item'=>$item])
     @slot('className')
-    col-lg-4 
+    col-lg-4
     @endslot
     @endnew
     @endforeach
@@ -66,7 +66,7 @@
     <!-- Indicators -->
     <ol class="carousel-indicators mb-n2">
         @foreach($items as $i => $item)
-        <li data-target="#carousel-new" data-slide-to="{{$i}}" class="{{ $i==0?'active':''}} bg-green 
+        <li data-target="#carousel-new" data-slide-to="{{$i}}" class="{{ $i==0?'active':''}} bg-green
             rounded-circle w-2-vh vh-2"></li>
         @endforeach
     </ol>
