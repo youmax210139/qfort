@@ -44,8 +44,8 @@
         <div class="col-12 col-lg-6 pr-lg-5 mb-3 mb-lg-0">
             <img src="{{ Voyager::image(setting('research-overview.roadmap_image')) }}" class="w-100 img-fluid">
         </div>
-        <div class="col-12 col-lg-6 p-lg-5 py-5">
-            <div class="d-flex flex-column h-100 justify-content-center text-left">
+        <div class="col-12 col-lg-6 px-5">
+            <div class="d-flex flex-column h-100 justify-content-start text-left">
                 <h1 class="mb-3">{{ setting('research-overview.roadmap_title') }}</h1>
                 <p class="mb-3 h5 text-left">
                     {{ setting('research-overview.roadmap_description') }}

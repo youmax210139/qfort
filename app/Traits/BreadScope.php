@@ -25,4 +25,14 @@ trait BreadScope
     {
         return str_limit(strip_tags($this->title), 20, '...');
     }
+
+    public function getSubTitleBrowseAttribute()
+    {
+        return str_limit(strip_tags($this->subtitle), 20, '...');
+    }
+
+    public function getAbstractBrowseAttribute()
+    {
+        return str_limit(strip_tags($this->abstract), 20, '...');
+    }
 }

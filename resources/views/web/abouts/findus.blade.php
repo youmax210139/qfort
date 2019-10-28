@@ -16,10 +16,11 @@
         width: 100%;
         position: absolute;
     }
+
     #transportation i,
     #transportation img,
     #form-enquiry i,
-    #form-enquiry img{
+    #form-enquiry img {
         width: 24px;
         height: 24px;
     }
@@ -58,38 +59,40 @@
     <h2 class="font-weight-bold text-center my-5">Contact us</h2>
     <ul class="text-left list-unstyled" style="line-height: 2rem;">
         <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-map-marker-alt pr-2"></i>
-                    Address:
-                </h4>
+
+            <h4 class="text-success mb-5">
+                <i class="fas fa-map-marker-alt pr-2"></i>
+                Address:
+            </h4>
+            <p class="mb-5">
                 {{ setting('findus.address') }}
             </p>
         </li>
         <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-phone pr-2"></i>
-                    Phone:
-                </h4>
+
+            <h4 class="text-success mb-5">
+                <i class="fas fa-phone pr-2"></i>
+                Phone:
+            </h4>
+            <p class="mb-5">
                 {{ setting('findus.telephone') }}
             </p>
         </li>
         <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="fas fa-envelope pr-2"></i>
-                    Email:
-                </h4>
+            <h4 class="text-success mb-5">
+                <i class="fas fa-envelope pr-2"></i>
+                Email:
+            </h4>
+            <p class="mb-5">
                 {{ setting('findus.email') }}
             </p>
         </li>
         <li>
-            <p>
-                <h4 class="text-success">
-                    <i class="far fa-file-alt pr-2"></i>
-                    Send us a message
-                </h4>
+            <h4 class="text-success mb-5">
+                <i class="far fa-file-alt pr-2"></i>
+                Send us a message
+            </h4>
+            <p class="mb-5">
                 For any inquiries, please call or email
                 us. Alternatively you can fill in the following contact form.
             </p>
@@ -99,28 +102,29 @@
     <form class="form" method="post" action="{{ route('web.enquiries.store') }}" id="form-enquiry">
         @csrf
         <div class="form-row">
-            <div class="col-12 col-md-6 mb-4">
-                <input type="text" class="form-control" placeholder="Name" name="name" 
-                value="{{ old('name') }}" required>
+            <div class="col-12 col-md-6 mb-5">
+                <input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}"
+                    required>
                 @alerterror(['name'=>'name']) @endalerterror
             </div>
-            <div class="col-12 col-md-6 mb-4">
-                <input type="email" class="form-control" placeholder="Email" name="email" 
-                value="{{ old('email') }}" required>
+            <div class="col-12 col-md-6 mb-5">
+                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"
+                    required>
                 @alerterror(['name'=>'email']) @endalerterror
             </div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-5">
                 <input type="text" class="form-control" name="subject" placeholder="Subject"
                     value="{{ old('subject') }}" required>
                 @alerterror(['name'=>'subject']) @endalerterror
             </div>
-            <div class="col-12 mb-4">
-                <input type="text" class="form-control" name="telephone" placeholder="Tel Number" 
-                value="{{ old('telephone') }}" required>
+            <div class="col-12 mb-5">
+                <input type="text" class="form-control" name="telephone" placeholder="Tel Number"
+                    value="{{ old('telephone') }}" required>
                 @alerterror(['name'=>'telephone']) @endalerterror
             </div>
-            <div class="col-12 mb-4">
-                <textarea placeholder="Message" type="text" class="form-control" name="message" rows="6" required>{{ old('message') }}</textarea>
+            <div class="col-12 mb-5">
+                <textarea placeholder="Message" type="text" class="form-control" name="message" rows="6"
+                    required>{{ old('message') }}</textarea>
                 @alerterror(['name'=>'message']) @endalerterror
             </div>
         </div>
