@@ -73,7 +73,7 @@ modalSubscription
         </div>
     </div>
     <div class="form-group">
-        <label for="subscription_country" class="col-form-label">Country</label>
+        <label for="subscription_country" class="col-form-label">Country:</label>
         <input name="subscription_country" type="text" class="form-control mb-2" placeholder="Enter your country"
             aria-describedby="basic-addon1">
     </div>
@@ -113,9 +113,9 @@ modalSubscription
               });
           })
           .always(function(){
-            
+
           });
-        
+
     });
     $('#modalSubscription').on('hidden.bs.modal', function (e) {
         $(this).find('.alert').alert('close');

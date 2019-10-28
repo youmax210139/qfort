@@ -106,9 +106,14 @@
     .content {
         line-height: 2.5 !important;
         font-size: 1rem !important;
+        text-align: left !important;
     }
     .content img {
         max-width: 100% !important;
+    }
+
+    .img-fluid{
+        width: 100%;
     }
 
     .custom-control-label input{

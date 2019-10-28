@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="form-group col-12 mb-4">
-                        <label for="subscription_country" class="col-form-label">Country</label>
+                        <label for="subscription_country" class="col-form-label">Country:</label>
                         <input name="country" type="text" class="form-control mb-2" placeholder="Enter your country"
                             aria-describedby="basic-addon1" value="{{ old('country') }}" required>
                         @alerterror(['name'=>'country']) @endalerterror
@@ -160,7 +160,7 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="subscription" value="true"
                                 {{ old('subscription')==true ? ' checked' : '' }} id="subscriptionCheck">
-                            <label class="custom-control-label" for="subscriptionCheck">Do you want to subscribe our
+                            <label class="custom-control-label" for="subscriptionCheck">Do you want to subscribe to our
                                 newsletters?</label>
                             @alerterror(['name'=>'subscription']) @endalerterror
                         </div>
