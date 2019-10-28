@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use App\Traits\TNTSearchable;
@@ -20,6 +21,7 @@ class Event extends Model
     use SpatialTrait;
     use TNTSearchable;
     use PinTop;
+    use BreadScope;
 
     protected $spatialFields = [
         'location',

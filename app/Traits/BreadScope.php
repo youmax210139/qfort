@@ -15,4 +15,14 @@ trait BreadScope
             });
         }
     }
+
+    public function getContentBrowseAttribute()
+    {
+        return str_limit(strip_tags($this->content), 40, '...');
+    }
+
+    public function getTitleBrowseAttribute()
+    {
+        return str_limit(strip_tags($this->title), 20, '...');
+    }
 }

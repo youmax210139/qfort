@@ -51,8 +51,4 @@ class Article extends Model
         return route('web.news.detail', $this->id);
     }
 
-    public function getContentBrowseAttribute()
-    {
-        return strip_tags($this->content);
-    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BreadScope;
 use App\Traits\TNTSearchable;
 use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ class Research extends Model
     use Paginatable;
     use TNTSearchable;
     use SortableTrait;
+    use BreadScope;
 
     public $sortable = [
         'order_column_name' => 'order',
