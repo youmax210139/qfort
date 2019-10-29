@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
 <style>
-    .my-custom-scrollbar {
+    /* .my-custom-scrollbar {
         position: relative;
         height: 200px;
         overflow: auto;
@@ -10,6 +10,35 @@
 
     .table-wrapper-scroll-y {
         display: block;
+    } */
+
+    .table-fixed {
+        width: 100%;
+        background-color: #f3f3f3;
+    }
+
+    .table-fixed tbody {
+        height: 200px;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .table-fixed thead,
+    .table-fixed tbody,
+    .table-fixed tr,
+    .table-fixed td,
+    .table-fixed th {
+        display: block;
+    }
+
+    .table-fixed tbody td {
+        float: left;
+    }
+
+    .table-fixed thead tr th {
+        float: left;
+        background-color: #f39c12;
+        border-color: #e67e22;
     }
 </style>
 @show
@@ -115,19 +144,19 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">All Page Views</h3>
                     </div>
-                    <div class="box-body table-responsive table-wrapper-scroll-y my-custom-scrollbar">
-                        <table class="table">
+                    <div class="box-body table-responsive">
+                        <table class="table table-fixed">
                             <thead>
                                 <tr>
-                                    <th scope="col">Url</th>
-                                    <th scope="col">Views</th>
+                                    <th class="col-xs-6">Url</th>
+                                    <th class="col-xs-6">Views</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($totalViews as $row)
                                 <tr>
-                                    <td>{{$row['url']}}</td>
-                                    <td>{{$row['pageViews'] }}</td>
+                                    <td class="col-xs-6">{{$row['url']}}</td>
+                                    <td class="col-xs-6">{{$row['pageViews'] }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

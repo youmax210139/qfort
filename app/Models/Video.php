@@ -9,10 +9,12 @@ class Video extends Model
 {
     use BreadScope;
 
+    protected $fillable = ['title', 'link', 'people_id'];
+
     public function user()
     {
         return $this->hasOneThrough(
-            'App\User', 
+            'App\User',
             'App\Models\People',
             'id', // Foreign key on users table...
             'id', // Foreign key on history table...

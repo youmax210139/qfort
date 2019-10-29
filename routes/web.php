@@ -67,24 +67,13 @@ function VoyagerPageSetting($route)
     );
 }
 
-// function VoyagerCarousel(array $types)
-// {
-//     return  Route::group(
-//         [
-//             'as'     => "carousels.",
-//             'prefix' => str_replace('.', '/', $route),
-//         ],
-//         function () use ($types){
-//             foreach($types as $type){
-
-//             }
-//         }
-//     );
-// }
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
+
+        Route::delete('peoples/videos/{id}', 'VoyagerPeopleController@destroyVideo')->name('peoples.videos.destroy');
+        Route::resource('peoples', 'VoyagerPeopleController');
+
         Route::get("/export/{model}",'VoyagerPageController@export')->name('export');
         Route::get("/carousels/{type}/view",'VoyagerCarouselController@index')->name('carousels.view');
         VoyagerPageSetting('page_setting');
