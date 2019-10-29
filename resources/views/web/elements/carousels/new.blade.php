@@ -91,6 +91,7 @@
 
 @if(count($items) > 1)
 @pushonce('js:carousel_new')
+<script src="{{ asset('js/multiline-ellipsis.js') }}"> </script>
 <script>
     $(document).ready(function() {
         var $items = $('#carousel-new .carousel-item');
@@ -109,6 +110,8 @@
                 next.children(':first-child').clone().appendTo($(this));
             }
         });
+        $('.card_title').ellipsis();
+        $('.card_abstract').ellipsis();
     });
 </script>
 @endpushonce
