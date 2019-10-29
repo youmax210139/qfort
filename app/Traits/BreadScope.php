@@ -35,4 +35,9 @@ trait BreadScope
     {
         return str_limit(strip_tags($this->abstract), 20, '...');
     }
+
+    public function getAlwaysTopBrowseAttribute()
+    {
+        return $this->alwaysTop?'Y':'N';
+    }
 }
