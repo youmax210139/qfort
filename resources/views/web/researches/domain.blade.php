@@ -10,7 +10,7 @@
 @endpush
 @section('content')
 <section class="text-center my-5 container" id="domain">
-    <h1 class="font-weight-bold text-left mb-0">{{ $domain->title }}</h1>
+    <h1 class="font-weight-bold text-left mb-4">{{ $domain->title }}</h1>
     <h4 class="text-left mb-4 font-weight-light text-gray">{{ $domain->subTitle}}</h4>
     <div class="row">
         <div class="col-12 col-lg-9">
