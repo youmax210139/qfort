@@ -19,7 +19,10 @@
         @foreach($articles as $article)
         @new(['item'=>$article])
         @slot('className')
-            col-lg-4
+        col-lg-4
+        @endslot
+        @slot('imgClassName')
+        h-lg-18-vw
         @endslot
         @endnew
         @endforeach
@@ -27,3 +30,13 @@
 
 </section>
 @endsection
+
+@push('js')
+<script src="{{ asset('js/multiline-ellipsis.js') }}"> </script>
+<script>
+    $(function(){
+            $('.card_title').ellipsis();
+            $('.card_abstract').ellipsis();
+        });
+</script>
+@endpush

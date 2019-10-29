@@ -41,11 +41,6 @@ class Article extends Model
         return str_limit(strip_tags($this->content), 200, '...');
     }
 
-    public function getShortenTitleAttribute()
-    {
-        return str_limit(strip_tags($this->title), 41, '...');
-    }
-
     public function getLinkAttribute()
     {
         return route('web.news.detail', $this->id);

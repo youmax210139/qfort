@@ -45,6 +45,9 @@
     @slot('className')
     col-lg-4
     @endslot
+    @slot('imgClassName')
+    h-lg-18-vw
+    @endslot
     @endnew
     @endforeach
 </div>

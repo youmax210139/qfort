@@ -73,11 +73,17 @@
     .min-vh-#{$i} {
         min-height: #{$i}vh !important;
     }
+    .max-vh-#{$i} {
+        max-height: #{$i}vh !important;
+    }
     @each $breakpoint in $grid-breakpoints {
         $size: nth($breakpoint, 1);
         @include media-breakpoint-up($size) {
             .w-#{$size}-#{$i} {
                 width: percentage($i/100) !important;
+            }
+            .max-w-#{$size}-#{$i} {
+                max-width: percentage($i/100) !important;
             }
             .h-#{$size}-#{$i} {
                 height: percentage($i/100) !important;
@@ -93,6 +99,9 @@
             }
             .min-vh-#{$size}-#{$i} {
                 min-height: #{$i}vh !important;
+            }
+            .max-vh-#{$size}-#{$i} {
+                max-height: #{$i}vh !important;
             }
         }
     }
@@ -174,7 +183,6 @@ a.btn-dark-silver {
 button.btn-gray,
 a.btn-gray {
     color: $white !important;
-    ;
     background-color: $gray !important;
     &.active,
     &:hover {
@@ -193,8 +201,4 @@ a.btn-gray {
     @include media-breakpoint-up(xl) {
         max-width: 80%;
     }
-}
-
-.word-wrap-break {
-    word-wrap: break-word;
 }

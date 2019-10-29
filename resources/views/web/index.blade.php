@@ -18,7 +18,8 @@
 
 <section class="text-center my-5 container research">
     <!-- Section heading -->
-    <h2 class="font-weight-bold text-center my-5 font-italic">{!! setting('homepage-introduction.researches_title') !!}</h2>
+    <h2 class="font-weight-bold text-center my-5 font-italic">{!! setting('homepage-introduction.researches_title') !!}
+    </h2>
     <!-- Section description -->
     <h4 class="text-center font-weight-light mb-5">{!! setting('homepage-introduction.researches_subtitle') !!}</h4>
     @carouseldomain(['items'=>$domains])@endcarouseldomain
@@ -68,6 +69,7 @@
 </section>
 @endsection
 @push('js')
+
 <script>
     $(document).ready(function() {
 
@@ -91,5 +93,12 @@
         }, 1000);
 
     });
+</script>
+<script src="{{ asset('js/multiline-ellipsis.js') }}"> </script>
+<script>
+    $(function(){
+            $('.card_title').ellipsis();
+            $('.card_abstract').ellipsis();
+        });
 </script>
 @endpush
