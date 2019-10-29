@@ -23,6 +23,7 @@
 </style>
 @endpushonce
 @php
+$subTitle = $item->subTitle? $item->subTitle.'%0D%0A': '';
 $links = [
 ['class'=> 'fab fa-facebook-f', 'href'=>'https://www.facebook.com/sharer/sharer.php?u='
 .urlencode(request()->url())],
@@ -36,15 +37,17 @@ urlencode(request()->url()) ],
 urlencode(request()->url()) ],
 ['class'=> 'fas fa-copy', 'href'=>request()->url() ],
 ['class'=> 'fas fa-envelope', 'href'=>
-'mailto:?subject=[Qfort]'. $title.
-'&body='.request()->url(). '%0D%0A'. 
-str_replace('&nbsp;', '%0D%0A', strip_tags($body)) ]
+'mailto:?subject=[Qfort]'. $item->title.
+'&body='.
+$subTitle.
+request()->url(). '%0D%0A'.
+$item->abstract  ]
 ];
 // dd($links[6]['href']);
 @endphp
 <div class="d-inline-flex align-items-center justify-content-center flex-wrap">
     {{ $prepend??'' }}
-    <div class="w-100 w-lg-auto text-center mb-3 mb-lg-0 mr-lg-2">{{ $text?? 'Share this post:' }}</div>
+    <div class="w-100 w-lg-auto text-center mb-3 mb-lg-0 mr-lg-2">Share this post:</div>
     @foreach($links as $i=>$link)
     <a href="{!! $link['href'] !!}" class="btn btn-outline-success btn-floating {{ $i>0?'ml-2':'' }}" target="_blank"
         name="{{ str_replace(' ', '_', $link['class']) }}">
