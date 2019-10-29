@@ -11,7 +11,7 @@
 <section class="text-center my-5 container px-0 news">
 
     <!-- Section heading -->
-    <h2 class="text-center my-5 font-italic font-weight-bold">{!! setting('homepage-introduction.news_title') !!}</h2>
+    <h2 class="text-center my-5 font-italic">{!! setting('homepage-introduction.news_title') !!}</h2>
 
     @carouselnew(['items'=>$articles])@endcarouselnew
 </section>
@@ -68,37 +68,3 @@
         href="{{ route('web.events.index')}}">More</a>
 </section>
 @endsection
-@push('js')
-
-<script>
-    $(document).ready(function() {
-
-        var fadeIn = function(){
-            var bottom_of_window = $(window).scrollTop() + $(window).innerHeight();
-            $('#carousel-news .carousel-inner .carousel-item .object').each(function(){
-                if( $(this).hasClass('animated')){
-                    return;
-                }
-                var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-                /* If the object is completely visible in the window, fade it it */
-                if( bottom_of_window > bottom_of_object ){
-                    $(this).addClass('animated fadeInUp');
-                }
-            });
-        };
-
-        setInterval(function(){
-            fadeIn();
-            $('#carousel-news').carousel('pause');
-        }, 1000);
-
-    });
-</script>
-<script src="{{ asset('js/multiline-ellipsis.js') }}"> </script>
-<script>
-    $(function(){
-            $('.card_title').ellipsis();
-            $('.card_abstract').ellipsis();
-        });
-</script>
-@endpush
