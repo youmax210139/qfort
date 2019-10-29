@@ -11,7 +11,7 @@
 <section class="text-center my-5 container px-0 news">
 
     <!-- Section heading -->
-    <h2 class="text-center my-5 font-italic">{!! setting('homepage-introduction.news_title') !!}</h2>
+    <h2 class="text-center my-5 font-italic font-weight-bold">{!! setting('homepage-introduction.news_title') !!}</h2>
 
     @carouselnew(['items'=>$articles])@endcarouselnew
 </section>
