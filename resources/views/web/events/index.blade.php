@@ -51,9 +51,24 @@
     <!-- Card -->
     <div class="card-deck card-col-xs-1 card-col-lg-3">
         @foreach($events as $event)
-            @event2(['item'=>$event]) @endevent2
+            @event2(['item'=>$event])
+            @slot('imgClassName')
+            h-lg-18-vw
+            @endslot
+            @endevent2
         @endforeach
     </div>
 
 </section>
 @endsection
+
+@push('js')
+<script src="{{ asset('js/multiline-ellipsis.js') }}"> </script>
+<script>
+    $(function(){
+            $('.card_title').ellipsis();
+            $('.card_abstract').ellipsis();
+        });
+</script>
+@endpush
+
