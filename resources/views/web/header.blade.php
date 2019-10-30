@@ -5,10 +5,6 @@
         color: #fff !important;
     }
 
-    header .navbar-brand img {
-        height: 80px;
-    }
-
     header .has-search input {
         padding: 0 28px 0 0;
         border: 2px solid #000;
@@ -46,12 +42,15 @@
         header .navbar-nav li:hover>.dropdown-menu {
             display: block;
         }
+        a.navbar-brand{
+            width: 14% !important;
+        }
     }
 </style>
 @endpush
-<header class="font-weight-bold fixed-top bg-white py-2">
-    <nav
-        class="container-lg navbar navbar-expand-lg align-items-center align-items-lg-center justify-content-lg-start justify-content-space">
+<header class="font-weight-bold fixed-top bg-white py-2 pt-lg-4">
+    <nav class="container-lg navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start
+        justify-content-space px-lg-0">
         <div class="w-100 d-flex d-lg-none justify-content-end">
             <a class="icon-wrapper mr-3">
                 <img src="{{ Voyager::image('icons/search.svg') }}" />
@@ -66,14 +65,14 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <a class="navbar-brand mx-0" href="/">
-            <img src="{{ Voyager::image('logos/brand.svg') }}" />
+        <a class="navbar-brand mx-0 mb-4 mb-lg-0 py-0 d-lg-flex w-16-vh" href="/">
+            <img src="{{ Voyager::image('logos/brand.svg') }}" class="img-fluid"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse justify-content-center align-items-center"
+        <div class="collapse navbar-collapse justify-content-start align-items-center"
             id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 @foreach($items as $i=> $menu_item)

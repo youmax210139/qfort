@@ -202,3 +202,29 @@ a.btn-gray {
         max-width: 80%;
     }
 }
+
+@media (max-width: 991.98px) {
+    .scale-dot-6 {
+        transform: scale(0.6) !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .scale-lg-dot-6 {
+        transform: scale(0.6) !important;
+    }
+}
+
+@for $i from 1 through 10 {
+    .scale-dot-#{$i} {
+        transform: scale($i/10) !important;
+    }
+    @each $breakpoint in $grid-breakpoints {
+        $size: nth($breakpoint, 1);
+        @include media-breakpoint-up($size) {
+            .scale-#{$size}-dot-#{$i} {
+                transform: scale($i/10) !important;
+            }
+        }
+    }
+}

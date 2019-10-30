@@ -9,6 +9,7 @@
         border: 0px !important;
         border-bottom: 1px solid #dee2e6 !important;
     }
+
 </style>
 @endpush
 @push('modal')
@@ -142,17 +143,16 @@ modalSubscription
             </div>
         </div>
     </div>
-    <div class="container pt-4 align-items-center border-0 px-md-0">
-        <div class="row">
-            <div class="col d-lg-flex justify-content-lg-between justify-content-center">
-                <a class="d-flex justify-content-center mb-4 mr-md-4 " href="https://web.ncku.edu.tw/" target="_blank">
-                    <img class="img-fluid" src="{{ Voyager::image('logos/ncku.svg')}}">
+    <div class="container py-4 align-items-center border-0 px-md-0">
+        <div class="row align-items-center justify-content-center">
+
+                <a class="col-12 col-lg-2" href="https://web.ncku.edu.tw/" target="_blank">
+                    <img class="img-fluid scale-dot-6  scale-lg-dot-10" src="{{ Voyager::image('logos/ncku.svg')}}">
                 </a>
-                <a class="d-flex justify-content-center mb-4 mr-md-4 " href="/" target="_blank">
-                    <img class="img-fluid" style="transform: scale(0.9);"
-                        src="{{ Voyager::image('logos/qfort.svg')}}">
+                <a class="col-12 col-lg-4" href="/" target="_blank">
+                    <img class="img-fluid scale-dot-6 mb-5 mb-lg-0  scale-lg-dot-10" src="{{ Voyager::image('logos/qfort.svg')}}">
                 </a>
-                <ul class="text-center text-lg-left list-unstyled ml-4 mb-4">
+                <ul class="col-12 col-lg-6 text-center text-lg-left list-unstyled mb-0">
                     <li>
                         <p>
                             <i class="text-success fas fa-map-marker-alt pr-2"></i>
@@ -167,7 +167,6 @@ modalSubscription
                     </li>
                 </ul>
 
-            </div>
         </div>
     </div>
 
