@@ -6,18 +6,43 @@
         letter-spacing: 1px;
         font-family: "Open Sans", serif;
         background-color: #fff;
-        padding-top: 148px;
+        padding-top: 129px;
     }
 
     @media (min-width: 992px) {
         body {
-            padding-top: 103px;
+            padding-top: 125px;
         }
     }
 
     @media (min-width: 1200px) {
         .container {
             max-width: 80%;
+        }
+    }
+
+    #banner-horizontal .carousel-item,
+    #banner-vertical .carousel-item {
+        height: calc(100vh - 129px);
+    }
+
+    #contactus,
+    #overview,
+    #focus,
+    #public_database {
+        top: -129px;
+    }
+
+    @media (min-width: 992px) {
+        #contactus,
+        #overview,
+        #focus,
+        #public_database {
+            top: -125px;
+        }
+        #banner-vertical .carousel-item,
+        #banner-horizontal .carousel-item{
+            height: calc(100vh - 125px);
         }
     }
 

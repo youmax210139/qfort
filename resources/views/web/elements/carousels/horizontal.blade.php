@@ -27,19 +27,8 @@
         z-index: 0;
         -ms-transform: translateX(-50%) translateY(-50%);
         -moz-transform: translateX(-50%) translateY(-50%);
-
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
-    }
-
-    #banner-horizontal .carousel-item {
-        height: calc(100vh - 148px);
-    }
-
-    @media (min-width: 992px) {
-        #banner-horizontal .carousel-item {
-            height: calc(100vh - 123px);
-        }
     }
 </style>
 @endpushonce

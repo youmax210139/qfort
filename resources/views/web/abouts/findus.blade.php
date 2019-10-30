@@ -28,7 +28,6 @@
     #contactus {
         display: block;
         position: relative;
-        top: -148px;
         visibility: hidden;
     }
 
@@ -36,7 +35,6 @@
         #contactus {
             display: block;
             position: relative;
-            top: -123px;
             visibility: hidden;
         }
     }

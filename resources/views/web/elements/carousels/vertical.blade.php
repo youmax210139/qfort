@@ -46,20 +46,11 @@
         transform: translateX(-50%) translateY(-50%);
     }
 
-    #banner-vertical .carousel-item {
-        height: calc(100vh - 148px);
-    }
-
     #banner-vertical .mask {
         background-color: rgba(189, 190, 191, 0.7) !important;
         z-index: 100;
     }
 
-    @media (min-width: 992px) {
-        #banner-vertical .carousel-item {
-            height: calc(100vh - 123px);
-        }
-    }
 </style>
 @if(count($items) > 1)
 <style>
@@ -89,7 +80,7 @@
         <div class="carousel-item {{ $i==0?'active':'' }}">
             <div class="row mx-0 h-100">
                 <div class="d-none d-lg-flex col-lg-5 bg-dark-silver">
-                    <div class="carousel-caption d-flex flex-column h-100 
+                    <div class="carousel-caption d-flex flex-column h-100
                 align-items-center justify-content-center align-items-lg-start text-lg-left text-center mx-auto">
                         <h1 class="fa-3x font-weight-bold font-italic mb-4">{{ $item->title }}</h1>
                         <h2 class="mb-4">{{ $item->caption }}</h2>
@@ -113,7 +104,7 @@
                     </div>
                 </div>
                 @else
-                <div class="col-12 col-lg-7 background-position-center background-size-cover object-fit-cover 
+                <div class="col-12 col-lg-7 background-position-center background-size-cover object-fit-cover
                     d-flex justify-content-center" style="background-image:url({{ Voyager::image($item->source) }});">
                     <div class="w-70 d-lg-none bg-dark-silver d-flex flex-column mask mb-4 mt-auto p-4 text-white">
                         <h1 class="font-weight-bold font-italic mb-1">{{ $item->title }}</h1>

@@ -7,18 +7,15 @@
     #public_database {
         display: block;
         position: relative;
-        top: -148px;
         visibility: hidden;
     }
 
     @media (min-width: 992px) {
-
         #overview,
         #focus,
         #public_database {
             display: block;
             position: relative;
-            top: -123px;
             visibility: hidden;
         }
     }
