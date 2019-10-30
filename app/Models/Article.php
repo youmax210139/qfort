@@ -15,7 +15,7 @@ class Article extends Model
     use BreadScope;
     use Categorizable;
     use Paginatable;
-    //use TNTSearchable;
+    use TNTSearchable;
     use PinTop;
     use Translatable;
 

@@ -42,22 +42,47 @@
         header .navbar-nav li:hover>.dropdown-menu {
             display: block;
         }
-        a.navbar-brand{
+
+        a.navbar-brand {
             width: 14% !important;
         }
     }
 </style>
 @endpush
+@push('modal')
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Search</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="navbar-form text-center" role="search" action="{{ route('web.searchs.index')}}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endpush
 <header class="font-weight-bold fixed-top bg-white py-2 pt-lg-4">
     <nav class="container-lg navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start
         justify-content-space px-lg-0">
         <div class="w-100 d-flex d-lg-none justify-content-end">
-            <a class="icon-wrapper mr-3">
-                <img src="{{ Voyager::image('icons/search.svg') }}" />
+            <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn p-0 mr-auto">
+                <span class="icon-wrapper">
+                    <img src="{{ Voyager::image('icons/search.svg') }}" />
+                </span>
             </a>
-            <a class="text-dark" href="">中文</a>
+            <a class="text-dark px-2" href="">中文</a>
             /
-            <a class="text-dark" href="">EN</a>
+            <a class="text-dark px-2" href="">EN</a>
         </div>
         <div class="d-lg-none invisible">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent$"
@@ -66,14 +91,13 @@
             </button>
         </div>
         <a class="navbar-brand mx-0 mb-4 mb-lg-2 py-0 d-lg-flex w-16-vh" href="/">
-            <img src="{{ Voyager::image('logos/brand.svg') }}" class="img-fluid"/>
+            <img src="{{ Voyager::image('logos/brand.svg') }}" class="img-fluid" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse justify-content-start align-items-center"
-            id="navbarSupportedContent">
+        <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 @foreach($items as $i=> $menu_item)
                 <li
@@ -106,18 +130,17 @@
                 @endforeach
             </ul>
 
-            <form class="form-inline d-none d-lg-flex" action="{{ route('web.searchs.index')}}" method="get">
-                <div class="input-group has-search mr-3">
-                    <input name="search" type="text" class="form-control pl-2 vw-8" value="{{ request()->search }}"
-                        aria-describedby="basic-addon1">
+            <div id="form-search-in-site" class="form-inline d-none d-lg-flex" action="{{ route('web.searchs.index')}}"
+                method="get">
+                <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn">
                     <span class="icon-wrapper">
                         <img src="{{ Voyager::image('icons/search.svg') }}" />
                     </span>
-                </div>
+                </a>
                 <a class="text-dark" href="">中文</a>
                 /
                 <a class="text-dark" href="">EN</a>
-            </form>
+            </div>
         </div>
 
     </nav>
