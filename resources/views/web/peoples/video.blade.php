@@ -43,7 +43,7 @@
         <div class="d-none d-lg-flex col-lg-2 mt-5 aside">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
-                <li class="nav-item {{ $i==3?'active':''}}">
+                <li class="nav-item {{ $i==3?'active':''}} font-weight-light h5 mb-0">
                     @if($i==0 || $i==3)
                     <a class="nav-link pl-0 text-dark " href="{{ $menu->link }}">
                         {{ $menu->name }}</a>
@@ -56,7 +56,7 @@
             </ul>
         </div>
         <div class="col-lg-10">
-            <h2 class="mt-5 font-weight-bold mb-2"> Video </h2>
+            <h1 class="mt-5 font-weight-bold mb-2"> Video </h1>
             @php
             $videos = $people->videos()->ordered()->get();
             $video = $videos[0]??null;

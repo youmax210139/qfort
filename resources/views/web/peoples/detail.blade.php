@@ -44,7 +44,7 @@
         <div class="d-none col-lg-2 d-lg-flex mt-5 aside">
             <ul class="nav flex-column text-left pt-3 border-top ">
                 @foreach($menus as $i=>$menu)
-                <li class="nav-item {{ $i==0?'active':''}}">
+                <li class="nav-item {{ $i==0?'active':''}} font-weight-light h5 mb-0">
                     @if($i==0 || $i==3)
                     <a class="nav-link pl-0 text-dark " href="{{ $menu->link }}">
                         {{ $menu->name }}</a>
