@@ -74,15 +74,15 @@
 <header class="font-weight-bold fixed-top bg-white py-2 pt-lg-4">
     <nav class="container-lg navbar navbar-expand-lg align-items-center align-items-lg-end justify-content-lg-start
         justify-content-space px-lg-0">
-        <div class="w-100 d-flex d-lg-none justify-content-end">
-            <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn p-0 mr-auto">
+        <div class="w-100 d-flex d-lg-none align-items-center justify-content-end">
+            <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn p-0">
                 <span class="icon-wrapper">
                     <img src="{{ Voyager::image('icons/search.svg') }}" />
                 </span>
             </a>
-            <a class="text-dark px-2" href="">中文</a>
+            <a class="text-dark px-1" href="">中文</a>
             /
-            <a class="text-dark px-2" href="">EN</a>
+            <a class="text-dark px-1" href="">EN</a>
         </div>
         <div class="d-lg-none invisible">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent$"
@@ -132,7 +132,7 @@
 
             <div id="form-search-in-site" class="form-inline d-none d-lg-flex" action="{{ route('web.searchs.index')}}"
                 method="get">
-                <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn">
+                <a data-toggle="modal" data-target="#searchModal" class="btn btn-default navbar-btn mr-2">
                     <span class="icon-wrapper">
                         <img src="{{ Voyager::image('icons/search.svg') }}" />
                     </span>
