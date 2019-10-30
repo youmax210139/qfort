@@ -39,7 +39,7 @@ class VoyagerPeopleController extends VoyagerBaseController
             // If Model doest exist, get data from table name
             $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
         }
-        $videos = $dataTypeContent->videos;
+        $videos = $dataTypeContent->videos()->ordered()->get();
         foreach ($dataType->editRows as $key => $row) {
             $dataType->editRows[$key]['col_width'] = isset($row->details->width) ? $row->details->width : 100;
         }
@@ -117,7 +117,7 @@ class VoyagerPeopleController extends VoyagerBaseController
 
         $dataTypeContent = new People;
 
-        $videos = $dataTypeContent->videos;
+        $videos = $dataTypeContent->videos()->ordered()->get();
         foreach ($dataType->addRows as $key => $row) {
             $dataType->addRows[$key]['col_width'] = $row->details->width ?? 100;
         }
@@ -170,7 +170,7 @@ class VoyagerPeopleController extends VoyagerBaseController
             ]);
     }
 
-    public function destroyVideo(Request $request, $id)
+    public function destroy_video(Request $request, $id)
     {
         $slug = 'videos';
 
@@ -215,45 +215,39 @@ class VoyagerPeopleController extends VoyagerBaseController
         return $data;
     }
 
-
-    public function order(Request $request)
+    public function store_video(Request $request)
     {
-        $slug = $this->getSlug($request);
+        $slug = 'videos';
+
+
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        // Check permission
-        $this->authorize('edit', app($dataType->model_name));
+        $this->validateBread($request->all(), $dataType->addRows)->validate();
 
-        if (!isset($dataType->order_column) || !isset($dataType->order_display_column)) {
-            return redirect()
-                ->route("voyager.carousels.view")
-                ->with([
-                    'message'    => __('voyager::bread.ordering_not_set'),
-                    'alert-type' => 'error',
-                ]);
-        }
+        $model = new $dataType->model_name();
+        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, $model);
+        event(new BreadDataAdded($dataType, $data));
+        return $data;
+    }
+
+    public function update_video_order(Request $request)
+    {
+        $slug = 'videos';
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
         $model = app($dataType->model_name);
-        if ($model && in_array(SoftDeletes::class, class_uses($model))) {
-            $model = $model->withTrashed();
+
+        $order = json_decode($request->input('order'));
+        $column = $dataType->order_column;
+        foreach ($order as $key => $item) {
+            if ($model && in_array(SoftDeletes::class, class_uses($model))) {
+                $i = $model->withTrashed()->findOrFail($item->id);
+            } else {
+                $i = $model->findOrFail($item->id);
+            }
+            $i->$column = ($key + 1);
+            $i->save();
         }
-        $results = $model->orderBy($dataType->order_column, $dataType->order_direction)->get();
-
-        $display_column = $dataType->order_display_column;
-
-        $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->whereField($display_column)->first();
-
-        $view = 'voyager::bread.order';
-
-        if (view()->exists("voyager::$slug.order")) {
-            $view = "voyager::$slug.order";
-        }
-
-        return Voyager::view($view, compact(
-            'dataType',
-            'display_column',
-            'dataRow',
-            'results'
-        ));
     }
 }

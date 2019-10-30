@@ -4,12 +4,19 @@ namespace App\Models;
 
 use App\Traits\BreadScope;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\SortableTrait;
 
 class Video extends Model
 {
     use BreadScope;
+    use SortableTrait;
 
     protected $fillable = ['title', 'link', 'people_id'];
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
 
     public function user()
     {

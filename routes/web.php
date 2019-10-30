@@ -71,7 +71,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager', 'as' => 'voyager.'], function () {
 
-        Route::delete('peoples/videos/{id}', 'VoyagerPeopleController@destroyVideo')->name('peoples.videos.destroy');
+        Route::delete('peoples/videos/{id}', 'VoyagerPeopleController@destroy_video')->name('peoples.videos.destroy');
+        Route::post('peoples/videos/store', 'VoyagerPeopleController@store_video')->name('peoples.videos.store');
+        Route::post('peoples/videos/order', 'VoyagerPeopleController@update_video_order')->name('peoples.videos.order');
         Route::resource('peoples', 'VoyagerPeopleController');
 
         Route::get("/export/{model}",'VoyagerPageController@export')->name('export');

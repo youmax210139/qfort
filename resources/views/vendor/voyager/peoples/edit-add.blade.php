@@ -111,25 +111,25 @@ $add = is_null($dataTypeContent->getKey());
                                 </div>
                             </div>
                             @foreach($videos as $k=>$video)
-                            <div class="row entry">
+                            <div class="row entry" data-id="{{$video->id}}">
                                 <input class="form-control" name="videos[{{$k}}][id]" type="hidden"
-                                    data-id="{{$video->id}}" value="{{ $video->id}}" required />
+                                    value="{{ $video->id}}" required />
                                 <div class="col-md-5">
                                     <input class="form-control" name="videos[{{$k}}][title]" type="text"
-                                        value="{{ $video->title}}" required />
+                                    placeholder="Type title" value="{{ $video->title}}" required />
                                 </div>
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input class="form-control" name="videos[{{$k}}][link]" type="text"
-                                            value="{{ $video->link}}" required />
+                                        placeholder="Type url" value="{{ $video->link}}" required />
                                         <div class="input-group-btn">
                                             <button class="btn-danger btn btn-remove">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
-                                            <button class="btn-default btn">
+                                            <button class="btn-default btn btn-move-up">
                                                 <span class="glyphicon glyphicon-chevron-up"></span>
                                             </button>
-                                            <button class="btn-default btn">
+                                            <button class="btn-default btn btn-move-down">
                                                 <span class="glyphicon glyphicon-chevron-down"></span>
                                             </button>
                                         </div>
@@ -255,35 +255,54 @@ $add = is_null($dataTypeContent->getKey());
             $(document).on('click', '.btn-add', function(e)
             {
                 e.preventDefault();
-
-                var controlForm = $('.entry-container'),
-                    currentEntry = controlForm.find('.entry:first'),
-                    entryCount = $('.row.entry').length,
-                    newEntry = $(`
-                    <div class="row entry">
-                        <div class="col-md-5">
-                            <input class="form-control" name="videos[${entryCount}][title]" type="text"
-                                placeholder="Type title" required />
-                        </div>
-                        <div class="col-md-7">
-                            <div class="input-group">
-                                <input class="form-control" name="videos[${entryCount}][link]" type="text"
-                                    placeholder="Type url" required />
-                                <div class="input-group-btn">
-                                    <button class="btn-danger btn btn-remove">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    <button class="btn-default btn">
-                                        <span class="glyphicon glyphicon-chevron-up"></span>
-                                    </button>
-                                    <button class="btn-default btn">
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
-                                    </button>
+                if(confirm("Are you sure to add an new video?")){
+                    $.ajax(
+                    {
+                        url: "{{route('voyager.peoples.videos.store')}}",
+                        type: "POST",
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                            "title":"",
+                            "link":"",
+                            "people_id":"{{ $dataTypeContent->id }}"
+                        },
+                        success: function (data){
+                            console.dir(data);
+                            var controlForm = $('.entry-container'),
+                                currentEntry = controlForm.find('.entry:first'),
+                                entryCount = $('.row.entry').length,
+                                newEntry = $(`
+                                <div class="row entry" data-id="${data.id}">
+                                    <input class="form-control" name="videos[${entryCount}][id]" type="hidden"
+                                        value="${data.id}" required />
+                                    <div class="col-md-5">
+                                        <input class="form-control" name="videos[${entryCount}][title]" type="text"
+                                            placeholder="Type title" required />
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input class="form-control" name="videos[${entryCount}][link]" type="text"
+                                                placeholder="Type url" required />
+                                            <div class="input-group-btn">
+                                                <button class="btn-danger btn btn-remove">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                                <button class="btn-default btn btn-move-up">
+                                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                                </button>
+                                                <button class="btn-default btn btn-move-down">
+                                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    `).appendTo(controlForm);
+                                `).appendTo(controlForm);
+                            toastr.success("{{ __('voyager::generic.successfully_added_new') . ' Videos' }}");
+                        }
+                    }
+                    );
+                }
             }).on('click', '.btn-remove', function(e)
             {
                 e.preventDefault();
@@ -310,6 +329,49 @@ $add = is_null($dataTypeContent->getKey());
                 }
                 entry.remove();
                 return false;
+            }).on('click', '.btn-move-up,.btn-move-down', function(e)
+            {
+                e.preventDefault();
+                var ids = [];
+                var entry = $(this).parents('.entry:first');
+                var current_id = entry.attr('data-id');
+                var row_no = null;
+                $('.entry-container .entry').each(function(key, value ){
+                    var _id = $(this).attr('data-id');
+                    if(_id == current_id){
+                        row_no = key;
+                    }
+                    ids.push( {id:_id});
+                });
+                // console.log(JSON.stringify(ids));
+                if(row_no == null){
+                    toastr.error("row number error");
+                    return;
+                }
+                if($(this).hasClass('btn-move-down')){
+                    var row_swap = ((row_no +1)>=ids.length)?row_no:row_no+1;
+                }
+                else if($(this).hasClass('btn-move-up')){
+                    var row_swap = ((row_no-1)<0)?row_no:row_no-1;
+                }
+                else{
+                    return;
+                }
+                var temp = ids[row_swap];
+                ids[row_swap] = ids[row_no];
+                ids[row_no] = temp;
+                // console.log(JSON.stringify(ids));
+                /**
+                * Reorder items
+                */
+
+                $.post('{{ route("voyager.peoples.videos.order") }}', {
+                    order: JSON.stringify(ids),
+                    _token: '{{ csrf_token() }}'
+                }, function (data) {
+                    location.reload();
+                    // toastr.success("{{ __('voyager::bread.updated_order') }}");
+                });
             });
         });
 </script>

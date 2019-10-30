@@ -58,8 +58,9 @@
         <div class="col-lg-10">
             <h2 class="mt-5 font-weight-bold mb-2"> Video </h2>
             @php
-            $video = $people->videos[0]??null;
-            $videos = $people->videos->splice(1);
+            $videos = $people->videos()->ordered()->get();
+            $video = $videos[0]??null;
+            $videos = $videos->splice(1);
             @endphp
 
             @if($video)
