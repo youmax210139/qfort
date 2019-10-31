@@ -7,20 +7,23 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Guest;
+use App\Models\Event;
 
 class RegisterEvent extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $guest;
+    public $event;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Guest $guest)
+    public function __construct(Guest $guest, Event $event)
     {
         $this->guest = $guest;
+        $this->event = $event;
     }
 
     /**

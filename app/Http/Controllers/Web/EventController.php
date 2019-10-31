@@ -101,7 +101,7 @@ class EventController extends Controller
             ],
         ];
         try{
-            Mail::to($to)->send(new RegisterEvent($guest));
+            Mail::to($to)->send(new RegisterEvent($guest, $event));
         }
         catch(\Exception $e){
         }
