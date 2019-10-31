@@ -103,7 +103,20 @@
                                         @if(app($dataType->model_name)->additional_attributes)
                                         @foreach(app($dataType->model_name)->additional_attributes as $attribute)
                                         <th>
+                                            @if ($isServerSide)
+                                                <a href="{{ app($dataType->model_name)->sortByUrl($attribute, $sortOrder) }}">
+                                            @endif
                                             {{ app($dataType->model_name)->{$attribute.'_display'} }}
+                                            @if ($isServerSide)
+                                                @if ($attribute==$orderBy)
+                                                    @if ($sortOrder == 'asc')
+                                                        <i class="voyager-angle-up pull-right"></i>
+                                                    @else
+                                                        <i class="voyager-angle-down pull-right"></i>
+                                                    @endif
+                                                @endif
+                                                </a>
+                                            @endif
                                         </th>
                                         @endforeach
                                         @endif

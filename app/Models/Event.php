@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
-use App\Traits\TNTSearchable;
 use App\Traits\PinTop;
 use Carbon\Carbon;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
@@ -19,7 +18,6 @@ class Event extends Model
     use Paginatable;
     use Spatial;
     use SpatialTrait;
-    use TNTSearchable;
     use PinTop;
     use BreadScope;
 
@@ -35,6 +33,7 @@ class Event extends Model
     ];
 
     public $additional_attributes = ['registrants'];
+
 
     public function guests()
     {

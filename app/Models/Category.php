@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
@@ -9,6 +10,7 @@ use TCG\Voyager\Traits\Translatable;
 class Category extends Model
 {
     use Translatable;
+    use Paginatable;
     /**
      * The "booting" method of the model.
      *

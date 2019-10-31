@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\BreadScope;
-use App\Traits\TNTSearchable;
 use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
@@ -11,7 +10,6 @@ use Spatie\EloquentSortable\SortableTrait;
 class Research extends Model
 {
     use Paginatable;
-    use TNTSearchable;
     use SortableTrait;
     use BreadScope;
 

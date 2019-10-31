@@ -7,6 +7,12 @@ use ReflectionClass;
 
 trait Paginatable
 {
+    // protected $perPage = 5;
+
+    public function getPerPage(){
+        return 5;
+    }
+
     public function getPreviousAttribute()
     {
         return self::where('id', '<', $this->id)->orderBy('id', 'desc')->first();
@@ -53,5 +59,24 @@ trait Paginatable
     {
         $name = strtolower(Str::plural($this->classBaseName));
         return route("web.$name.detail", $id);
+    }
+
+    /**
+     * Build the URL to sort data type by this field.
+     *
+     * @return string Built URL
+     */
+    public function sortByUrl($orderBy, $sortOrder)
+    {
+        $params = [];
+        $isDesc = $sortOrder != 'asc';
+        if ($isDesc) {
+            $params['sort_order'] = 'asc';
+        } else {
+            $params['sort_order'] = 'desc';
+        }
+        $params['order_by'] = $orderBy;
+
+        return url()->current().'?'.http_build_query(array_merge(\Request::all(), $params));
     }
 }

@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Traits\TNTSearchable;
+use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
 class Domain extends Model implements Sortable
 {
-    use TNTSearchable;
     use SortableTrait;
+    use Paginatable;
 
     public $sortable = [
         'order_column_name' => 'order',

@@ -6,6 +6,8 @@ use App\Models\Article;
 use App\Observers\ArticleObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
         });
         # blade
         Blade::component('web.footer', 'footer');
-        
+
         Blade::component('web.elements.social', 'social');
 
         Blade::component('web.elements.menus.sort', 'sortmenu');
@@ -55,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.carousels.research', 'carouselresearch');
         Blade::component('web.elements.carousels.new', 'carouselnew');
         Blade::component('web.elements.carousels.domain', 'carouseldomain');
-        
+
         Blade::component('web.elements.paginator', 'paginator');
         Blade::component('web.elements.modals.default', 'modalDefault');
 
@@ -63,8 +65,23 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('web.elements.alerts.success', 'alertsuccess');
         Blade::component('web.elements.alerts.error', 'alerterror');
         Blade::component('web.elements.alerts.warning', 'alertwarning');
-        
+
         # observer
         Article::observe(ArticleObserver::class);
+
+        # collection
+        Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
+        });
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\Paginatable;
 use App\Traits\BreadScope;
 use App\Traits\Categorizable;
-use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 use Storage;
@@ -13,8 +13,8 @@ class People extends Model
 {
     use BreadScope;
     use Categorizable;
-    use TNTSearchable;
     use SortableTrait;
+    use Paginatable;
 
     public $sortable = [
         'order_column_name' => 'order',

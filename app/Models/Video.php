@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Paginatable;
 use App\Traits\BreadScope;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
@@ -10,6 +11,7 @@ class Video extends Model
 {
     use BreadScope;
     use SortableTrait;
+    use Paginatable;
 
     protected $fillable = ['title', 'link', 'people_id'];
 

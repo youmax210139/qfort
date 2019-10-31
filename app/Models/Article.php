@@ -6,7 +6,6 @@ use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use App\Traits\PinTop;
-use App\Traits\TNTSearchable;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
 
@@ -15,7 +14,6 @@ class Article extends Model
     use BreadScope;
     use Categorizable;
     use Paginatable;
-    use TNTSearchable;
     use PinTop;
     use Translatable;
 

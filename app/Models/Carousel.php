@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 
@@ -14,6 +15,7 @@ class Carousel extends Model
      */
 
     use SortableTrait;
+    use Paginatable;
 
     protected $appends = [
         'source',
