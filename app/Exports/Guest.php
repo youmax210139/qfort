@@ -16,7 +16,6 @@ class Guest extends BaseExport
             "organization",
             "area",
             "country",
-            // "password",
             "telephone",
             "created_at",
             "updated_at",

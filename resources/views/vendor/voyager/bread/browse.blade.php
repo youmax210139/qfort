@@ -100,6 +100,13 @@
                                             @endif
                                         </th>
                                         @endforeach
+                                        @if(app($dataType->model_name)->additional_attributes)
+                                        @foreach(app($dataType->model_name)->additional_attributes as $attribute)
+                                        <th>
+                                            {{ app($dataType->model_name)->{$attribute.'_display'} }}
+                                        </th>
+                                        @endforeach
+                                        @endif
                                         <th class="actions text-right">{{ __('voyager::generic.actions') }}</th>
                                     </tr>
                                 </thead>
@@ -247,6 +254,13 @@
                                                 @endif
                                             </td>
                                         @endforeach
+                                        @if(app($dataType->model_name)->additional_attributes)
+                                        @foreach(app($dataType->model_name)->additional_attributes as $attribute)
+                                        <td>
+                                            {{ $data->$attribute }}
+                                        </td>
+                                        @endforeach
+                                        @endif
                                         <td class="no-sort no-click" id="bread-actions">
                                             @foreach(Voyager::actions() as $action)
                                                 @if (!method_exists($action, 'massAction'))

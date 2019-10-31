@@ -34,6 +34,8 @@ class Event extends Model
         'pintop_to',
     ];
 
+    public $additional_attributes = ['registrants'];
+
     public function guests()
     {
         return $this->belongsToMany(Guest::class, 'event_guests', 'event_id', 'guest_id');
@@ -79,7 +81,12 @@ class Event extends Model
         return $link;
     }
 
-    public function getGuestCountAttribute()
+    public function getRegistrantsDisplayAttribute()
+    {
+        return 'the number of registrants';
+    }
+
+    public function getRegistrantsAttribute()
     {
         return $this->guests()->count() ?? 0;
     }

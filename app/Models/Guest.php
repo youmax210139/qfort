@@ -10,7 +10,6 @@ class Guest extends Model
         'name',
         'email',
         'telephone',
-        'password',
         'jobTitle',
         'organization',
         'area',

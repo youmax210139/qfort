@@ -67,7 +67,6 @@ class EventController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'telephone' => $request->telephone,
-            'password' => $password,
             'jobTitle' => $request->job,
             'organization' => $request->organization,
             'area' => $request->area == 'other' ? $request->other_area : $request->area,
@@ -101,7 +100,12 @@ class EventController extends Controller
                 'name' => $request->name,
             ],
         ];
-        Mail::to($to)->send(new RegisterEvent($guest, $password));
+        try{
+            Mail::to($to)->send(new RegisterEvent($guest));
+        }
+        catch(\Exception $e){
+        }
+
         return back()->withInput()
             ->with('event-registration-success', 'Your guest has been created, please check your email for detail.');
     }

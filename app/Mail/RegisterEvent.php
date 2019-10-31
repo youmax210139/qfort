@@ -13,16 +13,14 @@ class RegisterEvent extends Mailable
     use Queueable, SerializesModels;
 
     public $guest;
-    public $password;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Guest $guest, $password)
+    public function __construct(Guest $guest)
     {
         $this->guest = $guest;
-        $this->password = $password;
     }
 
     /**
