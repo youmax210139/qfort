@@ -137,7 +137,7 @@ modalSubscription
                 <i class="fab fa-linkedin-in fa-lg mr-2 fa-2x"></i>
             </div>
             <div class="col-lg-7 my-3 p-lg-0">
-                <label for="email" class="h5 mr-4 mb-2">Subscribe to our newsletter</label>
+                <label for="email" class="h5 mr-4 mb-2">Subscribe to our newsletters</label>
                 <button class="btn btn-sm btn-success my-0 px-4" type="button" data-toggle="modal"
                     data-target="#modalSubscription">Subscribe</button>
             </div>

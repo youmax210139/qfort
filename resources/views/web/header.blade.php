@@ -90,7 +90,7 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <a class="navbar-brand mx-0 mb-4 mb-lg-2 py-0 d-lg-flex w-16-vh" href="/">
+        <a class="navbar-brand mx-0 mb-4 mb-lg-2 py-0 w-16-vh" href="/">
             <img src="{{ Voyager::image('logos/brand.svg') }}" class="img-fluid" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -29,7 +29,7 @@
             @paginator(['item'=>$article]) @endpaginator
         </div>
         <div class="col-12 col-lg-3 d-none d-lg-block">
-            <h2 class="mb-3 font-weight-bold">Related articles</h2>
+            <h4 class="mb-3 font-weight-bold">Related articles</h4>
             @foreach($related_articles as $i => $related_article)
                 @new(['item'=>$related_article])
                     @slot('className')
