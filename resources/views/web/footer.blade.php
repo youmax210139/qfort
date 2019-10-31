@@ -25,7 +25,7 @@ modalSubscription
 @endslot
 <form class="" action="{{ route('web.subscriptions.store')}}" method="post">
     @csrf
-    <h4 class="mb-2">Subscribe to our newsletter</h4>
+    <h4 class="mb-2">Subscribe to our newsletters</h4>
     <div class="form-group">
         <label for="subscription_email" class="col-form-label">Email:</label>
         <input name="subscription_email" type="email" class="form-control mb-2" placeholder="Enter email address"
