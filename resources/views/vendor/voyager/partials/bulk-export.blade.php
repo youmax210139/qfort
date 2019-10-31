@@ -8,7 +8,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">
-                    <i class="voyager-trash"></i> {{ __('generic.are_you_sure_export') }} <span id="bulk_export_count"></span> <span id="bulk_export_display_name"></span>?
+                    <i class="voyager-forward"></i> {{ __('generic.are_you_sure_export') }} <span id="bulk_export_count"></span> <span id="bulk_export_display_name"></span>?
                 </h4>
             </div>
             <div class="modal-body" id="bulk_export_modal_body">
@@ -17,7 +17,7 @@
                 <form action="{{ route('voyager.export', $dataType->slug) }}" id="bulk_export_form" method="GET">
                     <input type="hidden" name="ids" id="bulk_export_input" value="">
                     <input type="submit" class="btn btn-warning pull-right delete-confirm"
-                             value="{{ __('generic.bulk_export_confirm') }} {{ strtolower($dataType->display_name_plural) }}">
+                             value="{{ __('generic.bulk_export_confirm') }}">
                 </form>
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">
                     {{ __('voyager::generic.cancel') }}
@@ -53,9 +53,9 @@ else if (window.attachEvent) // Microsoft
         // Reset input value
         $bulkExportInput.val('');
         // Deletion info
-        var displayName = count > 1 ? '{{ $dataType->display_name_plural }}' : '{{ $dataType->display_name_singular }}';
+        var displayName = (count == 0 || count > 1) ? '{{ $dataType->display_name_plural }}' : '{{ $dataType->display_name_singular }}';
         displayName = displayName.toLowerCase();
-        $bulkExportCount.html(count);
+        $bulkExportCount.html(count>0?count:'all');
         $bulkExportDisplayName.html(displayName);
         // Gather IDs
         $.each($checkedBoxes, function () {
