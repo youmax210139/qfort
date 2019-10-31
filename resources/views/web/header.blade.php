@@ -60,12 +60,19 @@
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form class="navbar-form text-center" role="search" action="{{ route('web.searchs.index')}}">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search">
-                    </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </form>
+                <script async src="https://cse.google.com/cse.js?cx=015838847960826963595:xisocxoxhgz"></script>
+                <script>
+                    window.onload = function(){
+                    document.getElementById('gsc-i-id1').placeholder = 'Search';
+                };
+                </script>
+                <div class="gcse-search"></div>
+                {{-- <form class="navbar-form text-center" role="search" action="{{ route('web.searchs.index')}}">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+                </form> --}}
             </div>
         </div>
     </div>
