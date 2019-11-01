@@ -105,6 +105,6 @@ class VoyagerPageController extends BaseVoyagerController
 
         $model = app(str_replace('Models', 'Exports', $dataType->model_name));
 
-        return $model->forIds($ids)->download('detail.xlsx');
+        return $model->forIds($ids)->download("{$slug}.xlsx");
     }
 }

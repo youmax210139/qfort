@@ -80,7 +80,7 @@
                 <!-- AREA CHART -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Visitor and Page View</h3>
+                        <h3 class="box-title">Visitors and Page Views</h3>
                     </div>
                     <div class="box-body">
                         <div class="chart">
@@ -90,55 +90,6 @@
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-
-                <!-- DONUT CHART -->
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Browser</h3>
-                    </div>
-                    <div class="box-body">
-                        <canvas id="pieChart"></canvas>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-            </div>
-            <!-- /.col (LEFT) -->
-            <div class="col-md-6">
-                <!-- LINE CHART -->
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Country</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            <canvas id="lineChart"></canvas>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-                <!-- BAR CHART -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Top 5 Page Views</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            <canvas id="barChart"></canvas>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-            </div>
-            <!-- /.col (RIGHT) -->
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
 
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -163,6 +114,56 @@
                         </table>
                     </div>
                 </div>
+
+            </div>
+            <!-- /.col (LEFT) -->
+            <div class="col-md-6">
+                <!-- DONUT CHART -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Browsers</h3>
+                    </div>
+                    <div class="box-body">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
+
+                <!-- BAR CHART -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Top 5 Page Views</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
+            </div>
+            <!-- /.col (RIGHT) -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- LINE CHART -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Visitors by Countries</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
             </div>
         </div>
         <!-- /.row -->
@@ -194,12 +195,12 @@
                 {
                     label: "Page views",
                     data: {!! json_encode($pageViews) !!},
-                    backgroundColor: @json($backgroundColor),
+                    // backgroundColor: @json($backgroundColor),
                 },
                 {
                     label: "Visitors",
                     data: {!! json_encode($visitors) !!},
-                    backgroundColor: @json($backgroundColor),
+                    // backgroundColor: @json($backgroundColor),
                 }
             ]
         };
@@ -242,13 +243,13 @@
             responsive: true,
             title: {
                 display: true,
-                text: 'Vistors and Page Views in 7 Days'
+                text: 'Visitors and Page Views in the latest 7 days'
             },
             scales: {
                 yAxes: [{
                     scaleLabel:{
                         display: true,
-                        labelString: 'amount',
+                        labelString: 'number',
                     },
                 }],
                 xAxes: [{
@@ -283,7 +284,7 @@
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(60,141,188,1)",
             data: {!! json_encode($country_sessions) !!},
-            backgroundColor: @json($backgroundColor),
+            // backgroundColor: @json($backgroundColor),
             }
         ]
         };
@@ -328,13 +329,13 @@
             responsive: true,
             title: {
                 display: true,
-                text: 'Area of Vistors in last 7 Days'
+                text: 'In the last 7 days'
             },
             scales: {
                 yAxes: [{
                     scaleLabel:{
                         display: true,
-                        labelString: 'amount',
+                        labelString: 'number',
                     },
                 }],
                 xAxes: [{
@@ -403,7 +404,7 @@
             options:{
                 title: {
                     display: true,
-                    text: 'Most Views in last 7 Days'
+                    text: 'Most Views in the last 7 Days'
                 },
                 legend: { display: false },
                 scales: {
@@ -416,7 +417,7 @@
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'amount'
+                            labelString: 'number'
                         }
                     }]
                 }

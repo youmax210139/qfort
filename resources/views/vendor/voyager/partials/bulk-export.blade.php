@@ -8,7 +8,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">
-                    <i class="voyager-forward"></i> {{ __('generic.are_you_sure_export') }} <span id="bulk_export_count"></span> <span id="bulk_export_display_name"></span>?
+                    <i class="voyager-forward"></i>
+                    {{ __('generic.are_you_sure_export') }}
+                    <span id="bulk_export_count"></span>
+                    <span id="bulk_export_display_name"></span>
+                    {{ __('generic.data') }}?
                 </h4>
             </div>
             <div class="modal-body" id="bulk_export_modal_body">

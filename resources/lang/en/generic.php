@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'data'                   => 'data',
     'are_you_sure_export'    => 'Are you sure you want to export',
     'bulk_export_confirm'    => 'Yes, Export',
     'bulk_export_nothing'    => 'You haven\'t selected anything to export',
