@@ -7,7 +7,6 @@ use App\Traits\Categorizable;
 use App\Traits\Paginatable;
 use App\Traits\PinTop;
 use Carbon\Carbon;
-use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\CalendarLinks\Link;
 use TCG\Voyager\Traits\Spatial;
@@ -17,13 +16,11 @@ class Event extends Model
     use Categorizable;
     use Paginatable;
     use Spatial;
-    use SpatialTrait;
     use PinTop;
     use BreadScope;
 
-    protected $spatialFields = [
-        'location',
-    ];
+    protected $spatial = ['location'];
+
 
     protected $dates = [
         'published_from',
@@ -60,9 +57,10 @@ class Event extends Model
 
     public function getGoogleMapAttribute()
     {
-        if ($this->location) {
-            return 'https://www.google.com/maps/search/?api=1&query=' .
-                $this->location->getLat() . ',' . $this->location->getLng();
+        if ($this->location && count($this->getCoordinates())>=1) {
+            $lat = $this->getCoordinates()[0]['lat']??'';
+            $lng = $this->getCoordinates()[0]['lng']??'';
+            return "https://www.google.com/maps/search/?api=1&query={$lat},{$lng}";
         } else {
             return '';
         }
