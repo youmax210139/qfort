@@ -72,11 +72,11 @@ class Menu extends Model
 
         $items = $menu->parent_items->sortBy('order');
 
-        if ($menuName == 'admin' && $type == '_json') {
+        if ($menuName == 'backend' && $type == '_json') {
             $items = static::processItems($items);
         }
 
-        if ($type == 'admin') {
+        if ($type == 'backend') {
             $type = 'voyager::menu.'.$type;
         } else {
             if (is_null($type)) {

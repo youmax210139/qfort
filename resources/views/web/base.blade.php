@@ -157,7 +157,7 @@
 @endpush
 
 @section('header')
-{{ menu('user' , 'web.header') }}
+{{ menu('frontend' , 'web.header') }}
 @endsection
 
 @section('footer')
