@@ -113,7 +113,7 @@
                     @include('voyager::partials.coordinates')
                     @elseif($row->type == 'rich_text_box')
                     @include('voyager::multilingual.input-hidden-bread-read')
-                    <p>{!! $dataTypeContent->{$row->field} !!}</p>
+                    <div>{!! $dataTypeContent->{$row->field} !!}</div>
                     @elseif($row->type == 'file')
                     @if(json_decode($dataTypeContent->{$row->field}))
                     @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
@@ -129,7 +129,7 @@
                     @endif
                     @else
                     @include('voyager::multilingual.input-hidden-bread-read')
-                    <p>{{ $dataTypeContent->{$row->field} }}</p>
+                    <div>{{ $dataTypeContent->{$row->field} }}</div>
                     @endif
                 </div><!-- panel-body -->
                 @if(!$loop->last)
@@ -185,7 +185,7 @@
                 $('.side-body').multilingual();
             });
 </script>
-<script src="{{ voyager_asset('js/multilingual.js') }}"></script>
+<script src="{{ asset('js/multilingual.js') }}"></script>
 @endif
 <script>
     var deleteFormAction;
