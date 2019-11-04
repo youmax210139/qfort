@@ -7,6 +7,7 @@ use App\Traits\BreadScope;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
+use TCG\Voyager\Traits\Translatable;
 use Storage;
 
 class People extends Model
@@ -15,6 +16,9 @@ class People extends Model
     use Categorizable;
     use SortableTrait;
     use Paginatable;
+    use Translatable;
+
+    protected $translatable = ['name', 'job', 'area', 'organization','content'];
 
     public $sortable = [
         'order_column_name' => 'order',

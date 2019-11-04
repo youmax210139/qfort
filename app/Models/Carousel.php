@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
+use TCG\Voyager\Traits\Translatable;
 
 class Carousel extends Model
 {
@@ -16,6 +17,7 @@ class Carousel extends Model
 
     use SortableTrait;
     use Paginatable;
+    use Translatable;
 
     protected $appends = [
         'source',
@@ -25,6 +27,8 @@ class Carousel extends Model
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
+
+    protected $translatable = ['title', 'caption'];
 
     public function getSourceAttribute()
     {

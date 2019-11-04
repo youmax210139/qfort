@@ -11,6 +11,7 @@ class Category extends Model
 {
     use Translatable;
     use Paginatable;
+
     /**
      * The "booting" method of the model.
      *
@@ -25,11 +26,11 @@ class Category extends Model
         });
     }
 
-    protected $translatable = ['slug', 'name'];
+    protected $translatable = ['name'];
 
     protected $table = 'categories';
 
-    protected $fillable = ['slug', 'name'];
+    protected $fillable = ['name'];
 
     public function getRelationshipFilter($options)
     {

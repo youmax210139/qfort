@@ -6,12 +6,14 @@ use App\Traits\Paginatable;
 use App\Traits\BreadScope;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
+use TCG\Voyager\Traits\Translatable;
 
 class Video extends Model
 {
     use BreadScope;
     use SortableTrait;
     use Paginatable;
+    use Translatable;
 
     protected $fillable = ['title', 'link', 'people_id'];
 
@@ -19,6 +21,8 @@ class Video extends Model
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
+
+    protected $translatable = ['title'];
 
     public function user()
     {

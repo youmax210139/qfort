@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\CalendarLinks\Link;
 use TCG\Voyager\Traits\Spatial;
+use TCG\Voyager\Traits\Translatable;
 
 class Event extends Model
 {
@@ -18,6 +19,7 @@ class Event extends Model
     use Spatial;
     use PinTop;
     use BreadScope;
+    use Translatable;
 
     protected $spatial = ['location'];
 
@@ -30,6 +32,8 @@ class Event extends Model
     ];
 
     public $additional_attributes = ['registrants'];
+
+    protected $translatable = ['title', 'abstract', 'content', 'opento'];
 
 
     public function guests()

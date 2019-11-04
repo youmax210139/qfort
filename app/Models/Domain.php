@@ -6,16 +6,20 @@ use App\Traits\Paginatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
+use TCG\Voyager\Traits\Translatable;
 
 class Domain extends Model implements Sortable
 {
     use SortableTrait;
     use Paginatable;
+    use Translatable;
 
     public $sortable = [
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
+
+    protected $translatable = ['title', 'subTitle', 'description'];
 
     public function peoples()
     {
