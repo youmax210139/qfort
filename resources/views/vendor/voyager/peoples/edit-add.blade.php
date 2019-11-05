@@ -99,6 +99,7 @@ $add = is_null($dataTypeContent->getKey());
                             @endif
                         </div>
                         @endforeach
+                        @if($edit)
                         <div class="entry-container form-group col-md-12">
                             <div class=row>
                                 <div class="col-xs-12">
@@ -138,6 +139,7 @@ $add = is_null($dataTypeContent->getKey());
                             </div>
                             @endforeach
                         </div>
+                        @endif
                     </div><!-- panel-body -->
 
                     <div class="panel-footer">

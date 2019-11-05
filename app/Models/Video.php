@@ -13,7 +13,6 @@ class Video extends Model
     use BreadScope;
     use SortableTrait;
     use Paginatable;
-    use Translatable;
 
     protected $fillable = ['title', 'link', 'people_id'];
 
@@ -21,8 +20,6 @@ class Video extends Model
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
-
-    protected $translatable = ['title'];
 
     public function user()
     {

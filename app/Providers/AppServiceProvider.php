@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Article;
+use App\Models\People;
+
 use App\Observers\ArticleObserver;
+use App\Observers\PeopleObserver;
+
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
@@ -68,6 +72,7 @@ class AppServiceProvider extends ServiceProvider
 
         # observer
         Article::observe(ArticleObserver::class);
+        People::observe(PeopleObserver::class);
 
         # collection
         Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {

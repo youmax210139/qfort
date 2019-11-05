@@ -42,7 +42,7 @@ class ArticleObserver
      */
     public function deleted(Article $article)
     {
-        //
+        $article->categories()->detach();
     }
 
     /**

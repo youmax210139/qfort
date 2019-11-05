@@ -27,6 +27,10 @@ class People extends Model
 
     protected $table = 'peoples';
 
+    protected $fillable = [
+        'user_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
