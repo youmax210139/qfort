@@ -7,6 +7,11 @@ use Auth;
 
 class PeopleObserver
 {
+
+    public function creating(People $people)
+    {
+        $people->user_id = Auth::user()->id;
+    }
     /**
      * Handle the people "created" event.
      *
@@ -15,7 +20,7 @@ class PeopleObserver
      */
     public function created(People $people)
     {
-        $people->update(['user_id'=>Auth::user()->id]);
+
     }
 
     /**

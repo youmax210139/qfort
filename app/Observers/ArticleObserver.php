@@ -3,7 +3,10 @@
 namespace App\Observers;
 
 use App\Models\Article;
+use App\Models\Subscription;
 use Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Notification;
 
 class ArticleObserver
 {
@@ -20,7 +23,17 @@ class ArticleObserver
      */
     public function created(Article $article)
     {
-
+        foreach (Subscription::all() as $s) {
+            $to = [
+                [
+                    'email' => $s->email,
+                    'name' => $s->name,
+                ],
+            ];
+            try {
+                Mail::to($to)->send(new Notification($article, $s));
+            } catch (\Exception $e) { }
+        }
     }
 
     /**
