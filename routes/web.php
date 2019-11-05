@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Web', 'as' => 'web.', 'middleware' => 'setlocale']
 
     Route::post('subscriptions', 'SubscriptionController@store')->name('subscriptions.store');
 
-    Route::post('enquiries', 'enquiryController@store')->name('enquiries.store');
+    Route::post('enquiries', 'EnquiryController@store')->name('enquiries.store');
 
     Route::get('/locales/{locale}', 'LocaleController@update')->name('locales.update');
 });
