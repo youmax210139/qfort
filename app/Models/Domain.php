@@ -33,7 +33,9 @@ class Domain extends Model implements Sortable
 
     public function getAbstractAttribute()
     {
-        return str_limit($this->description, 220, '...');
+        return str_limit(
+            $this->getTranslatedAttribute('description', app()->getLocale())
+        , 220, '...');
     }
 
     public function getLinkAttribute()

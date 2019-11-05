@@ -12,19 +12,20 @@ class NewController extends Controller
 
     public function index(Request $request)
     {
-        $articles = Article::getPinTop(Article::with('categories')->ofCategory($request->c), null);
+        $articles = Article::getPinTop(Article::with('categories')->ofCategory($request->c), null)->translate(app()->getLocale());
         $carousels = Carousel::where([
             ['type', '=', 'new'],
             ['status', '=', 'A']
-        ])->ordered()->get();
-        $categories = Category::where('type', 'new')->get();
+        ])->ordered()->get()->translate(app()->getLocale());
+        $categories = Category::where('type', 'new')->get()->translate(app()->getLocale());
         return view('web.news.index', compact('articles', 'carousels', 'categories'));
     }
 
     public function detail(Article $article)
     {
+        $article = $article->translate(app()->getLocale());
         $related_articles = Article::where('id', '!=', $article->id)
-            ->orderBy('created_at')->take(4)->get();
+            ->orderBy('created_at')->take(4)->get()->translate(app()->getLocale());;
         return view('web.news.detail', compact('article', 'related_articles'));
     }
     /**

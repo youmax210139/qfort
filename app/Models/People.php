@@ -44,12 +44,14 @@ class People extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit($this->content, 95, '...');
+        return str_limit(strip_tags(
+            $this->getTranslatedAttribute('content', app()->getLocale())
+        ), 80, '...');
     }
 
     public function getResearchAreaAttribute()
     {
-        return str_replace(',', ' & ', $this->area);
+        return str_replace(',', ' & ',  $this->getTranslatedAttribute('area', app()->getLocale()));
     }
 
     public function getResumeLinkAttribute()

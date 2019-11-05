@@ -21,20 +21,22 @@ class PeopleController extends Controller
 
     public function index(Request $request)
     {
-        $peoples = People::ofCategory($request->c)->ordered()->get();
-        $categories = Category::where('type', 'people')->get();
+        $peoples = People::ofCategory($request->c)->ordered()->get()->translate(app()->getLocale());
+        $categories = Category::where('type', 'people')->get()->translate(app()->getLocale());
         return view('web.peoples.index', compact('peoples', 'categories'));
     }
 
     public function detail(People $people)
     {
         $menus = $this->getMenu($people);
+        $people = $people->translate(app()->getLocale());
         return view('web.peoples.detail', compact('people', 'menus'));
     }
 
     public function video(People $people)
     {
         $menus = $this->getMenu($people);
+        $people = $people->translate(app()->getLocale());
         return view('web.peoples.video', compact('people', 'menus'));
     }
     /**

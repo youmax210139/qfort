@@ -29,7 +29,9 @@ class Research extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit(strip_tags($this->content), 300, '...');
+        return str_limit(strip_tags(
+            $this->getTranslatedAttribute('content', app()->getLocale())
+        ), 150, '...');
     }
 
     public function getLinkAttribute()

@@ -36,12 +36,13 @@ class Article extends Model
 
     public function getAbstractAttribute()
     {
-        return str_limit(strip_tags($this->content), 200, '...');
+        return str_limit(strip_tags(
+            $this->getTranslatedAttribute('content', app()->getLocale())
+        ), 100, '...');
     }
 
     public function getLinkAttribute()
     {
         return route('web.news.detail', $this->id);
     }
-
 }

@@ -17,7 +17,7 @@ Route::get('/abouts', function () {
     return view('web.index');
 });
 
-Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
+Route::group(['namespace' => 'Web', 'as' => 'web.', 'middleware' => 'setlocale'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
 
@@ -46,6 +46,8 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function () {
     Route::post('subscriptions', 'SubscriptionController@store')->name('subscriptions.store');
 
     Route::post('enquiries', 'enquiryController@store')->name('enquiries.store');
+
+    Route::get('/locales/{locale}', 'LocaleController@update')->name('locales.update');
 });
 
 function VoyagerPageSetting($route)

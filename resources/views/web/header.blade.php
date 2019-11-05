@@ -67,12 +67,6 @@
                 };
                 </script>
                 <div class="gcse-search"></div>
-                {{-- <form class="navbar-form text-center" role="search" action="{{ route('web.searchs.index')}}">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="search">
-                </div>
-                <button type="submit" class="btn btn-success">Submit</button>
-                </form> --}}
             </div>
         </div>
     </div>
@@ -87,9 +81,9 @@
                     <img src="{{ Voyager::image('icons/search.svg') }}" />
                 </span>
             </a>
-            <a class="text-dark px-1" href="">中文</a>
+            <a class="text-dark px-1" href="{{ route('web.locales.update','zh_TW') }}">中文</a>
             /
-            <a class="text-dark px-1" href="">EN</a>
+            <a class="text-dark px-1" href="{{ route('web.locales.update','en') }}">EN</a>
         </div>
         <div class="d-lg-none invisible">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent$"
@@ -144,9 +138,9 @@
                         <img src="{{ Voyager::image('icons/search.svg') }}" />
                     </span>
                 </a>
-                <a class="text-dark" href="">中文</a>
+                <a class="text-dark" href="{{ route('web.locales.update','zh_TW') }}">中文</a>
                 /
-                <a class="text-dark" href="">EN</a>
+                <a class="text-dark" href="{{ route('web.locales.update','en') }}">EN</a>
             </div>
         </div>
 

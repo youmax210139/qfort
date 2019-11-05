@@ -16,17 +16,18 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        $events = Event::getPinTop(Event::ofCategory($request->c), null);
-        $categories = Category::where('type', 'event')->get();
+        $events = Event::getPinTop(Event::ofCategory($request->c), null)->translate(app()->getLocale());
+        $categories = Category::where('type', 'event')->get()->translate(app()->getLocale());
         $carousel = Carousel::where([
             ['type', '=', 'event'],
             ['status', '=', 'A']
-        ])->ordered()->first();
+        ])->ordered()->first()->translate(app()->getLocale());
         return view('web.events.index', compact('events', 'categories', 'carousel'));
     }
 
     public function detail(Event $event)
     {
+        $event = $event->translate(app()->getLocale());
         return view('web.events.detail', compact('event'));
     }
 
@@ -37,6 +38,7 @@ class EventController extends Controller
      */
     public function createRegistration(Event $event)
     {
+        $event = $event->translate(app()->getLocale());
         return view('web.events.register', compact('event'));
     }
 
@@ -60,7 +62,6 @@ class EventController extends Controller
             'subscription' => 'nullable',
         ]);
 
-        $password = str_random(12);
         $guest = Guest::firstOrCreate([
             'email' => $request->email,
         ], [

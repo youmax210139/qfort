@@ -12,7 +12,7 @@ class ResearchController extends Controller
 
     public function index()
     {
-        $domains = Domain::ordered()->get();
+        $domains = Domain::ordered()->get()->translate(app()->getLocale());
         return view('web.researches.index', compact('domains'));
     }
 
@@ -21,13 +21,14 @@ class ResearchController extends Controller
         $related_researches = Research::whereHas('domains', function (Builder $query) use ($research) {
             $query->whereIn('domain_id', $research->domains->pluck('id')->toArray());
         })->where('id', '!=', $research->id)
-            ->ordered()->take(4)->get();
+            ->ordered()->take(4)->get()->translate(app()->getLocale());
+        $research = $research->translate(app()->getLocale());
         return view('web.researches.detail', compact('research', 'related_researches'));
     }
 
     public function domain(Domain $domain)
     {
-        $domains = Domain::all();
+        $domains = Domain::all()->translate(app()->getLocale());
         return view('web.researches.domain', compact('domain', 'domains'));
     }
     /**
