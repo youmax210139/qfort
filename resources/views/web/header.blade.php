@@ -1,5 +1,9 @@
 @push('css')
 <style>
+    header .nav-link{
+        white-space: nowrap !important;
+    }
+
     header .nav-link.text-dark:hover {
         background-color: #000 !important;
         color: #fff !important;
@@ -100,6 +104,9 @@
         </button>
         <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
+                @php
+                    $items = $items->translate($options->locale)
+                @endphp
                 @foreach($items as $i=> $menu_item)
                 <li
                     class="nav-item mx-lg-2 my-0 w-100 text-center {{ strpos(request()->url(), $menu_item->link())?'show':'' }}">
@@ -113,7 +120,7 @@
                         pt-lg-3 pt-0
                         {{ strpos(request()->url(), $menu_item->link())?'show':'' }}"
                         aria-labelledby="dropdown-{{$i}}">
-                        @foreach($menu_item->children as $j => $item)
+                        @foreach($menu_item->children->translate($options->locale) as $j => $item)
                         <a class="dropdown-item w-100 text-center text-lg-left
                             text-white bg-dark-silver fa-1x px-3 py-2
                             border-0 pb-0

@@ -64,7 +64,7 @@ class Menu extends Model
         if (!isset($menu)) {
             return false;
         }
-        // die($menu);
+
         event(new MenuDisplay($menu));
 
         // Convert options array into object

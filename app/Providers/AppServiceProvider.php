@@ -13,6 +13,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
+use TCG\Voyager\Facades\Voyager;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        Voyager::useModel('Menu', \App\Models\Menu::class);
+        Voyager::useModel('MenuItem', \App\Models\MenuItem::class);
     }
 
     /**
