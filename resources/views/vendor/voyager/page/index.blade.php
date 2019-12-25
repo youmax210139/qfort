@@ -246,6 +246,7 @@
 <h1 class="page-title">
     <i class="voyager-settings"></i> {{ __($title) }}
 </h1>
+@include('voyager::multilingual.language-selector')
 @stop
 
 @section('content')
@@ -280,6 +281,7 @@
 
                 <div class="panel-body no-padding-left-right">
                     <div class="col-md-10 no-padding-left-right w-100">
+                        @include('voyager::multilingual.input-hidden-setting-bread-edit-add')
                         @if ($setting->type == "text")
                         <input type="text" class="form-control" name="{{ $setting->key }}"
                             value="{{ $setting->value }}">
@@ -432,6 +434,9 @@
                 $(this).closest('form').attr('action', $(this).attr('href'));
                 $(this).closest('form').submit();
             });
+            @if ($isModelTranslatable)
+                $('.side-body').multilingual({"editing": true});
+            @endif
         });
 </script>
 <script type="text/javascript">

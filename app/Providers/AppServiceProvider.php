@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Voyager::useModel('Menu', \App\Models\Menu::class);
         Voyager::useModel('MenuItem', \App\Models\MenuItem::class);
+        Voyager::useModel('Setting', \App\Models\Setting::class);
     }
 
     /**

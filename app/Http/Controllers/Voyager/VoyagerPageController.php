@@ -43,21 +43,25 @@ class VoyagerPageController extends BaseVoyagerController
         $title = $this->get_title();
         // dd($title);
         $data = Voyager::model('Setting')->where('group', $group)->orderBy('order', 'ASC')->get();
-
+        $isModelTranslatable = is_bread_translatable(Voyager::model('Setting'));
         $settings = [];
         $settings[__('voyager::settings.group_general')] = [];
         foreach ($data as $d) {
             if ($d->group == '' || $d->group == __('voyager::settings.group_general')) {
                 $settings[__('voyager::settings.group_general')][] = $d;
             } else {
-                $settings[$d->group][] = $d;
+                if ($isModelTranslatable) {
+                    $settings[$d->group][] = $d->load('translations');
+                } else {
+                    $settings[$d->group][] = $d;
+                }
             }
         }
         if (count($settings[__('voyager::settings.group_general')]) == 0) {
             unset($settings[__('voyager::settings.group_general')]);
         }
 
-        return view('vendor.voyager.page.index', compact('settings', 'group', 'title', 'route'));
+        return view('vendor.voyager.page.index', compact('settings', 'group', 'title', 'route', 'isModelTranslatable'));
     }
 
     public function update(Request $request)
