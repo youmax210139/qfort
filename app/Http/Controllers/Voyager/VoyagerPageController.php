@@ -71,6 +71,7 @@ class VoyagerPageController extends BaseVoyagerController
         $this->authorize('edit_'.$group);
 
         $settings = Voyager::model('Setting')->where('group', $group)->get();
+        $isModelTranslatable = is_bread_translatable(Voyager::model('Setting'));
         foreach ($settings as $setting) {
             $content = $this->getContentBasedOnType($request, 'settings', (object) [
                 'type'    => $setting->type,
@@ -86,11 +87,21 @@ class VoyagerPageController extends BaseVoyagerController
                 continue;
             }
 
-            // $key = preg_replace('/^'.Str::slug($setting->group).'./i', '', $setting->key);
+            if (in_array($setting->type,['text','text_area','rich_text_box'])){
+                if($isModelTranslatable){
+                    $translations = $setting->prepareTranslations($request);
+                    $setting->value = $request->{$setting->inputKey};
+                    $setting->save();
+                    $setting->saveTranslations($translations);
+                    continue;
+                }
+            }
 
+            // $key = preg_replace('/^'.Str::slug($setting->group).'./i', '', $setting->key);
             // $setting->key = implode('.', [Str::slug($setting->group), $key]);
             $setting->value = $content;
             $setting->save();
+
         }
 
         return back()->with([

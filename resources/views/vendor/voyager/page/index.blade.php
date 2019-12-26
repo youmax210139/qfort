@@ -261,7 +261,7 @@
 </div>
 
 <div class="page-content settings container-fluid">
-    <form action="{{ route($route) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route($route) }}" method="POST" enctype="multipart/form-data" class="form-edit-add">
         {{ method_field("PUT") }}
         {{ csrf_field() }}
         <input type="hidden" class="form-control" name="group" value="{{ $group }}">
@@ -281,13 +281,15 @@
 
                 <div class="panel-body no-padding-left-right">
                     <div class="col-md-10 no-padding-left-right w-100">
-                        @include('voyager::multilingual.input-hidden-setting-bread-edit-add')
                         @if ($setting->type == "text")
+                        @include('voyager::multilingual.input-hidden-setting-bread-edit-add')
                         <input type="text" class="form-control" name="{{ $setting->key }}"
                             value="{{ $setting->value }}">
                         @elseif($setting->type == "text_area")
+                        @include('voyager::multilingual.input-hidden-setting-bread-edit-add')
                         <textarea class="form-control" name="{{ $setting->key }}">{{ $setting->value ?? '' }}</textarea>
                         @elseif($setting->type == "rich_text_box")
+                        @include('voyager::multilingual.input-hidden-setting-bread-edit-add')
                         <textarea class="form-control richTextBox"
                             name="{{ $setting->key }}">{{ $setting->value ?? '' }}</textarea>
                         @elseif($setting->type == "code_editor")
