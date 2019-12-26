@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Models\People;
+use App\Models\Setting;
 
 use App\Observers\ArticleObserver;
 use App\Observers\PeopleObserver;
+use App\Observers\LocaleObserver;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -78,7 +80,7 @@ class AppServiceProvider extends ServiceProvider
         # observer
         Article::observe(ArticleObserver::class);
         People::observe(PeopleObserver::class);
-
+        Setting::observe(LocaleObserver::class);
         # collection
         Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
